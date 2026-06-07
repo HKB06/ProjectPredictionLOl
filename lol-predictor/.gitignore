@@ -1,0 +1,21 @@
+# Environnements
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Données brutes volumineuses (ne pas versionner les gros CSV)
+data/raw/*.csv
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+
+# Modèles entraînés
+models/*.txt
+models/*.pkl
+!models/.gitkeep
+
+# Rapports générés
+reports/*.png
+reports/*.csv
+!reports/.gitkeep

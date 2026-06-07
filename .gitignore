@@ -1,0 +1,41 @@
+# ====== Python ======
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ====== Node / Next.js ======
+node_modules/
+.next/
+.turbo/
+out/
+dist/
+build/
+*.log
+
+# ====== Streamlit ======
+.streamlit/secrets.toml
+
+# ====== Depot amont (front du "chinois") : NON pousse, a re-cloner separement ======
+/LOL-DeepWinPredictor/
+
+# ====== Secrets (ne JAMAIS committer) ======
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+secrets.toml
+*token*.txt
+
+# ====== OS / editeurs ======
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~

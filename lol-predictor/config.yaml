@@ -1,0 +1,38 @@
+# Configuration du projet LoL Predictor (perso / paris)
+project: lol-predictor
+
+data:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  # Fichier attendu (à télécharger depuis oracleselixir.com -> Tools -> Downloads)
+  oracle_csv: data/raw/2026_LoL_esports_match_data_from_OraclesElixir.csv
+
+scope:
+  leagues: [LCK]        # Palier 1 : LCK seulement. Ajouter ["LCK","LEC","LPL"] plus tard.
+  year: 2026
+  date_min: "2026-01-01"
+
+features:
+  recent_form_windows: [10]   # Forme récente : 10 derniers (last 5 trop bruité)
+  shrinkage: true             # Lissage des taux vers la moyenne de ligue (anti-variance)
+  use_side: true              # Le side (bleu/rouge) est une feature forte (baseline 56.8%)
+  # Source des priors winrate champion (draft). null = toutes ligues du CSV.
+  # Testé (exp_champ_leagues) : "toutes ligues" bat "majeures" et "LCK seule" sur du
+  # LCK held-out -> le volume réduit la variance plus que les ligues mineures ne biaisent.
+  champ_prior_leagues: null
+
+# Marchés à prédire (1 modèle par marché)
+markets:
+  - winner          # vainqueur (classif) -- baseline à battre : ~56.8% (toujours bleu)
+  - total_kills     # total kills (régression -> over/under)
+  - first_blood     # quasi aléatoire, gardé pour la valeur sur cote
+  - first_tower
+  - first_dragon
+  - game_time       # durée (régression -> over/under ~32 min)
+
+split:
+  method: temporal   # split chronologique strict (anti-fuite)
+  test_fraction: 0.2 # ~20% des matchs les plus récents en test
+
+seed: 42

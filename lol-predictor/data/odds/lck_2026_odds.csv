@@ -1,0 +1,132 @@
+date,team1,team2,score1,score2,odd1,odd2,phase
+2026-01-14,Dplus Kia,OKSavingsBank Brion,2,0,1.12,7.50,Preliminary
+2026-01-14,KT Rolster,DN SOOPers,2,1,1.22,5.00,Preliminary
+2026-01-15,FearX,Nongshim RedForce,2,0,1.66,2.38,Preliminary
+2026-01-15,Gen.G,KRX,2,0,1.04,12.00,Preliminary
+2026-01-16,Hanwha Life,T1,1,2,2.19,1.78,Preliminary
+2026-01-16,DN SOOPers,Dplus Kia,0,2,5.00,1.22,Preliminary
+2026-01-17,Gen.G,KT Rolster,2,0,1.17,5.60,Preliminary
+2026-01-17,OKSavingsBank Brion,FearX,1,2,5.60,1.16,Preliminary
+2026-01-18,KRX,T1,1,2,10.00,1.05,Preliminary
+2026-01-18,Nongshim RedForce,Hanwha Life,2,0,6.30,1.14,Preliminary
+2026-01-21,KRX,DN SOOPers,1,2,1.96,1.90,Preliminary
+2026-01-21,Dplus Kia,Nongshim RedForce,2,1,1.37,3.34,Preliminary
+2026-01-22,FearX,Gen.G,0,2,8.00,1.11,Preliminary
+2026-01-22,OKSavingsBank Brion,Hanwha Life,1,2,9.00,1.09,Preliminary
+2026-01-23,Nongshim RedForce,KRX,1,2,1.42,3.00,Preliminary
+2026-01-23,KT Rolster,T1,0,2,4.28,1.28,Preliminary
+2026-01-24,Dplus Kia,Gen.G,0,2,4.80,1.22,Preliminary
+2026-01-24,Hanwha Life,DN SOOPers,2,1,1.17,6.20,Preliminary
+2026-01-25,KT Rolster,OKSavingsBank Brion,2,1,1.25,4.60,Preliminary
+2026-01-25,T1,FearX,2,1,1.25,4.30,Preliminary
+2026-01-28,OKSavingsBank Brion,KRX,2,3,2.30,1.74,Preliminary
+2026-01-29,DN SOOPers,FearX,1,3,4.10,1.25,Preliminary
+2026-01-30,Nongshim RedForce,KT Rolster,3,2,2.79,1.51,Preliminary
+2026-01-31,T1,Dplus Kia,3,0,1.28,4.20,Preliminary
+2026-02-01,Hanwha Life,Gen.G,0,3,5.50,1.18,Preliminary
+2026-02-06,KT Rolster,DN SOOPers,0,2,1.34,3.50,Play-in
+2026-02-06,KRX,OKSavingsBank Brion,2,1,1.69,2.25,Play-in
+2026-02-07,DN SOOPers,Nongshim RedForce,2,1,2.70,1.64,Play-in
+2026-02-07,KRX,Dplus Kia,0,2,5.50,1.19,Play-in
+2026-02-08,Nongshim RedForce,KRX,0,3,1.46,3.00,Play-in
+2026-02-12,FearX,DN SOOPers,3,2,1.30,3.95,Playoffs
+2026-02-13,Dplus Kia,KRX,3,2,1.16,5.62,Playoffs
+2026-02-14,Gen.G,Dplus Kia,3,1,1.09,10.00,Playoffs
+2026-02-15,T1,FearX,1,3,1.13,6.30,Playoffs
+2026-02-19,DN SOOPers,KRX,3,1,1.85,2.01,Playoffs
+2026-02-20,Dplus Kia,DN SOOPers,3,1,1.34,3.96,Playoffs
+2026-02-21,Gen.G,FearX,3,1,1.12,7.20,Playoffs
+2026-02-22,T1,Dplus Kia,2,3,1.28,3.88,Playoffs
+2026-02-28,Dplus Kia,FearX,0,3,1.85,2.14,Playoffs
+2026-03-01,FearX,Gen.G,0,3,7.00,1.14,Playoffs
+2026-04-01,T1,KT Rolster,0,2,1.20,5.97,First stage
+2026-04-01,Hanwha Life,OKSavingsBank Brion,2,0,1.13,8.40,First stage
+2026-04-02,KRX,DN SOOPers,0,2,2.45,1.61,First stage
+2026-04-02,Dplus Kia,Nongshim RedForce,0,2,1.32,3.88,First stage
+2026-04-03,FearX,OKSavingsBank Brion,0,2,1.17,6.43,First stage
+2026-04-03,Gen.G,KT Rolster,1,2,1.20,6.71,First stage
+2026-04-04,KRX,Dplus Kia,0,2,3.95,1.28,First stage
+2026-04-04,T1,Hanwha Life,2,0,2.00,2.05,First stage
+2026-04-05,Gen.G,FearX,2,0,1.13,6.30,First stage
+2026-04-05,Nongshim RedForce,DN SOOPers,2,0,1.70,2.22,First stage
+2026-04-08,T1,Gen.G,0,2,2.88,1.55,First stage
+2026-04-08,Dplus Kia,Hanwha Life,0,2,2.67,1.55,First stage
+2026-04-09,KT Rolster,Nongshim RedForce,2,0,1.43,3.47,First stage
+2026-04-09,OKSavingsBank Brion,KRX,1,2,1.78,2.10,First stage
+2026-04-10,Hanwha Life,FearX,2,1,1.42,3.15,First stage
+2026-04-10,DN SOOPers,T1,0,2,5.56,1.17,First stage
+2026-04-11,Dplus Kia,Gen.G,2,0,8.35,1.11,First stage
+2026-04-11,Nongshim RedForce,KRX,0,2,1.38,3.44,First stage
+2026-04-12,OKSavingsBank Brion,KT Rolster,0,2,5.56,1.16,First stage
+2026-04-12,FearX,DN SOOPers,2,0,1.55,2.68,First stage
+2026-04-15,KT Rolster,Dplus Kia,2,1,1.58,2.55,First stage
+2026-04-15,Nongshim RedForce,FearX,2,0,2.14,1.78,First stage
+2026-04-16,DN SOOPers,Hanwha Life,0,2,5.60,1.16,First stage
+2026-04-16,OKSavingsBank Brion,Gen.G,0,2,11.00,1.07,First stage
+2026-04-17,Dplus Kia,T1,2,1,2.42,1.60,First stage
+2026-04-17,KRX,FearX,0,2,2.51,1.58,First stage
+2026-04-18,DN SOOPers,KT Rolster,0,2,7.50,1.17,First stage
+2026-04-18,Hanwha Life,Gen.G,2,0,3.05,1.42,First stage
+2026-04-19,KRX,T1,0,2,5.62,1.16,First stage
+2026-04-19,OKSavingsBank Brion,Nongshim RedForce,1,2,3.60,1.35,First stage
+2026-04-22,Hanwha Life,Nongshim RedForce,2,1,1.21,4.60,First stage
+2026-04-22,KT Rolster,KRX,2,0,1.12,8.45,First stage
+2026-04-23,Gen.G,DN SOOPers,2,0,1.09,10.80,First stage
+2026-04-23,OKSavingsBank Brion,Dplus Kia,0,2,5.43,1.17,First stage
+2026-04-24,Hanwha Life,KRX,2,0,1.10,8.35,First stage
+2026-04-24,FearX,KT Rolster,0,2,4.03,1.34,First stage
+2026-04-25,Dplus Kia,DN SOOPers,2,0,1.17,5.46,First stage
+2026-04-25,T1,OKSavingsBank Brion,2,0,1.11,7.30,First stage
+2026-04-26,Nongshim RedForce,Gen.G,0,2,5.98,1.17,First stage
+2026-04-26,T1,FearX,2,0,1.35,3.80,First stage
+2026-04-29,KT Rolster,Hanwha Life,0,2,2.25,1.68,First stage
+2026-04-29,Nongshim RedForce,T1,0,2,4.18,1.29,First stage
+2026-04-30,FearX,Dplus Kia,0,2,6.78,1.16,First stage
+2026-04-30,Gen.G,KRX,2,1,1.04,14.00,First stage
+2026-05-01,Hanwha Life,T1,2,1,1.64,2.45,First stage
+2026-05-01,DN SOOPers,OKSavingsBank Brion,0,2,2.01,1.88,First stage
+2026-05-02,KRX,Nongshim RedForce,2,0,3.34,1.38,First stage
+2026-05-02,Gen.G,Dplus Kia,2,1,1.36,3.63,First stage
+2026-05-03,DN SOOPers,FearX,0,2,2.60,1.55,First stage
+2026-05-03,KT Rolster,OKSavingsBank Brion,0,2,1.14,6.80,First stage
+2026-05-06,Hanwha Life,DN SOOPers,2,0,1.05,11.00,First stage
+2026-05-06,Gen.G,Nongshim RedForce,2,0,1.08,9.00,First stage
+2026-05-07,OKSavingsBank Brion,FearX,2,0,2.82,1.53,First stage
+2026-05-07,Dplus Kia,KT Rolster,0,2,1.82,2.05,First stage
+2026-05-08,KRX,Gen.G,0,2,10.80,1.05,First stage
+2026-05-08,T1,DN SOOPers,2,0,1.11,7.80,First stage
+2026-05-09,Nongshim RedForce,OKSavingsBank Brion,0,2,1.75,2.36,First stage
+2026-05-09,KT Rolster,FearX,0,2,1.37,3.52,First stage
+2026-05-10,KRX,Hanwha Life,1,2,12.10,1.04,First stage
+2026-05-10,T1,Dplus Kia,2,0,1.48,2.73,First stage
+2026-05-13,DN SOOPers,Dplus Kia,0,2,6.50,1.12,First stage
+2026-05-13,T1,Nongshim RedForce,2,0,1.09,8.00,First stage
+2026-05-14,KRX,KT Rolster,1,2,4.10,1.26,First stage
+2026-05-14,FearX,Gen.G,0,2,9.00,1.06,First stage
+2026-05-15,OKSavingsBank Brion,DN SOOPers,2,0,1.30,4.00,First stage
+2026-05-15,Hanwha Life,Dplus Kia,2,0,1.45,3.13,First stage
+2026-05-16,FearX,Nongshim RedForce,2,0,1.50,2.70,First stage
+2026-05-16,Gen.G,T1,1,2,1.54,2.60,First stage
+2026-05-17,KRX,OKSavingsBank Brion,2,1,3.10,1.42,First stage
+2026-05-17,Hanwha Life,KT Rolster,1,2,1.31,4.10,First stage
+2026-05-20,Nongshim RedForce,KT Rolster,1,2,3.38,1.48,First stage
+2026-05-20,T1,KRX,2,1,1.06,9.00,First stage
+2026-05-21,Dplus Kia,OKSavingsBank Brion,2,1,1.41,3.10,First stage
+2026-05-21,FearX,Hanwha Life,0,2,5.86,1.16,First stage
+2026-05-22,KT Rolster,Gen.G,0,2,5.20,1.21,First stage
+2026-05-22,DN SOOPers,KRX,0,2,3.25,1.42,First stage
+2026-05-23,Nongshim RedForce,Hanwha Life,1,2,7.20,1.09,First stage
+2026-05-23,Dplus Kia,FearX,2,1,1.33,3.50,First stage
+2026-05-24,OKSavingsBank Brion,T1,0,2,5.60,1.17,First stage
+2026-05-24,DN SOOPers,Gen.G,0,2,16.00,1.02,First stage
+2026-05-27,FearX,KRX,2,1,1.55,2.50,First stage
+2026-05-27,Gen.G,Hanwha Life,2,1,1.62,2.44,First stage
+2026-05-28,KT Rolster,T1,0,2,3.80,1.31,First stage
+2026-05-28,DN SOOPers,Nongshim RedForce,1,2,4.00,1.28,First stage
+2026-05-29,Gen.G,OKSavingsBank Brion,2,0,1.07,9.41,First stage
+2026-05-29,Dplus Kia,KRX,2,1,1.28,4.28,First stage
+2026-05-30,FearX,T1,0,2,6.50,1.14,First stage
+2026-05-30,KT Rolster,DN SOOPers,2,0,1.09,8.40,First stage
+2026-05-31,Nongshim RedForce,Dplus Kia,0,2,2.75,1.62,First stage
+2026-05-31,OKSavingsBank Brion,Hanwha Life,0,2,9.00,1.09,First stage
+2026-06-06,Dplus Kia,OKSavingsBank Brion,3,0,1.23,4.40,Playoffs
