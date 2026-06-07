@@ -26,6 +26,23 @@ python -m venv venv
 .\venv\Scripts\python.exe -m src.models.value_backtest    # backtest valeur vs cotes
 ```
 
+## Reprendre une session avec l'assistant (IA)
+L'assistant **ne garde PAS la mémoire** entre deux sessions (rien n'est automatique). Pour qu'il
+retrouve tout le contexte demain sur le portable :
+1. Ouvre le dossier `ProjectPredictionLOl` dans Cursor.
+2. Demande-lui de lire d'abord ces deux fichiers (ils contiennent TOUT l'historique) :
+   - `POINT_ETAPE.md` (journal scientifique : hypothèses testées + résultats)
+   - `cursor_projet_de_master_big_data_ia.md` (export complet de notre conversation)
+   Exemple de message : *« Lis POINT_ETAPE.md et cursor_projet_de_master_big_data_ia.md, puis fais-moi
+   un point sur où on en est avant de continuer. »*
+
+## Sauvegarder à la fin d'une session
+```powershell
+git add -A
+git commit -m "décris ce que tu as fait"
+git push
+```
+
 ## Notes
 - **Données incluses** : `lol-predictor/data/raw/2026_LoL_esports_match_data_from_OraclesElixir.csv` (~42 Mo).
   Mise à jour : https://oracleselixir.com/tools/downloads
