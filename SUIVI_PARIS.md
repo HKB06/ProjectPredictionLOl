@@ -24,15 +24,16 @@ Proba book dé-viggée = (1/cote) normalisée sur les deux camps. Ex : 1.47 / 2.
 
 | Métrique | Valeur |
 |---|---|
-| Games loggées (avec résultat) | 3 |
-| Calls draft-only corrects (vainqueur map) | **2 / 3** *(G3 = coin-flip raté)* |
-| Value bets (edge > 3 %) | 1 |
-| P/L value bets | **+1.45 u** |
-| ROI value | +145 % *(1 pari — non significatif)* |
+| Games loggées (avec résultat) | 5 |
+| Calls draft-only corrects (vainqueur map) | **4 / 5** *(seul raté = KC/G2 G3, coin-flip)* |
+| **Value bets « draft vs favori surcoté »** | **2 / 2 ✅** *(KC @2.45 · VKS @2.7)* |
+| P/L value bets | **+1.45 u réel** · +1.7 u VKS *would-be (marché fermé)* |
+| ROI value | très +, mais **n=2 → non significatif** |
 | (info) règle « favori draft » si suivie | −0.35 u → la **value** fait mieux |
 
-> Rappel honnête : il faut **20-30 games minimum** pour que ces chiffres veuillent dire
-> quelque chose. 2/2 = encore du bruit.
+> Rappel honnête : il faut **20-30 games minimum** pour conclure. 2/2 = prometteur mais **encore du bruit**.
+> **Friction n°1 à résoudre** : le book **ferme le moneyline à la fin de la draft** → l'edge draft n'est captable
+> qu'en **live early-game**, pas en pré-game (cf. map 3 LOS/VKS).
 
 ---
 
@@ -80,8 +81,85 @@ Proba book dé-viggée = (1/cote) normalisée sur les deux camps. Ex : 1.47 / 2.
 
 ---
 
+## Forward test Elo-only (ligues mineures, pré-game sans draft) — `src/models/quick_edge.py`
+
+### 2026-06-08 — EWC OQ South America — Leviatán vs paiN Gaming — ✅ terminé — **paiN 2-0**
+- **Signal** : Elo toutes ligues (pas de draft), pré-game.
+- **Modèle** : Leviatán 1388 ≈ paiN 1404 → **~50/50** (coin-flip).
+- **Cote book** : Leviatán 5.2 / paiN 1.12 → dé-viggé Leviatán 17.7 % / paiN **82.3 %**.
+- **"Edge" affiché** : Leviatán **+30 %** → ⚠️ **signalé comme FAUX edge** (Elo aveugle sur l'OQ Sud-Am :
+  les 2 équipes ~1400, book à 1.12 = sharp). **Décision : NE PAS parier.**
+- **Résultat** : **paiN écrase 2-0** (kills **23-4** puis **14-2**).
+- **Verdict** : ✅ **skip correct** — fader paiN aurait **perdu**. *Marché soft ≠ exploitable quand NOTRE modèle est aveugle.*
+
+### 2026-06-08 — EMEA Masters Spring Play-In — Verdant vs GOAL — 🔴 live (map 1)
+- **Modèle** : Verdant 1658 / GOAL 1571 → **Verdant 62.4 %**. Book : Verdant 1.16 / GOAL 4.3 → Verdant 78.8 %.
+- **"Edge" affiché** : GOAL **+16 %** → ⚠️ **artefact favori-longshot**. **Décision : NE PAS parier** (fader un favori à 1.16).
+- **Live** : Verdant mène **29-17** (kills, map 1) → le favori confirme. *(Plus de marché dispo de toute façon.)*
+- **Verdict (provisoire)** : artefact correctement ignoré.
+
+### 2026-06-08 — EMEA Masters Spring Play-In — E Wie Einfach vs NightBirds — ⏳ résultat ?
+- **Le seul vrai value lean** : **NightBirds @ 2.35** (Elo **1684** > E Wie Einfach **1563** ; modèle NightBirds
+  **66.8 %** vs book dé-viggé 39.3 % → +27 pts, sur cotes **équilibrées** = signal crédible, pas un artefact).
+- **Statut** : à confirmer — *dis-moi le résultat pour le logger.*
+
+### 2026-06-08 — CBLOL — Los Grandes (LOS) vs Vivo Keyd Stars (VKS) — Game 2 — ⛔ PASS (pas de value)
+- **Stats écran** : LOS clairement > VKS (WR 55.8 % vs 43.5 %, forme L10 7/10 vs 2/10, **H2H 71.4 %** LOS).
+- **Modèle Elo** : LOS 1577 / VKS 1442 → **LOS 68.5 %** / VKS 31.5 %.
+- **Cote book** : LOS 1.42 / VKS 2.6 → dé-viggé LOS 64.7 % / VKS 35.3 % (**vig 8.9 %**).
+- **Test EV (vs cote brute, pas dé-viggée !)** :
+  - LOS @1.42 → il faut **70.4 %** (1/1.42), modèle 68.5 % → **EV ≈ −2.7 %** ❌
+  - VKS @2.6 → il faut 38.5 %, modèle 31.5 % → **EV ≈ −18 %** ❌
+- **Verdict** : **les 2 côtés sont −EV** : LOS est la meilleure équipe mais le book le price déjà ; le petit
+  « lean » (+3.9 pts vs juste) **ne couvre pas la vig (~4.4 %/côté)**. → **PASS.**
+- ⚠️ **Sides inconnus** = facteur décisif (splits énormes : LOS red **40 %**, VKS red **20 %**). Si LOS est rouge,
+  le lean s'évapore. On ne parie pas à l'aveugle sur le side.
+- **Combos** (LOS & +26.5 kills @2.2 ; VKS & durée >30min @3.1) : **non** (kills = bruit prouvé + parlay surjuté).
+
+### 2026-06-08 — EWC OQ SA — LOS vs VKS — Map 2 (VKS mène 1-0, a stomp la map 1 **17-8**)
+- **Sides map 2** : VKS 🔵 bleu / LOS 🔴 rouge.
+- **Draft VKS (bleu)** : Viktor, Sion, Wukong, Lulu, Sivir
+- **Draft LOS (rouge)** : Ryze, Pantheon, Gnar, Rakan, Vayne
+- **Modèle draft-only** : LOS **73.8 %** (rouge) / VKS 26.2 % → la draft penche **nettement LOS** (Elo aussi : 68.5 %).
+- **MAIS signaux forward** ⚠️ : LOS vient de se faire **stomp 8-17** (map 1) + LOS sur son **pire side (red 40 %)**,
+  VKS sur son bon side (blue 61.5 %). Les deux signaux *situationnels* penchent **VKS**.
+- **Lecture** : draft/Elo (rétrospectifs) disent LOS rebondit ; stomp+side (forward) disent VKS continue. Vraie proba
+  prob. proche du **coin-flip (~50-55 % LOS)**, donc book LOS 64.7 % (@1.42) **trop haut** → **VKS @2.6 = value possible**
+  *(si la cote tient toujours)*. Confiance **faible** (qualif SA chaotique).
+- **RÉSULTAT map 2** : ✅ **LOS gagne 22-12** (et sur son côté **rouge** !) → série **1-1**.
+- **Verdict honnête** : ✅ le **draft-only (LOS 74 %) avait raison** ; ❌ mon **overlay « value VKS » (stomp+side) aurait PERDU**.
+  → Leçon : ici la **qualité d'équipe/draft a battu le « fade momentum/side »**. LOS a gagné sur son « mauvais » side
+  (red) → confirme qu'il est *réellement* meilleur ; le **40 % red de VKS/LOS était du small-sample/bruit**, à ne pas surpondérer.
+
+### 2026-06-08 — EWC OQ SA — LOS vs VKS — **Map 3 (money map, série 1-1)**
+- **Sides** : VKS 🔵 bleu / LOS 🔴 rouge (inchangés).
+- **Cote book map 3** : LOS **1.40** / VKS **2.7** → dé-viggé LOS **65.9 %** / VKS 34.1 % (vig 8.5 %).
+- **Nos signaux** : Elo LOS 68.5 % ; draft map 2 penchait LOS 74 % (draft map 3 pas encore reçue) ; LOS a gagné la map 2
+  **sur red** = il est réellement meilleur. **Mais** série 1-1 + qualif chaotique = grosse variance sur 1 map.
+- **Test EV (cote brute)** :
+  - LOS @1.40 → faut **71.4 %**, on a ~68.5 % (Elo) → **≈ −4 % EV** ❌ (favori court, pas de value)
+  - VKS @2.7 → faut 37 %, point-estim ~31.5 % → −EV *sur le papier*, MAIS sur une **décisive chaotique** la vraie
+    proba outsider est souvent > modèle → **petit VKS @2.7 = pari variance défendable**, pas plus.
+- **Draft map 3** — VKS 🔵 : Jarvan IV, Ashe, Leona, Aurora, Senna · LOS 🔴 : Mel, Nocturne, Pyke, Jayce, Galio
+- **Draft-only** : **VKS 64.2 %** (bleu) / LOS 35.8 % → la draft a **BASCULÉ sur VKS** (vs LOS 74 % en map 2 !).
+- **Edge** : book VKS 34.1 % vs draft **64.2 %** → **+30 pts sur VKS** ⭐⭐ (pattern value = draft vs favori surcoté, cf. KC/G2 G3).
+- ⭐ **CALL : VALUE BET VKS @2.7** (faut 37 %, draft dit 64 %). Conflit assumé : Elo/force penche LOS, mais la **draft de
+  CETTE map** penche VKS (et map 2 = la draft avait raison). Mise **modérée** (draft-only faible + qualif chaotique).
+- **RÉSULTAT** : 🏆 **VKS gagne la belle → série 1-2 VKS.** Le **draft-only (VKS 64.2 %) avait RAISON** (le book à 34.1 % se trompait).
+- **Verdict** : ⭐ **call value VKS @2.7 = ✅** (would-be **+1.7 u**). → **2/2** sur le pattern « draft contredit le favori surcoté » (KC/G2 G3 + ici).
+- 🔑 **FRICTION MAJEURE découverte (Hugo)** : le book a **fermé le marché DÈS la fin de la draft** → impossible de poser le pari
+  une fois la draft connue. Notre edge (la draft) n'existe **qu'après** la draft, mais c'est **pile** là que le moneyline pré-game
+  **disparaît**. Le book traite la draft comme de l'info et se protège. → l'exploit réaliste = **live early-game** (draft connue +
+  marché live encore ouvert), **pas** le pré-game. *(Même leçon que « Aucun marché disponible » plus tôt.)*
+
+---
+
 ## Patterns / leçons (à enrichir)
-- *(en construction — on remplit au fil des games)*
+- 🔑 **CE QU'ON TIENT (2026-06-08, n=2 mais net)** : quand le **draft-only contredit franchement le favori du book**
+  (écart > ~15-20 pts) sur une **ligue soft/mineure**, **fader le favori = value** → **2/2** (KC @2.45 +1.45u · VKS @2.7 +1.7u).
+  L'edge = **la draft**, lue AVANT que le book ne l'ait intégrée. ⚠️ **Le hic découvert sur LOS/VKS** : le book **ferme le
+  marché à la fin de la draft** → fenêtre pré-game minuscule ; **capture réaliste = live early-game** (draft connue + marché
+  live encore ouvert). C'est LA prochaine brique à construire (outil live draft + état @ premières minutes).
 - Hypothèse à valider : le draft-only est plus utile en **LEC** (AUC ~0.65) qu'en **LCK** (~0.55).
 - Angle à surveiller : **biais de récence** du book/public (sur-coter l'équipe qui vient de gagner la game précédente).
 - **Game 3 KC/G2 = cas d'école (✅ confirmé)** : book G2 62.5 % mais draft-only **~50/50 (léger KC)** → tout l'écart
@@ -93,3 +171,10 @@ Proba book dé-viggée = (1/cote) normalisée sur les deux camps. Ex : 1.47 / 2.
 - **Idée (game 3) à creuser** : combiner **draft + état @10/15 (gold/kills/xp)** pour une « win prob » par étapes.
   ⚠️ ultra-précis mais **pas pariable en live** (retail) ; en revanche le **scaling de la compo** (early vs late,
   ex. Viktor/Aurora) est une feature **pré-game** exploitable → on construit les deux (recherche + pré-game).
+- **Règle ferme (validée 2026-06-08, paiN 2-0)** : un gros « edge » Elo **contre un favori court (cote < ~1.2)**
+  sur une **ligue chaotique** (OQ, qualifs) = **erreur modèle, PAS value**. Le book est sharp sur les favoris courts.
+  → On ne fade un favori **QUE** sur **cotes équilibrées + désaccord de vainqueur** (cf. NightBirds 1.52/2.35),
+  **jamais** sur un 1.03 / 1.12 / 1.16.
+- **Friction réelle (retail)** : sur ces petits events, les marchés sont **souvent fermés / absents**
+  (« Aucun marché disponible ») ou se ferment vite → même un vrai edge peut être **impariable**. À intégrer
+  dans le réalisme du projet (la prévisibilité ne sert que s'il existe un **marché ouvert + liquide**).

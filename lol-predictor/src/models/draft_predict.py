@@ -16,10 +16,10 @@ from sklearn.linear_model import LogisticRegression
 from src.ingest.load_oracle import ROOT, load_config
 
 # --- matchup à prédire --- (A = côté BLEU)
-A_NAME = "G2"
-B_NAME = "KC"
-TEAM_A = ["K'Sante", "Nocturne", "Aurora", "Xayah", "Neeko"]         # G2 bleu (5)
-TEAM_B = ["Zaahen", "Vi", "Viktor", "Zeri", "Rakan"]                  # KC rouge (Canna -> Zaahen top)
+A_NAME = "VKS"
+B_NAME = "LOS"
+TEAM_A = ["Jarvan IV", "Ashe", "Leona", "Aurora", "Senna"]           # VKS bleu (5)
+TEAM_B = ["Mel", "Nocturne", "Pyke", "Jayce", "Galio"]              # LOS rouge (5)
 
 
 def main() -> None:
