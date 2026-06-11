@@ -1,0 +1,6 @@
+[browser]
+gatherUsageStats = false
+
+[server]
+# Pas d'invite e-mail au 1er lancement ; le navigateur est ouvert par le .bat / au run.
+headless = false

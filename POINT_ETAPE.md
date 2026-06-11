@@ -419,6 +419,29 @@ killdiff ~0 voire négatif une fois gold/xp connus.
 ### Live : ÉCARTÉ (insight user) — book suspend le marché à chaque action + retard stream
 => live "réagir à l'événement" non exploitable en retail (réservé syndicats à flux officiel).
 
+## 2026-06-12 — UPGRADE MODÈLE (mesuré, pas deviné) + page Bilan Streamlit
+Banc d'essai walk-forward `src/models/eval_models.py` (5734 games, burn-in ≥5 g/équipe ;
+métriques accuracy / Brier / log-loss / ECE ; global + par ligue). Comparatif de 12 variantes.
+**RETENU : Elo K32 + marge de victoire (MOV via écart de kills, multiplicateur log1p).**
+- Accuracy saison : 64.0 % (K24 baseline) → **65.0 %** ; récent 45 j : 64.1 % → **65.7 %**.
+- Brier 0.2226 → 0.2191 · log-loss 0.636 → 0.628 · ECE 0.044 → 0.026 (tout s'améliore).
+- Forme/momentum (winrate L10) : ~0 sur l'accuracy → **écartée**. Side bleu : +0.7 pt mais
+  **inutilisable pré-game** (sides inconnus avant la draft) ; gardé comme borne haute info.
+**Calibration PAR LIGUE (la vraie trouvaille)** : la prévisibilité varie énormément.
+- Fiables (acc ≥ 0.62) : LJL/LAS/TCL/HLL ~0.71-0.73, AL/PRM/EWC ~0.67, LEC 0.66, LCK 0.64, LFL 0.64.
+- **CHAOTIQUES** : EM 0.56, LCS 0.57, CD 0.57, LPL/CBLOL 0.58.
+- En **EM** le modèle est **sur-confiant** : un « 60-80 % » brut ne gagne que ~49-59 % (écart +15 pts).
+  En **LCK/LEC** c'est l'inverse (sous-confiant). → `compute_elo` apprend `reliability[ligue]`
+  (accuracy hist.) + `shrink[ligue]` (aplatit la proba vers 50 % là où on se trompe).
+- **Flag ⭐ bridé** : étoile seulement si proba ≥62 % **ET** data ≥15 g **ET** ligue fiable.
+  L'EM ne reçoit plus d'étoile (validé en live : Misa 71 % EM → 🌪️, a perdu 0-2 vs UCAM le 11).
+Page Streamlit **Bilan** (`pages/2_Bilan_predictions.py`) : prévisions vs résultats en walk-forward
+(bons/faux par jour & par ligue, table de calibration, détail filtrable « erreurs seulement »).
+**Signal exploitable repéré** : les « risers » que l'Elo capte en retard (UCAM, KCB, Ruddy)
+battent les favoris en EM → angle = parier SUR eux en outsider avant que book/Elo rattrapent.
+**Limites** : MOV aide globalement mais en EM les stomps sont du bruit (stomp puis défaite) ;
+cold-start non seedé (pas de data 2025) ; pools isolés (Elo EM gonflé → prudence cross-ligue).
+
 ## Prochaine étape (à reprendre)
 1. **CIBLER UNE RÉGIONALE** (LFL/PRM/TCL/LJL/HLL) : construire le modèle (data déjà là) +
    récupérer ~20-30 cotes de cette ligue -> backtest valeur. LE vrai test d'edge restant.

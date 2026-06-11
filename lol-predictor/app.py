@@ -1,153 +1,236 @@
-"""Front Streamlit — prédicteur de match LoL (LCK) avec prise en compte de la DRAFT.
+"""Front Streamlit — ACCUEIL : matchs LoL à venir (toutes équipes) + notre proba Elo.
 
-Saisie : 2 équipes + leurs 5 champions (par rôle). Sortie : probabilités par marché
-(vainqueur, first blood/tower/dragon, total kills, durée), via le MatchPredictor.
+Page principale du projet. Affiche le calendrier des prochains jours (API lolesports)
+avec NOTRE probabilité (Elo toutes-ligues), pour repérer à l'avance un favori que le
+book va peut-être sur-coter (pattern KC / VKS / Heretics). Bouton 1-clic pour
+rafraîchir la data (Google Drive) et le calendrier.
 
 Lancer :
     .\\venv\\Scripts\\python.exe -m streamlit run app.py
 """
 from __future__ import annotations
 
+import datetime as dt
+
+import pandas as pd
 import streamlit as st
 
-from src.features.build_features import ROLES
-from src.models.predict import MatchPredictor
+from src.ingest.load_oracle import ROOT, load_config
 
-ROLE_LABELS = {"top": "Top", "jng": "Jungle", "mid": "Mid", "bot": "Bot", "sup": "Support"}
-NONE_OPT = "— (aucun)"
-
-st.set_page_config(page_title="LoL Predictor — Draft", page_icon="🎯", layout="wide")
+st.set_page_config(page_title="LoL — Matchs à venir", page_icon="📅", layout="wide")
 
 
-@st.cache_resource(show_spinner="Entraînement du modèle (une fois)...")
-def get_predictor() -> MatchPredictor:
-    return MatchPredictor().fit()
+@st.cache_data(ttl=1800, show_spinner="Calcul Elo + récupération des matchs (lolesports)...")
+def load_watchlist(days: int):
+    from src.update.watchlist import build_rows
+    return build_rows(days)
 
 
-def champ_select(side: str, role: str, options: list[str]) -> str | None:
-    label = ROLE_LABELS[role]
-    val = st.selectbox(label, options, key=f"{side}_{role}", index=0)
-    return None if val == NONE_OPT else val
+@st.cache_data(ttl=300)
+def data_info():
+    cfg = load_config()
+    p = ROOT / cfg["data"]["oracle_csv"]
+    if not p.exists():
+        return None, 0.0
+    mtime = dt.datetime.fromtimestamp(p.stat().st_mtime).strftime("%d/%m %H:%M")
+    return mtime, p.stat().st_size / 1e6
 
 
-def pct(x: float) -> str:
-    return f"{x * 100:.1f}%"
+def _fav(r: dict):
+    if r["p1"] >= r["p2"]:
+        return r["team1"], r["p1"], r["team2"], r["p2"], r["elo1"], r["elo2"]
+    return r["team2"], r["p2"], r["team1"], r["p1"], r["elo2"], r["elo1"]
+
+
+def refresh_data():
+    with st.status("Mise à jour…", expanded=True) as status:
+        st.write("Téléchargement de la data (Google Drive)…")
+        try:
+            from src.update.download_data import download_latest
+            download_latest()
+            st.write("✅ Data Oracle's Elixir à jour.")
+        except Exception as exc:  # noqa: BLE001
+            st.write(f"⚠️ Drive indisponible ({exc}). On garde la data locale.")
+        load_watchlist.clear()
+        data_info.clear()
+        status.update(label="Terminé.", state="complete")
 
 
 def main() -> None:
-    mp = get_predictor()
-    champ_options = [NONE_OPT] + mp.champions
+    st.title("📅 Matchs LoL à venir — notre lecture (Elo)")
 
-    st.title("🎯 LoL Predictor — prédiction de match avec draft")
+    top = st.columns([2.2, 1.4, 1.4, 3])
+    with top[0]:
+        if st.button("🔄 Actualiser données + matchs", type="primary", width="stretch"):
+            refresh_data()
+            st.rerun()
+    with top[1]:
+        days = st.selectbox("Fenêtre", [3, 5, 7, 10, 14], index=2, format_func=lambda d: f"{d} jours")
+    with top[2]:
+        mtime, size = data_info()
+        st.metric("Data OE", mtime or "—", help=f"{size:.0f} Mo" if size else "fichier absent")
+
+    try:
+        covered, uncovered = load_watchlist(days)
+    except Exception as exc:  # noqa: BLE001
+        st.error(f"Impossible de récupérer le calendrier : {exc}")
+        st.stop()
+
+    if not covered:
+        st.warning("Aucun match couvert sur la fenêtre (beaucoup de playoffs 'TBD' en ce moment, "
+                   "ou équipes hors data). Élargis la fenêtre ou réessaie plus tard.")
+    strong = [r for r in covered if r.get("strong")]
+
+    k = st.columns(4)
+    k[0].metric("Matchs couverts", len(covered))
+    k[1].metric("Penchants forts ⭐", len(strong), help="favori ≥62 %, data fiable ET ligue prévisible")
+    k[2].metric("Non couverts", len(uncovered), help="équipe(s) hors de notre data")
+    k[3].metric("Ligues", len({r["league"] for r in covered}))
+
     st.caption(
-        "Modèle (LCK 2026, sans fuite de données) : régression logistique régularisée + "
-        "priors de draft (winrate champion sur ~5 500 games pro). "
-        "Validation held-out (rolling-origin, ~200 matchs) : **AUC 0,74 / ~71 %** au vainqueur."
+        "**Elo toutes-ligues K32 + marge de victoire (MOV)**, proba **calibrée par ligue** "
+        "(aplatie là où le modèle est chaotique, ex. EM ≈ 56 % d'accuracy → un « 70 % » brut "
+        "n'y vaut ~55 %). Signal *partiel* (sans draft). Idée : **fader un favori sur-coté** que "
+        "le modèle voit plus serré (cf. KC @2.45, VKS @2.7, Heretics @2.60). On ne fade **jamais** "
+        "un favori à cote < ~1,2. 🌪️ = ligue chaotique (proba peu fiable). Poser le pari **tôt** = l'enjeu."
     )
 
-    with st.sidebar:
-        st.header("Paramètres")
-        fmt = st.radio("Format", ["1 game (BO1)", "BO3 (gagne 2)", "BO5 (gagne 3)"], index=0)
-        wins_needed = {"1 game (BO1)": 1, "BO3 (gagne 2)": 2, "BO5 (gagne 3)": 3}[fmt]
-        is_playoffs = st.toggle("Match de playoffs", value=False)
-        st.divider()
-        st.subheader("Honnêteté du modèle")
-        st.markdown(
-            "- **Vainqueur / First tower** : signal réel.\n"
-            "- **First blood / dragon** : quasi pile/face (≈ 50 %).\n"
-            "- **Total kills / durée** : faibles en pré-game (à confirmer en V2 live).\n\n"
-            "La draft apporte un gain **modeste mais réel** (+2-3 pts) ; la force "
-            "d'équipe (Elo/forme) reste le facteur dominant."
+    # --- 🎯 À chasser : nos favoris confiants = candidats value ---
+    if strong:
+        with st.container(border=True):
+            st.markdown("### 🎯 À chasser — nos favoris confiants (candidats *value*)")
+            st.caption(
+                "Le pattern gagnant = le **book met NOTRE favori en outsider** sur une ligne "
+                "**équilibrée** (jamais < 1,2). Ex. **Heretics 0-2 KCB** : book KCB favori (1.45), "
+                "nous Heretics 65 % → on était sur l'outsider gagnant. "
+                "⚠️ = matchup **cross-ligue** (Elo moins comparable, à vérifier)."
+            )
+            for r in sorted(strong, key=lambda x: x["datetime"]):
+                fav, p_fav, und, _pu, _ea, _eb = _fav(r)
+                x = " · ⚠️ **cross-ligue**" if r["xleague"] else ""
+                st.markdown(
+                    f"- **{r['when']}** · {r['league']} · BO{r['bestof']} — "
+                    f"notre favori **{fav} ({p_fav*100:.0f}%)** vs {und}{x}  \n"
+                    f"  → *value SI le book donne {fav} perdant ou trop proche*"
+                )
+
+    # --- Filtres ---
+    leagues = sorted({r["league"] for r in covered})
+    f = st.columns([3, 1.3, 1.3])
+    sel_leagues = f[0].multiselect("Ligues", leagues, default=leagues)
+    only_strong = f[1].toggle("Penchants forts ⭐", value=False)
+    only_conf = f[2].toggle("Data fiable seulement", value=False)
+
+    rows = []
+    for r in covered:
+        if r["league"] not in sel_leagues:
+            continue
+        if only_conf and not r["conf"]:
+            continue
+        is_strong = r.get("strong", False)
+        if only_strong and not is_strong:
+            continue
+        fav, p_fav, und, _p_und, elo_fav, elo_und = _fav(r)
+        rows.append({
+            "⭐": "⭐" if is_strong else ("🌪️" if not r.get("reliable", True) else ""),
+            "Quand (Paris)": r["when"],
+            "Ligue": r["league"],
+            "Match": f"{r['team1']} vs {r['team2']}",
+            "BO": f"BO{r['bestof']}",
+            "Notre favori": fav,
+            "P(favori)": round(p_fav * 100),
+            "Fiab. ligue": round(r.get("rel", 0) * 100),
+            "Elo (fav / autre)": f"{elo_fav:.0f} / {elo_und:.0f}",
+            "X-ligue": "⚠️" if r["xleague"] else "",
+            "Data": "✅" if r["conf"] else f"⚠️ {min(r['n1'], r['n2'])}g",
+        })
+
+    if rows:
+        df = pd.DataFrame(rows)
+        st.dataframe(
+            df, width="stretch", hide_index=True,
+            column_config={
+                "⭐": st.column_config.TextColumn(width="small"),
+                "P(favori)": st.column_config.ProgressColumn(
+                    "P(favori)", help="Proba calibrée de notre favori",
+                    format="%d%%", min_value=0, max_value=100),
+                "Fiab. ligue": st.column_config.ProgressColumn(
+                    "Fiab. ligue", help="Accuracy historique du modèle dans cette ligue "
+                    "(≥62 % = fiable, sinon 🌪️ chaotique)",
+                    format="%d%%", min_value=0, max_value=100),
+            },
         )
+    else:
+        st.info("Aucun match avec ces filtres.")
 
-    col_blue, col_mid, col_red = st.columns([5, 1, 5])
+    _value_calculator(covered)
 
-    with col_blue:
-        st.subheader("🔵 Équipe BLEUE")
-        blue_team = st.selectbox("Équipe", mp.teams, key="blue_team", index=0)
-        blue_champs = {role: champ_select("blue", role, champ_options) for role in ROLES}
+    if uncovered:
+        with st.expander(f"⚠️ {len(uncovered)} matchs non couverts (équipes hors data)"):
+            seen = set()
+            for m in uncovered:
+                key = (m["team1"], m["team2"])
+                if key in seen:
+                    continue
+                seen.add(key)
+                st.write(f"- {m.get('overview', '?')} · **{m['team1']}** vs **{m['team2']}**")
+            st.caption("Causes : nom ≠ Oracle (suffixe sponsor…), ligue non collectée, ou event tiers (EWC).")
 
-    with col_mid:
-        st.markdown("<h2 style='text-align:center;margin-top:2.2rem;'>VS</h2>",
-                    unsafe_allow_html=True)
 
-    with col_red:
-        st.subheader("🔴 Équipe ROUGE")
-        red_idx = 1 if len(mp.teams) > 1 else 0
-        red_team = st.selectbox("Équipe", mp.teams, key="red_team", index=red_idx)
-        red_champs = {role: champ_select("red", role, champ_options) for role in ROLES}
-
+def _value_calculator(covered: list[dict]) -> None:
     st.divider()
-    go = st.button("Prédire le match", type="primary", use_container_width=True)
-
-    if not go:
-        st.info("Choisis les 2 équipes et (optionnel) les champions par rôle, puis clique sur **Prédire**.")
+    st.subheader("🧮 Calculateur de value (saisis les cotes du book)")
+    if not covered:
         return
+    labels = [f"{r['when']} · {r['team1']} vs {r['team2']} (BO{r['bestof']})" for r in covered]
+    i = st.selectbox("Match", range(len(covered)), format_func=lambda j: labels[j])
+    r = covered[i]
 
-    if blue_team == red_team:
-        st.error("Choisis deux équipes différentes.")
-        return
-
-    # Règle LoL : un champion ne peut être pris qu'UNE fois dans toute la partie
-    # (les 2 équipes confondues). On bloque la prédiction si doublon.
-    picked = [c for c in list(blue_champs.values()) + list(red_champs.values()) if c]
-    dupes = sorted({c for c in picked if picked.count(c) > 1})
-    if dupes:
-        st.error(
-            f"Champion(s) en double : **{', '.join(dupes)}**. "
-            "Un champion ne peut être choisi qu'une seule fois dans toute la partie "
-            "(les 2 équipes confondues). Corrige la draft."
+    if not r.get("reliable", True):
+        st.warning(
+            f"🌪️ **Ligue chaotique** ({r.get('league_code', r['league'])} ≈ {r.get('rel', 0)*100:.0f}% "
+            "d'accuracy historique) : même nos « favoris » y gagnent à peine plus que pile/face. "
+            "La proba est déjà **aplatie** (calibration), mais reste prudent — c'est là que le book "
+            "se trompe (value possible) MAIS aussi là qu'on se trompe le plus. **Value franche only.**"
         )
-        return
-
-    res = mp.predict_match(blue_team, red_team, blue_champs, red_champs,
-                           is_playoffs=int(is_playoffs))
-    p_blue = res["winner"]["blue"]
-
-    st.subheader("Vainqueur — 1 game (la map où 🔵 est côté bleu)")
-    c1, c2 = st.columns(2)
-    c1.metric(f"🔵 {blue_team}", pct(p_blue))
-    c2.metric(f"🔴 {red_team}", pct(1 - p_blue))
-    st.progress(p_blue, text=f"Probabilité {blue_team} (1 game) : {pct(p_blue)}")
-
-    if wins_needed > 1:
-        s = mp.predict_series(blue_team, red_team, blue_champs, red_champs,
-                              wins_needed=wins_needed, is_playoffs=int(is_playoffs))
-        bo = "BO3" if wins_needed == 2 else "BO5"
-        st.subheader(f"Vainqueur de la SÉRIE ({bo})")
-        d1, d2 = st.columns(2)
-        d1.metric(f"🔵 {blue_team}", pct(s["series_blue"]))
-        d2.metric(f"🔴 {red_team}", pct(s["series_red"]))
-        st.progress(s["series_blue"], text=f"Probabilité {blue_team} ({bo}) : {pct(s['series_blue'])}")
-        st.caption(
-            f"Par game (side-neutre) : {blue_team} {pct(s['p_neutral'])} "
-            f"[bleu {pct(s['p_on_blue'])} / rouge {pct(s['p_on_red'])}]. "
-            f"Série = conversion BO (games indépendantes). La série amplifie le favori : "
-            f"un favori à 65 %/game gagne un BO5 ~73 %."
+    if r.get("xleague"):
+        st.warning(
+            f"⚠️ Matchup **cross-ligue** ({r['league_a']} vs {r['league_b']}) : les Elo sont peu "
+            "comparables → fiabilité réduite. C'est le piège **KCB 53 % vs PCIFIC** (book @1.02 avait "
+            "raison). N'y vois une value que sur un **gros** désaccord + cote équilibrée (jamais < 1,2)."
         )
 
-    # Transparence draft (esprit DraftGap) : winrate moyen des compos
-    bcw = mp._comp_wr(blue_champs)
-    rcw = mp._comp_wr(red_champs)
+    c = st.columns(2)
+    o1 = c[0].number_input(f"Cote {r['team1']}", min_value=1.01, max_value=51.0, value=2.00, step=0.05)
+    o2 = c[1].number_input(f"Cote {r['team2']}", min_value=1.01, max_value=51.0, value=2.00, step=0.05)
+
+    inv1, inv2 = 1 / o1, 1 / o2
+    book1 = inv1 / (inv1 + inv2)
+    for side, team, p_model, o, book in (
+        ("1", r["team1"], r["p1"], o1, book1),
+        ("2", r["team2"], r["p2"], o2, 1 - book1),
+    ):
+        edge = p_model - 1 / o  # EV vs cote brute
+        cols = st.columns([2, 1, 1, 1, 2])
+        cols[0].markdown(f"**{team}**")
+        cols[1].metric("Notre proba", f"{p_model*100:.0f}%")
+        cols[2].metric("Book (dévig.)", f"{book*100:.0f}%")
+        cols[3].metric("Edge (EV)", f"{edge*100:+.0f}%")
+        # Verdict (règles du journal)
+        if o < 1.20:
+            verdict = "⛔ favori court — on ne fade jamais (piège)"
+        elif edge > 0.03:
+            verdict = "✅ VALUE — pari défendable (poser tôt !)"
+        elif edge > 0:
+            verdict = "🟡 léger +EV — couvre à peine la vig, prudence"
+        else:
+            verdict = "❌ −EV — pas de pari"
+        cols[4].markdown(f"<div style='margin-top:.6rem'>{verdict}</div>", unsafe_allow_html=True)
+
     st.caption(
-        f"Winrate moyen des champions (priors pro) — 🔵 {pct(bcw)} vs 🔴 {pct(rcw)} "
-        f"(Δ = {(bcw - rcw) * 100:+.1f} pts). Neutre (50 %) si aucun champion choisi."
-    )
-
-    st.subheader("Autres marchés (du point de vue 🔵)")
-    m = res["markets"]
-    g1, g2, g3 = st.columns(3)
-    g1.metric("First blood (bleu)", pct(m.get("First blood", 0.5)))
-    g2.metric("First tower (bleu)", pct(m.get("First tower", 0.5)))
-    g3.metric("First dragon (bleu)", pct(m.get("First dragon", 0.5)))
-
-    h1, h2 = st.columns(2)
-    h1.metric("Total kills (prévu)", f"{m.get('Total kills', float('nan')):.1f}")
-    h2.metric("Durée (min, prévue)", f"{m.get('Durée (min)', float('nan')):.1f}")
-
-    st.caption(
-        "Rappel : ce sont des probabilités à comparer aux cotes pour chercher de la "
-        "valeur — pas une garantie. First blood/dragon ≈ aléatoire."
+        "Edge = notre proba − (1 / cote). Value si > +3 %. ⚠️ Elo-only (sans draft) : "
+        "sur une ligue molle où le book sur-cote un favori après une grosse game, l'écart est exploitable ; "
+        "sinon le book est souvent juste. La **draft en live** reste le complément le plus fort."
     )
 
 

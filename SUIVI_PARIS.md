@@ -197,3 +197,13 @@ Proba book dé-viggée = (1/cote) normalisée sur les deux camps. Ex : 1.47 / 2.
   dispo », (3) **match lancé avant l'heure → fenêtre pré-match ratée**. → Le **goulot d'étranglement n'est plus la prédiction**
   mais le **timing de la prise de pari**. PROCHAINE BRIQUE = **watchlist pré-match** (calendrier des ligues cibles +
   read Elo calculé À L'AVANCE) pour **poser le pari des heures avant le début**, quand le marché soft est ouvert et mou.
+- ✅ **BRIQUE CONSTRUITE (2026-06-11) : watchlist pré-match automatisée** (`lol-predictor/src/update/`). 1 commande
+  `python -m src.update.daily` enchaîne : (1) `download_data` → rafraîchit le CSV OE depuis le Drive ;
+  (2) `build_match_table` → régénère les tables ; (3) `watchlist` → calcule notre proba **Elo toutes-ligues**
+  sur les matchs des **prochains jours** (calendrier via l'API **lolesports**) → écrit **`WATCHLIST.md`**
+  (table avec notre proba + colonnes `Cote`/`Edge` à remplir). Planifiable 1×/j (Task Scheduler, cf. README).
+  - **But** : repérer **à l'avance** un favori que le book va sur-coter → **poser tôt** (résout la contrainte n°1).
+  - ⚠️ **Elo-only** (pas de draft, signal partiel) = repère, **pas** la reco finale ; on garde le **draft-edge en live**.
+  - Limites connues : le CSV OE a un **quota Drive** partagé (download best-effort, sinon `git pull`) ; lolesports
+    couvre les ligues **Riot** (majeures + CBLOL + EMEA Masters + régionales) mais **pas** les events tiers (ex. EWC OQ)
+    → ceux-là restent en **saisie manuelle**. Quelques noms à suffixe sponsor (Cloud9 Kia…) tombent en "non couvert".

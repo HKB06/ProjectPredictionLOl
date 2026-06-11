@@ -7,6 +7,9 @@ data:
   processed_dir: data/processed
   # Fichier attendu (à télécharger depuis oracleselixir.com -> Tools -> Downloads)
   oracle_csv: data/raw/2026_LoL_esports_match_data_from_OraclesElixir.csv
+  # ID Google Drive du CSV 2026 (stable, MAJ quotidienne par Oracle's Elixir).
+  # Utilisé par src/update/download_data.py pour rafraîchir la data automatiquement.
+  oracle_drive_id: "1hnpbrUpBMS1TZI7IovfpKeZfWJH1Aptm"
 
 scope:
   # Multi-ligues (volume) : pro majeures + regionales etablies 2026. On entraine sur tout
