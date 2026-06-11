@@ -9,7 +9,10 @@ data:
   oracle_csv: data/raw/2026_LoL_esports_match_data_from_OraclesElixir.csv
 
 scope:
-  leagues: [LCK]        # Palier 1 : LCK seulement. Ajouter ["LCK","LEC","LPL"] plus tard.
+  # Multi-ligues (volume) : pro majeures + regionales etablies 2026. On entraine sur tout
+  # et on FILTRE a l'evaluation (AUC par ligue) pour ne parier que la ou on est precis.
+  # Exclu : academie/dev (LCKC, NACL...) trop chaotiques.
+  leagues: [LCK, LPL, LEC, LCS, LJL, LCP, LAS, LFL, PRM, TCL, HLL, EBL]
   year: 2026
   date_min: "2026-01-01"
 
