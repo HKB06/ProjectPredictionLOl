@@ -152,6 +152,20 @@ Proba book dé-viggée = (1/cote) normalisée sur les deux camps. Ex : 1.47 / 2.
   **disparaît**. Le book traite la draft comme de l'info et se protège. → l'exploit réaliste = **live early-game** (draft connue +
   marché live encore ouvert), **pas** le pré-game. *(Même leçon que « Aucun marché disponible » plus tôt.)*
 
+### 2026-06-10 — EMEA Masters Spring Main Event — Los Heretics (Team Heretics Academy) vs Karmine Corp Blue — BO3 — ⏳ résultat ?
+- **Signal** : Elo toutes ligues (pas de draft), pré-game. ⚠️ **cross-pool** (Heretics = Superliga LES / KCB = LFL, se croisent seulement via l'EM).
+- **Modèle** : Heretics Academy **1677** (38 g) / KCB **1565** (46 g) → **Heretics 65.5 %** / KCB 34.5 %.
+- **Cotes book** : Heretics **2.60** / KCB 1.45 (book1, vig 7.4 %) → dé-viggé Heretics **35.8 %** ; book2 Heretics 2.38 / KCB 1.50.
+- **Edge** : Heretics **+29.7 pts** (book1) / +26.9 pts (book2) → ⭐ **value flag sur Heretics** (book met KCB favori, nous Heretics).
+- **Garde-fous OK** : favori KCB à 1.45 (PAS < 1.2 → pas le piège paiN/Verdant) ; cote équilibrée + désaccord vainqueur (profil = NightBirds @2.35, notre seul vrai lean). Marge de sécu : break-even à 38.5 %.
+- ⚠️ **Risques** : cross-pool (Elo Heretics gonflé si Superliga < LFL) ; KCB plus chaud que notre data (manque ses 3 W vs Verdant) ; book sharp sur la marque Karmine ; BO3 = variance.
+- ⭐ **CALL : value lean Los Heretics @ 2.60 — mise MODÉRÉE (0.5-1 u)** (cross-pool = on ne charge pas). Marché pré-match = **encore ouvert** (pas la friction draft-close).
+- **LIVE (20h16)** : **Map 1 Heretics 22-8 = STOMP** → série **1-0 Heretics** ; Map 2 en cours, Heretics mène **15-8**.
+  - ✅ **Map 1 Winner @2.35 = GAGNÉ** · ✅ **Heretics +1.5 / ≥1 map @1.52 = SÉCURISÉ** (au moins 1 map prise) · ⏳ **Match Winner @2.60** = besoin de fermer la map 2 (ou map 3).
+  - 🎯 **Le read cross-pool se valide** : la Superliga (Heretics) n'était PAS plus faible — Heretics écrase la LFL (KCB). Notre modèle battait le book (qui mettait KCB favori).
+  - ⚠️ **FRICTION TIMING (Hugo)** : **PAPER, NON PARIÉ** — le match a démarré **bien avant l'heure annoncée (20h)** → fenêtre pré-match ratée. Edge réel **mais non capturé** (3e échec d'exécution après "marché fermé à la draft" et "Aucun marché dispo").
+- **Statut série** : ⏳ pas finie (1-0) — *donne-moi le score final + la draft si tu l'as.*
+
 ---
 
 ## Patterns / leçons (à enrichir)
@@ -178,3 +192,8 @@ Proba book dé-viggée = (1/cote) normalisée sur les deux camps. Ex : 1.47 / 2.
 - **Friction réelle (retail)** : sur ces petits events, les marchés sont **souvent fermés / absents**
   (« Aucun marché disponible ») ou se ferment vite → même un vrai edge peut être **impariable**. À intégrer
   dans le réalisme du projet (la prévisibilité ne sert que s'il existe un **marché ouvert + liquide**).
+- 🚨 **LA CONTRAINTE N°1 = L'EXÉCUTION, PAS LE MODÈLE (validé 3x)** : le modèle voit juste (KC/G2, VKS, Heretics 22-8),
+  mais on a **raté la mise 3 fois** pour 3 raisons d'exécution : (1) marché fermé à la fin de draft, (2) « Aucun marché
+  dispo », (3) **match lancé avant l'heure → fenêtre pré-match ratée**. → Le **goulot d'étranglement n'est plus la prédiction**
+  mais le **timing de la prise de pari**. PROCHAINE BRIQUE = **watchlist pré-match** (calendrier des ligues cibles +
+  read Elo calculé À L'AVANCE) pour **poser le pari des heures avant le début**, quand le marché soft est ouvert et mou.

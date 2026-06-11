@@ -20,7 +20,8 @@ BASE = 1500.0
 # (label, equipe1 (sous-chaine), cote1, equipe2 (sous-chaine), cote2)
 # NB : matching par sous-chaine du nom Oracle (sensible aux accents/mojibake, ex. "LOS"="L\ufffdS").
 MATCHUPS = [
-    ("EMEA Masters play-in", "einfach", 1.52, "nightbird", 2.35),
+    ("EM Heretics-KCB (book1)", "heretics academy", 2.60, "karmine corp blue", 1.45),
+    ("EM Heretics-KCB (book2)", "heretics academy", 2.38, "karmine corp blue", 1.50),
 ]
 
 
