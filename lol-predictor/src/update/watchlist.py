@@ -53,15 +53,100 @@ def norm_core(s: str) -> str:
     return core or norm(s)
 
 
+# Tokens qui DISTINGUENT une équipe secondaire d'une principale : on interdit le match
+# flou entre les deux (ex. "X Academy" ≠ "X", "Bilibili Gaming Junior" ≠ "Bilibili Gaming").
+DISTINCT_TOKENS = {"academy", "junior", "youth", "jr", "dev", "challengers", "prospects", "b"}
+
+
+def core_tokens(s: str) -> set[str]:
+    """Ensemble des tokens 'cœur' (sans mots bruit) d'un nom."""
+    toks = {t for t in _tokens(s) if t not in STOP_WORDS}
+    return toks or set(_tokens(s))
+
+
+def fuzzy_match(toks: set[str], team_tokens: dict[str, set[str]]) -> str | None:
+    """Match tolérant aux sponsors ajoutés par le book/lolesports.
+
+    Reconnaît une équipe dont les tokens cœur sont *inclus* dans le nom entrant (sponsor
+    en plus, ex. "Team Liquid Alienware" → "Team Liquid", "Cloud9 Kia" → "Cloud9",
+    "Xi'an Team WE" → "Team WE") ou l'inverse ("Keyd Stars" → "Vivo Keyd Stars").
+    Ne renvoie un nom que si le match est NON ambigu (sinon None → reste non couvert).
+    """
+    if not toks:
+        return None
+    best, best_key, tie = None, None, False
+    for team, ttoks in team_tokens.items():
+        if not ttoks:
+            continue
+        inter = toks & ttoks
+        if not inter:
+            continue
+        if inter != toks and inter != ttoks:        # aucune inclusion -> trop faible
+            continue
+        if (toks ^ ttoks) & DISTINCT_TOKENS:        # un côté est une équipe "Academy/Junior..."
+            continue
+        key = (len(inter), -len(toks ^ ttoks))      # + de tokens communs, puis + proche
+        if best_key is None or key > best_key:
+            best, best_key, tie = team, key, False
+        elif key == best_key:
+            tie = True
+    return best if (best is not None and not tie) else None
+
+
+MANUAL_PATH = ROOT / "data" / "manual_matches.yaml"
+
+
+def _load_manual(days: int) -> list[dict]:
+    """Matchs saisis à la main (data/manual_matches.yaml) pour les événements absents
+    du calendrier lolesports (ex. Esports World Cup, tournois tiers hors-Riot).
+
+    Fenêtre : de -12 h (matchs du jour déjà lancés, utile en live) à +`days` jours.
+    """
+    if not MANUAL_PATH.exists():
+        return []
+    try:
+        import yaml
+        data = yaml.safe_load(MANUAL_PATH.read_text(encoding="utf-8")) or {}
+    except Exception as exc:  # noqa: BLE001
+        print(f"[watchlist] manual_matches.yaml illisible ({exc})")
+        return []
+    now = dt.datetime.now(dt.timezone.utc)
+    lo, hi = now - dt.timedelta(hours=12), now + dt.timedelta(days=days)
+    out: list[dict] = []
+    for m in data.get("matches", []) or []:
+        try:
+            when = dt.datetime.strptime(str(m["datetime"]), "%Y-%m-%d %H:%M:%S")
+        except (KeyError, ValueError, TypeError):
+            continue
+        if not (lo <= when.replace(tzinfo=dt.timezone.utc) <= hi):
+            continue
+        if not m.get("team1") or not m.get("team2"):
+            continue
+        out.append({
+            "team1": m["team1"], "team2": m["team2"],
+            "datetime": when.strftime("%Y-%m-%d %H:%M:%S"),
+            "bestof": m.get("bestof", 1),
+            "overview": m.get("league") or m.get("overview") or "?",
+            "tournament": m.get("tournament") or m.get("league"),
+            "manual": True,
+        })
+    return out
+
+
 def _fetch_upcoming(days: int) -> list[dict]:
-    """lolesports en primaire, Leaguepedia en secours."""
+    """lolesports en primaire, Leaguepedia en secours, + matchs manuels (events tiers)."""
     try:
         from src.update.lolesports import fetch_upcoming
-        return fetch_upcoming(days)
+        api = fetch_upcoming(days)
     except Exception as exc:  # noqa: BLE001
         print(f"[watchlist] lolesports indisponible ({exc}) -> fallback Leaguepedia")
-        from src.update.leaguepedia import fetch_upcoming
-        return fetch_upcoming(days)
+        try:
+            from src.update.leaguepedia import fetch_upcoming
+            api = fetch_upcoming(days)
+        except Exception as exc2:  # noqa: BLE001
+            print(f"[watchlist] Leaguepedia aussi indisponible ({exc2})")
+            api = []
+    return api + _load_manual(days)
 
 
 def _wins_needed(bestof) -> int:
@@ -92,9 +177,11 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
     reliability, shrink, global_rel = state["reliability"], state["shrink"], state["global_rel"]
     idx_full = {norm(t): t for t in elo}
     idx_core = {norm_core(t): t for t in elo}  # peut écraser des collisions, acceptable
+    team_tokens = {t: core_tokens(t) for t in elo}  # pour le matching tolérant aux sponsors
 
     def match(name: str) -> str | None:
-        return idx_full.get(norm(name)) or idx_core.get(norm_core(name))
+        hit = idx_full.get(norm(name)) or idx_core.get(norm_core(name))
+        return hit or fuzzy_match(core_tokens(name), team_tokens)
 
     def context(m: dict, a: str, b: str) -> tuple[float, float, str]:
         """Fiabilité + shrink + code ligue du match (pour calibrer la proba/le ⭐)."""
@@ -111,12 +198,17 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
 
     covered: list[dict] = []
     uncovered: list[dict] = []
+    seen: set = set()
     for m in matches:
         a = match(m["team1"])
         b = match(m["team2"])
         if not a or not b:
             uncovered.append(m)
             continue
+        key = (frozenset((a, b)), (m.get("datetime") or "")[:10])
+        if key in seen:                       # doublon (ex. même match API + manuel)
+            continue
+        seen.add(key)
         wn = _wins_needed(m["bestof"])
         rel, shr, code = context(m, a, b)
         p_game_raw = win_prob(elo[a], elo[b])
@@ -140,6 +232,7 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
             "league_a": league.get(a, "?"), "league_b": league.get(b, "?"),
             "xleague": league.get(a) != league.get(b),  # Elo peu comparable (cf. KCB/PCIFIC)
             "tournament": m.get("tournament") or m.get("overview"),
+            "manual": m.get("manual", False),
         })
 
     covered.sort(key=lambda r: r["datetime"] or "")

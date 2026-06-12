@@ -16,9 +16,10 @@ echo ============================================================
 powershell -ExecutionPolicy Bypass -File kill_streamlit.ps1
 echo.
 echo ============================================================
-echo   1/2  Mise a jour des donnees (Oracle's Elixir / Drive)...
+echo   1/2  Mise a jour complete (data + tables + watchlist
+echo         + cotes Polymarket)...
 echo ============================================================
-venv\Scripts\python.exe -m src.update.download_data
+venv\Scripts\python.exe -m src.update.daily
 echo.
 echo ============================================================
 echo   2/2  Lancement de l'application (matchs a venir)...

@@ -26,6 +26,21 @@ def load_watchlist(days: int):
     return build_rows(days)
 
 
+@st.cache_data(ttl=900, show_spinner="Recherche des marchés Polymarket (1re fois ~20 s)...")
+def load_polymarket(covered: list[dict]) -> dict:
+    """Cotes Polymarket par match : {(team1, team2, datetime): {value_team, edge, url, actionable}}."""
+    from src.update.polymarket import enrich
+    out = {}
+    for r in enrich(covered):
+        if "pm" in r:
+            out[(r["team1"], r["team2"], r.get("datetime", ""))] = {
+                "value_team": r["value_team"], "edge": r["edge"],
+                "our_p": r["our_p"], "mkt_p": r["mkt_p"],
+                "url": r["pm"]["url"], "actionable": r.get("actionable", False),
+            }
+    return out
+
+
 @st.cache_data(ttl=300)
 def data_info():
     cfg = load_config()
@@ -116,10 +131,22 @@ def main() -> None:
 
     # --- Filtres ---
     leagues = sorted({r["league"] for r in covered})
-    f = st.columns([3, 1.3, 1.3])
+    f = st.columns([2.6, 1.2, 1.0, 1.2, 1.4])
     sel_leagues = f[0].multiselect("Ligues", leagues, default=leagues)
-    only_strong = f[1].toggle("Penchants forts ⭐", value=False)
-    only_conf = f[2].toggle("Data fiable seulement", value=False)
+    only_pick = f[1].toggle("🎯 Picks 75 %", value=False,
+                            help="Règle mesurée : ligue fiable + data ≥15 g + favori ≥65 % "
+                                 "(hors cross-ligue) → ~81 % de bons vainqueurs (n≈1 170, walk-forward)")
+    only_strong = f[2].toggle("⭐ forts", value=False)
+    only_conf = f[3].toggle("Data fiable", value=False)
+    pm_on = f[4].toggle("Cotes Polymarket", value=True,
+                        help="Croise avec les marchés Polymarket (matchs réellement pariables)")
+
+    pm_map = {}
+    if pm_on:
+        try:
+            pm_map = load_polymarket(covered)
+        except Exception as exc:  # noqa: BLE001
+            st.warning(f"Polymarket indisponible ({exc}) — tableau sans cotes.")
 
     rows = []
     for r in covered:
@@ -127,12 +154,17 @@ def main() -> None:
             continue
         if only_conf and not r["conf"]:
             continue
+        fav, p_fav, und, _p_und, elo_fav, elo_und = _fav(r)
         is_strong = r.get("strong", False)
+        is_pick = (r.get("reliable", False) and r["conf"]
+                   and not r["xleague"] and p_fav >= 0.65)
+        if only_pick and not is_pick:
+            continue
         if only_strong and not is_strong:
             continue
-        fav, p_fav, und, _p_und, elo_fav, elo_und = _fav(r)
-        rows.append({
-            "⭐": "⭐" if is_strong else ("🌪️" if not r.get("reliable", True) else ""),
+        sig = "🎯" if is_pick else ("⭐" if is_strong else ("🌪️" if not r.get("reliable", True) else ""))
+        row = {
+            "Signal": sig,
             "Quand (Paris)": r["when"],
             "Ligue": r["league"],
             "Match": f"{r['team1']} vs {r['team2']}",
@@ -143,14 +175,23 @@ def main() -> None:
             "Elo (fav / autre)": f"{elo_fav:.0f} / {elo_und:.0f}",
             "X-ligue": "⚠️" if r["xleague"] else "",
             "Data": "✅" if r["conf"] else f"⚠️ {min(r['n1'], r['n2'])}g",
-        })
+        }
+        if pm_on:
+            pm = pm_map.get((r["team1"], r["team2"], r.get("datetime", "")))
+            if pm:
+                row["Value PM"] = f"{pm['value_team']} {pm['edge']*100:+.1f} pts"
+                row["PM"] = "✅" if pm.get("actionable") else "—"
+                row["Lien PM"] = pm["url"]
+            else:
+                row["Value PM"], row["PM"], row["Lien PM"] = "non coté", "", None
+        rows.append(row)
 
     if rows:
         df = pd.DataFrame(rows)
         st.dataframe(
             df, width="stretch", hide_index=True,
             column_config={
-                "⭐": st.column_config.TextColumn(width="small"),
+                "Signal": st.column_config.TextColumn(width="small"),
                 "P(favori)": st.column_config.ProgressColumn(
                     "P(favori)", help="Proba calibrée de notre favori",
                     format="%d%%", min_value=0, max_value=100),
@@ -158,7 +199,14 @@ def main() -> None:
                     "Fiab. ligue", help="Accuracy historique du modèle dans cette ligue "
                     "(≥62 % = fiable, sinon 🌪️ chaotique)",
                     format="%d%%", min_value=0, max_value=100),
+                "Lien PM": st.column_config.LinkColumn("Lien PM", display_text="ouvrir"),
             },
+        )
+        st.caption(
+            "🎯 = **règle 75 %** (mesurée) : ligue fiable + data ≥15 g + favori ≥65 % hors cross-ligue "
+            "→ **~81 %** de bons vainqueurs historiquement (1 174 games walk-forward). "
+            "**Value PM** = côté où notre proba dépasse le plus le prix Polymarket ; "
+            "✅ = edge ≥4 pts ET ligue fiable ET data OK (cf. `WATCHLIST_PARIABLE.md`)."
         )
     else:
         st.info("Aucun match avec ces filtres.")

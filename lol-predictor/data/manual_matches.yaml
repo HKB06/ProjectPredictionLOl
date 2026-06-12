@@ -1,0 +1,18 @@
+# Matchs ajoutés À LA MAIN — pour les événements absents du calendrier lolesports
+# (ex. Esports World Cup, tournois tiers hors-Riot). Fusionnés avec le calendrier auto.
+#
+# Format de chaque entrée :
+#   - team1 / team2 : si possible les noms tels qu'ils apparaissent dans notre data
+#                     (le matching tolère les sponsors, donc "Cloud9 Kia" marche aussi).
+#   - datetime      : en UTC, format "YYYY-MM-DD HH:MM:SS" (l'affichage ajoute +2h Paris).
+#   - bestof        : 1 / 3 / 5
+#   - league        : code/nom de ligue (sert à calibrer ; ex. EWC, LEC).
+#
+# Les entrées passées (> 12h) sont ignorées automatiquement : pas besoin de nettoyer.
+
+matches:
+  - team1: Los Ratones
+    team2: Vivo Keyd Stars
+    datetime: "2026-06-13 16:00:00"   # 18:00 Paris
+    bestof: 3
+    league: EWC

@@ -442,15 +442,51 @@ battent les favoris en EM → angle = parier SUR eux en outsider avant que book/
 **Limites** : MOV aide globalement mais en EM les stomps sont du bruit (stomp puis défaite) ;
 cold-start non seedé (pas de data 2025) ; pools isolés (Elo EM gonflé → prudence cross-ligue).
 
-## Prochaine étape (à reprendre)
-1. **CIBLER UNE RÉGIONALE** (LFL/PRM/TCL/LJL/HLL) : construire le modèle (data déjà là) +
-   récupérer ~20-30 cotes de cette ligue -> backtest valeur. LE vrai test d'edge restant.
-2. ~~LIVE~~ : écarté (suspension marché + retard stream).
-3. ~~TOTAL KILLS O/U~~ : testé vraies lignes -> book sharp, clos.
-2. **LIVE V2** (at10/at15 -> winner) : data déjà là, ~75-81% attendu, lignes live plus molles.
-3. **DATA 2025 -> seed Elo** (fix cold-start) + multi-ligues (coefficients robustes).
-4. Exploiter tout ça pour le MÉMOIRE (efficience de marché, calibration, sans fuite, style).
-5. Front Streamlit OK ; draft étape 2 (synergies/counters) surtout pour le mémoire.
+## SESSION 12-13 juin (nuit) — POLYMARKET + RÈGLE 75 % + FRONT COMPLET (A/B/C)
+
+### Pont Polymarket (le « pariable » devient mesurable)
+- `src/update/polymarket.py` : API Gamma publique (sans clé), prix en cents = probas ≈ sans
+  marge. `public-search?q=<équipe>` retrouve l'événement, marché `sportsMarketType=moneyline`
+  = vainqueur de série. Croise notre watchlist -> `WATCHLIST_PARIABLE.md` (edge auto).
+- Constat clé : Polymarket ne cote que majors + events -> nos pépites (LJL/TCL...) n'y sont
+  pas. Le 13/06 : 4 matchs cotés, 1 seule value propre (Gen.G +4,3 pts, ligue fiable) ; les
+  « gros edges » (TL +14,7, Keyd +8,6) = chaos/x-ligue -> correctement refusés.
+
+### RÈGLE 75 % — la sélectivité MESURÉE (4 766 games walk-forward, hors cold-start)
+- Tous matchs : 65 %. **Fiable + p>=0.65 : 81,1 % (n=1 174, ~56 picks/sem)** ;
+  fiable + p>=0.70 : 83,4 % ; + data>=15 g + p>=0.75 : 84,4 %.
+- Ligues chaotiques avec le MÊME filtre p>=0.65 : 64,4 % (EM : 52,7 % !) -> la sélection de
+  ligue est la moitié du winrate. -> flag **🎯 pick** = fiable + >=15 g + p>=0.65 + pas x-ligue.
+
+### Front industrialisé (A/B/C dans la même nuit)
+- **A — Accueil** : signal 🎯 + filtre dédié + colonnes Polymarket auto (Value PM / lien,
+  cache 15 min). `daily.py` = 4 étapes (data -> tables -> watchlist -> Polymarket) ;
+  `Lancer_LoL.bat` lance désormais le daily complet.
+- **B — `pages/3_Serie_en_cours.py`** : proba de série CONDITIONNELLE au score (race DP),
+  cotes live -> edge par camp, détection auto du pattern KC/VKS (book s'emballe sur le
+  gagnant de la map), draft-only optionnel (ratings champions, cache), garde-fous intégrés
+  (jamais fader <1.20, chaos, x-ligue, cold-start).
+- **C — `pages/4_Journal_paris.py`** + `data/bets.csv` : log de chaque pari (cote, mise,
+  notre proba, clôture) -> P/L, ROI, winrate, **CLV**, courbe bankroll, ventilation par
+  pattern. LA preuve finale = cette page (accuracy != profit).
+
+### Picks week-end (règle 🎯) : Rising Gaming 80 % & FENNEL 69 % (LJL, books esports type
+GG.bet) · Gen.G 94 % @~1,12 sur Polymarket (edge +4,3) · Saigon Dino 79 % (VCS, mise réduite).
+À ignorer malgré les « edges » : TL/C9 (LCS), Keyd/LOS (x-région), BLG/WE (LPL), tout l'EM.
+
+## Prochaine étape (à reprendre demain)
+1. **PRIORITÉ : anciennes cotes régionales** (l'utilisateur peut en fournir : LJL/TCL/LFL/PRM,
+   format date,team1,team2,score,odd1,odd2) -> backtest valeur sur régionales = savoir si les
+   favoris 🎯 sont sous-cotés (la règle 81 % est-elle +ROI ?). Dernier maillon manquant.
+2. **Seed Elo avec data 2025** : moins d'erreurs en début de split + plus de matchs éligibles
+   🎯 (le burn-in en disqualifie). Gain attendu réel mais borné.
+3. **Side bleu dans la page Série** (sides connus entre les maps -> +0,7 pt mesuré, gratuit).
+4. **Journal : 20-30 paris loggés** (réels ou paper) -> ROI/CLV. Discipline > modèle.
+5. (Optionnel) The Odds API (cotes Winamax/Betclic -> LFL auto) ; Glicko-2/K-adaptatif au banc
+   d'essai (plafond proche, ne pas sur-investir) ; roster-changes = angle mort connu de l'Elo.
+6. PORTES FERMÉES (ne pas rouvrir) : moneyline LCK, kills O/U, secondaires, live in-game,
+   draft-only pré-game (marché fermé à la draft).
+7. MÉMOIRE : tout ce qui précède = matériau (efficience, calibration, sélectivité, CLV).
 
 ## Rappels projet
 - **2 projets séparés** :

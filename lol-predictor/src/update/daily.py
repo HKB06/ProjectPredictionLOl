@@ -40,7 +40,7 @@ def main() -> int:
         except Exception as exc:  # noqa: BLE001
             print(f"[warn] rebuild échoué ({exc}).")
 
-    print("\n=== 3/3  Watchlist pré-match ===")
+    print("\n=== 3/4  Watchlist pré-match ===")
     from src.update.watchlist import generate
     try:
         res = generate(days=args.days)
@@ -57,6 +57,19 @@ def main() -> int:
             fav, p = (r["team1"], r["p1"]) if r["p1"] >= 0.5 else (r["team2"], r["p2"])
             print(f"   * {r['when']:14} {r['league']:6} {fav} {p*100:.0f}%  (vs "
                   f"{r['team2'] if fav == r['team1'] else r['team1']})")
+
+    print("\n=== 4/4  Cotes Polymarket (matchs pariables) ===")
+    try:
+        from src.update.polymarket import generate as pm_generate
+        pm = pm_generate(days=min(args.days, 4))
+        bet = pm["bettable"]
+        print(f"OK -> {pm['path']}  ({len(bet)} matchs cotes sur Polymarket)")
+        for r in sorted(bet, key=lambda x: -x.get("edge", -9)):
+            tag = " >>> VALUE <<<" if r.get("actionable") else ""
+            print(f"   {r['when']:14} {r['league']:6} {r['team1']} vs {r['team2']}: "
+                  f"value {r['value_team']} {r['edge']*100:+.1f} pts{tag}")
+    except Exception as exc:  # noqa: BLE001
+        print(f"[warn] Polymarket indisponible ({exc}). Watchlist pariable non generee.")
     return 0
 
 
