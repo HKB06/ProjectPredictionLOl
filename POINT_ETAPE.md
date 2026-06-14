@@ -1,6 +1,6 @@
 # Point d'étape — Projet perso (LOL DeepWin / prédiction LCK-LEC)
 
-_Dernière mise à jour : 14 juin 2026 (audit multi-ligues + 1er pari live gagné)_
+_Dernière mise à jour : 15 juin 2026 (odds-api.io + patterns de momentum de série)_
 
 ## Où on en est
 
@@ -566,13 +566,61 @@ Marchés vus = **ML + Totals (O/U)** ; **handicap de map PAS vu** sur ces matchs
 Pour les sweet-spots non cotés : garder **saisie manuelle** + Polymarket, ou tester un fournisseur
 ciblé régional (Pandascore / The Odds API) plus tard.
 
+## SESSION 15 juin (nuit) — PATTERNS DE MOMENTUM DE SÉRIE (BO3/BO5)
+
+**Déclencheur** : pari live **LYON gagné (3-0 vs TL)** + intuition user « à 2-0 ils ont
+l'avantage psy ; y a-t-il un schéma par ligue (beaucoup de 3-0 ? souvent l'équipe menée
+revient ?) — TOUT analyser ».
+**Outil** : `src/models/series_momentum.py` reconstruit les séries via la colonne `game`
+(n° de map dans la série) + (jour, paire d'équipes), et déduit le format par le nb de maps
+du vainqueur (**2 = BO3, 3 = BO5**). Lit le CSV brut = **toutes** les ligues (pas le scope).
+**Échantillon** : 2026 -> **1483 BO3 + 360 BO5** reconstruits.
+
+### Le schéma qui ressort
+- **Distribution des scores** : BO3 = **66 % de 2-0** (33 % en 2-1). BO5 = **48 % de 3-0**,
+  29 % de 3-1, 23 % de 3-2. -> le **SWEEP est la norme**.
+- **Conditionnel (point de vue du LEADER)** :
+  | État | P(gagne la série) | comeback adverse | P(gagne la map+1) |
+  |------|-------------------|------------------|-------------------|
+  | BO3 mène 1-0 | 84 % | 16 % | 66 % |
+  | BO5 mène 1-0 | 78 % | 22 % | 67 % |
+  | BO5 mène 2-0 | **93 %** | **7 %** | 71 % |
+  | BO5 mène 2-1 | 75 % | 25 % | 55 % |
+- **Reverse sweep BO5 (mener 2-0 puis perdre) = 7 %** -> l'« avantage 2-0 » du user est
+  **RÉEL dans la data**. Momentum brut : la même équipe gagne 2 maps de suite **61,5 %** du
+  temps (vs 50 % si aléatoire) -> streakiness réelle (mais partiellement = la force).
+
+### Split PAR LIGUE (close-out d'un 1-0 en BO3) = le vrai filtre
+- **Fiables (le leader ferme)** : HLL 100 %, TCL 91 %, VCS 90 %, EWC 90 %, EBL 88 %,
+  **LCK 87 %, EM 86 %**, LAS 85 %.
+- **Chaos (comebacks fréquents)** : **LCP 71 %, LJL 76 %, LEC 76 %**, AL 77 %, LPL 80 %.
+- => **MÊME tier-list** que la prévisibilité du modèle (cohérent, se renforce).
+
+### Conclusion paris (honnête)
+1. **Le « 2-0 psychologique » est réel MAIS déjà pricé** : à 2-0 le book cote le leader
+   ~1,05-1,10 (90-95 %). Back leader = ~0 value ; le reverse sweep 7 % est correctement payé.
+   **Pas d'edge** à chasser des cotes courtes à 2-0.
+2. **Biais force** : mener 2-0 = souvent être le plus fort -> close-out élevé = force, pas
+   seulement momentum. Pour parier, le repère = **base rate empirique vs cote LIVE**.
+3. **Vrai angle exploitable** : **handicap -1,5 map (gagner 2-0) sur favori fort + ligue
+   fiable** en BO3 (base 66 %, bien plus pour un vrai favori). En ligue chaos : **underdog +1,5**.
+4. **Le trade « lock le profit » marche surtout en ligue fiable** (le 2-0 tient 93 %), pas en
+   LPL/LEC où 7-12 % de comebacks te font sauter.
+
+**Limites** : base rate ≠ edge (besoin de croiser avec les cotes pour prouver le mispricing) ;
+BO5 par ligue = échantillon 2026 trop petit (seules LIT/LPL ont n≥15 à 2-0) -> ajouter data 2025.
+**Next** : afficher ces base rates (par état + ligue) dans `pages/3_Serie_en_cours.py` à côté
+de la cote live -> **flag value auto** (toute la plomberie live odds-api.io existe déjà).
+
 ## Prochaine étape (à reprendre demain)
 1. **PRIORITÉ : anciennes cotes régionales** (l'utilisateur peut en fournir : LJL/TCL/LFL/PRM,
    format date,team1,team2,score,odd1,odd2) -> backtest valeur sur régionales = savoir si les
    favoris 🎯 sont sous-cotés (la règle 81 % est-elle +ROI ?). Dernier maillon manquant.
 2. **Seed Elo avec data 2025** : moins d'erreurs en début de split + plus de matchs éligibles
    🎯 (le burn-in en disqualifie). Gain attendu réel mais borné.
-3. **Side bleu dans la page Série** (sides connus entre les maps -> +0,7 pt mesuré, gratuit).
+3. **Page Série enrichie** : (a) **base rates de momentum** (close-out par état+ligue, via
+   `series_momentum.py`) affichés à côté de la cote live -> flag value auto ; (b) **side bleu**
+   entre les maps (sides connus -> +0,7 pt mesuré, gratuit).
 4. **Journal : 20-30 paris loggés** (réels ou paper) -> ROI/CLV. Discipline > modèle.
 5. (Optionnel) The Odds API (cotes Winamax/Betclic -> LFL auto) ; Glicko-2/K-adaptatif au banc
    d'essai (plafond proche, ne pas sur-investir) ; roster-changes = angle mort connu de l'Elo.
