@@ -41,6 +41,18 @@ def load_polymarket(covered: list[dict]) -> dict:
     return out
 
 
+@st.cache_data(ttl=900, show_spinner="Scan des cotes book (odds-api.io)…")
+def load_oddsapi(days: int) -> list[dict]:
+    """Matchs LoL cotés chez les books (odds-api.io) enrichis de notre proba + edge."""
+    from src.update.oddsapi import load_key, scan
+    if not load_key():
+        return []
+    try:
+        return scan(days=days)
+    except Exception:  # noqa: BLE001
+        return []
+
+
 @st.cache_data(ttl=300)
 def data_info():
     cfg = load_config()
@@ -211,6 +223,7 @@ def main() -> None:
     else:
         st.info("Aucun match avec ces filtres.")
 
+    _oddsapi_section(days)
     _value_calculator(covered)
 
     if uncovered:
@@ -223,6 +236,81 @@ def main() -> None:
                 seen.add(key)
                 st.write(f"- {m.get('overview', '?')} · **{m['team1']}** vs **{m['team2']}**")
             st.caption("Causes : nom ≠ Oracle (suffixe sponsor…), ligue non collectée, ou event tiers (EWC).")
+
+
+def _oddsapi_section(days: int) -> None:
+    """Cotes book réelles (odds-api.io) croisées avec notre modèle."""
+    from src.update.oddsapi import BOOKMAKERS, load_key
+    st.divider()
+    with st.container(border=True):
+        st.markdown("### 💰 Cotés chez les books (odds-api.io)")
+        if not load_key():
+            st.info("Pas de clé odds-api.io (fichier `oddsapi.key`). Section désactivée.")
+            return
+        st.caption(
+            f"Couverture LoL **limitée** (books : {', '.join(BOOKMAKERS)}) — surtout EM / LCS / "
+            "Asia Masters / VCS. Complément de Polymarket. **✅ value actionnable** = edge ≥4 pts "
+            "**ET** ligue fiable **ET** data ≥15 g **ET** pas cross-ligue. 🌪️ chaos / ⚠️ x-ligue "
+            "= **à ignorer** (le book y a presque toujours raison, cf. backtest EM)."
+        )
+        try:
+            rows = load_oddsapi(days)
+        except Exception as exc:  # noqa: BLE001
+            st.warning(f"odds-api.io indisponible ({exc}).")
+            return
+        if not rows:
+            st.info("Aucun match LoL coté chez ces books en ce moment.")
+            return
+
+        data = []
+        for r in rows:
+            if not r.get("resolved"):
+                data.append({"Signal": "", "Quand (Paris)": r["when"], "Ligue": r["league"],
+                             "Match": f"{r['home']} vs {r['away']}", "BO": f"BO{r['bestof']}",
+                             "Value": "hors data Elo", "Notre p": None, "Marché": None,
+                             "Edge (pts)": None, "Confiance": "—"})
+                continue
+            if r.get("trust"):
+                conf = "✅ fiable"
+            elif not r.get("reliable", True):
+                conf = "🌪️ chaos"
+            elif r.get("xleague"):
+                conf = "⚠️ x-ligue"
+            else:
+                conf = f"⚠️ {min(r['n1'], r['n2'])}g"
+            sig = ("✅" if r.get("actionable")
+                   else ("🌪️" if not r.get("reliable", True)
+                         else ("⚠️x" if r.get("xleague") else "")))
+            data.append({
+                "Signal": sig, "Quand (Paris)": r["when"], "Ligue": r["league"],
+                "Match": f"{r['team1']} vs {r['team2']}", "BO": f"BO{r['bestof']}",
+                "Value": (f"{r['value_team']} @{r['best_odd']:.2f}" if r.get("has_value") else "—"),
+                "Notre p": round((r.get("our_p") or 0) * 100),
+                "Marché": round((r.get("mkt_p") or 0) * 100),
+                "Edge (pts)": round(r["edge"] * 100, 1) if r.get("edge") is not None else None,
+                "Confiance": conf,
+            })
+        st.dataframe(
+            pd.DataFrame(data), hide_index=True, width="stretch",
+            column_config={
+                "Notre p": st.column_config.NumberColumn("Notre p", format="%d%%"),
+                "Marché": st.column_config.NumberColumn("Marché", format="%d%%"),
+            },
+        )
+        act = [r for r in rows if r.get("actionable")]
+        if act:
+            for r in act:
+                st.success(
+                    f"✅ **{r['value_team']} @{r['best_odd']:.2f}** · {r['when']} · {r['league']} "
+                    f"— notre {r['our_p']*100:.0f}% vs marché {r['mkt_p']*100:.0f}% "
+                    f"(edge **{r['edge']*100:+.1f} pts**). Pose tôt."
+                )
+        else:
+            st.caption(
+                "ℹ️ Aucune **value actionnable** aujourd'hui — cohérent avec la discipline : "
+                "les matchs cotés sont en EM/Asia (chaos/cross-région) où le book est juste. "
+                "Le vrai usage ici = le **live in-map** (page « Série en cours »)."
+            )
 
 
 def _value_calculator(covered: list[dict]) -> None:

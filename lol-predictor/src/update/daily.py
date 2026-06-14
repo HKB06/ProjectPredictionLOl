@@ -25,7 +25,7 @@ def main() -> int:
     args = parser.parse_args()
 
     if not args.no_download:
-        print("\n=== 1/3  Téléchargement data (Google Drive) ===")
+        print("\n=== 1/5  Téléchargement data (Google Drive) ===")
         try:
             from src.update.download_data import download_latest
             download_latest()
@@ -33,14 +33,14 @@ def main() -> int:
             print(f"[warn] download échoué ({exc}) -> on garde la data locale.")
 
     if not args.no_rebuild:
-        print("\n=== 2/3  Régénération des tables (matches/team_games) ===")
+        print("\n=== 2/5  Régénération des tables (matches/team_games) ===")
         try:
             from src.ingest import build_match_table
             build_match_table.main()
         except Exception as exc:  # noqa: BLE001
             print(f"[warn] rebuild échoué ({exc}).")
 
-    print("\n=== 3/4  Watchlist pré-match ===")
+    print("\n=== 3/5  Watchlist pré-match ===")
     from src.update.watchlist import generate
     try:
         res = generate(days=args.days)
@@ -58,7 +58,7 @@ def main() -> int:
             print(f"   * {r['when']:14} {r['league']:6} {fav} {p*100:.0f}%  (vs "
                   f"{r['team2'] if fav == r['team1'] else r['team1']})")
 
-    print("\n=== 4/4  Cotes Polymarket (matchs pariables) ===")
+    print("\n=== 4/5  Cotes Polymarket (matchs pariables) ===")
     try:
         from src.update.polymarket import generate as pm_generate
         pm = pm_generate(days=min(args.days, 4))
@@ -70,6 +70,22 @@ def main() -> int:
                   f"value {r['value_team']} {r['edge']*100:+.1f} pts{tag}")
     except Exception as exc:  # noqa: BLE001
         print(f"[warn] Polymarket indisponible ({exc}). Watchlist pariable non generee.")
+
+    print("\n=== 5/5  Cotes book (odds-api.io : EM/LCS/Asia/VCS + live + Totals) ===")
+    try:
+        from src.update.oddsapi import generate as oa_generate, load_key
+        if not load_key():
+            print("[info] Cle odds-api.io absente (ODDS_API_KEY ou oddsapi.key) -> etape ignoree.")
+        else:
+            oa = oa_generate(days=args.days)
+            rows, act = oa["rows"], oa["actionable"]
+            print(f"OK -> {oa['path']}  ({len(rows)} matchs cotes, {len(act)} value(s) actionnable(s))")
+            for r in act:
+                print(f"   {r['when']:14} {r['league']:14} {r['team1']} vs {r['team2']}: "
+                      f"value {r['value_team']} @{r.get('best_odd', 0):.2f} "
+                      f"{r['edge']*100:+.1f} pts >>> VALUE <<<")
+    except Exception as exc:  # noqa: BLE001
+        print(f"[warn] odds-api.io indisponible ({exc}). Watchlist book non generee.")
     return 0
 
 

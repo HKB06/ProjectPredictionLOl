@@ -32,6 +32,15 @@ def elo_state():
             state["reliability"], state["shrink"], state["global_rel"])
 
 
+@st.cache_data(ttl=120, show_spinner="Recherche du match live (odds-api.io)…")
+def load_live(team_a: str, team_b: str):
+    """Score par map + cotes ML live du match en cours pour ces 2 équipes (odds-api.io)."""
+    from src.update.oddsapi import live_series, load_key
+    if not load_key():
+        return None
+    return live_series(team_a, team_b)
+
+
 @st.cache_resource(show_spinner="Apprentissage des ratings de champions (draft-only, une fois)…")
 def draft_model():
     """Ratings champions (+1 bleu / -1 rouge) appris sur tout le CSV (cf. draft_predict)."""
@@ -164,7 +173,60 @@ def main() -> None:
     for w in warn:
         st.warning(w)
 
-    # --- cotes live série ---
+    # --- AUTO : live via odds-api.io (score par map + cotes ML live) ---
+    with st.container(border=True):
+        st.markdown("#### 🔴 Live auto (odds-api.io)")
+        st.caption(
+            "Récupère **le score par map + les cotes ML live** du match en cours pour ces 2 "
+            "équipes, et calcule l'edge **sans saisie manuelle**. Couverture limitée "
+            "(surtout EM / LCS / Asia Masters / VCS) — sinon utilise la saisie manuelle ci-dessous."
+        )
+        from src.update.oddsapi import load_key as _oa_key
+        if not _oa_key():
+            st.info("Pas de clé odds-api.io (`oddsapi.key`).")
+        else:
+            cL = st.columns([1.5, 4])
+            if cL[0].button("🔄 Charger le live", width="stretch"):
+                load_live.clear()
+            try:
+                info = load_live(a, b)
+            except Exception as exc:  # noqa: BLE001
+                info, _ = None, cL[1].warning(f"odds-api.io indisponible ({exc}).")
+            if info is None:
+                cL[1].info("Aucun match live/à venir trouvé chez les books pour ces 2 équipes.")
+            else:
+                wn = info["wins_needed"]
+                wa_l, wb_l = int(info["wa"]), int(info["wb"])
+                oa_l, ob_l = info.get("odd_a"), info.get("odd_b")
+                done = wa_l >= wn or wb_l >= wn
+                p_live = (1.0 if wa_l >= wn else 0.0) if done else \
+                    race(round(p_game, 4), wn - wa_l, wn - wb_l)
+                m = st.columns(4)
+                m[0].metric("Format détecté", f"BO{wn * 2 - 1}")
+                m[1].metric(f"Score {a.split()[0]}-{b.split()[0]}", f"{wa_l}-{wb_l}")
+                m[2].metric(f"P({a}) série", f"{p_live*100:.0f}%")
+                m[3].metric("Statut", str(info.get("status") or "—"))
+                if done:
+                    st.info("Série déjà décidée avec ce score.")
+                elif oa_l and ob_l:
+                    for team, pm, odd, odd_o in ((a, p_live, oa_l, ob_l),
+                                                 (b, 1 - p_live, ob_l, oa_l)):
+                        edge = pm - 1 / odd
+                        fshort = odd_o < NO_FADE_ODD and edge >= EDGE_MIN
+                        cc = st.columns([2, 1, 1, 1, 3])
+                        cc[0].markdown(f"**{team}**")
+                        cc[1].metric("Nous", f"{pm*100:.0f}%")
+                        cc[2].metric("Book live", f"@{odd:.2f}")
+                        cc[3].metric("Edge", f"{edge*100:+.1f} pts")
+                        cc[4].markdown(f"<div style='margin-top:.6rem'>"
+                                       f"{verdict(edge, odd, fshort)}</div>",
+                                       unsafe_allow_html=True)
+                    if info.get("url"):
+                        st.markdown(f"[→ Ouvrir le pari]({info['url']})")
+                else:
+                    st.info("Cotes ML live indisponibles (score récupéré quand même).")
+
+    # --- cotes live série (saisie manuelle) ---
     st.subheader("Cotes live — vainqueur de la SÉRIE")
     cc = st.columns([1.5, 1.5, 2.5])
     odd_a = cc[0].number_input(f"Cote {a}", 1.01, 51.0, 2.00, 0.05, key="odd_a")

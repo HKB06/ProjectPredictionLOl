@@ -1,6 +1,6 @@
 # Point d'étape — Projet perso (LOL DeepWin / prédiction LCK-LEC)
 
-_Dernière mise à jour : 4 juin 2026 (session du soir)_
+_Dernière mise à jour : 14 juin 2026 (audit multi-ligues + 1er pari live gagné)_
 
 ## Où on en est
 
@@ -473,6 +473,98 @@ cold-start non seedé (pas de data 2025) ; pools isolés (Elo EM gonflé → pru
 ### Picks week-end (règle 🎯) : Rising Gaming 80 % & FENNEL 69 % (LJL, books esports type
 GG.bet) · Gen.G 94 % @~1,12 sur Polymarket (edge +4,3) · Saigon Dino 79 % (VCS, mise réduite).
 À ignorer malgré les « edges » : TL/C9 (LCS), Keyd/LOS (x-région), BLG/WE (LPL), tout l'EM.
+
+## SESSION 14 juin — AUDIT MULTI-LIGUES + RÈGLE 75 % CONFIRMÉE + 1er PARI LIVE GAGNÉ
+
+### Pari live validé (preuve réelle du pattern fade-momentum)
+UCAM vs KCB (EM, belle BO5). Notre Elo ~50/50 ; le book sur-cotait KCB à **1,40 (71 %)** car
+il venait de gagner la map 2 -> **fade UCAM @ 3,0** (edge +13 pts side-neutre). UCAM stomp
+**16-2**, pari **GAGNÉ**. Confirme la thèse « EM = fader le favori du book ». Map 4 (UCAM
+côté ROUGE -> edge tombé à +3,6 avec le côté) -> **passée à juste titre**. Le côté vaut ~3 pts
+(baseline bleu 53 %) : à intégrer dans la page Série.
+
+### Audit complet (CSV 14/06, 5823 games, walk-forward sans fuite)
+3 outils relancés : `league_predictability`, `eval_models --detail`, `secondary_markets`.
+- **Prévisibilité (AUC)** : LES .81, LAS .79, EBL .78, LJL .78, TCL/HLL .76, PRM .75, LFL .73
+  > LCK .71 > LEC .67 > ... > **EM .63, LPL .61, CD .55** (chaos).
+- **Calibration EM = sur-confiance grave** : un « 60-70 % » gagne **48 %** réel (écart +15),
+  un « 80-90 % » gagne **50 %** (écart +34). => ne JAMAIS back un favori EM ; l'edge = le fader.
+  LEC = sous-confiant (favoris 50-60 % gagnent 61 %) -> légèrement sous-évalués chez nous.
+- **Marchés (AUC, test 488 g)** : winner 0.71 >> first_baron 0.65 > first_tower 0.61 >
+  first_herald 0.58 > first_dragon 0.57 > first_blood 0.51 (hasard). O/U : total_kills **+3,9 %**
+  MAE seulement, **game_time négatif**. => jouer **WINNER** ; first_baron/tower en appoint ;
+  fuir first_blood/dragon/durée.
+
+### RÈGLE 75 % re-mesurée sur données fraîches (`tmp_selectivity2.py`)
+Favori du modèle, data ≥15 g, walk-forward :
+| Seuil | Fiables+pariables | picks/sem | Chaos (EM/LPL/LCS) |
+|-------|-------------------|-----------|--------------------|
+| p≥0.65| 78,5 % | 29 | 64,8 % |
+| p≥0.70| 80,7 % | 20 | 69,1 % |
+| p≥0.75| **84,6 %** | 14 | 71,9 % |
+| p≥0.80| **85,8 %** | 8 | 67,2 % |
+=> Le **80-85 % visé est ATTEINT par la sélectivité** (p≥0.75 fiable = 84,6 %, n=266), PAS par
+un meilleur modèle (Brier 0,219 ≈ plancher LoL ~0,18-0,20 ; ~30 % d'upsets irréductibles).
+Le chaos plafonne à ~72 % même très sélectif.
+**Sweet spot pariable** (wr favori p≥0.70) : **TCL 94 %** (n18), **LFL 94 %** (n16), LCK 84 %
+(mais lignes sharp), LJL 81 %, LAS 80 %, PRM 79 %. -> LFL/TCL = précis ET lignes molles = le filon.
+
+### LE VRAI GOULOT (ce n'est PAS le modèle)
+1. **Cotes des ligues sweet-spot** (LFL/TCL/PRM/LJL) indisponibles (Polymarket = majors only).
+   Sans elles : pas de value mesurable ni de pari réel. = **priorité n°1**.
+2. **Winrate ≠ profit** : 85 % sur des favoris à 1,15 = perte. Filtre final = **VALUE (p > 1/cote)**.
+3. Bonus accuracy = **Elo par joueur** (roster-aware) sur les ligues à roster mouvant (EM/LFL).
+
+### Backtest cotes EMEA Masters (101 matchs Winter+Spring) — EM = mur d'efficience
+Cotes fournies par l'utilisateur (oddsportal). `data/odds/em_2026_odds.csv` + `tmp_value_em.py`.
+- **BIAIS MARCHÉ** (pur cotes+score, sans modèle) : back favori ROI **-0,9 %** (≈ la vig),
+  fade **-38,5 %**. Par tranche de cote du favori :
+  | cote fav | n | fav gagne | implicite | ROI back | ROI fade |
+  |---|---|---|---|---|---|
+  | ≤1,2 | 40 | 95,0 % | 91,6 % | +4,0 % | -68 % |
+  | 1,2-1,5 | 39 | 79,5 % | 75,7 % | +4,4 % | -38 % |
+  | **1,5-2,0** | 22 | 50,0 % | 62,2 % | -19,5 % | **+14,1 %** |
+  => Le « chaos EM » ne concerne PAS les matchs déséquilibrés (favori ≤1,5 = bien, voire
+     légèrement sous-coté). Il vit dans les matchs **SERRÉS** (favori 1,5-2,0) : le book
+     **surcote** le favori (gagne 50 % vs 62 % implicite), fader y rend **+14 %** — MAIS n=22
+     (piste, pas preuve). Fader en aveugle = suicide (-38 %).
+- **NOTRE MODÈLE en EM = inutilisable** : Brier 0,374 vs marché 0,158 ; acc 55 % vs 82 %
+  (11 séries). + **27 équipes EM (qualifs) ABSENTES** de notre CSV Oracle -> on ne peut même
+  pas les pricer.
+- Reframe honnête du pari **UCAM @3,0 gagné** : c'était un fade **LIVE** (récence map 3),
+  mécanisme différent ; en PRÉ-série, fader un favori à 1,32 (tranche 1,2-1,5) est **-EV** (-38 %).
+  Le gain = variance, pas un edge répétable à cette tranche.
+- **CONCLUSION** : EM = efficience de marché (comme LCK), PAS un terrain d'edge modèle. Seul
+  angle EM = biais structurel « fader le favori **serré** (1,5-2,0) », défini par les COTES (pas
+  notre modèle) et à confirmer (n faible). Le vrai test des sweet spots reste **LFL/PRM**.
+
+## SESSION 15 juin — odds-api.io intégré (cotes book auto, gratuit)
+**Quoi** : clé gratuite odds-api.io (plan £0 = 2 books, j'ai pris **1xbet + GG.bet**, les 2 « mous »
+esports). Clé stockée dans `lol-predictor/oddsapi.key` (**gitignored**, `*.key`). Base
+`https://api.odds-api.io/v3`, auth `?apiKey=`, sport `esports`.
+
+**Construit** : `src/update/oddsapi.py`
+- `scan(days)` : events LoL -> `/odds` (ML + Totals) -> matching Elo -> edge/value, **même
+  discipline** (✅ = edge≥4 pts ET ligue fiable ET data≥15 g ET pas cross-ligue). Sortie
+  `WATCHLIST_ODDSAPI.md`.
+- `live_series(a,b)` : score **par map** + cotes ML **live** alignées sur (a,b) -> alimente la page.
+- Intégré : `daily.py` (étape **5/5**), `app.py` (section **💰 Cotés chez les books**),
+  `pages/3_Serie_en_cours.py` (bouton **🔴 Live auto** = score+cotes live sans saisie).
+
+**CONSTAT couverture (capital)** : odds-api.io est **CS2/Valorant/R6** avant tout. LoL =
+**14 events/60 j (6 à venir)**. Couvre **EM, LCS, Asia Masters, VCS** ; **PAS** LFL/TCL/LJL/PRM
+ni LCK/LPL/LEC Summer. => **ne résout PAS la priorité n°1** (cotes des sweet-spots régionaux).
+Marchés vus = **ML + Totals (O/U)** ; **handicap de map PAS vu** sur ces matchs/books (à revérifier).
+
+**Résultat scan = 0 value actionnable** (honnête) : tous les matchs cotés sont en ligues
+**chaos/cross-région** -> 🌪️. Démo **Solary vs Galions (EM, 15/06)** : notre modèle ~**coin-flip**
+(52 %/map) vs book **71-78 %** Solary -> Galions @3,55 = « value » naïve **+15 à +19 pts** MAIS
+🌪️ **non suivi** (backtest EM : favori ≤1,5 = book juste). **Polymarket price pareil** (confirme).
+
+**Vrai usage odds-api.io** = (1) **live in-map** auto (notre edge prouvé, fade récence) ;
+(2) line-shop sur le peu couvert (1xbet 71 % vs GG.bet 78 %) ; (3) **Totals** à exploiter.
+Pour les sweet-spots non cotés : garder **saisie manuelle** + Polymarket, ou tester un fournisseur
+ciblé régional (Pandascore / The Odds API) plus tard.
 
 ## Prochaine étape (à reprendre demain)
 1. **PRIORITÉ : anciennes cotes régionales** (l'utilisateur peut en fournir : LJL/TCL/LFL/PRM,

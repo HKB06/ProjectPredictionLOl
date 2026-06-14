@@ -17,7 +17,7 @@ powershell -ExecutionPolicy Bypass -File kill_streamlit.ps1
 echo.
 echo ============================================================
 echo   1/2  Mise a jour complete (data + tables + watchlist
-echo         + cotes Polymarket)...
+echo         + cotes Polymarket + cotes book odds-api.io)...
 echo ============================================================
 venv\Scripts\python.exe -m src.update.daily
 echo.

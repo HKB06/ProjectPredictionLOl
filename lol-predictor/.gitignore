@@ -4,6 +4,12 @@ venv/
 __pycache__/
 *.pyc
 
+# Secrets (cle API odds-api.io) — ne JAMAIS committer
+oddsapi.key
+*.key
+.env
+.env.*
+
 # Données brutes volumineuses (ne pas versionner les gros CSV)
 data/raw/*.csv
 data/interim/*
