@@ -12,3 +12,6 @@ streamlit>=1.49
 # Automatisation : téléchargement data (Drive) + récup calendrier matchs (Leaguepedia)
 gdown>=5.1
 requests>=2.31
+# Assistant IA (page Streamlit) : agent Claude (tool use + vision) sur nos données
+anthropic>=0.40
+python-dotenv>=1.0

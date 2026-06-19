@@ -17,6 +17,7 @@ import unicodedata
 from pathlib import Path
 
 from src.ingest.load_oracle import ROOT, load_config
+from src.models.high_confidence import CONF_GAME  # seuil "haute confiance" (cf. backtest)
 from src.update.elo import (RELIABLE_ACC, calibrate, compute_elo, resolve_league,
                             series_prob, win_prob)
 
@@ -216,6 +217,11 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
         p_series = series_prob(p_game, wn)
         conf = min(n[a], n[b]) >= MIN_GAMES_CONF
         reliable = rel >= RELIABLE_ACC
+        pf_game = max(p_game, 1 - p_game)            # confiance du favori PAR GAME (calibrée)
+        xleague = league.get(a) != league.get(b)
+        # 🎯 Pick HAUTE CONFIANCE (~83 % hist.) : ligue fiable + favori ≥70 %/game,
+        # data suffisante, pas de cross-ligue (cf. src.models.high_confidence).
+        high_conf = reliable and conf and not xleague and pf_game >= CONF_GAME
         covered.append({
             "when": _fmt_paris(m["datetime"]),
             "datetime": m["datetime"],
@@ -228,9 +234,11 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
             "n1": n[a], "n2": n[b],
             "conf": conf,
             "rel": rel, "reliable": reliable, "league_code": code,
+            "p_game": p_game, "pf_game": pf_game,
             "strong": (p_series >= 0.62 or p_series <= 0.38) and conf and reliable,
+            "high_conf": high_conf,
             "league_a": league.get(a, "?"), "league_b": league.get(b, "?"),
-            "xleague": league.get(a) != league.get(b),  # Elo peu comparable (cf. KCB/PCIFIC)
+            "xleague": xleague,  # Elo peu comparable (cf. KCB/PCIFIC)
             "tournament": m.get("tournament") or m.get("overview"),
             "manual": m.get("manual", False),
         })
@@ -259,17 +267,39 @@ def _write_markdown(covered: list[dict], uncovered: list[dict], days: int) -> No
         "Si le book **sur-cote un favori** qu'on voit plus serré → **value** (cf. KC @2.45, VKS @2.7, "
         "Heretics @2.60). ⚠️ **Poser le pari TÔT** (marché soft ouvert) = le vrai enjeu.",
         "",
-        "Légende : ⭐ = penchant fort **fiable** (proba ≥62 %, data ≥15 g, **ligue prévisible**). "
-        "🌪️ = ligue **chaotique** (EM, LPL, LCS…) → proba peu fiable, **pas de ⭐ même à 70 %**. "
-        "⚠️x-ligue = Elo peu comparable (équipes de régions différentes).",
+        "Légende : 🎯 = **pick HAUTE CONFIANCE** (~83 % hist. : ligue fiable + favori **≥70 %/game** "
+        "+ data ≥15 g + pas de x-ligue, cf. `HIGH_CONFIDENCE.md`). ⭐ = penchant fort fiable "
+        "(proba série ≥62 %). 🌪️ = ligue **chaotique** (EM, LPL, LCS…) → proba peu fiable, "
+        "**pas de 🎯/⭐ même à 70 %** (c'est là que Galions 3-0 Solary explose). "
+        "⚠️x-ligue = Elo peu comparable (régions différentes).",
         "",
         "Aide-mémoire value : `edge = notre proba − 1/cote`. On ne fade **jamais** un favori à "
         "cote < ~1.2 (cf. paiN). On vise un **désaccord net sur cote équilibrée**.",
+        "",
+    ]
+    hc = [r for r in covered if r.get("high_conf")]
+    lines.append(f"## 🎯 Picks HAUTE CONFIANCE ({len(hc)}) — viser le vainqueur (~83 % hist.)")
+    if hc:
+        lines.append("| Quand (Paris) | Ligue | Match | BO | Favori (proba/game) | Proba série |")
+        lines.append("|---|---|---|---|---|---|")
+        for r in hc:
+            fav = r["team1"] if r["p1"] >= 0.5 else r["team2"]
+            lines.append(
+                f"| {r['when']} | {r['league']} | {r['team1']} vs {r['team2']} | BO{r['bestof']} | "
+                f"**{fav} {r['pf_game']*100:.0f}%/game** | {max(r['p1'], r['p2'])*100:.0f}% |"
+            )
+    else:
+        lines.append("_Aucun match 🎯 dans la fenêtre (ligues fiables + favori ≥70 %/game). "
+                     "Patiente : mieux vaut 0 pick qu'un faux favori en ligue chaotique._")
+    lines += [
+        "",
+        "## Tous les matchs couverts",
         "",
         "| Quand (Paris) | Ligue | Match | BO | Notre proba | Elo | Fiab. | Cote 1 / 2 | Edge |",
         "|---|---|---|---|---|---|---|---|---|",
     ]
     for r in covered:
+        target = "🎯" if r.get("high_conf") else ""
         fav_strong = "⭐" if r.get("strong") else ""
         chaos = " 🌪️" if not r.get("reliable", True) else ""
         xflag = " ⚠️x-ligue" if r.get("xleague") else ""
@@ -277,7 +307,7 @@ def _write_markdown(covered: list[dict], uncovered: list[dict], days: int) -> No
         elo = f"{r['elo1']:.0f} / {r['elo2']:.0f}"
         fiab = f"{r['rel']*100:.0f}%" + ("" if r["conf"] else f" ⚠️{min(r['n1'], r['n2'])}g")
         lines.append(
-            f"| {r['when']} | {r['league']} | {r['team1']} vs {r['team2']} {fav_strong}{chaos}{xflag} | "
+            f"| {r['when']} | {r['league']} | {r['team1']} vs {r['team2']} {target}{fav_strong}{chaos}{xflag} | "
             f"BO{r['bestof']} | {proba} | {elo} | {fiab} | _ / _ | _ |"
         )
 
@@ -306,10 +336,19 @@ def main() -> None:
         print(f"[watchlist] API matchs indisponible : {exc}")
         return
     cov, unc = res["covered"], res["uncovered"]
+    hc = [r for r in cov if r.get("high_conf")]
     print(f"[watchlist] {len(cov)} matchs couverts, {len(unc)} non couverts -> {res['path']}")
-    print("\n  Prochains matchs (Elo K32+MOV, proba calibrée) :")
+    print(f"\n  >>> {len(hc)} PICK(S) HAUTE CONFIANCE (~83% hist. : ligue fiable + favori >=70%/game) :")
+    for r in hc:
+        fav = r["team1"] if r["p1"] >= 0.5 else r["team2"]
+        print(f"  >> {r['when']:14} {r['league']:6} {fav} {r['pf_game']*100:.0f}%/game "
+              f"(serie {max(r['p1'], r['p2'])*100:.0f}%)  [{r['team1']} vs {r['team2']}]")
+    if not hc:
+        print("     (aucun -- mieux vaut 0 pick qu'un faux favori en ligue chaotique)")
+    print("\n  Tous les prochains matchs (Elo K32+MOV, proba calibrée) :")
     for r in cov[:25]:
-        flag = "*" if r.get("strong") else ("~" if not r.get("reliable", True) else " ")
+        flag = ">" if r.get("high_conf") else ("*" if r.get("strong") else
+                                               ("~" if not r.get("reliable", True) else " "))
         conf = "" if r["conf"] else f" (cold-start {min(r['n1'], r['n2'])}g)"
         print(f"  {flag} {r['when']:14} {r['league']:6} {r['team1']} {r['p1']*100:4.0f}% - "
               f"{r['p2']*100:.0f}% {r['team2']}{conf}")
