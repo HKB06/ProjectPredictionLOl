@@ -10,11 +10,21 @@ puis ouvrir la page « Assistant IA » dans la barre latérale.
 """
 from __future__ import annotations
 
+import os
+
 import streamlit as st
 
 from src.assistant.agent import DEFAULT_MODEL, DataContext, load_api_key
 
 st.set_page_config(page_title="Assistant IA — LoL", page_icon="🤖", layout="wide")
+
+# Déploiement cloud : expose les secrets Streamlit via os.environ (load_api_key lit l'env).
+try:
+    for _k in ("ANTHROPIC_API_KEY", "ODDS_API_KEY"):
+        if not os.environ.get(_k) and _k in st.secrets:
+            os.environ[_k] = str(st.secrets[_k])
+except Exception:
+    pass
 
 ALLOWED_IMG = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"}
 MODELS = {

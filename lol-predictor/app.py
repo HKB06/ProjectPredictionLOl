@@ -10,6 +10,7 @@ Lancer :
 """
 from __future__ import annotations
 
+import os
 import datetime as dt
 
 import pandas as pd
@@ -18,6 +19,14 @@ import streamlit as st
 from src.ingest.load_oracle import ROOT, load_config
 
 st.set_page_config(page_title="LoL — Matchs à venir", page_icon="📅", layout="wide")
+
+# Déploiement cloud : expose les secrets Streamlit via os.environ (load_key lit l'env).
+try:
+    for _k in ("ANTHROPIC_API_KEY", "ODDS_API_KEY"):
+        if not os.environ.get(_k) and _k in st.secrets:
+            os.environ[_k] = str(st.secrets[_k])
+except Exception:
+    pass
 
 
 @st.cache_data(ttl=1800, show_spinner="Calcul Elo + récupération des matchs (lolesports)...")
