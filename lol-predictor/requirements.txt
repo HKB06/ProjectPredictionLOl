@@ -1,5 +1,7 @@
-pandas>=2.2
-numpy>=1.26
+# Bornes hautes : le cloud (uv) installait pandas 3.0 / numpy 2.5 (bleeding-edge,
+# breaking) -> on reste sur les majeures testées localement pour un déploiement stable.
+pandas>=2.2,<3
+numpy>=1.26,<2.3
 # 1.9.0 bloqué par Windows Smart App Control (DLL _cyutility) ; 1.7.x embarque
 # ce meme _cyutility (conflit ABI Cython intermittent) -> on fixe la 1.8.x
 scikit-learn>=1.8,<1.9

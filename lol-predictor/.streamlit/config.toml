@@ -2,5 +2,7 @@
 gatherUsageStats = false
 
 [server]
-# Pas d'invite e-mail au 1er lancement ; le navigateur est ouvert par le .bat / au run.
-headless = false
+# IMPORTANT déploiement cloud : headless=true sinon Streamlit affiche l'invite e-mail
+# au 1er lancement et ATTEND une saisie clavier -> le serveur ne démarre pas (health
+# check 'connection refused', écran "Oh no"). En local le navigateur s'ouvre via le .bat.
+headless = true
