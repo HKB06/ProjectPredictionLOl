@@ -46,9 +46,14 @@ MIN_N_LEAGUE = 15     # par ligue : nb mini de séries pour afficher la ligue
 # --------------------------------------------------------------------------- #
 #  Reconstruction des séries
 # --------------------------------------------------------------------------- #
+# Colonnes réellement utilisées -> lecture frugale en RAM (déploiement cloud).
+_SERIES_COLS = {"gameid", "position", "side", "date", "teamname", "result",
+                "league", "game", "playoffs"}
+
+
 def load_games(csv: Path = CSV) -> pd.DataFrame:
     """Une ligne par game : blue, red, winner, league, jour, n° de map, playoffs."""
-    df = pd.read_csv(csv, low_memory=False, dtype={"patch": "string"})
+    df = pd.read_csv(csv, low_memory=False, usecols=lambda c: c.strip() in _SERIES_COLS)
     df.columns = [c.strip() for c in df.columns]
     t = df[df["position"].astype(str).str.lower() == "team"].copy()
     t["date"] = pd.to_datetime(t["date"], errors="coerce")

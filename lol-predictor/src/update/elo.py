@@ -60,10 +60,18 @@ def _mov_mult(kb, kr) -> float:
         return 1.0
 
 
+# Colonnes réellement utilisées (sur ~170 du CSV) -> lecture frugale en RAM (cloud).
+_GAME_COLS = {"gameid", "teamname", "result", "date", "league", "kills", "position", "side"}
+
+
 def load_games(cfg: dict | None = None) -> pd.DataFrame:
     """Une ligne par game : blue, red, yb (1=bleu gagne), kblue, kred, date, league."""
     cfg = cfg or load_config()
-    df = pd.read_csv(ROOT / cfg["data"]["oracle_csv"], low_memory=False)
+    df = pd.read_csv(
+        ROOT / cfg["data"]["oracle_csv"],
+        low_memory=False,
+        usecols=lambda c: c.strip() in _GAME_COLS,
+    )
     df.columns = [c.strip() for c in df.columns]
     df["date"] = pd.to_datetime(df["date"], errors="coerce")
     df = df.dropna(subset=["date"])
