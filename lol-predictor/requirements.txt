@@ -15,3 +15,5 @@ requests>=2.31
 # Assistant IA (page Streamlit) : agent Claude (tool use + vision) sur nos données
 anthropic>=0.40
 python-dotenv>=1.0
+# Barre de chat multimodale : coller des images (Ctrl+V) directement dans le chat de l'assistant
+st-chat-input-multimodal>=2.0

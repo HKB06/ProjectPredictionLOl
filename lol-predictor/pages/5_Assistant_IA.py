@@ -10,11 +10,19 @@ puis ouvrir la page « Assistant IA » dans la barre latérale.
 """
 from __future__ import annotations
 
+import base64
 import os
 
 import streamlit as st
 
 from src.assistant.agent import DEFAULT_MODEL, DataContext, load_api_key
+
+# Barre de chat multimodale (collage d'images Ctrl+V). Repli sur st.chat_input si absent.
+try:
+    from st_chat_input_multimodal import multimodal_chat_input
+    _HAS_PASTE = True
+except Exception:  # noqa: BLE001
+    _HAS_PASTE = False
 
 st.set_page_config(page_title="Assistant IA — LoL", page_icon="🤖", layout="wide")
 
@@ -68,6 +76,49 @@ def _encode_uploads(uploads) -> list[dict]:
         if mt in ALLOWED_IMG:
             out.append({"media_type": mt, "bytes": f.getvalue()})
     return out
+
+
+def _decode_datauris(files) -> list[dict]:
+    """Convertit les images du chat multimodal (data-URL base64) -> {media_type, bytes}."""
+    out = []
+    for f in files or []:
+        data = f.get("data", "") if isinstance(f, dict) else ""
+        if not data:
+            continue
+        if "," in data:
+            header, b64 = data.split(",", 1)
+            mt = header.split(";")[0].replace("data:", "").strip().lower() or "image/png"
+        else:
+            b64, mt = data, "image/png"
+        if mt == "image/jpg":
+            mt = "image/jpeg"
+        if mt in ALLOWED_IMG:
+            try:
+                out.append({"media_type": mt, "bytes": base64.b64decode(b64)})
+            except Exception:  # noqa: BLE001
+                pass
+    return out
+
+
+def _chat_bar() -> tuple[str, list[dict]] | None:
+    """Barre de chat du bas : texte + collage d'images (Ctrl+V). Renvoie (texte, images) ou None."""
+    ph = "Suivi — colle un screen (Ctrl+V) : cotes live, draft, gold@15…"
+    types = ["png", "jpg", "jpeg", "webp", "gif"]
+    if _HAS_PASTE and not st.session_state.get("_mm_broken"):
+        try:
+            res = multimodal_chat_input(placeholder=ph, accepted_file_types=types,
+                                        key="assistant_mm_chat")
+            if res and (res.get("text") or res.get("files")):
+                return (res.get("text") or "", _decode_datauris(res.get("files")))
+            return None
+        except Exception:  # noqa: BLE001  composant indispo (ex. API Streamlit retirée) -> repli natif
+            st.session_state["_mm_broken"] = True
+    # Repli natif : clic + glisser-déposer (le Ctrl+V n'existe pas en st.chat_input natif).
+    res = st.chat_input(ph, accept_file="multiple", file_type=types)
+    if not res:
+        return None
+    text = getattr(res, "text", res if isinstance(res, str) else "") or ""
+    return (text, _encode_uploads(getattr(res, "files", [])))
 
 
 def _run_agent(user_text: str, images: list[dict], key: str, model: str) -> None:
@@ -243,12 +294,17 @@ def main() -> None:
             pending = (_compose(team_a, team_b, bestof, league, draft_b, draft_r, notes, question),
                        _encode_uploads(uploads))
 
-    follow = st.chat_input("Question de suivi (ex. « et si KC change de draft ? »)…")
-    if follow:
+    chat_in = _chat_bar()
+    if chat_in and (chat_in[0].strip() or chat_in[1]):
         if not key:
             st.error("Ajoute ta clé API Anthropic dans la barre latérale.")
         else:
-            pending = (follow, [])
+            sig = (chat_in[0], tuple(len(i["bytes"]) for i in chat_in[1]))
+            if st.session_state.get("_last_chat_sig") != sig:
+                st.session_state["_last_chat_sig"] = sig
+                text = chat_in[0].strip() or \
+                    "Analyse ce screen (cotes / draft / état de game en live) et donne ton verdict."
+                pending = (text, chat_in[1])
 
     if pending:
         _run_agent(pending[0], pending[1], key, model)
