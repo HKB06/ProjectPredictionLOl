@@ -201,6 +201,26 @@ def _quick_preview(ctx: DataContext, team_a: str, team_b: str, bestof: int) -> N
         st.caption(f"— {note}")
 
 
+DRAFT_ROLES = [("top", "Top"), ("jng", "Jungle"), ("mid", "Mid"),
+               ("bot", "ADC"), ("sup", "Support")]
+
+
+def _draft_inputs(champs: list[str]) -> tuple[str, str]:
+    """Grille de draft par rôle (selectbox recherchable). Renvoie (draft bleue, draft rouge) en texte."""
+    opts = ["—", *champs]
+    st.markdown("**🎯 Draft** — pioche par rôle (autocomplétion ; laisse « — » si inconnu)")
+    cols = st.columns(2)
+    out: dict[str, list[str]] = {"blue": [], "red": []}
+    for side, title, col in (("blue", "🔵 Bleue", cols[0]), ("red", "🔴 Rouge", cols[1])):
+        with col:
+            st.caption(title)
+            for rk, rlabel in DRAFT_ROLES:
+                champ = st.selectbox(rlabel, opts, index=0, key=f"draft_{side}_{rk}")
+                if champ != "—":
+                    out[side].append(f"{champ} ({rlabel})")
+    return ", ".join(out["blue"]), ", ".join(out["red"])
+
+
 def main() -> None:
     st.title("🤖 Assistant IA — analyse de match")
     st.caption(
@@ -245,6 +265,7 @@ def main() -> None:
     except Exception as exc:  # noqa: BLE001
         st.error(f"Impossible de charger nos données : {exc}")
         st.stop()
+    champs = sorted(ctx.champ.dates)
 
     # ----------------------------------------------------------- historique chat
     for m in st.session_state.chat:
@@ -260,11 +281,7 @@ def main() -> None:
             bestof = c[2].selectbox("Format", [1, 3, 5], index=1, format_func=lambda b: f"BO{b}")
             league = st.text_input("Ligue / event (optionnel)",
                                    placeholder="LCK, MSI 2026 (utile pour signaler le cross-région)…")
-            d = st.columns(2)
-            draft_b = d[0].text_input("Draft bleue (5 champs, virgules)",
-                                      placeholder="Rumble, Wukong, Aurora, Yunara, Rakan")
-            draft_r = d[1].text_input("Draft rouge (5 champs, virgules)",
-                                      placeholder="Ornn, Trundle, Viktor, Jinx, Lulu")
+            draft_b, draft_r = _draft_inputs(champs)
             notes = st.text_area("Infos en plus (gol.gg, forme, roster, news, cotes du book…)",
                                  placeholder="Ex : KC joue avec son sub jungler ; cote book T1 @1.02 ; "
                                              "Solary 5 wins d'affilée…", height=80)
