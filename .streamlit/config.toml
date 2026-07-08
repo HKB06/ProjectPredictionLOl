@@ -1,0 +1,7 @@
+[browser]
+gatherUsageStats = false
+
+[server]
+# Config lue par Streamlit Cloud (CWD = racine du repo, main module = lol-predictor/app.py).
+# headless=true OBLIGATOIRE : sinon invite e-mail bloquante au boot -> "connection refused".
+headless = true
