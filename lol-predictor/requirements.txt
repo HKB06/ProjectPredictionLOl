@@ -1,20 +1,31 @@
-# Bornes hautes : le cloud (uv) installait pandas 3.0 / numpy 2.5 (bleeding-edge,
-# breaking) -> on reste sur les majeures testées localement pour un déploiement stable.
-pandas>=2.2,<3
-numpy>=1.26,<2.3
-# 1.9.0 bloqué par Windows Smart App Control (DLL _cyutility) ; 1.7.x embarque
-# ce meme _cyutility (conflit ABI Cython intermittent) -> on fixe la 1.8.x
-scikit-learn>=1.8,<1.9
-lightgbm>=4.3
-scipy>=1.11
-pyarrow>=15
-matplotlib>=3.8
-pyyaml>=6.0
-streamlit>=1.49
-# Automatisation : téléchargement data (Drive) + récup calendrier matchs (Leaguepedia)
-gdown>=5.1
-requests>=2.31
-# Assistant IA (page Streamlit) : agent Claude (tool use + vision) sur nos données
+# ─────────────────────────────────────────────────────────────────────────────
+# Versions ÉPINGLÉES aux versions du venv LOCAL où l'app tourne sans erreur.
+# Pourquoi : sur le cloud, uv retéléchargeait les dernières versions à chaque
+# déploiement (ex. streamlit 1.59.1, numpy bridé 2.2.x) -> combo jamais testé ->
+# "Segmentation fault" (librairie compilée incompatible avec les autres).
+# On fige donc le combo EXACT validé en local. NE PAS élargir sans re-tester le
+# déploiement cloud (reboot + logs sans segfault).
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Framework + UI
+streamlit==1.58.0
+altair==6.2.1
+
+# Stack scientifique compilée (source des segfaults si versions mal alignées)
+numpy==2.4.6
+pandas==3.0.3
+scipy==1.17.1
+scikit-learn==1.8.0
+lightgbm==4.6.0
+pyarrow==24.0.0
+matplotlib==3.10.9
+
+# Utilitaires (pur Python, aucun risque de segfault)
+pyyaml==6.0.3
+gdown==6.1.0
+requests==2.34.2
+
+# Assistant IA (page 5) — non installé en local, borne large volontaire
 anthropic>=0.40
 python-dotenv>=1.0
 # Barre de chat multimodale : coller des images (Ctrl+V) directement dans le chat de l'assistant
