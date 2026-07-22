@@ -78,6 +78,13 @@ def _fav(r: dict):
     return r["team2"], r["p2"], r["team1"], r["p1"], r["elo2"], r["elo1"]
 
 
+def _breakeven(p: float) -> float:
+    """Cote plancher (break-even) = 1/proba : il faut une cote STRICTEMENT au-dessus
+    pour être rentable sur la durée. Ex. proba 80 % -> 1/0,80 = 1.25 (en dessous = perte).
+    """
+    return 1.0 / p if p and p > 0 else float("inf")
+
+
 def refresh_data():
     with st.status("Mise à jour…", expanded=True) as status:
         st.write("Téléchargement de la data (Google Drive)…")
@@ -144,10 +151,12 @@ def main() -> None:
             for r in sorted(strong, key=lambda x: x["datetime"]):
                 fav, p_fav, und, _pu, _ea, _eb = _fav(r)
                 x = " · ⚠️ **cross-ligue**" if r["xleague"] else ""
+                be = _breakeven(p_fav)
                 st.markdown(
                     f"- **{r['when']}** · {r['league']} · BO{r['bestof']} — "
-                    f"notre favori **{fav} ({p_fav*100:.0f}%)** vs {und}{x}  \n"
-                    f"  → *value SI le book donne {fav} perdant ou trop proche*"
+                    f"notre favori **{fav} ({p_fav*100:.0f}%)** vs {und}{x} — "
+                    f"cote mini **{be:.2f}**  \n"
+                    f"  → *value SI le book cote {fav} **au-dessus de {be:.2f}***"
                 )
 
     # --- Filtres ---
@@ -192,6 +201,7 @@ def main() -> None:
             "BO": f"BO{r['bestof']}",
             "Notre favori": fav,
             "P(favori)": round(p_fav * 100),
+            "Cote mini": round(_breakeven(p_fav), 2),
             "Fiab. ligue": round(r.get("rel", 0) * 100),
             "Elo (fav / autre)": f"{elo_fav:.0f} / {elo_und:.0f}",
             "X-ligue": "⚠️" if r["xleague"] else "",
@@ -216,6 +226,10 @@ def main() -> None:
                 "P(favori)": st.column_config.ProgressColumn(
                     "P(favori)", help="Proba calibrée de notre favori",
                     format="%d%%", min_value=0, max_value=100),
+                "Cote mini": st.column_config.NumberColumn(
+                    "Cote mini", help="Cote break-even = 1/proba. Il faut une cote STRICTEMENT "
+                    "au-dessus pour être rentable sur la durée (ex. 80 % → 1.25, 65 % → 1.54).",
+                    format="%.2f"),
                 "Fiab. ligue": st.column_config.ProgressColumn(
                     "Fiab. ligue", help="Accuracy historique du modèle dans cette ligue "
                     "(≥62 % = fiable, sinon 🌪️ chaotique)",
@@ -226,6 +240,8 @@ def main() -> None:
         st.caption(
             "🎯 = **règle 75 %** (mesurée) : ligue fiable + data ≥15 g + favori ≥65 % hors cross-ligue "
             "→ **~81 %** de bons vainqueurs historiquement (1 174 games walk-forward). "
+            "**Cote mini** = cote plancher (1/proba) : parie **uniquement au-dessus**, sinon perte à "
+            "long terme même en ayant souvent raison. "
             "**Value PM** = côté où notre proba dépasse le plus le prix Polymarket ; "
             "✅ = edge ≥4 pts ET ligue fiable ET data OK (cf. `WATCHLIST_PARIABLE.md`)."
         )
@@ -356,21 +372,23 @@ def _value_calculator(covered: list[dict]) -> None:
         ("2", r["team2"], r["p2"], o2, 1 - book1),
     ):
         edge = p_model - 1 / o  # EV vs cote brute
-        cols = st.columns([2, 1, 1, 1, 2])
+        be = _breakeven(p_model)
+        cols = st.columns([2, 1, 1, 1, 1, 2])
         cols[0].markdown(f"**{team}**")
         cols[1].metric("Notre proba", f"{p_model*100:.0f}%")
-        cols[2].metric("Book (dévig.)", f"{book*100:.0f}%")
-        cols[3].metric("Edge (EV)", f"{edge*100:+.0f}%")
+        cols[2].metric("Cote mini", f"{be:.2f}", help="Break-even = 1/proba. Parie au-dessus.")
+        cols[3].metric("Book (dévig.)", f"{book*100:.0f}%")
+        cols[4].metric("Edge (EV)", f"{edge*100:+.0f}%")
         # Verdict (règles du journal)
         if o < 1.20:
             verdict = "⛔ favori court — on ne fade jamais (piège)"
         elif edge > 0.03:
-            verdict = "✅ VALUE — pari défendable (poser tôt !)"
+            verdict = f"✅ VALUE — cote {o:.2f} > mini {be:.2f} (poser tôt !)"
         elif edge > 0:
             verdict = "🟡 léger +EV — couvre à peine la vig, prudence"
         else:
-            verdict = "❌ −EV — pas de pari"
-        cols[4].markdown(f"<div style='margin-top:.6rem'>{verdict}</div>", unsafe_allow_html=True)
+            verdict = f"❌ −EV — il faut une cote > {be:.2f}"
+        cols[5].markdown(f"<div style='margin-top:.6rem'>{verdict}</div>", unsafe_allow_html=True)
 
     st.caption(
         "Edge = notre proba − (1 / cote). Value si > +3 %. ⚠️ Elo-only (sans draft) : "
