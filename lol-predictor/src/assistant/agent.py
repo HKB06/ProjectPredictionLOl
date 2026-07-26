@@ -35,7 +35,7 @@ from src.update.elo import (RELIABLE_ACC, _norm, calibrate, compute_elo,
                             load_games, series_prob, win_prob)
 
 DEFAULT_MODEL = "claude-opus-4-8"   # cf. platform.claude.com (Opus-tier flagship)
-DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"  # Google, gratuit (free tier) : multimodal + tools
+DEFAULT_GEMINI_MODEL = "gemini-flash-latest"  # alias stable Google (évite les 404 de version)
 MIN_GAMES_CONF = 15                 # data fiable (cohérent avec la watchlist)
 MAX_TOOL_STEPS = 10                 # garde-fou anti-boucle d'outils
 
@@ -65,6 +65,22 @@ def load_gemini_key() -> str | None:
             if txt:
                 return txt
     return None
+
+
+def list_gemini_models(api_key: str | None = None) -> list[str]:
+    """IDs des modèles Gemini de cette clé qui supportent `generateContent` (chat)."""
+    from google import genai
+    client = genai.Client(api_key=api_key) if api_key else genai.Client()
+    names = []
+    for m in client.models.list():
+        short = (getattr(m, "name", "") or "").split("/")[-1]
+        if "gemini" not in short or "embedding" in short:
+            continue
+        methods = getattr(m, "supported_actions", None)
+        if methods and "generateContent" not in methods:
+            continue
+        names.append(short)
+    return names
 
 
 # =========================================================================== #

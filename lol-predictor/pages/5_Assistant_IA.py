@@ -35,11 +35,7 @@ except Exception:
     pass
 
 ALLOWED_IMG = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"}
-GEMINI_MODELS = {
-    "gemini-2.5-flash": "Gemini 2.5 Flash — gratuit, multimodal + rapide (recommandé)",
-    "gemini-2.0-flash": "Gemini 2.0 Flash — gratuit, le plus rapide",
-    "gemini-2.5-pro": "Gemini 2.5 Pro — gratuit*, le plus fin (quota free tier plus serré)",
-}
+GEMINI_MODELS_FALLBACK = ["gemini-flash-latest", "gemini-pro-latest", "gemini-flash-lite-latest"]
 ANTHROPIC_MODELS = {
     "claude-opus-4-8": "Opus 4.8 — le plus fin · ~$5/$25 par M tokens (payant)",
     "claude-sonnet-4-6": "Sonnet 4.6 — bon rapport vitesse/qualité (payant)",
@@ -51,6 +47,22 @@ PROVIDERS = {"Gemini (Google · gratuit)": "gemini", "Anthropic (Claude · payan
 @st.cache_resource(show_spinner="Chargement du modèle (Elo + priors champion)…")
 def get_ctx() -> DataContext:
     return DataContext()
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def _gemini_model_list(api_key: str) -> list[str]:
+    """Modèles Gemini disponibles sur cette clé (repli sur les alias stables si échec)."""
+    try:
+        from src.assistant.agent import list_gemini_models
+        names = list_gemini_models(api_key)
+    except Exception:  # noqa: BLE001
+        names = []
+    if not names:
+        return GEMINI_MODELS_FALLBACK
+    names.sort(key=lambda n: (0 if "flash" in n else 1,
+                              0 if "latest" in n else 1,
+                              1 if "lite" in n else 0, n))
+    return names
 
 
 def _compose(team_a, team_b, bestof, league, draft_b, draft_r, notes, question) -> str:
@@ -261,7 +273,11 @@ def main() -> None:
             if typed:
                 st.session_state["gemini_key"] = typed
             key = st.session_state.get("gemini_key") or file_key
-            models = GEMINI_MODELS
+            st.caption("✅ Clé détectée" if key else "❌ Pas de clé — ajoute-la ci-dessus.")
+            gem_models = _gemini_model_list(key) if key else GEMINI_MODELS_FALLBACK
+            model = st.selectbox("Modèle", gem_models, index=0)
+            st.caption("Modèles listés depuis ta clé Gemini."
+                       if key else "Ajoute ta clé pour lister tes modèles.")
         else:
             file_key = load_api_key()
             typed = st.text_input(
@@ -274,11 +290,9 @@ def main() -> None:
             if typed:
                 st.session_state["anthropic_key"] = typed
             key = st.session_state.get("anthropic_key") or file_key
-            models = ANTHROPIC_MODELS
-
-        st.caption("✅ Clé détectée" if key else "❌ Pas de clé — ajoute-la ci-dessus.")
-        model = st.selectbox("Modèle", list(models), index=0, format_func=lambda m: m)
-        st.caption(models[model])
+            st.caption("✅ Clé détectée" if key else "❌ Pas de clé — ajoute-la ci-dessus.")
+            model = st.selectbox("Modèle", list(ANTHROPIC_MODELS), index=0, format_func=lambda m: m)
+            st.caption(ANTHROPIC_MODELS[model])
 
         st.divider()
         if st.button("🗑️ Vider la conversation", width="stretch"):
