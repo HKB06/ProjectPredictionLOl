@@ -35,6 +35,7 @@ from src.update.elo import (RELIABLE_ACC, _norm, calibrate, compute_elo,
                             load_games, series_prob, win_prob)
 
 DEFAULT_MODEL = "claude-opus-4-8"   # cf. platform.claude.com (Opus-tier flagship)
+DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"  # Google, gratuit (free tier) : multimodal + tools
 MIN_GAMES_CONF = 15                 # data fiable (cohérent avec la watchlist)
 MAX_TOOL_STEPS = 10                 # garde-fou anti-boucle d'outils
 
@@ -45,6 +46,20 @@ def load_api_key() -> str | None:
     if key:
         return key.strip()
     for p in (ROOT / "anthropic.key", ROOT.parent / "anthropic.key"):
+        if p.exists():
+            txt = p.read_text(encoding="utf-8").strip()
+            if txt:
+                return txt
+    return None
+
+
+def load_gemini_key() -> str | None:
+    """GEMINI_API_KEY / GOOGLE_API_KEY (env) en priorité, sinon fichier `gemini.key` (gitignored)."""
+    for var in ("GEMINI_API_KEY", "GOOGLE_API_KEY"):
+        key = os.environ.get(var)
+        if key:
+            return key.strip()
+    for p in (ROOT / "gemini.key", ROOT.parent / "gemini.key"):
         if p.exists():
             txt = p.read_text(encoding="utf-8").strip()
             if txt:
@@ -663,6 +678,104 @@ class Assistant:
                         "content": json.dumps(result, ensure_ascii=False, default=str),
                     })
             messages.append({"role": "user", "content": tool_results})
+
+        return "⚠️ Trop d'étapes d'outils sans réponse finale (boucle interrompue)."
+
+
+# =========================================================================== #
+#  Assistant Gemini (Google) — même interface, backend gratuit (free tier)     #
+# =========================================================================== #
+def _json_schema_to_gemini(schema: dict, types):
+    """Convertit un JSON Schema (nos TOOLS) en `types.Schema` Gemini (récursif)."""
+    t = (schema.get("type") or "string").lower()
+    mapping = {
+        "object": types.Type.OBJECT, "string": types.Type.STRING,
+        "integer": types.Type.INTEGER, "number": types.Type.NUMBER,
+        "array": types.Type.ARRAY, "boolean": types.Type.BOOLEAN,
+    }
+    kwargs = {"type": mapping.get(t, types.Type.STRING)}
+    if schema.get("description"):
+        kwargs["description"] = schema["description"]
+    if t == "object":
+        props = schema.get("properties", {})
+        kwargs["properties"] = {k: _json_schema_to_gemini(v, types) for k, v in props.items()}
+        if schema.get("required"):
+            kwargs["required"] = list(schema["required"])
+    elif t == "array":
+        kwargs["items"] = _json_schema_to_gemini(schema.get("items", {"type": "string"}), types)
+    return types.Schema(**kwargs)
+
+
+class GeminiAssistant:
+    """Agent Gemini branché sur `DataContext` via function calling (+ vision).
+
+    Interface IDENTIQUE à `Assistant` (Anthropic) : `ask(user_text, images, history,
+    on_event)`. Les CHIFFRES viennent de nos outils déterministes (Elo, proba calibrée,
+    priors…) — Gemini ne fait qu'orchestrer les appels d'outils et rédiger l'analyse.
+    Changer d'LLM ne change donc AUCUN chiffre du modèle.
+    """
+
+    def __init__(self, api_key: str | None = None, model: str = DEFAULT_GEMINI_MODEL,
+                 ctx: DataContext | None = None) -> None:
+        from google import genai  # import paresseux : la page marche sans la lib pour le reste
+        from google.genai import types
+        self._types = types
+        self.client = genai.Client(api_key=api_key) if api_key else genai.Client()
+        self.model = model
+        self.ctx = ctx or DataContext()
+        self._tools = types.Tool(function_declarations=[
+            types.FunctionDeclaration(
+                name=t["name"], description=t["description"],
+                parameters=_json_schema_to_gemini(t["input_schema"], types),
+            ) for t in TOOLS
+        ])
+
+    def ask(self, user_text: str, images: list[dict] | None = None,
+            history: list[dict] | None = None, on_event=None,
+            max_tokens: int = 4000) -> str:
+        """Pose une question. `images` = [{media_type, bytes}]. `history` = tours texte."""
+        types = self._types
+
+        contents = []
+        for turn in history or []:  # historique texte -> user/model
+            role = "model" if turn.get("role") == "assistant" else "user"
+            contents.append(types.Content(role=role, parts=[types.Part(text=turn["content"])]))
+
+        parts = []
+        for img in images or []:
+            parts.append(types.Part.from_bytes(data=img["bytes"], mime_type=img["media_type"]))
+        parts.append(types.Part(text=user_text))
+        contents.append(types.Content(role="user", parts=parts))
+
+        config = types.GenerateContentConfig(
+            system_instruction=SYSTEM_PROMPT, tools=[self._tools],
+            max_output_tokens=max_tokens, temperature=0.3,
+        )
+
+        for _ in range(MAX_TOOL_STEPS):
+            resp = self.client.models.generate_content(
+                model=self.model, contents=contents, config=config)
+            if not resp.candidates:
+                return "⚠️ Réponse vide (contenu bloqué ou quota). Réessaie."
+            content = resp.candidates[0].content
+            contents.append(content)  # rejoue la réponse du modèle
+
+            calls = [p.function_call for p in (content.parts or [])
+                     if getattr(p, "function_call", None)]
+            if not calls:
+                return (resp.text or "").strip()
+
+            fr_parts = []
+            for fc in calls:
+                args = dict(fc.args) if fc.args else {}
+                if on_event:
+                    on_event("tool_call", {"name": fc.name, "input": args})
+                result = self.ctx.run_tool(fc.name, args)
+                if on_event:
+                    on_event("tool_result", {"name": fc.name, "result": result})
+                fr_parts.append(types.Part.from_function_response(
+                    name=fc.name, response={"result": result}))
+            contents.append(types.Content(role="user", parts=fr_parts))
 
         return "⚠️ Trop d'étapes d'outils sans réponse finale (boucle interrompue)."
 

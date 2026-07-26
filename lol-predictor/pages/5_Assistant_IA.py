@@ -15,7 +15,7 @@ import os
 
 import streamlit as st
 
-from src.assistant.agent import DEFAULT_MODEL, DataContext, load_api_key
+from src.assistant.agent import DataContext, load_api_key, load_gemini_key
 
 # Barre de chat multimodale (collage d'images Ctrl+V). Repli sur st.chat_input si absent.
 try:
@@ -28,18 +28,24 @@ st.set_page_config(page_title="Assistant IA — LoL", page_icon="🤖", layout="
 
 # Déploiement cloud : expose les secrets Streamlit via os.environ (load_api_key lit l'env).
 try:
-    for _k in ("ANTHROPIC_API_KEY", "ODDS_API_KEY"):
+    for _k in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "ANTHROPIC_API_KEY", "ODDS_API_KEY"):
         if not os.environ.get(_k) and _k in st.secrets:
             os.environ[_k] = str(st.secrets[_k])
 except Exception:
     pass
 
 ALLOWED_IMG = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp"}
-MODELS = {
-    "claude-opus-4-8": "Opus 4.8 — le plus fin (recommandé) · ~$5/$25 par M tokens",
-    "claude-sonnet-4-6": "Sonnet 4.6 — bon rapport vitesse/qualité, moins cher",
-    "claude-haiku-4-5": "Haiku 4.5 — le plus rapide/économique",
+GEMINI_MODELS = {
+    "gemini-2.5-flash": "Gemini 2.5 Flash — gratuit, multimodal + rapide (recommandé)",
+    "gemini-2.0-flash": "Gemini 2.0 Flash — gratuit, le plus rapide",
+    "gemini-2.5-pro": "Gemini 2.5 Pro — gratuit*, le plus fin (quota free tier plus serré)",
 }
+ANTHROPIC_MODELS = {
+    "claude-opus-4-8": "Opus 4.8 — le plus fin · ~$5/$25 par M tokens (payant)",
+    "claude-sonnet-4-6": "Sonnet 4.6 — bon rapport vitesse/qualité (payant)",
+    "claude-haiku-4-5": "Haiku 4.5 — le plus rapide/économique (payant)",
+}
+PROVIDERS = {"Gemini (Google · gratuit)": "gemini", "Anthropic (Claude · payant)": "anthropic"}
 
 
 @st.cache_resource(show_spinner="Chargement du modèle (Elo + priors champion)…")
@@ -121,7 +127,8 @@ def _chat_bar() -> tuple[str, list[dict]] | None:
     return (text, _encode_uploads(getattr(res, "files", [])))
 
 
-def _run_agent(user_text: str, images: list[dict], key: str, model: str) -> None:
+def _run_agent(user_text: str, images: list[dict], key: str, model: str,
+               provider: str = "gemini") -> None:
     """Affiche le tour user + lance l'agent, journalise les outils, rend la réponse."""
     display = user_text
     if images:
@@ -131,7 +138,10 @@ def _run_agent(user_text: str, images: list[dict], key: str, model: str) -> None
     st.session_state.chat.append({"role": "user", "content": display})
 
     try:
-        from src.assistant.agent import Assistant
+        if provider == "gemini":
+            from src.assistant.agent import GeminiAssistant as _Agent
+        else:
+            from src.assistant.agent import Assistant as _Agent
     except ImportError:
         st.error("Le paquet `anthropic` n'est pas installé.\n\n"
                  "→ `.\\venv\\Scripts\\python.exe -m pip install anthropic`")
@@ -139,7 +149,7 @@ def _run_agent(user_text: str, images: list[dict], key: str, model: str) -> None
 
     with st.chat_message("assistant"):
         try:
-            agent = Assistant(api_key=key, model=model, ctx=get_ctx())
+            agent = _Agent(api_key=key, model=model, ctx=get_ctx())
         except Exception as exc:  # noqa: BLE001
             st.error(f"Initialisation impossible : {exc}")
             return
@@ -160,7 +170,7 @@ def _run_agent(user_text: str, images: list[dict], key: str, model: str) -> None
                 status.update(label="Erreur", state="error")
                 msg = str(exc)
                 if "authentication" in msg.lower() or "api_key" in msg.lower() or "401" in msg:
-                    st.error("Clé API refusée. Vérifie ta clé Anthropic dans la barre latérale.")
+                    st.error("Clé API refusée. Vérifie ta clé API dans la barre latérale.")
                 elif "credit" in msg.lower() or "billing" in msg.lower() or "429" in msg:
                     st.error("Quota/crédit insuffisant ou rate-limit sur le compte Anthropic.")
                 else:
@@ -236,21 +246,39 @@ def main() -> None:
     # ----------------------------------------------------------- barre latérale
     with st.sidebar:
         st.subheader("⚙️ Réglages IA")
-        file_key = load_api_key()
-        typed = st.text_input(
-            "Clé API Anthropic", type="password",
-            value=st.session_state.get("anthropic_key", ""),
-            placeholder="sk-ant-…" if not file_key else "(détectée via env / anthropic.key)",
-            help="Stockée uniquement pour la session. Sinon : variable ANTHROPIC_API_KEY "
-                 "ou fichier `anthropic.key` (déjà gitignored).",
-        )
-        if typed:
-            st.session_state["anthropic_key"] = typed
-        key = st.session_state.get("anthropic_key") or file_key
-        st.caption("✅ Clé détectée" if key else "❌ Pas de clé — ajoute-la ci-dessus.")
+        prov_label = st.selectbox("Fournisseur", list(PROVIDERS), index=0)
+        provider = PROVIDERS[prov_label]
 
-        model = st.selectbox("Modèle", list(MODELS), index=0, format_func=lambda m: m)
-        st.caption(MODELS[model])
+        if provider == "gemini":
+            file_key = load_gemini_key()
+            typed = st.text_input(
+                "Clé API Gemini", type="password",
+                value=st.session_state.get("gemini_key", ""),
+                placeholder="AIza…" if not file_key else "(détectée via env / gemini.key)",
+                help="Gratuite sur aistudio.google.com/apikey. Stockée uniquement pour la "
+                     "session. Sinon : variable GEMINI_API_KEY ou fichier `gemini.key` (gitignored).",
+            )
+            if typed:
+                st.session_state["gemini_key"] = typed
+            key = st.session_state.get("gemini_key") or file_key
+            models = GEMINI_MODELS
+        else:
+            file_key = load_api_key()
+            typed = st.text_input(
+                "Clé API Anthropic", type="password",
+                value=st.session_state.get("anthropic_key", ""),
+                placeholder="sk-ant-…" if not file_key else "(détectée via env / anthropic.key)",
+                help="Stockée uniquement pour la session. Sinon : variable ANTHROPIC_API_KEY "
+                     "ou fichier `anthropic.key` (déjà gitignored).",
+            )
+            if typed:
+                st.session_state["anthropic_key"] = typed
+            key = st.session_state.get("anthropic_key") or file_key
+            models = ANTHROPIC_MODELS
+
+        st.caption("✅ Clé détectée" if key else "❌ Pas de clé — ajoute-la ci-dessus.")
+        model = st.selectbox("Modèle", list(models), index=0, format_func=lambda m: m)
+        st.caption(models[model])
 
         st.divider()
         if st.button("🗑️ Vider la conversation", width="stretch"):
@@ -324,7 +352,7 @@ def main() -> None:
                 pending = (text, chat_in[1])
 
     if pending:
-        _run_agent(pending[0], pending[1], key, model)
+        _run_agent(pending[0], pending[1], key, model, provider)
 
 
 if __name__ == "__main__":

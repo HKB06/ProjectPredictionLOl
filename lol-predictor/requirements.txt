@@ -27,6 +27,7 @@ requests==2.34.2
 
 # Assistant IA (page 5) — non installé en local, borne large volontaire
 anthropic>=0.40
+google-genai>=1.0
 python-dotenv>=1.0
 # Barre de chat multimodale : coller des images (Ctrl+V) directement dans le chat de l'assistant
 st-chat-input-multimodal>=2.0
