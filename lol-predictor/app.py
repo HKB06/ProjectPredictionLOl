@@ -30,8 +30,15 @@ except Exception:
     pass
 
 
+# ⚠️ st.cache_data ne "voit" QUE les modifs de load_watchlist, pas celles des fonctions
+# appelées (build_rows, lolesports…). On ajoute un n° de schéma à incrémenter dès que la
+# structure des lignes change (ex. ajout de result_winner/score) pour invalider le cache
+# au déploiement — sinon l'app sert d'anciennes lignes sans les nouveaux champs.
+WATCHLIST_SCHEMA = 3
+
+
 @st.cache_data(ttl=1800, show_spinner="Calcul Elo + récupération des matchs (lolesports)...")
-def load_watchlist(days: int):
+def load_watchlist(days: int, schema: int = WATCHLIST_SCHEMA):
     from src.update.watchlist import build_rows
     return build_rows(days)
 
