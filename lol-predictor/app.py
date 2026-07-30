@@ -138,17 +138,22 @@ def main() -> None:
         "un favori à cote < ~1,2. 🌪️ = ligue chaotique (proba peu fiable). Poser le pari **tôt** = l'enjeu."
     )
 
-    # --- 🎯 À chasser : nos favoris confiants = candidats value ---
-    if strong:
+    # --- 🎯 À chasser (DU JOUR) : nos favoris confiants = candidats value ---
+    _today = (dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=2)).strftime("%Y-%m-%d")
+    strong_today = [r for r in strong if r.get("paris_date") == _today]
+    if strong_today:
+        _upcoming = [r for r in strong_today if not r.get("passed")]
+        _done = [r for r in strong_today if r.get("passed")]
         with st.container(border=True):
-            st.markdown("### 🎯 À chasser — nos favoris confiants (candidats *value*)")
+            st.markdown("### 🎯 À chasser — nos favoris confiants **du jour** (candidats *value*)")
             st.caption(
                 "Le pattern gagnant = le **book met NOTRE favori en outsider** sur une ligne "
                 "**équilibrée** (jamais < 1,2). Ex. **Heretics 0-2 KCB** : book KCB favori (1.45), "
                 "nous Heretics 65 % → on était sur l'outsider gagnant. "
-                "⚠️ = matchup **cross-ligue** (Elo moins comparable, à vérifier)."
+                "⚠️ = matchup **cross-ligue** (Elo moins comparable). "
+                "Les matchs **déjà passés** du jour restent affichés, en **grisé**."
             )
-            for r in sorted(strong, key=lambda x: x["datetime"]):
+            for r in sorted(_upcoming, key=lambda x: x["datetime"]):
                 fav, p_fav, und, _pu, _ea, _eb = _fav(r)
                 x = " · ⚠️ **cross-ligue**" if r["xleague"] else ""
                 be = _breakeven(p_fav)
@@ -158,6 +163,17 @@ def main() -> None:
                     f"cote mini **{be:.2f}**  \n"
                     f"  → *value SI le book cote {fav} **au-dessus de {be:.2f}***"
                 )
+            for r in sorted(_done, key=lambda x: x["datetime"]):
+                fav, p_fav, und, _pu, _ea, _eb = _fav(r)
+                be = _breakeven(p_fav)
+                st.markdown(
+                    f"<div style='opacity:.45'>✅ <b>{r['when']}</b> · {r['league']} · "
+                    f"BO{r['bestof']} — <i>déjà passé</i> — notre favori était <b>{fav} "
+                    f"({p_fav*100:.0f}%)</b> vs {und} · cote mini {be:.2f}</div>",
+                    unsafe_allow_html=True,
+                )
+            if not _upcoming:
+                st.caption("_Tous les matchs 'à chasser' du jour sont déjà passés._")
 
     # --- Filtres ---
     leagues = sorted({r["league"] for r in covered})
@@ -195,7 +211,7 @@ def main() -> None:
         sig = "🎯" if is_pick else ("⭐" if is_strong else ("🌪️" if not r.get("reliable", True) else ""))
         row = {
             "Signal": sig,
-            "Quand (Paris)": r["when"],
+            "Quand (Paris)": ("✅ " if r.get("passed") else "") + r["when"],
             "Ligue": r["league"],
             "Match": f"{r['team1']} vs {r['team2']}",
             "BO": f"BO{r['bestof']}",

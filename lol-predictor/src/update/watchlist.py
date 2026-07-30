@@ -166,6 +166,24 @@ def _fmt_paris(datetime_utc: str) -> str:
         return str(datetime_utc)
 
 
+def _paris_date(datetime_utc: str) -> str:
+    """Date locale Paris (YYYY-MM-DD) du match, pour filtrer 'les matchs du jour'."""
+    try:
+        d = dt.datetime.strptime(datetime_utc, "%Y-%m-%d %H:%M:%S") + PARIS_OFFSET
+        return d.strftime("%Y-%m-%d")
+    except (TypeError, ValueError):
+        return ""
+
+
+def _is_passed(datetime_utc: str, now_utc: dt.datetime) -> bool:
+    """True si l'heure de départ du match est déjà dépassée (match en cours ou fini)."""
+    try:
+        d = dt.datetime.strptime(datetime_utc, "%Y-%m-%d %H:%M:%S").replace(tzinfo=dt.timezone.utc)
+        return d < now_utc
+    except (TypeError, ValueError):
+        return False
+
+
 def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list[dict]]:
     """Calcul pur (sans écriture fichier) : renvoie (covered, uncovered).
 
@@ -196,6 +214,7 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
         return rel, shr, code or "?"
 
     matches = _fetch_upcoming(days=days)
+    now_utc = dt.datetime.now(dt.timezone.utc)
 
     covered: list[dict] = []
     uncovered: list[dict] = []
@@ -241,6 +260,8 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
             "xleague": xleague,  # Elo peu comparable (cf. KCB/PCIFIC)
             "tournament": m.get("tournament") or m.get("overview"),
             "manual": m.get("manual", False),
+            "paris_date": _paris_date(m["datetime"]),
+            "passed": _is_passed(m["datetime"], now_utc),
         })
 
     covered.sort(key=lambda r: r["datetime"] or "")

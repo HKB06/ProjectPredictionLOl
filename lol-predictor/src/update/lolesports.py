@@ -22,6 +22,10 @@ BASE = "https://esports-api.lolesports.com/persisted/gw"
 API_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
 HEADERS = {"x-api-key": API_KEY}
 SKIP_SLUGS = {"tft_esports"}  # pas du LoL
+# On garde aussi les matchs déjà commencés/terminés AUJOURD'HUI (le front les affiche
+# grisés au lieu de les supprimer) : la borne basse de la fenêtre = minuit (Paris).
+PARIS_OFFSET = dt.timedelta(hours=2)  # CEST (été)
+ALLOWED_STATES = {"unstarted", "inProgress", "completed"}
 
 
 def _get(path: str, params: dict | None = None) -> dict:
@@ -36,10 +40,10 @@ def get_league_ids() -> list[str]:
     return [lg["id"] for lg in leagues if lg.get("slug") not in SKIP_SLUGS]
 
 
-def _parse_events(events: list[dict], now: dt.datetime, end: dt.datetime) -> list[dict]:
+def _parse_events(events: list[dict], start_bound: dt.datetime, end: dt.datetime) -> list[dict]:
     out: list[dict] = []
     for e in events:
-        if e.get("state") != "unstarted":
+        if e.get("state") not in ALLOWED_STATES:
             continue
         match = e.get("match")
         if not match:
@@ -54,7 +58,7 @@ def _parse_events(events: list[dict], now: dt.datetime, end: dt.datetime) -> lis
             start = dt.datetime.fromisoformat(e["startTime"].replace("Z", "+00:00"))
         except (KeyError, ValueError):
             continue
-        if start < now or start > end:
+        if start < start_bound or start > end:
             continue
         out.append({
             "team1": t1,
@@ -86,6 +90,10 @@ def fetch_upcoming(days: int = 7, league_ids: list[str] | None = None,
     """
     now = dt.datetime.now(dt.timezone.utc)
     end = now + dt.timedelta(days=days)
+    # Borne basse = minuit AUJOURD'HUI (Paris) : garde les matchs du jour déjà lancés/finis.
+    today_paris = (now + PARIS_OFFSET).date()
+    start_bound = dt.datetime.combine(today_paris, dt.time(0, 0),
+                                      tzinfo=dt.timezone.utc) - PARIS_OFFSET
     ids = league_ids or get_league_ids()
 
     all_events: list[dict] = []
@@ -95,7 +103,7 @@ def fetch_upcoming(days: int = 7, league_ids: list[str] | None = None,
 
     seen: set[tuple] = set()
     out: list[dict] = []
-    for rec in _parse_events(all_events, now, end):
+    for rec in _parse_events(all_events, start_bound, end):
         key = (rec["team1"], rec["team2"], rec["datetime"])
         if key in seen:
             continue
