@@ -262,6 +262,9 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
             "manual": m.get("manual", False),
             "paris_date": _paris_date(m["datetime"]),
             "passed": _is_passed(m["datetime"], now_utc),
+            "result_winner": (a if m.get("winner_side") == 1
+                              else (b if m.get("winner_side") == 2 else None)),
+            "score": m.get("score"),
         })
 
     covered.sort(key=lambda r: r["datetime"] or "")

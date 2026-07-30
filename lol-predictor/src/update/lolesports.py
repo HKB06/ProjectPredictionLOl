@@ -60,6 +60,11 @@ def _parse_events(events: list[dict], start_bound: dt.datetime, end: dt.datetime
             continue
         if start < start_bound or start > end:
             continue
+        r0 = teams[0].get("result") or {}
+        r1 = teams[1].get("result") or {}
+        winner_side = 1 if r0.get("outcome") == "win" else (2 if r1.get("outcome") == "win" else None)
+        gw0, gw1 = r0.get("gameWins"), r1.get("gameWins")
+        score = f"{gw0}-{gw1}" if (gw0 is not None and gw1 is not None and (gw0 or gw1)) else None
         out.append({
             "team1": t1,
             "team2": t2,
@@ -67,6 +72,8 @@ def _parse_events(events: list[dict], start_bound: dt.datetime, end: dt.datetime
             "bestof": match.get("strategy", {}).get("count", 1),
             "overview": e.get("league", {}).get("name"),
             "tournament": e.get("league", {}).get("name"),
+            "winner_side": winner_side,   # 1 = team1 gagne, 2 = team2, None = non joué
+            "score": score,               # ex. "2-1" (None si pas encore de résultat)
         })
     return out
 
