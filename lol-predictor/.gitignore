@@ -21,7 +21,6 @@ models/*.txt
 models/*.pkl
 !models/.gitkeep
 
-# Rapports générés
-reports/*.png
-reports/*.csv
+# Rapports générés (sorties reproductibles : tout le dossier sauf le .gitkeep)
+reports/*
 !reports/.gitkeep
