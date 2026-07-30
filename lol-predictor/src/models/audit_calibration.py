@@ -114,6 +114,22 @@ def bootstrap_auc_ci(y: np.ndarray, score: np.ndarray, n_boot: int = 1000,
     return (float(lo), float(hi))
 
 
+def bootstrap_ece_ci(proba_fav: np.ndarray, correct: np.ndarray, n_boot: int = 1000,
+                     seed: int = 42, width: float = 0.05) -> tuple[float, float]:
+    """IC95 de l'ECE par bootstrap : quantifie l'incertitude d'échantillonnage sur
+    l'erreur de calibration (à citer à côté de la valeur ponctuelle dans le texte)."""
+    rng = np.random.default_rng(seed)
+    idx = np.arange(len(proba_fav))
+    vals = []
+    for _ in range(n_boot):
+        s = rng.choice(idx, size=len(idx), replace=True)
+        vals.append(ece(proba_fav[s], correct[s], width=width))
+    if not vals:
+        return (float("nan"), float("nan"))
+    lo, hi = np.percentile(vals, [2.5, 97.5])
+    return (float(lo), float(hi))
+
+
 def murphy(p: np.ndarray, y: np.ndarray, n_bins: int = 10,
            lo: float = 0.5, hi: float = 1.0) -> dict:
     """Décomposition de Murphy : Brier = Reliability − Resolution + Uncertainty.
@@ -181,6 +197,7 @@ def global_scores(rec: pd.DataFrame) -> dict:
         "auc_blue_ci": bootstrap_auc_ci(y, p),
         "auc_fav_ci": bootstrap_auc_ci(corr, pf),
         "ece": ece(pf, corr, width=0.05),
+        "ece_ci": bootstrap_ece_ci(pf, corr),
         "blue_winrate": float(y.mean()),
         **d,
     }
@@ -346,7 +363,8 @@ def run(league: str | None = None, outdir: str = "reports/audit",
     add(f"| AUC « au-delà du favori » | {s['auc_fav']:.3f} "
         f"[{s['auc_fav_ci'][0]:.3f}, {s['auc_fav_ci'][1]:.3f}] | "
         "proba_fav vs favori gagne — signal fin |")
-    add(f"| ECE | {s['ece']:.4f} | erreur de calibration (plus bas = mieux) |")
+    add(f"| ECE | {s['ece']:.4f} [{s['ece_ci'][0]:.4f}, {s['ece_ci'][1]:.4f}] | "
+        "erreur de calibration · IC95 bootstrap (plus bas = mieux) |")
     add("")
     add("## Décomposition de Murphy (cadrage favori)")
     add("")
