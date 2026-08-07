@@ -42,6 +42,7 @@ ANTHROPIC_MODELS = {
     "claude-haiku-4-5": "Haiku 4.5 — le plus rapide/économique (payant)",
 }
 PROVIDERS = {"Gemini (Google · gratuit)": "gemini", "Anthropic (Claude · payant)": "anthropic"}
+PROVIDER_LABEL = {"gemini": "Gemini (Google)", "anthropic": "Anthropic (Claude)"}
 
 
 @st.cache_resource(show_spinner="Chargement du modèle (Elo + priors champion)…")
@@ -149,14 +150,16 @@ def _run_agent(user_text: str, images: list[dict], key: str, model: str,
         st.markdown(display)
     st.session_state.chat.append({"role": "user", "content": display})
 
+    prov_name = PROVIDER_LABEL.get(provider, provider)
     try:
         if provider == "gemini":
             from src.assistant.agent import GeminiAssistant as _Agent
         else:
             from src.assistant.agent import Assistant as _Agent
     except ImportError:
-        st.error("Le paquet `anthropic` n'est pas installé.\n\n"
-                 "→ `.\\venv\\Scripts\\python.exe -m pip install anthropic`")
+        pkg = "google-genai" if provider == "gemini" else "anthropic"
+        st.error(f"Le paquet `{pkg}` n'est pas installé.\n\n"
+                 f"→ `.\\venv\\Scripts\\python.exe -m pip install {pkg}`")
         return
 
     with st.chat_message("assistant"):
@@ -181,12 +184,24 @@ def _run_agent(user_text: str, images: list[dict], key: str, model: str,
             except Exception as exc:  # noqa: BLE001
                 status.update(label="Erreur", state="error")
                 msg = str(exc)
-                if "authentication" in msg.lower() or "api_key" in msg.lower() or "401" in msg:
-                    st.error("Clé API refusée. Vérifie ta clé API dans la barre latérale.")
-                elif "credit" in msg.lower() or "billing" in msg.lower() or "429" in msg:
-                    st.error("Quota/crédit insuffisant ou rate-limit sur le compte Anthropic.")
+                low = msg.lower()
+                if "authentication" in low or "api_key" in low or "api key" in low or "401" in msg:
+                    st.error(f"Clé API refusée. Vérifie ta clé API {prov_name} dans la barre latérale.")
+                elif ("credit" in low or "billing" in low or "quota" in low
+                      or "resource_exhausted" in low or "rate" in low or "429" in msg):
+                    if provider == "gemini":
+                        st.error(
+                            "⏳ **Quota / rate-limit Gemini atteint** (offre gratuite). Chaque analyse "
+                            "fait plusieurs appels (1 par outil), ce qui épuise vite la limite gratuite "
+                            "par minute/jour.\n\n"
+                            "→ Attends ~1 min et réessaie · passe sur **gemini-flash-lite** (moins "
+                            "gourmand) · ou active la facturation sur Google AI Studio pour des "
+                            "limites plus hautes."
+                        )
+                    else:
+                        st.error("Quota/crédit insuffisant ou rate-limit sur le compte Anthropic.")
                 else:
-                    st.error(f"Appel à Claude impossible : {exc}")
+                    st.error(f"Appel à {prov_name} impossible : {exc}")
                 return
 
         st.markdown(answer)
@@ -246,8 +261,8 @@ def _draft_inputs(champs: list[str]) -> tuple[str, str]:
 def main() -> None:
     st.title("🤖 Assistant IA — analyse de match")
     st.caption(
-        "Donne le contexte (équipes, draft, infos gol.gg, **captures de cotes**) : l'agent "
-        "Claude interroge **nos données** (Elo calibré, priors champion, forme, fiabilité "
+        "Donne le contexte (équipes, draft, infos gol.gg, **captures de cotes**) : l'assistant "
+        "IA interroge **nos données** (Elo calibré, priors champion, forme, fiabilité "
         "ligue) et rend une proba argumentée. Il corrige le modèle avec tes infos (roster, "
         "patch, cross-région) — exactement là où l'Elo est aveugle."
     )
@@ -346,7 +361,7 @@ def main() -> None:
     pending = None
     if submitted:
         if not key:
-            st.error("Ajoute ta clé API Anthropic dans la barre latérale pour lancer l'IA.")
+            st.error(f"Ajoute ta clé API {PROVIDER_LABEL[provider]} dans la barre latérale pour lancer l'IA.")
         elif not (team_a or team_b or notes or uploads):
             st.warning("Donne au moins les équipes, une note ou une capture.")
         else:
@@ -356,7 +371,7 @@ def main() -> None:
     chat_in = _chat_bar()
     if chat_in and (chat_in[0].strip() or chat_in[1]):
         if not key:
-            st.error("Ajoute ta clé API Anthropic dans la barre latérale.")
+            st.error(f"Ajoute ta clé API {PROVIDER_LABEL[provider]} dans la barre latérale.")
         else:
             sig = (chat_in[0], tuple(len(i["bytes"]) for i in chat_in[1]))
             if st.session_state.get("_last_chat_sig") != sig:
