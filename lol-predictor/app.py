@@ -93,6 +93,18 @@ def _breakeven(p: float) -> float:
     return 1.0 / p if p and p > 0 else float("inf")
 
 
+def _verdict_html(r: dict, fav: str) -> str:
+    """Verdict d'un match passé : ✅ prévu OK / ❌ raté / ⏳ indispo (score inclus)."""
+    winner = r.get("result_winner")
+    score = f" ({r['score']})" if r.get("score") else ""
+    if winner:
+        if winner == fav:
+            return f"<span style='color:#3ddc84;font-weight:600'>✅ prévu OK{score}</span>"
+        return (f"<span style='color:#ff6b6b;font-weight:600'>❌ raté{score} — "
+                f"{winner} a gagné</span>")
+    return "<span style='color:#9aa0a6'>⏳ en cours / résultat indispo</span>"
+
+
 def _fmt_day(d: str) -> str:
     """'2026-07-30' -> 'Thu 30/07' (cohérent avec l'affichage de l'heure)."""
     try:
@@ -183,49 +195,53 @@ def main() -> None:
                 st.markdown("**Déjà passés aujourd'hui** — vérif de notre prévision :")
             for r in sorted(_done, key=lambda x: x["datetime"]):
                 fav, p_fav, und, _pu, _ea, _eb = _fav(r)
-                winner = r.get("result_winner")
-                score = f" ({r['score']})" if r.get("score") else ""
-                if winner:
-                    if winner == fav:
-                        verdict = f"<span style='color:#3ddc84;font-weight:600'>✅ prévu OK{score}</span>"
-                    else:
-                        verdict = (f"<span style='color:#ff6b6b;font-weight:600'>❌ raté{score} — "
-                                   f"{winner} a gagné</span>")
-                else:
-                    verdict = "<span style='color:#9aa0a6'>⏳ en cours / résultat indispo</span>"
                 st.markdown(
                     f"<div style='opacity:.8'>🕓 {r['when']} · {r['league']} · BO{r['bestof']} — "
-                    f"favori <b>{fav} ({p_fav*100:.0f}%)</b> vs {und} → {verdict}</div>",
+                    f"favori <b>{fav} ({p_fav*100:.0f}%)</b> vs {und} → {_verdict_html(r, fav)}</div>",
                     unsafe_allow_html=True,
                 )
             if not _upcoming:
                 st.caption("_Tous les matchs « à chasser » du jour sont déjà passés (vérif ci-dessus)._")
 
-    # --- 📅 Tous les matchs à venir sur la fenêtre choisie (sélecteur "Fenêtre" en haut) ---
-    upcoming_all = sorted((r for r in covered if not r.get("passed")),
-                          key=lambda r: r["datetime"] or "")
+    # --- 📅 Tous les matchs de la fenêtre : à venir + déjà passés (avec résultat) ---
+    all_matches = sorted(covered, key=lambda r: r["datetime"] or "")
+    _n_up = sum(1 for r in all_matches if not r.get("passed"))
+    _n_done = len(all_matches) - _n_up
     with st.container(border=True):
-        st.markdown(f"### 📅 Tous les matchs à venir — fenêtre **{days} j** ({len(upcoming_all)})")
+        st.markdown(f"### 📅 Tous les matchs — fenêtre **{days} j** "
+                    f"({len(all_matches)} · {_n_up} à venir, {_n_done} passés)")
         st.caption("Du plus proche au plus lointain, groupés par jour. "
-                   "🎯 = pick haute confiance · ⭐ = penchant fort · 🌪️ = ligue chaotique.")
-        if not upcoming_all:
-            st.info("Aucun match à venir sur cette fenêtre.")
+                   "🎯 = pick haute confiance · ⭐ = penchant fort · 🌪️ = ligue chaotique. "
+                   "Les matchs **déjà passés** restent affichés en **grisé** avec le résultat.")
+        if not all_matches:
+            st.info("Aucun match sur cette fenêtre.")
         else:
-            for _day, _grp in groupby(upcoming_all, key=lambda r: r.get("paris_date")):
+            for _day, _grp in groupby(all_matches, key=lambda r: r.get("paris_date")):
                 _grp = list(_grp)
-                with st.expander(f"📆 {_fmt_day(_day)} — {len(_grp)} matchs",
-                                 expanded=(_day == _today)):
+                _done_n = sum(1 for r in _grp if r.get("passed"))
+                _lbl = f"📆 {_fmt_day(_day)} — {len(_grp)} matchs"
+                if _done_n:
+                    _lbl += f" · {_done_n} passés"
+                with st.expander(_lbl, expanded=(_day == _today)):
                     for r in _grp:
                         fav, p_fav, und, _pu, _ea, _eb = _fav(r)
-                        mark = ("🎯" if r.get("high_conf") else
-                                ("⭐" if r.get("strong") else
-                                 ("🌪️" if not r.get("reliable", True) else "•")))
                         xl = " ⚠️x-ligue" if r.get("xleague") else ""
-                        be = _breakeven(p_fav)
-                        st.markdown(
-                            f"{mark} **{r['when'][-5:]}** · {r['league']} · BO{r['bestof']} — "
-                            f"**{fav} {p_fav*100:.0f}%** vs {und}{xl} · cote mini {be:.2f}"
-                        )
+                        if r.get("passed"):
+                            st.markdown(
+                                f"<div style='opacity:.6'>🕓 <b>{r['when'][-5:]}</b> · {r['league']} · "
+                                f"BO{r['bestof']} — {fav} {p_fav*100:.0f}% vs {und}{xl} → "
+                                f"{_verdict_html(r, fav)}</div>",
+                                unsafe_allow_html=True,
+                            )
+                        else:
+                            mark = ("🎯" if r.get("high_conf") else
+                                    ("⭐" if r.get("strong") else
+                                     ("🌪️" if not r.get("reliable", True) else "•")))
+                            be = _breakeven(p_fav)
+                            st.markdown(
+                                f"{mark} **{r['when'][-5:]}** · {r['league']} · BO{r['bestof']} — "
+                                f"**{fav} {p_fav*100:.0f}%** vs {und}{xl} · cote mini {be:.2f}"
+                            )
 
     # --- Filtres ---
     leagues = sorted({r["league"] for r in covered})
