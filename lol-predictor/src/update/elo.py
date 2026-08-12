@@ -144,8 +144,11 @@ def win_prob(elo_a: float, elo_b: float, scale: float = SCALE) -> float:
 
 
 def calibrate(p_game: float, shrink: float) -> float:
-    """Aplatit la proba vers 50 % selon le facteur de calibration de la ligue."""
-    return 0.5 + (p_game - 0.5) * shrink
+    """Aplatit (ou accentue) la proba autour de 50 % selon le facteur de calibration
+    de la ligue. `shrink` pouvant aller jusqu'à 1.2 (ligues sous-confiantes), on borne
+    le résultat à [0.01, 0.99] : une probabilité ne peut pas sortir de [0, 1]."""
+    p = 0.5 + (p_game - 0.5) * shrink
+    return min(max(p, 0.01), 0.99)
 
 
 def resolve_league(name: str, reliability: dict) -> str | None:
