@@ -1,6 +1,6 @@
 # Watchlist pré-match (auto)
 
-> Généré le **2026-08-12 06:40** (Paris) · fenêtre **7 j** · 86 matchs couverts, 18 non couverts.
+> Généré le **2026-08-19 21:12** (Paris) · fenêtre **7 j** · 88 matchs couverts, 16 non couverts.
 
 **Méthode** : Elo toutes-ligues **K32 + marge de victoire (MOV)**, proba **calibrée par ligue** (aplatie là où le modèle est chaotique, cf. EM ~56 % d'accuracy). Signal *partiel* (pas de draft). **Usage** : comparer NOTRE proba à la **cote du book** dès qu'elle ouvre. Si le book **sur-cote un favori** qu'on voit plus serré → **value** (cf. KC @2.45, VKS @2.7, Heretics @2.60). ⚠️ **Poser le pari TÔT** (marché soft ouvert) = le vrai enjeu.
 
@@ -8,135 +8,139 @@ Légende : 🎯 = **pick HAUTE CONFIANCE** (~83 % hist. : ligue fiable + favori 
 
 Aide-mémoire value : `edge = notre proba − 1/cote`. On ne fade **jamais** un favori à cote < ~1.2 (cf. paiN). On vise un **désaccord net sur cote équilibrée**.
 
-## 🎯 Picks HAUTE CONFIANCE (16) — viser le vainqueur (~83 % hist.)
+## 🎯 Picks HAUTE CONFIANCE (20) — viser le vainqueur (~83 % hist.)
 | Quand (Paris) | Ligue | Match | BO | Favori (proba/game) | Proba série |
 |---|---|---|---|---|---|
-| Wed 12/08 16:00 | Hitpoint Masters | Onion Team vs eSuba | BO3 | **eSuba 86%/game** | 95% |
-| Wed 12/08 17:00 | LES | Barça eSports vs UB Alma Mater | BO3 | **Barça eSports 89%/game** | 96% |
-| Wed 12/08 18:00 | Esports Balkan League | SPIKE Syndicate vs The Secret Club | BO3 | **The Secret Club 75%/game** | 85% |
-| Wed 12/08 19:30 | TCL | Bushido Wildcats vs Dark Passage | BO3 | **Bushido Wildcats 77%/game** | 87% |
-| Wed 12/08 19:30 | LES | UCAM Esports vs LUA Gaming | BO3 | **UCAM Esports 96%/game** | 100% |
-| Wed 12/08 20:30 | Arabian League | One More Esports vs Anubis Gaming | BO3 | **Anubis Gaming 99%/game** | 100% |
-| Wed 12/08 21:00 | La Ligue Française | Galions vs Joblife | BO3 | **Galions 89%/game** | 96% |
-| Thu 13/08 17:00 | LES | Falke Esports vs GIANTX iTero | BO3 | **GIANTX iTero 79%/game** | 89% |
-| Thu 13/08 19:00 | Road of Legends | The Bandits vs Once Upon A Team | BO3 | **The Bandits 76%/game** | 85% |
-| Thu 13/08 21:00 | La Ligue Française | Solary vs Vitality.Bee | BO3 | **Solary 83%/game** | 92% |
-| Sat 15/08 19:15 | LEC | Shifters vs G2 Esports | BO3 | **G2 Esports 94%/game** | 99% |
-| Sun 16/08 19:15 | LEC | Fnatic vs G2 Esports | BO3 | **G2 Esports 90%/game** | 97% |
-| Mon 17/08 17:00 | LEC | Team Heretics vs Natus Vincere | BO3 | **Natus Vincere 85%/game** | 94% |
-| Mon 17/08 19:15 | LEC | GiantX vs Karmine Corp | BO3 | **Karmine Corp 81%/game** | 90% |
-| Tue 18/08 18:30 | Hitpoint Masters | Meavedron vs Bohemian Guardians | BO3 | **Meavedron 71%/game** | 80% |
-| Tue 18/08 20:00 | Road of Legends | mCon esports vs Myth Esports | BO3 | **mCon esports 71%/game** | 79% |
+| Wed 19/08 17:00 | TCL | Dark Passage vs SU Esports | BO5 | **SU Esports 77%/game** | 91% |
+| Wed 19/08 18:00 | NLC | Bulldog Esports vs Verdant | BO3 | **Verdant 84%/game** | 93% |
+| Wed 19/08 18:00 | Arabian League | Pyramid IV Esports vs BAAM Esports | BO3 | **BAAM Esports 70%/game** | 79% |
+| Thu 20/08 16:00 | Hitpoint Masters | Nightbirds vs EXILE esports | BO3 | **Nightbirds 98%/game** | 100% |
+| Thu 20/08 18:00 | LoL Italian Tournament | HMBLE vs GMBLERS Esports | BO5 | **HMBLE 77%/game** | 92% |
+| Thu 20/08 18:30 | Hitpoint Masters | CITA Kaizen vs Bohemian Guardians | BO3 | **CITA Kaizen 99%/game** | 100% |
+| Thu 20/08 20:00 | Road of Legends | Frites Esports Club vs ZennIT | BO3 | **Frites Esports Club 94%/game** | 99% |
+| Sat 22/08 17:00 | LEC | Shifters vs Fnatic | BO3 | **Fnatic 75%/game** | 84% |
+| Sat 22/08 19:15 | LEC | SK Gaming vs Movistar KOI | BO3 | **Movistar KOI 76%/game** | 85% |
+| Sun 23/08 17:00 | LEC | Team Heretics vs GiantX | BO3 | **GiantX 83%/game** | 93% |
+| Sun 23/08 19:15 | LEC | Shifters vs Karmine Corp | BO3 | **Karmine Corp 99%/game** | 100% |
+| Mon 24/08 19:15 | LEC | GiantX vs G2 Esports | BO3 | **G2 Esports 76%/game** | 86% |
+| Tue 25/08 16:00 | Hitpoint Masters | Onion Team vs CITA Kaizen | BO3 | **CITA Kaizen 99%/game** | 100% |
+| Tue 25/08 17:30 | Hellenic Legends League | WLGaming Esports vs The ParadOx Invaders | BO3 | **WLGaming Esports 80%/game** | 89% |
+| Tue 25/08 18:30 | Hitpoint Masters | eSuba vs BRUTE | BO3 | **eSuba 83%/game** | 92% |
+| Tue 25/08 19:00 | Road of Legends | Frites Esports Club vs Myth Esports | BO3 | **Frites Esports Club 91%/game** | 98% |
+| Tue 25/08 19:00 | Rift Legends | DOCISK vs Forsaken | BO3 | **Forsaken 74%/game** | 83% |
+| Tue 25/08 20:00 | Road of Legends | The Bandits vs Dynasty | BO3 | **The Bandits 75%/game** | 85% |
+| Wed 26/08 18:30 | Hitpoint Masters | eSuba vs CITA Kaizen | BO3 | **CITA Kaizen 76%/game** | 86% |
+| Wed 26/08 19:00 | Rift Legends | Bomba Team vs DOCISK | BO3 | **Bomba Team 73%/game** | 82% |
 
 ## Tous les matchs couverts
 
 | Quand (Paris) | Ligue | Match | BO | Notre proba | Elo | Fiab. | Cote 1 / 2 | Edge |
 |---|---|---|---|---|---|---|---|---|
-| Wed 12/08 01:00 | Circuito Desafiante | RED Academy vs RMD Gaming  | BO3 | **RED Academy 51%** / RMD Gaming 49% | 1368 / 1365 | 62% | _ / _ | _ |
-| Wed 12/08 01:00 | LRN | Kits Esports vs SDM Tigres  | BO5 | **Kits Esports 45%** / SDM Tigres 55% | 1494 / 1511 | 69% | _ / _ | _ |
-| Wed 12/08 10:00 | LCK | DN SOOPers vs Nongshim RedForce  🌪️ ⚠️x-ligue | BO3 | **DN SOOPers 63%** / Nongshim RedForce 37% | 1499 / 1426 | 61% | _ / _ | _ |
-| Wed 12/08 11:00 | LPL | EDward Gaming vs Anyone's Legend  🌪️ | BO3 | **EDward Gaming 11%** / Anyone's Legend 89% | 1330 / 1692 | 60% | _ / _ | _ |
-| Wed 12/08 12:00 | LCK | KT Rolster vs Dplus Kia  🌪️ | BO3 | **KT Rolster 31%** / Dplus Kia 69% | 1523 / 1638 | 61% | _ / _ | _ |
-| Wed 12/08 16:00 | Hitpoint Masters | Onion Team vs eSuba 🎯⭐ | BO3 | **Onion Team 5%** / eSuba 95% | 1360 / 1603 | 82% | _ / _ | _ |
-| Wed 12/08 16:30 | TCL | Shark Attack vs SU Esports  | BO3 | **Shark Attack 41%** / SU Esports 59% | 1451 / 1486 | 71% ⚠️5g | _ / _ | _ |
-| Wed 12/08 17:00 | Rift Legends | Bomba Team vs Anonymo Esports  🌪️ | BO3 | **Bomba Team 66%** / Anonymo Esports 34% | 1599 / 1528 | 62% | _ / _ | _ |
-| Wed 12/08 17:00 | LES | Barça eSports vs UB Alma Mater 🎯⭐ | BO3 | **Barça eSports 96%** / UB Alma Mater 4% | 1574 / 1301 | 75% | _ / _ | _ |
-| Wed 12/08 17:00 | Prime League | Eintracht Spandau vs E WIE EINFACH E-SPORTS  | BO3 | **Eintracht Spandau 60%** / E WIE EINFACH E-SPORTS 40% | 1651 / 1600 | 65% | _ / _ | _ |
-| Wed 12/08 18:00 | La Ligue Française | Ici Japon Corp. Esport vs TLN Pirates  | BO3 | **Ici Japon Corp. Esport 39%** / TLN Pirates 61% | 1502 / 1557 | 64% | _ / _ | _ |
-| Wed 12/08 18:00 | Prime League | Eintracht Frankfurt vs ROSSMANN Centaurs ⭐ | BO3 | **Eintracht Frankfurt 32%** / ROSSMANN Centaurs 68% | 1334 / 1436 | 65% | _ / _ | _ |
-| Wed 12/08 18:00 | Esports Balkan League | SPIKE Syndicate vs The Secret Club 🎯⭐ | BO3 | **SPIKE Syndicate 15%** / The Secret Club 85% | 1446 / 1602 | 73% | _ / _ | _ |
-| Wed 12/08 18:00 | Arabian League | Disruptors vs JSK Esports ⭐ | BO3 | **Disruptors 35%** / JSK Esports 65% | 1486 / 1545 | 68% | _ / _ | _ |
-| Wed 12/08 18:30 | Hitpoint Masters | Meavedron vs CITA Kaizen ⭐ ⚠️x-ligue | BO3 | **Meavedron 2%** / CITA Kaizen 98% | 1494 / 1790 | 82% | _ / _ | _ |
-| Wed 12/08 19:00 | NLC | Lund Esports Organization vs Epic Avalanche  | BO3 | **Lund Esports Organization 51%** / Epic Avalanche 49% | 1444 / 1439 | 67% ⚠️4g | _ / _ | _ |
-| Wed 12/08 19:00 | Rift Legends | UP2UMEDIA Cebulaki vs DOCISK  🌪️ | BO3 | **UP2UMEDIA Cebulaki 74%** / DOCISK 26% | 1504 / 1389 | 62% ⚠️2g | _ / _ | _ |
-| Wed 12/08 19:30 | TCL | Bushido Wildcats vs Dark Passage 🎯⭐ | BO3 | **Bushido Wildcats 87%** / Dark Passage 13% | 1505 / 1334 | 71% | _ / _ | _ |
-| Wed 12/08 19:30 | LES | UCAM Esports vs LUA Gaming 🎯⭐ | BO3 | **UCAM Esports 100%** / LUA Gaming 0% | 1754 / 1388 | 75% | _ / _ | _ |
-| Wed 12/08 20:00 | NLC | DMG Esports vs Absolved  | BO3 | **DMG Esports 43%** / Absolved 57% | 1474 / 1501 | 67% ⚠️8g | _ / _ | _ |
-| Wed 12/08 20:00 | Esports Balkan League | Hooligans vs Magaza Esports  | BO3 | **Hooligans 11%** / Magaza Esports 89% | 1436 / 1625 | 73% ⚠️8g | _ / _ | _ |
-| Wed 12/08 20:30 | Arabian League | One More Esports vs Anubis Gaming 🎯⭐ | BO3 | **One More Esports 0%** / Anubis Gaming 100% | 1302 / 1764 | 68% | _ / _ | _ |
-| Wed 12/08 21:00 | La Ligue Française | Galions vs Joblife 🎯⭐ | BO3 | **Galions 96%** / Joblife 4% | 1862 / 1480 | 64% | _ / _ | _ |
-| Wed 12/08 22:00 | Circuito Desafiante | RMD Gaming vs Team Solid ⭐ | BO5 | **RMD Gaming 22%** / Team Solid 78% | 1365 / 1476 | 62% | _ / _ | _ |
-| Thu 13/08 02:00 | NACL | Conviction vs CCG Esports  🌪️ | BO3 | **Conviction 67%** / CCG Esports 33% | 1589 / 1492 | 57% | _ / _ | _ |
-| Thu 13/08 09:00 | LPL | Weibo Gaming vs Ninjas in Pyjamas  🌪️ | BO3 | **Weibo Gaming 44%** / Ninjas in Pyjamas 56% | 1501 / 1539 | 60% | _ / _ | _ |
-| Thu 13/08 10:00 | LCK | Kiwoom DRX vs BNK FEARX  🌪️ ⚠️x-ligue | BO3 | **Kiwoom DRX 40%** / BNK FEARX 60% | 1401 / 1456 | 61% | _ / _ | _ |
-| Thu 13/08 11:00 | LPL | LGD Gaming vs Top Esports  🌪️ | BO3 | **LGD Gaming 16%** / Top Esports 84% | 1425 / 1692 | 60% | _ / _ | _ |
-| Thu 13/08 11:00 | LCP | GAM Esports vs Deep Cross Gaming ⭐ | BO5 | **GAM Esports 78%** / Deep Cross Gaming 22% | 1557 / 1452 | 65% | _ / _ | _ |
-| Thu 13/08 12:00 | LCK | Gen.G vs Hanwha Life Esports  🌪️ | BO3 | **Gen.G 47%** / Hanwha Life Esports 53% | 1619 / 1633 | 61% | _ / _ | _ |
-| Thu 13/08 13:00 | LPL | Bilibili Gaming vs ThunderTalk Gaming  🌪️ | BO3 | **Bilibili Gaming 85%** / ThunderTalk Gaming 15% | 1763 / 1470 | 60% | _ / _ | _ |
-| Thu 13/08 16:00 | Hitpoint Masters | Nightbirds vs eSuba ⭐ | BO3 | **Nightbirds 77%** / eSuba 23% | 1717 / 1603 | 82% | _ / _ | _ |
-| Thu 13/08 17:00 | LES | Falke Esports vs GIANTX iTero 🎯⭐ | BO3 | **Falke Esports 11%** / GIANTX iTero 89% | 1275 / 1462 | 75% | _ / _ | _ |
-| Thu 13/08 18:00 | La Ligue Française | Skillcamp vs Karmine Corp Blue ⭐ | BO3 | **Skillcamp 24%** / Karmine Corp Blue 76% | 1515 / 1648 | 64% | _ / _ | _ |
-| Thu 13/08 18:00 | Esports Balkan League | SPIKE Syndicate vs Lupus Esports  | BO3 | **SPIKE Syndicate 62%** / Lupus Esports 38% | 1446 / 1400 | 73% | _ / _ | _ |
-| Thu 13/08 18:30 | Hitpoint Masters | Meavedron vs EXILE esports ⭐ | BO3 | **Meavedron 69%** / EXILE esports 31% | 1494 / 1419 | 82% | _ / _ | _ |
-| Thu 13/08 19:00 | Road of Legends | The Bandits vs Once Upon A Team 🎯⭐ | BO3 | **The Bandits 85%** / Once Upon A Team 15% | 1558 / 1385 | 67% | _ / _ | _ |
-| Thu 13/08 19:30 | LES | Team Heretics Academy vs Movistar KOI Fénix  | BO3 | **Team Heretics Academy 57%** / Movistar KOI Fénix 43% | 1752 / 1725 | 75% | _ / _ | _ |
-| Thu 13/08 20:00 | Road of Legends | Myth Esports vs ZennIT ⭐ | BO3 | **Myth Esports 31%** / ZennIT 69% | 1377 / 1459 | 67% | _ / _ | _ |
-| Thu 13/08 20:00 | Esports Balkan League | Hooligans vs Croatian Flair  | BO3 | **Hooligans 46%** / Croatian Flair 54% | 1436 / 1453 | 73% ⚠️8g | _ / _ | _ |
-| Thu 13/08 21:00 | La Ligue Française | Solary vs Vitality.Bee 🎯⭐ | BO3 | **Solary 92%** / Vitality.Bee 8% | 1842 / 1552 | 64% | _ / _ | _ |
-| Thu 13/08 23:00 | NACL | Maryville University vs Winthrop University  🌪️ | BO3 | **Maryville University 47%** / Winthrop University 53% | 1535 / 1553 | 57% | _ / _ | _ |
-| Fri 14/08 05:00 | NACL | NRG vs Contingent Esports  🌪️ | BO3 | **NRG 75%** / Contingent Esports 25% | 1647 / 1497 | 57% | _ / _ | _ |
-| Fri 14/08 09:00 | LPL | EDward Gaming vs LGD Gaming  🌪️ | BO3 | **EDward Gaming 35%** / LGD Gaming 65% | 1330 / 1425 | 60% | _ / _ | _ |
-| Fri 14/08 10:00 | LCK | T1 vs Dplus Kia  🌪️ | BO3 | **T1 68%** / Dplus Kia 32% | 1743 / 1638 | 61% | _ / _ | _ |
-| Fri 14/08 11:00 | LPL | Team WE vs Top Esports  🌪️ | BO3 | **Team WE 31%** / Top Esports 69% | 1566 / 1692 | 60% | _ / _ | _ |
-| Fri 14/08 11:00 | LCP | CTBC Flying Oyster vs MVK Esports  | BO5 | **CTBC Flying Oyster 47%** / MVK Esports 53% | 1490 / 1501 | 65% | _ / _ | _ |
-| Fri 14/08 12:00 | LCK | Nongshim RedForce vs HANJIN BRION  🌪️ | BO3 | **Nongshim RedForce 45%** / HANJIN BRION 55% | 1426 / 1455 | 61% | _ / _ | _ |
-| Fri 14/08 17:00 | LEC | Shifters vs SK Gaming  | BO3 | **Shifters 51%** / SK Gaming 49% | 1387 / 1384 | 68% | _ / _ | _ |
-| Fri 14/08 19:15 | LEC | Team Vitality vs GiantX  | BO3 | **Team Vitality 55%** / GiantX 45% | 1554 / 1536 | 68% | _ / _ | _ |
-| Sat 15/08 09:00 | LPL | Ninjas in Pyjamas vs LNG Esports  🌪️ | BO3 | **Ninjas in Pyjamas 72%** / LNG Esports 28% | 1539 / 1392 | 60% | _ / _ | _ |
-| Sat 15/08 10:00 | LCK | Hanwha Life Esports vs KT Rolster  🌪️ ⚠️x-ligue | BO3 | **Hanwha Life Esports 68%** / KT Rolster 32% | 1633 / 1523 | 61% | _ / _ | _ |
-| Sat 15/08 11:00 | LPL | Anyone's Legend vs ThunderTalk Gaming  🌪️ | BO3 | **Anyone's Legend 80%** / ThunderTalk Gaming 20% | 1692 / 1470 | 60% | _ / _ | _ |
-| Sat 15/08 11:00 | LCP | Ground Zero Gaming vs DetonatioN FocusMe ⭐ | BO5 | **Ground Zero Gaming 75%** / DetonatioN FocusMe 25% | 1362 / 1271 | 65% | _ / _ | _ |
-| Sat 15/08 12:00 | LCK | BNK FEARX vs DN SOOPers  🌪️ ⚠️x-ligue | BO3 | **BNK FEARX 42%** / DN SOOPers 58% | 1456 / 1499 | 61% | _ / _ | _ |
-| Sat 15/08 13:00 | LPL | Bilibili Gaming vs Team WE  🌪️ | BO3 | **Bilibili Gaming 78%** / Team WE 22% | 1763 / 1566 | 60% | _ / _ | _ |
-| Sat 15/08 17:00 | LEC | SK Gaming vs Fnatic ⭐ | BO3 | **SK Gaming 38%** / Fnatic 62% | 1384 / 1433 | 68% | _ / _ | _ |
-| Sat 15/08 19:15 | LEC | Shifters vs G2 Esports 🎯⭐ | BO3 | **Shifters 1%** / G2 Esports 99% | 1387 / 1709 | 68% | _ / _ | _ |
-| Sat 15/08 21:00 | CBLOL | Vivo Keyd Stars vs Los Ratones  🌪️ ⚠️x-ligue | BO3 | **Vivo Keyd Stars 50%** / Los Ratones 50% | 1485 / 1486 | 60% ⚠️11g | _ / _ | _ |
-| Sat 15/08 22:00 | LCS | Disguised vs Team Liquid  🌪️ | BO3 | **Disguised 3%** / Team Liquid 97% | 1301 / 1699 | 62% | _ / _ | _ |
-| Sun 16/08 01:00 | LCS | Dignitas vs Shopify Rebellion  🌪️ | BO3 | **Dignitas 30%** / Shopify Rebellion 70% | 1289 / 1387 | 62% | _ / _ | _ |
-| Sun 16/08 10:00 | LCK | T1 vs Gen.G  🌪️ ⚠️x-ligue | BO3 | **T1 71%** / Gen.G 29% | 1743 / 1619 | 61% | _ / _ | _ |
-| Sun 16/08 11:00 | LPL | Weibo Gaming vs Invictus Gaming  🌪️ | BO3 | **Weibo Gaming 50%** / Invictus Gaming 50% | 1501 / 1500 | 60% | _ / _ | _ |
-| Sun 16/08 12:00 | LCK | Kiwoom DRX vs HANJIN BRION  🌪️ ⚠️x-ligue | BO3 | **Kiwoom DRX 41%** / HANJIN BRION 59% | 1401 / 1455 | 61% | _ / _ | _ |
-| Sun 16/08 13:00 | LPL | EDward Gaming vs Top Esports  🌪️ | BO3 | **EDward Gaming 11%** / Top Esports 89% | 1330 / 1692 | 60% | _ / _ | _ |
-| Sun 16/08 17:00 | LEC | Natus Vincere vs Movistar KOI  | BO3 | **Natus Vincere 55%** / Movistar KOI 45% | 1529 / 1512 | 68% | _ / _ | _ |
-| Sun 16/08 18:00 | CBLOL | LOUD vs Leviatan  🌪️ | BO3 | **LOUD 80%** / Leviatan 20% | 1497 / 1313 | 60% | _ / _ | _ |
-| Sun 16/08 19:15 | LEC | Fnatic vs G2 Esports 🎯⭐ | BO3 | **Fnatic 3%** / G2 Esports 97% | 1433 / 1709 | 68% | _ / _ | _ |
-| Sun 16/08 21:00 | CBLOL | paiN Gaming vs Fluxo W7M  🌪️ | BO3 | **paiN Gaming 39%** / Fluxo W7M 61% | 1372 / 1431 | 60% | _ / _ | _ |
-| Sun 16/08 22:00 | LCS | Cloud9 vs FlyQuest  🌪️ | BO3 | **Cloud9 37%** / FlyQuest 63% | 1472 / 1535 | 62% | _ / _ | _ |
-| Mon 17/08 01:00 | LCS | LYON vs Sentinels  🌪️ | BO3 | **LYON 89%** / Sentinels 11% | 1722 / 1480 | 62% | _ / _ | _ |
-| Mon 17/08 11:00 | PCS | Sponge Gaming vs SillySilly Gaming  🌪️ | BO3 | **Sponge Gaming 30%** / SillySilly Gaming 70% | 1497 / 1609 | 52% ⚠️4g | _ / _ | _ |
-| Mon 17/08 11:00 | KeSPA Cup | T1 vs DN SOOPers  🌪️ ⚠️x-ligue | BO5 | **T1 81%** / DN SOOPers 19% | 1743 / 1499 | 44% | _ / _ | _ |
-| Mon 17/08 14:00 | PCS | Reignfall vs Embrace Whatever Happens  🌪️ | BO3 | **Reignfall 50%** / Embrace Whatever Happens 50% | 1488 / 1488 | 52% ⚠️4g | _ / _ | _ |
-| Mon 17/08 17:00 | LEC | Team Heretics vs Natus Vincere 🎯⭐ | BO3 | **Team Heretics 6%** / Natus Vincere 94% | 1300 / 1529 | 68% | _ / _ | _ |
-| Mon 17/08 19:15 | LEC | GiantX vs Karmine Corp 🎯⭐ | BO3 | **GiantX 10%** / Karmine Corp 90% | 1536 / 1731 | 68% | _ / _ | _ |
-| Tue 18/08 01:00 | Circuito Desafiante | paiN Gaming Academy vs Ei Nerd Esports ⭐ | BO3 | **paiN Gaming Academy 65%** / Ei Nerd Esports 35% | 1548 / 1478 | 62% | _ / _ | _ |
-| Tue 18/08 01:00 | LRN | LYON Academy vs 3v Team ⭐ | BO5 | **LYON Academy 19%** / 3v Team 81% | 1401 / 1517 | 69% | _ / _ | _ |
-| Tue 18/08 11:00 | PCS | Frank Esports vs CTBC Flying Oyster Academy  🌪️ | BO5 | **Frank Esports 57%** / CTBC Flying Oyster Academy 43% | 1635 / 1606 | 52% | _ / _ | _ |
-| Tue 18/08 16:00 | Hitpoint Masters | Nightbirds vs CITA Kaizen ⭐ ⚠️x-ligue | BO3 | **Nightbirds 32%** / CITA Kaizen 68% | 1717 / 1790 | 82% | _ / _ | _ |
-| Tue 18/08 17:00 | Rift Legends | Anonymo Esports vs Forsaken  🌪️ | BO3 | **Anonymo Esports 39%** / Forsaken 61% | 1528 / 1574 | 62% | _ / _ | _ |
-| Tue 18/08 18:30 | Hitpoint Masters | Meavedron vs Bohemian Guardians 🎯⭐ | BO3 | **Meavedron 80%** / Bohemian Guardians 20% | 1494 / 1364 | 82% | _ / _ | _ |
-| Tue 18/08 19:00 | Road of Legends | Once Upon A Team vs Dynasty  | BO3 | **Once Upon A Team 53%** / Dynasty 47% | 1385 / 1371 | 67% | _ / _ | _ |
-| Tue 18/08 19:00 | Rift Legends | Bomba Team vs LODIS  🌪️ | BO3 | **Bomba Team 63%** / LODIS 37% | 1599 / 1543 | 62% | _ / _ | _ |
-| Tue 18/08 20:00 | Road of Legends | mCon esports vs Myth Esports 🎯⭐ | BO3 | **mCon esports 79%** / Myth Esports 21% | 1512 / 1377 | 67% | _ / _ | _ |
-| Tue 18/08 22:00 | Circuito Desafiante | 7REX vs INTZ ⭐ | BO3 | **7REX 30%** / INTZ 70% | 1514 / 1607 | 62% | _ / _ | _ |
+| Wed 19/08 01:00 | LRN | 3v Team vs Kits Esports  | BO5 | **3v Team 60%** / Kits Esports 40% | 1544 / 1511 | 69% | _ / _ | _ |
+| Wed 19/08 07:00 | LCK Challengers | KT Rolster Challengers vs T1 Esports Academy  🌪️ | BO3 | **KT Rolster Challengers 50%** / T1 Esports Academy 50% | 1678 / 1679 | 60% | _ / _ | _ |
+| Wed 19/08 09:00 | LPL | Weibo Gaming vs LNG Esports  🌪️ | BO3 | **Weibo Gaming 58%** / LNG Esports 42% | 1459 / 1405 | 60% | _ / _ | _ |
+| Wed 19/08 10:00 | LCK | Gen.G vs KT Rolster  🌪️ | BO3 | **Gen.G 77%** / KT Rolster 23% | 1671 / 1500 | 60% | _ / _ | _ |
+| Wed 19/08 10:00 | LPL | Top Esports vs Anyone's Legend  🌪️ | BO3 | **Top Esports 43%** / Anyone's Legend 57% | 1620 / 1662 | 60% | _ / _ | _ |
+| Wed 19/08 11:00 | LPL | EDward Gaming vs Team WE  🌪️ | BO3 | **EDward Gaming 18%** / Team WE 82% | 1314 / 1561 | 60% | _ / _ | _ |
+| Wed 19/08 12:00 | LCK | DN SOOPers vs HANJIN BRION  🌪️ ⚠️x-ligue | BO3 | **DN SOOPers 78%** / HANJIN BRION 22% | 1625 / 1440 | 60% | _ / _ | _ |
+| Wed 19/08 16:00 | Hitpoint Masters | Onion Team vs BRUTE  | BO3 | **Onion Team 41%** / BRUTE 59% | 1343 / 1376 | 82% | _ / _ | _ |
+| Wed 19/08 17:00 | TCL | Dark Passage vs SU Esports 🎯⭐ | BO5 | **Dark Passage 9%** / SU Esports 91% | 1361 / 1527 | 70% | _ / _ | _ |
+| Wed 19/08 17:00 | LES | UCAM Esports vs Team Heretics Academy  | BO5 | **UCAM Esports 59%** / Team Heretics Academy 41% | 1763 / 1734 | 75% | _ / _ | _ |
+| Wed 19/08 17:00 | Prime League | Berlin International Gaming vs Unicorns of Love Sexy Edition  | BO5 | **Berlin International Gaming 58%** / Unicorns of Love Sexy Edition 42% | 1669 / 1634 | 65% | _ / _ | _ |
+| Wed 19/08 18:00 | NLC | Bulldog Esports vs Verdant 🎯⭐ | BO3 | **Bulldog Esports 7%** / Verdant 93% | 1527 / 1751 | 67% | _ / _ | _ |
+| Wed 19/08 18:00 | La Ligue Française | Vitality.Bee vs Ici Japon Corp. Esport ⭐ | BO3 | **Vitality.Bee 69%** / Ici Japon Corp. Esport 31% | 1570 / 1475 | 64% | _ / _ | _ |
+| Wed 19/08 18:00 | LoL Italian Tournament | P11 Esports vs TITANS  | BO5 | **P11 Esports 60%** / TITANS 40% | 1426 / 1391 | 64% | _ / _ | _ |
+| Wed 19/08 18:00 | Esports Balkan League | REDPack Esports vs Magaza Esports  | BO3 | **REDPack Esports 9%** / Magaza Esports 91% | 1439 / 1642 | 74% ⚠️4g | _ / _ | _ |
+| Wed 19/08 18:00 | Arabian League | Pyramid IV Esports vs BAAM Esports 🎯⭐ | BO3 | **Pyramid IV Esports 21%** / BAAM Esports 79% | 1425 / 1547 | 68% | _ / _ | _ |
+| Wed 19/08 18:30 | Hitpoint Masters | EXILE esports vs Bohemian Guardians ⭐ | BO3 | **EXILE esports 62%** / Bohemian Guardians 38% | 1394 / 1346 | 82% | _ / _ | _ |
+| Wed 19/08 19:00 | Rift Legends | DOCISK vs Barcząca Esports by Yumisu ⭐ | BO3 | **DOCISK 29%** / Barcząca Esports by Yumisu 71% | 1439 / 1533 | 62% | _ / _ | _ |
+| Wed 19/08 20:00 | Liga Portuguesa | Francesinhas vs GD Esports  | BO3 | **Francesinhas 58%** / GD Esports 42% | 1486 / 1455 | 74% ⚠️6g | _ / _ | _ |
+| Wed 19/08 20:00 | Esports Balkan League | Hooligans vs Lenovo Legion Honvéd  | BO3 | **Hooligans 36%** / Lenovo Legion Honvéd 64% | 1474 / 1531 | 74% ⚠️13g | _ / _ | _ |
+| Wed 19/08 20:30 | Arabian League | GnG Amazigh vs Disruptors ⭐ | BO3 | **GnG Amazigh 34%** / Disruptors 66% | 1410 / 1472 | 68% | _ / _ | _ |
+| Wed 19/08 21:00 | La Ligue Française | Skillcamp vs Joblife  | BO3 | **Skillcamp 54%** / Joblife 46% | 1490 / 1472 | 64% | _ / _ | _ |
+| Wed 19/08 22:00 | LRS | Maze Gaming vs Docta Esports  | BO5 | **Maze Gaming 44%** / Docta Esports 56% | 1555 / 1574 | 66% | _ / _ | _ |
+| Wed 19/08 23:00 | Liga Portuguesa | Way Gaming Esports vs Tung Tung Bogi  | BO3 | **Way Gaming Esports 37%** / Tung Tung Bogi 63% | 1438 / 1490 | 74% ⚠️5g | _ / _ | _ |
+| Thu 20/08 10:00 | LCK | Dplus Kia vs Hanwha Life Esports  🌪️ | BO3 | **Dplus Kia 63%** / Hanwha Life Esports 37% | 1686 / 1613 | 60% | _ / _ | _ |
+| Thu 20/08 11:00 | LCP | CTBC Flying Oyster vs MVK Esports ⭐ | BO5 | **CTBC Flying Oyster 81%** / MVK Esports 19% | 1591 / 1468 | 65% | _ / _ | _ |
+| Thu 20/08 12:00 | LCK | Nongshim RedForce vs Kiwoom DRX  🌪️ ⚠️x-ligue | BO3 | **Nongshim RedForce 59%** / Kiwoom DRX 41% | 1424 / 1374 | 60% | _ / _ | _ |
+| Thu 20/08 13:00 | LPL | LGD Gaming vs Bilibili Gaming  🌪️ | BO3 | **LGD Gaming 22%** / Bilibili Gaming 78% | 1543 / 1752 | 60% | _ / _ | _ |
+| Thu 20/08 16:00 | Hitpoint Masters | Nightbirds vs EXILE esports 🎯⭐ | BO3 | **Nightbirds 100%** / EXILE esports 0% | 1784 / 1394 | 82% | _ / _ | _ |
+| Thu 20/08 17:00 | TCL | Bushido Wildcats vs DIA Ozarox Esports  | BO5 | **Bushido Wildcats 44%** / DIA Ozarox Esports 56% | 1542 / 1561 | 70% ⚠️4g | _ / _ | _ |
+| Thu 20/08 17:00 | Rift Legends | UP2UMEDIA Cebulaki vs Bomba Team  | BO3 | **UP2UMEDIA Cebulaki 20%** / Bomba Team 80% | 1454 / 1598 | 62% ⚠️4g | _ / _ | _ |
+| Thu 20/08 17:00 | Prime League | G2 NORD vs Eintracht Spandau ⭐ | BO5 | **G2 NORD 77%** / Eintracht Spandau 23% | 1758 / 1631 | 65% | _ / _ | _ |
+| Thu 20/08 18:00 | LoL Italian Tournament | HMBLE vs GMBLERS Esports 🎯⭐ | BO5 | **HMBLE 92%** / GMBLERS Esports 8% | 1755 / 1570 | 64% | _ / _ | _ |
+| Thu 20/08 18:00 | Esports Balkan League | The Secret Club vs Washed Gaming  | BO3 | **The Secret Club 87%** / Washed Gaming 13% | 1622 / 1453 | 74% ⚠️5g | _ / _ | _ |
+| Thu 20/08 18:30 | Hitpoint Masters | CITA Kaizen vs Bohemian Guardians 🎯⭐ | BO3 | **CITA Kaizen 100%** / Bohemian Guardians 0% | 1757 / 1346 | 82% | _ / _ | _ |
+| Thu 20/08 19:00 | Road of Legends | The Bandits vs Senshi eSports ⭐ | BO3 | **The Bandits 78%** / Senshi eSports 22% | 1569 / 1439 | 66% | _ / _ | _ |
+| Thu 20/08 19:00 | Rift Legends | Anonymo Esports vs Barcząca Esports by Yumisu ⭐ | BO3 | **Anonymo Esports 36%** / Barcząca Esports by Yumisu 64% | 1470 / 1533 | 62% | _ / _ | _ |
+| Thu 20/08 20:00 | Road of Legends | Frites Esports Club vs ZennIT 🎯⭐ | BO3 | **Frites Esports Club 99%** / ZennIT 1% | 1806 / 1420 | 66% | _ / _ | _ |
+| Thu 20/08 23:00 | NACL | Conviction vs Cupid Esports  🌪️ | BO3 | **Conviction 43%** / Cupid Esports 57% | 1551 / 1589 | 57% ⚠️11g | _ / _ | _ |
+| Fri 21/08 02:00 | NACL | Maryville University vs Dorado Gaming  🌪️ | BO3 | **Maryville University 50%** / Dorado Gaming 50% | 1519 / 1519 | 57% | _ / _ | _ |
+| Fri 21/08 07:00 | LCK Challengers | BNK FEARX Youth vs Gen.G Global Academy  🌪️ | BO3 | **BNK FEARX Youth 81%** / Gen.G Global Academy 19% | 1458 / 1248 | 60% | _ / _ | _ |
+| Fri 21/08 09:00 | LPL | ThunderTalk Gaming vs EDward Gaming  🌪️ | BO3 | **ThunderTalk Gaming 75%** / EDward Gaming 25% | 1491 / 1314 | 60% | _ / _ | _ |
+| Fri 21/08 10:00 | LCK | HANJIN BRION vs BNK FEARX  🌪️ | BO3 | **HANJIN BRION 51%** / BNK FEARX 49% | 1440 / 1437 | 60% | _ / _ | _ |
+| Fri 21/08 11:00 | LPL | Anyone's Legend vs Team WE  🌪️ | BO3 | **Anyone's Legend 65%** / Team WE 35% | 1662 / 1561 | 60% | _ / _ | _ |
+| Fri 21/08 11:00 | LCP | Team Secret Whales vs GAM Esports ⭐ | BO5 | **Team Secret Whales 72%** / GAM Esports 28% | 1660 / 1579 | 65% | _ / _ | _ |
+| Fri 21/08 12:00 | LCK | KT Rolster vs T1  🌪️ ⚠️x-ligue | BO3 | **KT Rolster 30%** / T1 70% | 1500 / 1624 | 60% | _ / _ | _ |
+| Fri 21/08 13:00 | LPL | Bilibili Gaming vs Top Esports  🌪️ | BO3 | **Bilibili Gaming 70%** / Top Esports 30% | 1752 / 1620 | 60% | _ / _ | _ |
+| Fri 21/08 17:00 | LEC | Team Heretics vs SK Gaming ⭐ | BO3 | **Team Heretics 26%** / SK Gaming 74% | 1286 / 1385 | 68% | _ / _ | _ |
+| Fri 21/08 19:15 | LEC | Natus Vincere vs Team Vitality ⭐ | BO3 | **Natus Vincere 34%** / Team Vitality 66% | 1510 / 1572 | 68% | _ / _ | _ |
+| Fri 21/08 23:00 | NACL | Contingent Esports vs NRG  🌪️ | BO3 | **Contingent Esports 22%** / NRG 78% | 1508 / 1670 | 57% | _ / _ | _ |
+| Sat 22/08 09:00 | LPL | LGD Gaming vs Team WE  🌪️ | BO3 | **LGD Gaming 47%** / Team WE 53% | 1543 / 1561 | 60% | _ / _ | _ |
+| Sat 22/08 10:00 | LCK | Dplus Kia vs Gen.G  🌪️ | BO3 | **Dplus Kia 53%** / Gen.G 47% | 1686 / 1671 | 60% | _ / _ | _ |
+| Sat 22/08 11:00 | LPL | Ninjas in Pyjamas vs Invictus Gaming  🌪️ | BO3 | **Ninjas in Pyjamas 56%** / Invictus Gaming 44% | 1553 / 1515 | 60% | _ / _ | _ |
+| Sat 22/08 12:00 | LCK | DN SOOPers vs Kiwoom DRX  🌪️ ⚠️x-ligue | BO3 | **DN SOOPers 85%** / Kiwoom DRX 15% | 1625 / 1374 | 60% | _ / _ | _ |
+| Sat 22/08 17:00 | LEC | Shifters vs Fnatic 🎯⭐ | BO3 | **Shifters 16%** / Fnatic 84% | 1351 / 1505 | 68% | _ / _ | _ |
+| Sat 22/08 18:00 | CBLOL | Leviatan vs Vivo Keyd Stars  🌪️ | BO3 | **Leviatan 19%** / Vivo Keyd Stars 81% | 1296 / 1485 | 60% | _ / _ | _ |
+| Sat 22/08 19:15 | LEC | SK Gaming vs Movistar KOI 🎯⭐ | BO3 | **SK Gaming 15%** / Movistar KOI 85% | 1385 / 1545 | 68% | _ / _ | _ |
+| Sat 22/08 21:00 | CBLOL | paiN Gaming vs FURIA  🌪️ | BO3 | **paiN Gaming 22%** / FURIA 78% | 1415 / 1585 | 60% | _ / _ | _ |
+| Sat 22/08 22:00 | LCS | Sentinels vs FlyQuest  🌪️ | BO3 | **Sentinels 51%** / FlyQuest 49% | 1500 / 1494 | 61% | _ / _ | _ |
+| Sun 23/08 01:00 | LCS | Dignitas vs Disguised  🌪️ | BO3 | **Dignitas 47%** / Disguised 53% | 1279 / 1294 | 61% | _ / _ | _ |
+| Sun 23/08 09:00 | LPL | ThunderTalk Gaming vs LGD Gaming  🌪️ | BO3 | **ThunderTalk Gaming 42%** / LGD Gaming 58% | 1491 / 1543 | 60% | _ / _ | _ |
+| Sun 23/08 10:00 | LCK | Hanwha Life Esports vs T1  🌪️ ⚠️x-ligue | BO3 | **Hanwha Life Esports 48%** / T1 52% | 1613 / 1624 | 60% | _ / _ | _ |
+| Sun 23/08 12:00 | LCK | BNK FEARX vs Nongshim RedForce  🌪️ ⚠️x-ligue | BO3 | **BNK FEARX 52%** / Nongshim RedForce 48% | 1437 / 1424 | 60% | _ / _ | _ |
+| Sun 23/08 13:00 | LPL | Anyone's Legend vs Bilibili Gaming  🌪️ | BO3 | **Anyone's Legend 36%** / Bilibili Gaming 64% | 1662 / 1752 | 60% | _ / _ | _ |
+| Sun 23/08 17:00 | LEC | Team Heretics vs GiantX 🎯⭐ | BO3 | **Team Heretics 7%** / GiantX 93% | 1286 / 1503 | 68% | _ / _ | _ |
+| Sun 23/08 19:15 | LEC | Shifters vs Karmine Corp 🎯⭐ | BO3 | **Shifters 0%** / Karmine Corp 100% | 1351 / 1751 | 68% | _ / _ | _ |
+| Sun 23/08 21:00 | CBLOL | Los Ratones vs LOUD  🌪️ ⚠️x-ligue | BO3 | **Los Ratones 45%** / LOUD 55% | 1486 / 1514 | 60% ⚠️11g | _ / _ | _ |
+| Sun 23/08 22:00 | LCS | Disguised vs Sentinels  🌪️ | BO3 | **Disguised 16%** / Sentinels 84% | 1294 / 1500 | 61% | _ / _ | _ |
+| Mon 24/08 01:00 | LCS | Dignitas vs FlyQuest  🌪️ | BO3 | **Dignitas 15%** / FlyQuest 85% | 1279 / 1494 | 61% | _ / _ | _ |
+| Mon 24/08 17:00 | LEC | Natus Vincere vs Fnatic  | BO3 | **Natus Vincere 51%** / Fnatic 49% | 1510 / 1505 | 68% | _ / _ | _ |
+| Mon 24/08 18:00 | NLC | Deer Gaming vs DMG Esports  | BO3 | **Deer Gaming 56%** / DMG Esports 44% | 1557 / 1535 | 67% | _ / _ | _ |
+| Mon 24/08 19:15 | LEC | GiantX vs G2 Esports 🎯⭐ | BO3 | **GiantX 14%** / G2 Esports 86% | 1503 / 1666 | 68% | _ / _ | _ |
+| Mon 24/08 22:00 | Circuito Desafiante | Ei Nerd Esports vs Estral Esports  🌪️ | BO3 | **Ei Nerd Esports 13%** / Estral Esports 87% | 1525 / 1732 | 61% | _ / _ | _ |
+| Tue 25/08 01:00 | Circuito Desafiante | Vivo Keyd Stars Academy vs INTZ  🌪️ | BO3 | **Vivo Keyd Stars Academy 38%** / INTZ 62% | 1575 / 1633 | 61% | _ / _ | _ |
+| Tue 25/08 01:00 | LRN | Zeu5 Esports vs Fuego ⭐ | BO5 | **Zeu5 Esports 30%** / Fuego 70% | 1695 / 1766 | 69% | _ / _ | _ |
+| Tue 25/08 16:00 | Hitpoint Masters | Onion Team vs CITA Kaizen 🎯⭐ | BO3 | **Onion Team 0%** / CITA Kaizen 100% | 1343 / 1757 | 82% | _ / _ | _ |
+| Tue 25/08 17:30 | Hellenic Legends League | WLGaming Esports vs The ParadOx Invaders 🎯⭐ | BO3 | **WLGaming Esports 89%** / The ParadOx Invaders 11% | 1582 / 1395 | 76% | _ / _ | _ |
+| Tue 25/08 18:30 | Hitpoint Masters | eSuba vs BRUTE 🎯⭐ | BO3 | **eSuba 92%** / BRUTE 8% | 1593 / 1376 | 82% | _ / _ | _ |
+| Tue 25/08 19:00 | Road of Legends | Frites Esports Club vs Myth Esports 🎯⭐ | BO3 | **Frites Esports Club 98%** / Myth Esports 2% | 1806 / 1466 | 66% | _ / _ | _ |
+| Tue 25/08 19:00 | Rift Legends | DOCISK vs Forsaken 🎯⭐ | BO3 | **DOCISK 17%** / Forsaken 83% | 1439 / 1602 | 62% | _ / _ | _ |
+| Tue 25/08 20:00 | Road of Legends | The Bandits vs Dynasty 🎯⭐ | BO3 | **The Bandits 85%** / Dynasty 15% | 1569 / 1396 | 66% | _ / _ | _ |
+| Tue 25/08 22:00 | Circuito Desafiante | paiN Gaming Academy vs RMD Gaming  🌪️ | BO5 | **paiN Gaming Academy 65%** / RMD Gaming 35% | 1501 / 1447 | 61% | _ / _ | _ |
+| Tue 25/08 22:00 | LRS | 9z Globant vs Golden Lions  | BO5 | **9z Globant 42%** / Golden Lions 58% | 1668 / 1692 | 66% | _ / _ | _ |
+| Wed 26/08 16:00 | Hitpoint Masters | EXILE esports vs BRUTE  | BO3 | **EXILE esports 55%** / BRUTE 45% | 1394 / 1376 | 82% | _ / _ | _ |
+| Wed 26/08 17:00 | Rift Legends | Forsaken vs Barcząca Esports by Yumisu ⭐ | BO3 | **Forsaken 66%** / Barcząca Esports by Yumisu 34% | 1602 / 1533 | 62% | _ / _ | _ |
+| Wed 26/08 18:00 | LoL Italian Tournament | Aeterna Esports vs Colossal Gaming  | BO5 | **Aeterna Esports 40%** / Colossal Gaming 60% | 1501 / 1533 | 64% | _ / _ | _ |
+| Wed 26/08 18:30 | Hitpoint Masters | eSuba vs CITA Kaizen 🎯⭐ | BO3 | **eSuba 14%** / CITA Kaizen 86% | 1593 / 1757 | 82% | _ / _ | _ |
+| Wed 26/08 19:00 | Rift Legends | Bomba Team vs DOCISK 🎯⭐ | BO3 | **Bomba Team 82%** / DOCISK 18% | 1598 / 1439 | 62% | _ / _ | _ |
 
-## Matchs non couverts (18) — équipes absentes de notre data
+## Matchs non couverts (16) — équipes absentes de notre data
 *(noms Leaguepedia ≠ Oracle, ou ligue non collectée. À ignorer ou à mapper plus tard.)*
 
-- Wed 12/08 07:00 · LCK Challengers · BRO Challengers vs HLE Challengers
-- Wed 12/08 13:00 · LPL · BILIBILI GAMING vs Beijing JDG Esports
-- Wed 12/08 18:00 · NLC · VES vs Rich Gang
-- Wed 12/08 23:00 · NACL · Ole Miss Esports vs Cupid Esports
-- Thu 13/08 07:00 · LCK Challengers · Gen.G Global Academy vs KRX Challengers
-- Thu 13/08 07:00 · LCK Challengers · kt Challengers vs NS Challengers
-- Fri 14/08 02:00 · NACL · Ole Miss Esports vs Dorado Gaming
-- Fri 14/08 05:00 · LCK Challengers · T1 Esports Academy vs DK Challengers
-- Fri 14/08 07:00 · LCK Challengers · BNK FEARX Youth vs BRO Challengers
-- Fri 14/08 13:00 · LPL · Beijing JDG Esports vs Anyone's Legend
-- Sat 15/08 18:00 · CBLOL · FURIA vs RED Kalunga
-- Sun 16/08 05:00 · LCK Challengers · T1 Esports Academy vs DNS Challengers
-- Sun 16/08 09:00 · LPL · Beijing JDG Esports vs LGD GAMING
-- Mon 17/08 10:00 · LCK Challengers · DK Challengers vs kt Challengers
-- Mon 17/08 12:00 · LCK Challengers · KRX Challengers vs HLE Challengers
-- Tue 18/08 10:00 · LCK Challengers · DNS Challengers vs NS Challengers
-- Tue 18/08 12:00 · LCK Challengers · Gen.G Global Academy vs BRO Challengers
-- Wed 19/08 01:00 · Circuito Desafiante · KaBuM! Eports vs Vivo Keyd Stars Academy
+- Wed 19/08 01:00 · Circuito Desafiante · Vivo Keyd Stars Academy vs KaBuM! Eports
+- Wed 19/08 07:00 · LCK Challengers · BNK FEARX Youth vs HLE Challengers
+- Wed 19/08 17:00 · Rift Legends · DV1 inStreamly vs Up2umedia Cebulaki
+- Wed 19/08 20:00 · NLC · Bardicted to U vs Arctic Pandas
+- Thu 20/08 07:00 · LCK Challengers · DK Challengers vs DNS Challengers
+- Thu 20/08 07:00 · LCK Challengers · BRO Challengers vs KRX Challengers
+- Thu 20/08 11:00 · LPL · THUNDER TALK GAMING vs Beijing JDG Esports
+- Thu 20/08 20:00 · Esports Balkan League · SPIKE Syndicate vs ONLY THE FAMILY
+- Fri 21/08 07:00 · LCK Challengers · NS Challengers vs T1 Esports Academy
+- Sat 22/08 02:00 · NACL · Winthrop University vs Ole Miss Esports
+- Sat 22/08 13:00 · LPL · Beijing JDG Esports vs TOP ESPORTS
+- Sun 23/08 11:00 · LPL · Beijing JDG Esports vs EDWARD GAMING
+- Sun 23/08 18:00 · CBLOL · RED Kalunga vs Fluxo W7M
+- Mon 24/08 20:00 · NLC · Ruddy Corporation vs VES
+- Tue 25/08 15:00 · Hellenic Legends League · Gamespace M.C. vs Spartans EU
+- Tue 25/08 17:00 · Rift Legends · LODIS vs DV1 inStreamly
