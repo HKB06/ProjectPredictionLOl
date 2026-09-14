@@ -45,17 +45,35 @@ COLS = [
 ]
 RESULTS = ["open", "won", "lost", "void"]
 
+# Typage EXPLICITE des colonnes. Indispensable pour `st.data_editor` : une colonne
+# vide relue depuis le CSV arrive en float64 (que des NaN), et Streamlit refuse une
+# TextColumn posée sur du numérique (StreamlitAPIException).
+STR_COLS = ["match_date", "when", "league", "team1", "team2", "pick",
+            "odds_source", "result", "winner", "score", "captured_at"]
+NUM_COLS = ["bestof", "our_proba", "breakeven", "odds", "stake", "profit"]
+
+
+def normalize(df: pd.DataFrame) -> pd.DataFrame:
+    """Force les dtypes du journal (texte vs numérique) et complète les colonnes."""
+    d = df.copy()
+    for c in COLS:
+        if c not in d.columns:
+            d[c] = np.nan
+    for c in STR_COLS:
+        d[c] = d[c].astype("string")
+    for c in NUM_COLS:
+        d[c] = pd.to_numeric(d[c], errors="coerce")
+    d["result"] = d["result"].fillna("open")
+    d["stake"] = d["stake"].fillna(STAKE)
+    return d[COLS]
+
 
 # --------------------------------------------------------------------- journal
 def load_ledger() -> pd.DataFrame:
     """Charge le journal des picks (crée un DataFrame vide si absent)."""
     if not LEDGER_PATH.exists():
-        return pd.DataFrame(columns=COLS)
-    df = pd.read_csv(LEDGER_PATH)
-    for c in COLS:
-        if c not in df.columns:
-            df[c] = np.nan
-    return df[COLS]
+        return normalize(pd.DataFrame(columns=COLS))
+    return normalize(pd.read_csv(LEDGER_PATH))
 
 
 def save_ledger(df: pd.DataFrame) -> None:
@@ -143,9 +161,9 @@ def add_candidates(ledger: pd.DataFrame, cands: list[dict]) -> tuple[pd.DataFram
     known = {_key(r.team1, r.team2, r.match_date) for r in ledger.itertuples()}
     new = [c for c in cands if _key(c["team1"], c["team2"], c["match_date"]) not in known]
     if not new:
-        return ledger, 0
-    out = pd.concat([ledger, pd.DataFrame(new)], ignore_index=True)
-    return out[COLS], len(new)
+        return normalize(ledger), 0
+    out = pd.concat([normalize(ledger), normalize(pd.DataFrame(new))], ignore_index=True)
+    return normalize(out), len(new)
 
 
 # ------------------------------------------------------------------ règlement
@@ -187,8 +205,8 @@ def series_result(matches: pd.DataFrame, team1: str, team2: str,
 def settle(ledger: pd.DataFrame, cfg: dict | None = None) -> pd.DataFrame:
     """Règle les picks ouverts depuis la data Oracle et calcule le P/L à mise fixe."""
     if ledger.empty:
-        return ledger
-    df = ledger.copy()
+        return normalize(ledger)
+    df = normalize(ledger)
     matches = _load_matches(cfg)
 
     for i, row in df.iterrows():
@@ -207,9 +225,7 @@ def settle(ledger: pd.DataFrame, cfg: dict | None = None) -> pd.DataFrame:
 
 def _compute_profit(df: pd.DataFrame) -> pd.DataFrame:
     """P/L à mise fixe : gagné -> stake*(cote-1) ; perdu -> -stake ; sans cote -> NaN."""
-    d = df.copy()
-    d["odds"] = pd.to_numeric(d["odds"], errors="coerce")
-    d["stake"] = pd.to_numeric(d["stake"], errors="coerce").fillna(STAKE)
+    d = normalize(df)
     d["profit"] = np.nan
     won = d["result"] == "won"
     lost = d["result"] == "lost"

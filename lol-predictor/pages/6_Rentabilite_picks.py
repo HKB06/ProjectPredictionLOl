@@ -17,8 +17,8 @@ import pandas as pd
 import streamlit as st
 
 from src.models.picks_roi import (COLS, RESULTS, STAKE, add_candidates, candidates,
-                                  load_ledger, roi_at_odds, save_ledger, settle,
-                                  summary)
+                                  load_ledger, normalize, roi_at_odds, save_ledger,
+                                  settle, summary)
 
 st.set_page_config(page_title="LoL — Rentabilité des picks", page_icon="💵", layout="wide")
 
@@ -153,7 +153,7 @@ def _ledger_block() -> None:
     st.markdown("**Saisis / corrige les cotes**, puis sauvegarde. Sans cote, le ROI "
                 "de la ligne ne peut pas être calculé.")
     edited = st.data_editor(
-        led, width="stretch", hide_index=True, num_rows="dynamic",
+        normalize(led), width="stretch", hide_index=True, num_rows="dynamic",
         column_config={
             "match_date": st.column_config.TextColumn("Date", width="small"),
             "when": st.column_config.TextColumn("Quand", width="small"),
