@@ -16,6 +16,10 @@ from src.update.elo import RELIABLE_ACC
 
 st.set_page_config(page_title="LoL — Bilan prédictions", page_icon="✅", layout="wide")
 
+from src.ui.auth import require_password  # noqa: E402 - doit suivre set_page_config
+
+require_password()
+
 WINDOWS = {"3 jours": 3, "7 jours": 7, "14 jours": 14, "30 jours": 30, "Toute la saison": None}
 
 

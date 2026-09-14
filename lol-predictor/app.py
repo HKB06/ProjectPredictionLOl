@@ -21,6 +21,10 @@ from src.ingest.load_oracle import ROOT, load_config
 
 st.set_page_config(page_title="LoL — Matchs à venir", page_icon="📅", layout="wide")
 
+from src.ui.auth import require_password  # noqa: E402 - doit suivre set_page_config
+
+require_password()
+
 # Déploiement cloud : expose les secrets Streamlit via os.environ (load_key lit l'env).
 try:
     for _k in ("ANTHROPIC_API_KEY", "ODDS_API_KEY"):

@@ -17,6 +17,10 @@ from src.ingest.load_oracle import ROOT
 
 st.set_page_config(page_title="LoL — Journal de paris", page_icon="💰", layout="wide")
 
+from src.ui.auth import require_password  # noqa: E402 - doit suivre set_page_config
+
+require_password()
+
 BETS_PATH = ROOT / "data" / "bets.csv"
 COLS = ["placed_at", "league", "match", "bet_on", "market", "odds", "stake",
         "our_proba", "closing_odds", "result", "notes"]

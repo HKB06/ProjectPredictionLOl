@@ -15,6 +15,10 @@ NONE_OPT = "— (aucun)"
 
 st.set_page_config(page_title="Prédiction draft", page_icon="🎯", layout="wide")
 
+from src.ui.auth import require_password  # noqa: E402 - doit suivre set_page_config
+
+require_password()
+
 
 @st.cache_resource(show_spinner="Entraînement du modèle (une fois)...")
 def get_predictor() -> MatchPredictor:

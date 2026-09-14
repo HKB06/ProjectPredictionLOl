@@ -21,6 +21,10 @@ from src.update.elo import RELIABLE_ACC, calibrate, compute_elo, win_prob
 
 st.set_page_config(page_title="LoL — Série en cours", page_icon="🔄", layout="wide")
 
+from src.ui.auth import require_password  # noqa: E402 - doit suivre set_page_config
+
+require_password()
+
 EDGE_MIN = 0.04
 NO_FADE_ODD = 1.20  # règle ferme du journal : jamais fader un favori plus court
 

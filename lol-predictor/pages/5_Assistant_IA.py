@@ -26,6 +26,10 @@ except Exception:  # noqa: BLE001
 
 st.set_page_config(page_title="Assistant IA — LoL", page_icon="🤖", layout="wide")
 
+from src.ui.auth import require_password  # noqa: E402 - doit suivre set_page_config
+
+require_password()
+
 # Déploiement cloud : expose les secrets Streamlit via os.environ (load_api_key lit l'env).
 try:
     for _k in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "ANTHROPIC_API_KEY", "ODDS_API_KEY"):

@@ -22,6 +22,10 @@ from src.models.picks_roi import (COLS, RESULTS, STAKE, add_candidates, candidat
 
 st.set_page_config(page_title="LoL — Rentabilité des picks", page_icon="💵", layout="wide")
 
+from src.ui.auth import require_password  # noqa: E402 - doit suivre set_page_config
+
+require_password()
+
 ODDS_GRID = (1.10, 1.15, 1.20, 1.25, 1.30, 1.40, 1.50, 1.75, 2.00)
 VERDICT = {"won": "✅ gagné", "lost": "❌ perdu", "void": "➖ annulé", "open": "⏳ en attente"}
 
