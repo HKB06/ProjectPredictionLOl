@@ -1,56 +1,119 @@
-# LoL Predictor (projet perso / paris)
+# LoL Predictor — pipeline technique
 
-Prédiction multi-marchés sur les matchs **LCK 2026** (puis LEC, LPL...) à partir de
-données pro historiques, **sans fuite de données** et avec **calibration des probabilités**.
+Prédiction multi-marchés sur les matchs LoL esports à partir de données pro
+historiques, **sans fuite de données** et avec **probabilités calibrées**.
 
-> Projet PERSO, séparé du mémoire école (qui porte sur l'aide à la draft pour coachs).
+> Projet PERSO, séparé du mémoire école. Vue d'ensemble et discipline de pari :
+> voir le [README racine](../README.md).
 
 ## Objectif
-Pour un match à venir (draft + équipes), sortir des **probabilités calibrées** par marché :
-vainqueur, total kills, première tour, premier dragon, first blood, durée de partie.
+
+Pour un match à venir (équipes + draft), sortir des **probabilités calibrées** par
+marché : vainqueur, total kills, première tour, premier dragon, first blood, durée.
 But final : comparer ces probas aux **cotes** pour détecter de la **valeur**.
 
 ## Données
-- **Backbone** : CSV Oracle's Elixir (par-game, propre, contient GD@15, picks/bans, first objectives).
-- **Enrichissement / live (plus tard)** : Gol.gg premium.
+
+- **Backbone** : CSV Oracle's Elixir (par-game : GD@15, picks/bans, first objectives).
+- **Périmètre actuel** (`config.yaml`) : 12 ligues, année 2026 → **3 903 matchs**
+  (14/01 → 13/09/2026), baseline côté bleu **53,9 %**.
+- **Calendrier des matchs à venir** : API lolesports (fallback Leaguepedia + saisie manuelle).
+- **Cotes** : odds-api.io (books mous) et Polymarket.
 
 ### Récupérer les données
-1. Créer un compte gratuit sur https://oracleselixir.com (Tools -> Downloads).
-2. Télécharger `2026_LoL_esports_match_data_from_OraclesElixir.csv`.
-3. Le placer dans `data/raw/`.
+
+Automatique (recommandé) :
+
+```powershell
+.\venv\Scripts\python.exe -m src.update.download_data
+```
+
+Manuel : compte gratuit sur <https://oracleselixir.com> (Tools → Downloads), télécharger
+`2026_LoL_esports_match_data_from_OraclesElixir.csv`, le placer dans `data/raw/`.
 
 ## Règles d'or (anti-pièges)
-1. **Anti-fuite** : toute feature historique est calculée uniquement avec les games
-   ANTÉRIEURES au match prédit. Jamais les agrégats "à aujourd'hui" de Gol.gg pour l'entraînement.
-2. **Petit dataset** (~329 games LCK 2026) : features LEAN, modèles simples, lissage.
-3. **Baseline réelle = 56,8%** (toujours côté bleu), pas 50%.
+
+1. **Anti-fuite** : toute feature historique n'utilise que les games **antérieures** au
+   match prédit. Jamais d'agrégats « à aujourd'hui » pour l'entraînement.
+2. **Baseline réelle = 53,9 %** (toujours côté bleu), pas 50 %.
+3. **Calibration par ligue** : la proba est aplatie là où le modèle est historiquement
+   mauvais. Toute recalibration future devra être ajustée **par fenêtre**, jamais sur
+   l'ensemble (sinon la fuite revient par la couche de calibration).
+4. **Pas de wrapper de calibration sur le winner** : mesuré, `CalibratedClassifierCV`
+   dégrade l'AUC (0,59 vs 0,74) sur ce volume. La régression logistique régularisée est
+   déjà bien calibrée.
 
 ## Installation
+
 ```powershell
 py -3.11 -m venv venv
 .\venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-## Utilisation
+## Pipeline de données
+
 ```powershell
-# Charger + résumer les données (sanity-check vs Gol.gg : 329 games, 56.8% bleu, 31:55)
-.\venv\Scripts\python.exe -m src.ingest.load_oracle
+.\venv\Scripts\python.exe -m src.update.download_data      # CSV brut
+.\venv\Scripts\python.exe -m src.ingest.build_match_table  # -> matches.parquet, team_games.parquet
+.\venv\Scripts\python.exe -m src.features.build_features   # -> features.parquet (38 features)
+.\venv\Scripts\python.exe -m src.ingest.load_oracle        # sanity-check (games, période, WR bleu)
+```
+
+Ou tout en une commande : `python -m src.update.daily`.
+
+## Lancer le front
+
+```powershell
+.\venv\Scripts\python.exe -m streamlit run app.py
 ```
 
 ## Structure
+
 ```
 lol-predictor/
-├── data/{raw,interim,processed}/   # CSV brut -> features Parquet
-├── src/{ingest,features,models,eval}/
-├── models/                         # modèles + calibrateurs
-├── reports/                        # backtests + figures
-└── config.yaml                     # ligues, année, marchés, fenêtres, seed
+├── app.py                      # accueil : matchs à venir + proba Elo + value
+├── pages/                      # 1 draft · 2 bilan · 3 série live · 4 journal
+│                               # 5 assistant IA · 6 rentabilité des picks
+├── data/{raw,interim,processed} # CSV brut -> Parquet
+├── src/
+│   ├── ingest/                 # load_oracle, build_match_table
+│   ├── features/               # build_features, champion_priors
+│   ├── models/                 # predict, eval_models, high_confidence,
+│   │                           # audit_calibration, picks_roi
+│   └── update/                 # elo, watchlist, lolesports, oddsapi,
+│                               # polymarket, backtest_recent, daily, download_data
+├── models/                     # modèles + calibrateurs
+├── reports/                    # sorties d'audit (non versionnées)
+└── config.yaml                 # ligues, année, marchés, fenêtres, seed
 ```
 
-## Roadmap
-- P0 Scaffolding (fait)
-- P1 Ingestion + exploration Oracle (LCK 2026)
-- P2 Nettoyage -> table 1 ligne/game
-- P3 Feature engineering (Elo, forme lissée, H2H, draft, GD@15) sans fuite
-- P4 Modèles par marché + calibration + backtest temporel
-- P5+ Front, V2 live (at10/at15), cotes/valeur
+## Modèles
+
+| Brique | Rôle |
+|---|---|
+| `src/update/elo.py` | Elo K32 + MOV, fiabilité et shrink **par ligue** |
+| `src/models/predict.py` | `MatchPredictor` : tous les marchés + proba de série |
+| `src/models/eval_models.py` | Replay walk-forward, Brier / LogLoss / ECE, comparatif de variantes |
+| `src/models/high_confidence.py` | La règle de **sélectivité** (picks 🎯) |
+| `src/models/audit_calibration.py` | Audit reproductible : Murphy, ECE, ROC, IC bootstrap |
+| `src/models/picks_roi.py` | Rentabilité : ROI à mise fixe, cote minimale |
+
+## Évaluation
+
+```powershell
+.\venv\Scripts\python.exe -m src.models.eval_models         # comparatif de variantes Elo
+.\venv\Scripts\python.exe -m src.models.audit_calibration   # audit complet -> reports/
+.\venv\Scripts\python.exe -m src.update.backtest_recent --days 7
+.\venv\Scripts\python.exe -m src.models.picks_roi --days 60
+```
+
+**Verdict actuel** : le modèle **sélectionne bien mais gradue mal** — il identifie le
+vainqueur correctement (81 % sur les picks sélectifs) mais manque de résolution pour
+s'éloigner de la base rate. Le gain attendu vient de la **draft / du lineup confirmé**,
+pas d'un réglage d'Elo. Détail et intervalles de confiance : `src/models/audit_calibration.py`.
+
+## Configuration
+
+`config.yaml` : ligues du scope, année, `date_min`, marchés, fenêtres de forme, seed.
+Clé odds-api.io : variable d'environnement `ODDS_API_KEY` ou fichier `oddsapi.key`
+(gitignored). Sur Streamlit Cloud, passer par `st.secrets`.

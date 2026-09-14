@@ -1,95 +1,136 @@
-# ProjectPredictionLOl — Prédiction LoL esports (LCK / LEC) + paris
+# ProjectPredictionLOl — Prédiction LoL esports + détection de valeur
 
-Pipeline de prédiction (données Oracle's Elixir → modèles winner / kills / valeur + front Streamlit).
-Sauvegarde pour reprendre le travail sur un autre PC.
+Pipeline complet : données **Oracle's Elixir** → Elo calibré par ligue → probabilités
+pré-match → comparaison aux **cotes du book** → mesure du **ROI réel**.
+
+> ⚠️ Projet **perso**, distinct du mémoire M2 (qui porte sur l'aide à la décision pour
+> coachs/analystes). Les livrables école sont dans `../Livrables_M2/`.
+
+## L'essentiel en 3 chiffres
+
+| | |
+|---|---|
+| **Data** | 3 903 matchs · 14/01 → 13/09/2026 · 12 ligues (LCK, LEC, LCS, LPL, LFL, PRM, TCL, LJL, LAS, LCP, EBL, HLL) |
+| **Picks 🎯 haute confiance** | **81,0 %** de vainqueurs trouvés (458 picks / 60 j, walk-forward sans fuite) |
+| **Cote minimale de rentabilité** | **1,23** — en dessous, on perd **même en ayant raison** |
+
+La leçon centrale du projet : **l'accuracy ne suffit pas**. Un favori à 85 % joué à cote
+1,10 est perdant sur la durée. Tout l'outillage sert à trouver les spots où la cote paie
+plus que le risque.
 
 ## Structure
-- `lol-predictor/` — le pipeline (`src/`, `app.py` Streamlit, `data/`, `config.yaml`, `requirements.txt`).
-- `POINT_ETAPE.md` — **journal scientifique** (toutes les hypothèses testées + résultats). **À lire en premier.**
-- `SUIVI_PARIS.md` — forward-test des paris (draft-only vs cotes book).
-- `SUIVI_PREDICTIONS.md` — suivi des prédictions vs résultats réels.
-- `cursor_projet_de_master_big_data_ia.md` — export complet de la conversation Cursor (tout le contexte).
 
-## Reprendre sur le portable
+- `lol-predictor/` — le pipeline : `src/`, `app.py` (Streamlit), `data/`, `config.yaml`.
+- `POINT_ETAPE.md` — **journal scientifique** (hypothèses testées + résultats). **À lire en premier.**
+- `SUIVI_PARIS.md` — forward-test des paris et leçons d'exécution (marchés qui ferment, timing).
+- `SUIVI_PREDICTIONS.md` — suivi des prédictions vs résultats réels.
+- `HIGH_CONFIDENCE.md`, `WATCHLIST.md`, `BACKTEST_RECENT.md` — sorties générées.
+- `Data Oracle LOL/` — historique complet 2014→2026 (local, **non versionné** : ~810 Mo).
+
+## Lancer l'app
+
+Double-clique sur **`Lancer_LoL.bat`** : rafraîchit la data depuis le Drive, puis ouvre
+Streamlit. Ou manuellement, depuis `lol-predictor/` :
+
 ```powershell
-git clone https://github.com/HKB06/ProjectPredictionLOl.git
-cd ProjectPredictionLOl/lol-predictor
-python -m venv venv
-.\venv\Scripts\python.exe -m pip install -r requirements.txt
 .\venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-## Lancer l'app en 1 clic
-Double-clique sur **`Lancer_LoL.bat`** (racine du projet) : il (1) tente de rafraîchir la data
-Oracle's Elixir depuis le Drive, puis (2) ouvre l'app Streamlit dans le navigateur.
+### Les 7 pages
 
-L'app a 2 pages :
-- **📅 Matchs à venir (accueil)** — calendrier des prochains jours (API lolesports) avec NOTRE proba Elo
-  (toutes équipes), filtres par ligue, bouton **🔄 Actualiser**, et un **calculateur de value** (saisis les
-  cotes → edge + verdict). Les matchs sont **récupérés en direct à chaque ouverture**.
-- **🎯 Prédiction par draft** — saisie 2 équipes + 10 champions → probas par marché (ligues du scope).
+| Page | Ce qu'elle fait |
+|---|---|
+| 📅 **Matchs à venir** (accueil) | Calendrier live (API lolesports) + notre proba Elo, picks 🎯, **cote mini** par match, calculateur de value |
+| 🎯 **Prédiction par draft** | 2 équipes + 10 champions → probas par marché (vainqueur, kills, tours, dragons, durée) |
+| 📊 **Bilan prédictions** | Backtest walk-forward : réussite par jour, par ligue, upsets |
+| 🔴 **Série en cours** | Suivi live d'une série (score par map + cotes live via odds-api.io) |
+| 💰 **Journal de paris** | Paris réellement posés : P/L, ROI, winrate, **CLV** |
+| 🤖 **Assistant IA** | Questions en langage naturel sur la data du projet |
+| 💵 **Rentabilité des picks** | **Les picks 🎯 rapportent-ils ?** Simulation ROI à mise fixe + journal auto-réglé |
 
-## Scripts clés (depuis `lol-predictor`)
+## Le modèle
+
+**Elo toutes-ligues, K=32 + marge de victoire (MOV)**, avec **calibration par ligue** :
+la proba est aplatie là où le modèle est historiquement mauvais (ligues chaotiques), et
+conservée là où il est fiable. Résultat : probabilités **nativement bien calibrées**
+(sans couche de recalibration).
+
+Un **pick 🎯** = ligue fiable **+** favori ≥ 70 %/game **+** data ≥ 15 games/équipe
+**+** pas de cross-ligue. Le levier n'est pas le modèle mais la **sélectivité** :
+prédire *tout* plafonne à ~65 %, être sélectif monte à ~81 %.
+
+### Rentabilité par ligue (60 derniers jours)
+
+| À jouer | Réussite | Cote mini | | À éviter | Réussite | Cote mini |
+|---|---|---|---|---|---|---|
+| LES | 94,6 % | **1,06** | | PRM | 65,6 % | 1,52 |
+| NLC | 92,9 % | **1,08** | | LAS | 66,7 % | 1,50 |
+| ROL | 87,0 % | **1,15** | | LFL | 69,4 % | 1,44 |
+| HM | 85,7 % | **1,17** | | TCL | 76,9 % | 1,30 |
+
+LFL et PRM passent le filtre « ligue fiable » mais exigent des cotes que le book ne
+donne jamais → à sortir de la sélection.
+
+## Commandes clés (depuis `lol-predictor/`)
+
 ```powershell
-.\venv\Scripts\python.exe -m src.models.winprob_stages   # draft vs exécution (gold @10/@15)
-.\venv\Scripts\python.exe -m src.models.draft_predict     # penchant draft-only d'un matchup
-.\venv\Scripts\python.exe -m src.models.value_backtest    # backtest valeur vs cotes
-```
-
-## Automatisation quotidienne (data fraîche + watchlist pré-match)
-Objectif (cf. `SUIVI_PARIS.md`, leçon n°1) : le modèle voit juste, le **goulot c'est le timing de la mise**.
-La watchlist calcule NOTRE proba (Elo toutes-ligues) sur les matchs des prochains jours, **à l'avance**,
-pour repérer tôt un favori que le book va peut-être sur-coter (pattern KC / VKS / Heretics).
-
-```powershell
-# tout faire en 1 commande (data Drive -> tables -> WATCHLIST.md) :
+# --- Quotidien : data fraîche -> tables -> watchlist pré-match ---
 .\venv\Scripts\python.exe -m src.update.daily
-
-# options : fenêtre 5 jours, sans retélécharger la data :
 .\venv\Scripts\python.exe -m src.update.daily --days 5 --no-download
 
-# briques individuelles :
-.\venv\Scripts\python.exe -m src.update.download_data   # MAJ CSV 2026 depuis Google Drive
-.\venv\Scripts\python.exe -m src.update.leaguepedia     # liste les matchs à venir
-.\venv\Scripts\python.exe -m src.update.watchlist       # génère WATCHLIST.md
-```
-Sortie : **`WATCHLIST.md`** (racine) — table des matchs à venir avec notre proba + colonnes `Cote`/`Edge` à remplir.
+# --- Mise à jour manuelle de la data ---
+.\venv\Scripts\python.exe -m src.update.download_data      # CSV 2026 depuis Google Drive
+.\venv\Scripts\python.exe -m src.ingest.build_match_table  # -> matches / team_games
+.\venv\Scripts\python.exe -m src.features.build_features   # -> features
+.\venv\Scripts\python.exe -m src.ingest.load_oracle        # sanity-check
 
-**Planifier 1×/jour (Windows Task Scheduler)** — lance la tâche tous les jours à 9h :
+# --- Sélection & valeur ---
+.\venv\Scripts\python.exe -m src.update.watchlist          # -> WATCHLIST.md
+.\venv\Scripts\python.exe -m src.models.high_confidence    # -> HIGH_CONFIDENCE.md
+.\venv\Scripts\python.exe -m src.update.oddsapi            # cotes book + edge
+.\venv\Scripts\python.exe -m src.models.picks_roi          # ROI des picks (mise fixe)
+.\venv\Scripts\python.exe -m src.models.picks_roi --capture
+
+# --- Évaluation ---
+.\venv\Scripts\python.exe -m src.update.backtest_recent --days 7
+.\venv\Scripts\python.exe -m src.models.eval_models        # comparatif de variantes
+.\venv\Scripts\python.exe -m src.models.audit_calibration  # audit reproductible -> reports/
+```
+
+### Planifier 1×/jour (Windows Task Scheduler)
+
 ```powershell
 $py  = "d:\Downloads\MemoireM2\Projet_Perso\lol-predictor\venv\Scripts\python.exe"
 $cwd = "d:\Downloads\MemoireM2\Projet_Perso\lol-predictor"
 schtasks /create /tn "LoL daily watchlist" /tr "cmd /c cd /d $cwd && $py -m src.update.daily" /sc daily /st 09:00 /f
 ```
 
-**Caveats**
-- Le CSV OE est très téléchargé → quota Drive partagé fréquent ("Too many users..."). Le script **ne casse rien**
-  (garde la data locale et continue) ; relance plus tard ou récupère via `git pull` / le navigateur.
-- L'API Leaguepedia limite les requêtes anonymes : **1 appel/jour passe sans souci** (en test rapproché ça peut throttle).
-- Watchlist = **Elo-only** (signal partiel, sans draft) → un repère pré-match, pas une reco finale.
+## Discipline de pari (ce que le projet a appris à ses dépens)
 
-## Reprendre une session avec l'assistant (IA)
-L'assistant **ne garde PAS la mémoire** entre deux sessions (rien n'est automatique). Pour qu'il
-retrouve tout le contexte demain sur le portable :
-1. Ouvre le dossier `ProjectPredictionLOl` dans Cursor.
-2. Demande-lui de lire d'abord ces deux fichiers (ils contiennent TOUT l'historique) :
-   - `POINT_ETAPE.md` (journal scientifique : hypothèses testées + résultats)
-   - `cursor_projet_de_master_big_data_ia.md` (export complet de notre conversation)
-   Exemple de message : *« Lis POINT_ETAPE.md et cursor_projet_de_master_big_data_ia.md, puis fais-moi
-   un point sur où on en est avant de continuer. »*
+1. **Marché vainqueur uniquement.** Les props (total maps, kills) ont été le principal
+   poste de pertes.
+2. **Porte de valeur obligatoire** : ne parier que si `cote_book ≥ max(1.30 ; cote_mini × 1.10)`.
+   Sinon → **skip**. La plupart des jours = 0 pari, et c'est normal.
+3. **Mise fixe**, jamais de mise variable « au feeling ».
+4. **Ne jamais fader un favori court** (cote < 1,2) sur une ligue chaotique : le book y
+   est sharp, un gros « edge » affiché est une erreur du modèle, pas une valeur.
+5. **Le goulot n'est pas la prédiction mais l'exécution** : marchés qui ferment à la fin
+   de la draft, matchs lancés en avance, absence de marché (cf. `SUIVI_PARIS.md`).
+6. **Tout logger** : sans journal, il n'y a pas de preuve. Viser 25-30 paris avant de
+   conclure quoi que ce soit.
 
-## Sauvegarder à la fin d'une session
-```powershell
-git add -A
-git commit -m "décris ce que tu as fait"
-git push
-```
+## Configuration
+
+`config.yaml` — ligues du scope, année, marchés, fenêtres de forme, seed.
+Clé odds-api.io : variable `ODDS_API_KEY` ou fichier `oddsapi.key` (gitignored).
 
 ## Notes
-- **Données incluses** : `lol-predictor/data/raw/2026_LoL_esports_match_data_from_OraclesElixir.csv` (~42 Mo).
-  Mise à jour : https://oracleselixir.com/tools/downloads
-- **Exclus** (regénérables) : `venv/`, `node_modules/`, `.next/`.
-- **Front Next.js d'inspiration** (non inclus) — re-cloner si besoin :
+
+- **Data versionnée** : `lol-predictor/data/raw/2026_...csv` (~67 Mo). GitHub avertit
+  au-delà de 50 Mo (la limite bloquante est à 100 Mo). Le fichier étant re-téléchargeable
+  via `download_data.py`, on pourra à terme ne versionner que les Parquet.
+- **Exclus du dépôt** : `venv/`, `Data Oracle LOL/`, `reports/`, secrets (`*.key`, `.env`).
+- **Front Next.js d'inspiration** (non inclus) :
   `git clone https://github.com/Flames1217/LOL-DeepWinPredictor.git`
-- **Verdict actuel** : meilleur modèle pré-game pariable = Elo + forme + side + draft (~0.74 AUC) ;
-  +état @15 ≈ 0.823 (non pariable en live) ; edge réaliste = mispricing (fader un favori survalué) + régionales molles.
+- **Jeu responsable** : ce projet est un outil d'analyse, pas une promesse de gain.
+  Aide et information : [joueurs-info-service.fr](https://www.joueurs-info-service.fr) — 09 74 75 13 13.
