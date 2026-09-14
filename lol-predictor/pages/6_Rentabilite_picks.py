@@ -23,12 +23,43 @@ from src.models.picks_roi import (COLS, RESULTS, STAKE, add_candidates, candidat
 st.set_page_config(page_title="LoL — Rentabilité des picks", page_icon="💵", layout="wide")
 
 ODDS_GRID = (1.10, 1.15, 1.20, 1.25, 1.30, 1.40, 1.50, 1.75, 2.00)
+VERDICT = {"won": "✅ gagné", "lost": "❌ perdu", "void": "➖ annulé", "open": "⏳ en attente"}
 
 
 @st.cache_data(ttl=1800, show_spinner="Rejeu walk-forward des picks passés…")
 def load_sim(days: int, conf: float) -> dict:
     from src.models.picks_roi import simulate
     return simulate(days=days, conf=conf)
+
+
+@st.cache_data(ttl=1800, show_spinner="Reconstruction des picks passés…")
+def load_past(days: int, conf: float) -> pd.DataFrame:
+    from src.models.picks_roi import past_picks
+    return past_picks(days=days, conf=conf)
+
+
+def _ledger_columns() -> dict:
+    """Config des colonnes, partagée par la table du passé et le journal réel."""
+    return {
+        "match_date": st.column_config.TextColumn("Date", width="small"),
+        "when": st.column_config.TextColumn("Quand", width="small"),
+        "league": st.column_config.TextColumn("Ligue", width="small"),
+        "team1": st.column_config.TextColumn("Équipe 1"),
+        "team2": st.column_config.TextColumn("Équipe 2"),
+        "bestof": st.column_config.NumberColumn("BO", width="small"),
+        "pick": st.column_config.TextColumn("Notre prévision"),
+        "our_proba": st.column_config.NumberColumn("Notre p", format="%.2f"),
+        "breakeven": st.column_config.NumberColumn(
+            "Cote mini", format="%.2f",
+            help="1/proba : il faut une cote STRICTEMENT au-dessus."),
+        "odds": st.column_config.NumberColumn("Cote prise", format="%.2f"),
+        "odds_source": st.column_config.TextColumn("Source cote", width="small"),
+        "stake": st.column_config.NumberColumn("Mise (€)", format="%.0f"),
+        "winner": st.column_config.TextColumn("Vainqueur réel"),
+        "score": st.column_config.TextColumn("Score", width="small"),
+        "profit": st.column_config.NumberColumn("P/L (€)", format="%.2f"),
+        "captured_at": st.column_config.TextColumn("Capturé le", width="small"),
+    }
 
 
 def _simulation_block() -> None:
@@ -72,7 +103,7 @@ def _simulation_block() -> None:
     for o in ODDS_GRID:
         r = roi_at_odds(hit, o, sim["n"], stake)
         rows.append({"Cote moyenne": f"{o:.2f}", "Mise totale (€)": round(r["staked"], 0),
-                     "P/L (€)": round(r["profit"], 0), "ROI": r["roi"],
+                     "P/L (€)": round(r["profit"], 0), "ROI": r["roi"] * 100,
                      "Verdict": "✅ rentable" if r["roi"] > 0 else "❌ perdant"})
     grid = pd.DataFrame(rows)
     st.dataframe(
@@ -85,8 +116,8 @@ def _simulation_block() -> None:
     st.markdown("**Par ligue** — où la stratégie tient vraiment")
     by_lg = sim["by_league"].copy()
     by_lg = by_lg[by_lg["n"] >= 10]
-    by_lg["Réussite"] = by_lg["hit"]
-    by_lg["Proba annoncée"] = by_lg["proba"]
+    by_lg["Réussite"] = by_lg["hit"] * 100          # NumberColumn ne convertit pas les
+    by_lg["Proba annoncée"] = by_lg["proba"] * 100   # fractions : on passe en points de %
     show = by_lg[["league", "n", "Proba annoncée", "Réussite", "cote_mini"]].rename(
         columns={"league": "Ligue", "n": "Picks", "cote_mini": "Cote mini"})
     st.dataframe(
@@ -100,6 +131,49 @@ def _simulation_block() -> None:
     )
     st.caption("Ligues avec ≥10 picks. Une **cote mini basse** = ligue où le modèle est "
                "très fiable ; mais le book y cote souvent court, donc vérifie la cote réelle.")
+
+    _past_table(days, conf, stake, needed)
+
+
+def _past_table(days: int, conf: float, stake: float, needed: float) -> None:
+    """Le détail pick par pick du passé, au même format que le journal réel."""
+    st.markdown("### 📜 Détail des picks passés — même table que le journal, mais en arrière")
+    past = load_past(days, conf)
+    if past.empty:
+        return
+
+    hyp = st.slider("Cote hypothétique appliquée à tous les picks", 1.00, 2.50,
+                    float(round(max(needed + 0.05, 1.05), 2)), 0.05,
+                    help="Les cotes historiques du book ne sont pas archivées : on simule "
+                         "un P/L en supposant la même cote partout.")
+    from src.models.picks_roi import apply_odds
+    past = apply_odds(past, hyp, stake)
+
+    won = int((past["result"] == "won").sum())
+    pl = float(pd.to_numeric(past["profit"], errors="coerce").sum())
+    staked = len(past) * stake
+    k = st.columns(4)
+    k[0].metric("Picks joués", len(past))
+    k[1].metric("Gagnés / perdus", f"{won} / {len(past) - won}")
+    k[2].metric(f"P/L à cote {hyp:.2f}", f"{pl:+.0f} €")
+    k[3].metric("ROI", f"{pl / staked * 100:+.1f}%" if staked else "—",
+                delta=f"cote mini requise {needed:.2f}")
+
+    only_err = st.toggle("Erreurs seulement", value=False,
+                         help="Utile pour voir sur quelles ligues/équipes on se trompe.")
+    show = past[past["result"] == "lost"] if only_err else past
+    show = show.assign(result=show["result"].map(VERDICT))
+    st.dataframe(
+        show, width="stretch", hide_index=True, height=420,
+        column_config={**_ledger_columns(),
+                       "result": st.column_config.TextColumn("Résultat", width="small")},
+    )
+    st.caption(
+        f"Les {len(past)} picks 🎯 des {days} derniers jours, du plus récent au plus ancien. "
+        "**Cote et P/L sont hypothétiques** (une seule cote pour tous) — c'est une "
+        "projection, pas un résultat constaté. Le bloc 2 ci-dessous, lui, fige la vraie "
+        "cote du book pick par pick : c'est la seule preuve de rentabilité réelle."
+    )
 
 
 def _ledger_block() -> None:
@@ -154,28 +228,9 @@ def _ledger_block() -> None:
                 "de la ligne ne peut pas être calculé.")
     edited = st.data_editor(
         normalize(led), width="stretch", hide_index=True, num_rows="dynamic",
-        column_config={
-            "match_date": st.column_config.TextColumn("Date", width="small"),
-            "when": st.column_config.TextColumn("Quand", width="small"),
-            "league": st.column_config.TextColumn("Ligue", width="small"),
-            "team1": st.column_config.TextColumn("Équipe 1"),
-            "team2": st.column_config.TextColumn("Équipe 2"),
-            "bestof": st.column_config.NumberColumn("BO", width="small"),
-            "pick": st.column_config.TextColumn("Notre prévision"),
-            "our_proba": st.column_config.NumberColumn("Notre p", format="%.2f"),
-            "breakeven": st.column_config.NumberColumn(
-                "Cote mini", format="%.2f",
-                help="1/proba : il faut une cote STRICTEMENT au-dessus."),
-            "odds": st.column_config.NumberColumn("Cote prise", format="%.2f"),
-            "odds_source": st.column_config.TextColumn("Source cote", width="small"),
-            "stake": st.column_config.NumberColumn("Mise (€)", format="%.0f"),
-            "result": st.column_config.SelectboxColumn("Résultat", options=RESULTS,
-                                                       width="small"),
-            "winner": st.column_config.TextColumn("Vainqueur réel"),
-            "score": st.column_config.TextColumn("Score", width="small"),
-            "profit": st.column_config.NumberColumn("P/L (€)", format="%.2f"),
-            "captured_at": st.column_config.TextColumn("Capturé le", width="small"),
-        },
+        column_config={**_ledger_columns(),
+                       "result": st.column_config.SelectboxColumn(
+                           "Résultat", options=RESULTS, width="small")},
     )
     if st.button("💾 Sauvegarder le journal", type="primary"):
         saved = settle(edited[COLS])

@@ -316,6 +316,56 @@ def simulate(days: int = 60, conf: float = 0.70, cfg: dict | None = None,
     }
 
 
+def past_picks(days: int = 15, conf: float = 0.70, cfg: dict | None = None,
+               stake: float = STAKE, odds: float | None = None) -> pd.DataFrame:
+    """Les picks 🎯 **déjà joués**, au format EXACT du journal (mêmes colonnes).
+
+    Pendant du journal réel, mais tourné vers le passé : on remet le détail du rejeu
+    walk-forward (`simulate`) dans la structure du ledger, résultat réel déjà rempli.
+
+    ⚠️ La cote est une **hypothèse** (`odds`), pas une cote réellement prise : les
+    cotes historiques du book ne sont pas archivées. Le P/L est donc *simulé*, alors
+    que celui du journal réel est *constaté*. Ne pas confondre les deux.
+    """
+    sim = simulate(days=days, conf=conf, cfg=cfg, stake=stake)
+    rec = sim.get("records")
+    if rec is None or len(rec) == 0:
+        return normalize(pd.DataFrame(columns=COLS))
+
+    d = rec.sort_values("date", ascending=False)
+    out = pd.DataFrame({
+        "match_date": d["date"].dt.strftime("%Y-%m-%d"),
+        "when": d["date"].dt.strftime("%a %d/%m %H:%M"),
+        "league": d["league"],
+        "team1": d["blue"], "team2": d["red"],
+        "bestof": 1,                                   # granularité = la game
+        "pick": d["favori"],
+        "our_proba": d["proba_fav"].round(4),
+        "breakeven": (1.0 / d["proba_fav"]).round(2),
+        "odds": (float(odds) if odds else np.nan),
+        "odds_source": ("hypothèse" if odds else ""),
+        "stake": stake,
+        "result": np.where(d["correct"], "won", "lost"),
+        "winner": d["vainqueur"],
+        "score": pd.NA,                                # pas de score de série par game
+        "profit": np.nan,
+        "captured_at": "walk-forward",
+    })
+    return _compute_profit(normalize(out))
+
+
+def apply_odds(df: pd.DataFrame, odds: float, stake: float = STAKE) -> pd.DataFrame:
+    """Rejoue le P/L d'une table de picks à une cote uniforme (hypothèse de travail).
+
+    Permet de faire varier la cote sans relancer le rejeu walk-forward (coûteux).
+    """
+    d = normalize(df)
+    d["odds"] = float(odds)
+    d["odds_source"] = "hypothèse"
+    d["stake"] = float(stake)
+    return _compute_profit(d)
+
+
 def roi_at_odds(hit_rate: float, odds: float, n: int, stake: float = STAKE) -> dict:
     """ROI théorique si TOUS les picks étaient joués à `odds` (mise fixe)."""
     staked = n * stake
