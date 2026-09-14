@@ -33,6 +33,9 @@ credentials.json
 secrets.toml
 *token*.txt
 
+# ====== Oracle's Elixir (historique complet local, ne pas versionner) ======
+Data Oracle LOL/
+
 # ====== OS / editeurs ======
 .DS_Store
 Thumbs.db
