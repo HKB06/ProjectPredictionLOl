@@ -222,16 +222,17 @@ def _ledger_block() -> None:
         st.session_state.led = settle(load_ledger())
     led = st.session_state.led
 
-    c = st.columns([1.2, 1.2, 1.4, 1.2])
+    c = st.columns([1.2, 1.3, 1.5, 1.4], vertical_alignment="bottom")
     days = c[0].selectbox("Fenêtre de capture", [1, 2, 3, 7, 14], index=3,
                           format_func=lambda d: f"{d} jour(s)")
-    with_stars = c[2].checkbox(
-        "Capturer aussi les ⭐", value=False,
+    with_stars = c[1].checkbox(
+        "Inclure les ⭐", value=False,
         help="Les ⭐ (proba de série ≥62 %) ont une cote mini élevée (1.3-1.6) que le "
              "book dépasse rarement : attends-toi à beaucoup de ❌ sous la cote mini.")
-    if c[1].button("📥 Capturer les picks", type="primary",
-                   help="Ajoute au journal les picks à venir de la fenêtre, avec leur cote "
-                        "si odds-api.io est disponible."):
+    # Libellé qui reflète la case : sinon on croit que cocher suffit à capturer.
+    if c[2].button(f"📥 Capturer {'🎯 + ⭐' if with_stars else 'les 🎯'}", type="primary",
+                   help="Cocher la case ne suffit pas : c'est ce bouton qui va chercher "
+                        "les matchs et les ajoute au journal."):
         with st.spinner("Calcul Elo + récupération des matchs et des cotes…"):
             try:
                 cands = candidates(days=days, include_strong=with_stars)
@@ -251,14 +252,14 @@ def _ledger_block() -> None:
             st.info("Aucun pick dans cette fenêtre — c'est normal, mieux vaut 0 pick "
                     "qu'un faux favori.")
 
-    if c[2].button("🔄 Régler les résultats (data Oracle)"):
+    if c[3].button("🔄 Régler les résultats (data Oracle)"):
         led = settle(led)
         save_ledger(led)
         st.session_state.led = led
         st.success("Résultats mis à jour depuis la data Oracle.")
 
     if led.empty:
-        st.info("Journal vide. Clique sur **Capturer les picks 🎯** pour commencer le suivi. "
+        st.info("Journal vide. Clique sur **Capturer** pour commencer le suivi. "
                 "Pense à mettre la data à jour avant, sinon les résultats ne se règlent pas.")
         return
 
