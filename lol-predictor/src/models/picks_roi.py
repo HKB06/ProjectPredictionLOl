@@ -40,15 +40,16 @@ STAKE = 10.0                 # mise FIXE par pick (€) — jamais de mise varia
 LEDGER_PATH = ROOT / "data" / "picks_ledger.csv"
 COLS = [
     "match_date", "when", "league", "team1", "team2", "bestof",
-    "pick", "our_proba", "breakeven", "odds", "odds_source",
+    "tier", "pick", "our_proba", "breakeven", "odds", "odds_source",
     "stake", "result", "winner", "score", "profit", "captured_at",
 ]
 RESULTS = ["open", "won", "lost", "void"]
+TIER_HC, TIER_STRONG = "🎯", "⭐"
 
 # Typage EXPLICITE des colonnes. Indispensable pour `st.data_editor` : une colonne
 # vide relue depuis le CSV arrive en float64 (que des NaN), et Streamlit refuse une
 # TextColumn posée sur du numérique (StreamlitAPIException).
-STR_COLS = ["match_date", "when", "league", "team1", "team2", "pick",
+STR_COLS = ["match_date", "when", "league", "team1", "team2", "tier", "pick",
             "odds_source", "result", "winner", "score", "captured_at"]
 NUM_COLS = ["bestof", "our_proba", "breakeven", "odds", "stake", "profit"]
 
@@ -65,7 +66,22 @@ def normalize(df: pd.DataFrame) -> pd.DataFrame:
         d[c] = pd.to_numeric(d[c], errors="coerce")
     d["result"] = d["result"].fillna("open")
     d["stake"] = d["stake"].fillna(STAKE)
+    d["tier"] = d["tier"].fillna(TIER_HC)   # journaux d'avant l'ajout du tier
     return d[COLS]
+
+
+def value_flag(df: pd.DataFrame) -> pd.Series:
+    """Colonne d'affichage : la cote prise couvre-t-elle la cote mini (1/proba) ?
+
+    C'est le juge de paix d'un pick : un favori sûr à cote trop courte est perdant.
+    """
+    o = pd.to_numeric(df["odds"], errors="coerce")
+    b = pd.to_numeric(df["breakeven"], errors="coerce")
+    out = pd.Series("— cote à saisir", index=df.index, dtype="string")
+    known = o.notna() & b.notna()
+    out[known & (o > b)] = "✅ value"
+    out[known & (o <= b)] = "❌ sous la cote mini"
+    return out
 
 
 # --------------------------------------------------------------------- journal
@@ -88,18 +104,24 @@ def _key(team1: str, team2: str, date: str) -> tuple:
 
 # ------------------------------------------------------------------ candidats
 def candidates(days: int = 7, cfg: dict | None = None, with_odds: bool = True,
-               include_passed: bool = False) -> list[dict]:
-    """Picks 🎯 (haute confiance) de la fenêtre, prêts à être ajoutés au journal.
+               include_passed: bool = False, include_strong: bool = False) -> list[dict]:
+    """Picks de la fenêtre, prêts à être ajoutés au journal.
 
-    Reprend EXACTEMENT le filtre de la watchlist (`high_conf`) : ligue fiable +
-    favori ≥70 %/game + data ≥15 games + pas de cross-ligue.
+    Reprend EXACTEMENT les filtres de la watchlist :
+      - 🎯 `high_conf` : ligue fiable + favori ≥70 %/**game** + data ≥15 g + pas de x-ligue ;
+      - ⭐ `strong` (si `include_strong`) : proba de **série** ≥62 %, fiable + data OK.
+
+    ⚠️ Les ⭐ sont nettement plus fragiles : leur cote mini est haute (1.3-1.6) et le
+    book cote souvent en dessous, donc beaucoup sont perdants. La colonne `tier`
+    permet de comparer leur ROI à celui des 🎯 une fois l'échantillon constitué.
 
     Par défaut on **exclut les matchs déjà commencés** : enregistrer une cote après
     le coup d'envoi fausserait le forward test (on connaîtrait déjà le déroulé).
     """
     from src.update.watchlist import build_rows
     covered, _ = build_rows(days, cfg)
-    picks = [r for r in covered if r.get("high_conf")]
+    picks = [r for r in covered
+             if r.get("high_conf") or (include_strong and r.get("strong"))]
     if not include_passed:
         picks = [r for r in picks if not r.get("passed")]
 
@@ -117,6 +139,7 @@ def candidates(days: int = 7, cfg: dict | None = None, with_odds: bool = True,
             "league": r.get("league", "?"),
             "team1": r["team1"], "team2": r["team2"],
             "bestof": r.get("bestof", 1),
+            "tier": TIER_HC if r.get("high_conf") else TIER_STRONG,
             "pick": fav,
             "our_proba": round(float(p_fav), 4),
             "breakeven": round(1.0 / p_fav, 2) if p_fav > 0 else np.nan,
@@ -339,6 +362,7 @@ def past_picks(days: int = 15, conf: float = 0.70, cfg: dict | None = None,
         "league": d["league"],
         "team1": d["blue"], "team2": d["red"],
         "bestof": 1,                                   # granularité = la game
+        "tier": TIER_HC,                               # `simulate` ne garde que les 🎯
         "pick": d["favori"],
         "our_proba": d["proba_fav"].round(4),
         "breakeven": (1.0 / d["proba_fav"]).round(2),

@@ -18,7 +18,7 @@ import streamlit as st
 
 from src.models.picks_roi import (COLS, RESULTS, STAKE, add_candidates, candidates,
                                   load_ledger, normalize, roi_at_odds, save_ledger,
-                                  settle, summary)
+                                  settle, summary, value_flag)
 
 st.set_page_config(page_title="LoL — Rentabilité des picks", page_icon="💵", layout="wide")
 
@@ -47,6 +47,10 @@ def _ledger_columns() -> dict:
         "team1": st.column_config.TextColumn("Équipe 1"),
         "team2": st.column_config.TextColumn("Équipe 2"),
         "bestof": st.column_config.NumberColumn("BO", width="small"),
+        "tier": st.column_config.TextColumn(
+            "Tier", width="small",
+            help="🎯 = favori ≥70 %/game (le filtre validé à 79,8 %). "
+                 "⭐ = proba de série ≥62 %, plus fragile."),
         "pick": st.column_config.TextColumn("Notre prévision"),
         "our_proba": st.column_config.NumberColumn("Notre p", format="%.2f"),
         "breakeven": st.column_config.NumberColumn(
@@ -176,6 +180,36 @@ def _past_table(days: int, conf: float, stake: float, needed: float) -> None:
     )
 
 
+def _capture_report(cands: list[dict]) -> None:
+    """Tri immédiat des picks capturés : jouables / sous la cote mini / sans cote."""
+    df = pd.DataFrame(cands)
+    o = pd.to_numeric(df["odds"], errors="coerce")
+    b = pd.to_numeric(df["breakeven"], errors="coerce")
+
+    def _lines(sub, fmt):
+        return "\n".join(fmt(r) for r in sub.itertuples())
+
+    good = df[o.notna() & (o > b)]
+    under = df[o.notna() & (o <= b)]
+    none_ = df[o.isna()]
+
+    if len(good):
+        st.markdown("**✅ Jouables — la cote offerte dépasse la cote mini :**\n\n" + _lines(
+            good, lambda r: f"- {r.tier} **{r.pick}** ({r.league}) · "
+                            f"cote {r.odds:.2f} > mini {r.breakeven:.2f}"))
+    if len(under):
+        st.warning("**❌ Sous la cote mini — à ne PAS jouer.** Le book cote trop court : "
+                   "même en gagnant souvent, ces paris perdent sur la durée.\n\n" + _lines(
+                       under, lambda r: f"- {r.tier} {r.pick} ({r.league}) · "
+                                        f"cote {r.odds:.2f} ≤ mini {r.breakeven:.2f}"))
+    if len(none_):
+        st.info(f"**{len(none_)} pick(s) sans cote** — ligue non couverte par les 2 books "
+                "du plan gratuit. Saisis la cote à la main, sinon le ROI de la ligne reste "
+                "incalculable.\n\n" + _lines(
+                    none_, lambda r: f"- {r.tier} {r.pick} ({r.league}) · "
+                                     f"mini {r.breakeven:.2f}"))
+
+
 def _ledger_block() -> None:
     st.subheader("2️⃣ Journal réel — mise fixe de 10 € sur chaque pick")
     st.caption(
@@ -188,15 +222,19 @@ def _ledger_block() -> None:
         st.session_state.led = settle(load_ledger())
     led = st.session_state.led
 
-    c = st.columns([1.2, 1.2, 2.6])
+    c = st.columns([1.2, 1.2, 1.4, 1.2])
     days = c[0].selectbox("Fenêtre de capture", [1, 2, 3, 7, 14], index=3,
                           format_func=lambda d: f"{d} jour(s)")
-    if c[1].button("📥 Capturer les picks 🎯", type="primary",
+    with_stars = c[2].checkbox(
+        "Capturer aussi les ⭐", value=False,
+        help="Les ⭐ (proba de série ≥62 %) ont une cote mini élevée (1.3-1.6) que le "
+             "book dépasse rarement : attends-toi à beaucoup de ❌ sous la cote mini.")
+    if c[1].button("📥 Capturer les picks", type="primary",
                    help="Ajoute au journal les picks à venir de la fenêtre, avec leur cote "
                         "si odds-api.io est disponible."):
         with st.spinner("Calcul Elo + récupération des matchs et des cotes…"):
             try:
-                cands = candidates(days=days)
+                cands = candidates(days=days, include_strong=with_stars)
             except Exception as exc:  # noqa: BLE001
                 st.error(f"Impossible de récupérer les picks : {exc}")
                 cands = []
@@ -205,12 +243,12 @@ def _ledger_block() -> None:
             led = settle(led)
             save_ledger(led)
             st.session_state.led = led
-            no_odds = sum(1 for c_ in cands if pd.isna(c_.get("odds")))
-            st.success(f"{added} pick(s) ajouté(s) sur {len(cands)} candidat(s)."
-                       + (f" ⚠️ {no_odds} sans cote : saisis-la à la main ci-dessous."
-                          if no_odds else ""))
+            n_hc = sum(1 for c_ in cands if c_.get("tier") == "🎯")
+            st.success(f"{added} pick(s) ajouté(s) sur {len(cands)} candidat(s) "
+                       f"({n_hc} 🎯, {len(cands) - n_hc} ⭐).")
+            _capture_report(cands)
         elif cands is not None:
-            st.info("Aucun pick 🎯 dans cette fenêtre — c'est normal, mieux vaut 0 pick "
+            st.info("Aucun pick dans cette fenêtre — c'est normal, mieux vaut 0 pick "
                     "qu'un faux favori.")
 
     if c[2].button("🔄 Régler les résultats (data Oracle)"):
@@ -224,13 +262,19 @@ def _ledger_block() -> None:
                 "Pense à mettre la data à jour avant, sinon les résultats ne se règlent pas.")
         return
 
-    st.markdown("**Saisis / corrige les cotes**, puis sauvegarde. Sans cote, le ROI "
-                "de la ligne ne peut pas être calculé.")
+    st.markdown("**Saisis / corrige les cotes**, puis sauvegarde. La colonne **Value ?** "
+                "se recalcule à la sauvegarde et te dit si la cote couvre le seuil.")
+    disp = normalize(led)
+    disp.insert(disp.columns.get_loc("odds_source"), "value", value_flag(disp))
     edited = st.data_editor(
-        normalize(led), width="stretch", hide_index=True, num_rows="dynamic",
+        disp, width="stretch", hide_index=True, num_rows="dynamic",
         column_config={**_ledger_columns(),
                        "result": st.column_config.SelectboxColumn(
-                           "Résultat", options=RESULTS, width="small")},
+                           "Résultat", options=RESULTS, width="small"),
+                       "value": st.column_config.TextColumn(
+                           "Value ?", width="small", disabled=True,
+                           help="✅ = cote > cote mini (jouable). ❌ = cote trop courte : "
+                                "perdant sur la durée même en gagnant souvent.")},
     )
     if st.button("💾 Sauvegarder le journal", type="primary"):
         saved = settle(edited[COLS])
@@ -261,6 +305,31 @@ def _ledger_block() -> None:
     else:
         k[3].metric("Cote moyenne prise", "—")
         k[4].metric("ROI réel", "—", help="Saisis les cotes pour calculer le ROI.")
+
+    if led["tier"].nunique() > 1:
+        rows = []
+        for tier, sub in led.groupby("tier"):
+            t = summary(sub)
+            if not t.get("n_settled"):
+                continue
+            rows.append({"Tier": tier, "Réglés": t["n_settled"],
+                         "Réussite": t["hit_rate"] * 100,
+                         "Cote mini requise": t["odds_needed"],
+                         "Cote moyenne prise": t.get("avg_odds"),
+                         "ROI": (t["roi"] * 100) if t.get("n_priced") else None})
+        if rows:
+            st.markdown("**Par tier** — les ⭐ tiennent-ils face aux 🎯 ?")
+            st.dataframe(
+                pd.DataFrame(rows), width="stretch", hide_index=True,
+                column_config={
+                    "Réussite": st.column_config.NumberColumn(format="%.1f%%"),
+                    "Cote mini requise": st.column_config.NumberColumn(format="%.2f"),
+                    "Cote moyenne prise": st.column_config.NumberColumn(format="%.2f"),
+                    "ROI": st.column_config.NumberColumn(format="%.1f%%"),
+                },
+            )
+            st.caption("Si le ROI des ⭐ reste négatif quand celui des 🎯 est positif, "
+                       "la réponse est claire : arrête de capturer les ⭐.")
 
     if s.get("n_priced"):
         d = led[led["result"].isin(["won", "lost"]) & led["odds"].notna()].copy()
