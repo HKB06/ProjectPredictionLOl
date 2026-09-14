@@ -132,5 +132,4 @@ Clé odds-api.io : variable `ODDS_API_KEY` ou fichier `oddsapi.key` (gitignored)
 - **Exclus du dépôt** : `venv/`, `Data Oracle LOL/`, `reports/`, secrets (`*.key`, `.env`).
 - **Front Next.js d'inspiration** (non inclus) :
   `git clone https://github.com/Flames1217/LOL-DeepWinPredictor.git`
-- **Jeu responsable** : ce projet est un outil d'analyse, pas une promesse de gain.
-  Aide et information : [joueurs-info-service.fr](https://www.joueurs-info-service.fr) — 09 74 75 13 13.
+
