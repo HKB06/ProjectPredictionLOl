@@ -203,11 +203,20 @@ def _capture_report(cands: list[dict]) -> None:
                        under, lambda r: f"- {r.tier} {r.pick} ({r.league}) · "
                                         f"cote {r.odds:.2f} ≤ mini {r.breakeven:.2f}"))
     if len(none_):
-        st.info(f"**{len(none_)} pick(s) sans cote** — ligue non couverte par les 2 books "
-                "du plan gratuit. Saisis la cote à la main, sinon le ROI de la ligne reste "
-                "incalculable.\n\n" + _lines(
+        st.info(f"**{len(none_)} pick(s) sans cote** — ni odds-api.io ni Polymarket ne "
+                "cotent ces matchs. Saisis la cote à la main, sinon le ROI de la ligne "
+                "reste incalculable.\n\n" + _lines(
                     none_, lambda r: f"- {r.tier} {r.pick} ({r.league}) · "
                                      f"mini {r.breakeven:.2f}"))
+
+    pm = df[df["odds_source"].astype(str).str.startswith("polymarket")]
+    if len(pm):
+        st.caption(
+            "ℹ️ Les cotes marquées `polymarket` viennent d'un marché de prédiction, pas "
+            "d'un bookmaker : le prix est quasi sans marge, mais **regarde le volume "
+            "entre parenthèses**. Sous ~500 $, le prix est du bruit et ne vaut pas "
+            "qu'on s'appuie dessus."
+        )
 
 
 def _ledger_block() -> None:

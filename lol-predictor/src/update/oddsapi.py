@@ -37,10 +37,22 @@ PARIS_OFFSET = dt.timedelta(hours=2)  # CEST (affichage)
 
 # --------------------------------------------------------------------------- clé
 def load_key() -> str | None:
-    """ODDS_API_KEY (env) en priorité, sinon fichier oddsapi.key (racine du projet)."""
+    """ODDS_API_KEY : variable d'env, puis Secrets Streamlit, puis fichier local.
+
+    Le passage par `st.secrets` est indispensable en ligne : le fichier `oddsapi.key`
+    est gitignored (et doit le rester), donc sans ça l'app déployée n'a AUCUNE clé et
+    tous les picks ressortent sans cote.
+    """
     key = os.environ.get("ODDS_API_KEY")
     if key:
         return key.strip()
+    try:
+        import streamlit as st
+        k = st.secrets.get("ODDS_API_KEY")
+        if k:
+            return str(k).strip()
+    except Exception:  # noqa: BLE001 - hors Streamlit ou aucun secret configuré
+        pass
     for p in (ROOT / "oddsapi.key", ROOT.parent / "oddsapi.key"):
         if p.exists():
             txt = p.read_text(encoding="utf-8").strip()

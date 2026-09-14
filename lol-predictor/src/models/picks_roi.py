@@ -115,6 +115,10 @@ def candidates(days: int = 7, cfg: dict | None = None, with_odds: bool = True,
     book cote souvent en dessous, donc beaucoup sont perdants. La colonne `tier`
     permet de comparer leur ROI à celui des 🎯 une fois l'échantillon constitué.
 
+    Cotes : odds-api.io en primaire (vraies cotes book, nécessite une clé), puis
+    Polymarket en secours (API publique sans clé, couvre d'autres ligues, mais
+    volumes parfois dérisoires → le volume est indiqué dans `odds_source`).
+
     Par défaut on **exclut les matchs déjà commencés** : enregistrer une cote après
     le coup d'envoi fausserait le forward test (on connaîtrait déjà le déroulé).
     """
@@ -132,9 +136,12 @@ def candidates(days: int = 7, cfg: dict | None = None, with_odds: bool = True,
     for r in picks:
         fav, p_fav = ((r["team1"], r["p1"]) if r["p1"] >= r["p2"]
                       else (r["team2"], r["p2"]))
+        match_date = (r.get("paris_date") or str(r.get("datetime", ""))[:10])
         odds, src = _lookup_odds(odds_rows, r["team1"], r["team2"], fav)
+        if with_odds and not (odds == odds):    # rien chez le book -> Polymarket
+            odds, src = _polymarket_odds(r["team1"], r["team2"], match_date, fav)
         out.append({
-            "match_date": (r.get("paris_date") or str(r.get("datetime", ""))[:10]),
+            "match_date": match_date,
             "when": r.get("when", ""),
             "league": r.get("league", "?"),
             "team1": r["team1"], "team2": r["team2"],
@@ -163,6 +170,31 @@ def _fetch_odds(days: int) -> list[dict]:
         return scan(days=days)
     except Exception:  # noqa: BLE001 - l'absence de cote ne doit jamais bloquer
         return []
+
+
+def _polymarket_odds(team1: str, team2: str, date: str, pick: str) -> tuple[float, str]:
+    """Cote implicite Polymarket pour notre pick — **API publique, sans clé**.
+
+    Complément indispensable à odds-api.io, pour deux raisons : ça marche en ligne
+    sans secret à configurer, et Polymarket cote des ligues que les books grand
+    public ignorent (Arabian League, Road of Legends...).
+
+    Le prix en cents EST une probabilité, quasi sans marge : la cote équivalente
+    vaut 1/prix. ⚠️ Les volumes sont souvent minuscules (quelques dollars) : le prix
+    est alors du bruit, donc on remonte le volume dans la source pour que ce soit
+    visible au moment de décider.
+    """
+    try:
+        from src.update.polymarket import find_market
+        pm = find_market(team1, team2, date)
+    except Exception:  # noqa: BLE001 - l'absence de cote ne doit jamais bloquer
+        return np.nan, ""
+    if not pm or pm.get("closed"):
+        return np.nan, ""
+    imp = pm["imp1"] if pick == team1 else pm["imp2"]
+    if not imp or imp <= 0:
+        return np.nan, ""
+    return round(1.0 / imp, 2), f"polymarket (${pm['vol']:,.0f})"
 
 
 def _lookup_odds(odds_rows: list[dict], team1: str, team2: str,
