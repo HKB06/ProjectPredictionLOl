@@ -24,3 +24,11 @@ models/*.pkl
 # Rapports générés (sorties reproductibles : tout le dossier sauf le .gitkeep)
 reports/*
 !reports/.gitkeep
+
+# Compteur de quota + progression de découverte : purement locaux
+data/.odds_quota.json
+data/.odds_discovery.json
+
+# ... mais l'archive des cotes de clôture, elle, DOIT être versionnée : l'app
+# déployée ne peut pas la reconstruire (100 req/h, et pas de clé côté Cloud).
+!data/odds_history.csv

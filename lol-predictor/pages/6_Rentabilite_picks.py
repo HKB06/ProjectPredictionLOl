@@ -42,6 +42,13 @@ def load_past(days: int, conf: float) -> pd.DataFrame:
     return past_picks(days=days, conf=conf)
 
 
+@st.cache_data(ttl=1800, show_spinner="Reconstruction des séries passées…")
+def load_past_series(days: int, conf: float) -> pd.DataFrame:
+    """Picks passés au niveau série + vraie cote de clôture quand elle est archivée."""
+    from src.models.picks_roi import past_series
+    return past_series(days=days, conf=conf)
+
+
 def _ledger_columns() -> dict:
     """Config des colonnes, partagée par la table du passé et le journal réel."""
     return {
@@ -144,44 +151,99 @@ def _simulation_block() -> None:
 
 
 def _past_table(days: int, conf: float, stake: float, needed: float) -> None:
-    """Le détail pick par pick du passé, au même format que le journal réel."""
+    """Le détail du passé, au niveau SÉRIE, avec la vraie cote de clôture du book."""
     st.markdown("### 📜 Détail des picks passés — même table que le journal, mais en arrière")
-    past = load_past(days, conf)
+
+    past = load_past_series(days, conf)
     if past.empty:
+        st.info("Aucune série exploitable sur cette fenêtre.")
         return
 
-    hyp = st.slider("Cote hypothétique appliquée à tous les picks", 1.00, 2.50,
-                    float(round(max(needed + 0.05, 1.05), 2)), 0.05,
-                    help="Les cotes historiques du book ne sont pas archivées : on simule "
-                         "un P/L en supposant la même cote partout.")
-    from src.models.picks_roi import apply_odds
-    past = apply_odds(past, hyp, stake)
+    real = pd.to_numeric(past["odds"], errors="coerce")
+    n_real = int(real.notna().sum())
+    st.caption(
+        "Une ligne = **une série** (un pari réellement plaçable), et non une game : "
+        "les bookmakers cotent le vainqueur de série. La colonne *Cote prise* affiche la "
+        "**vraie cote de clôture** relevée par odds-api.io juste avant le coup d'envoi, "
+        f"quand elle est archivée — actuellement **{n_real} séries sur {len(past)}**."
+    )
 
-    won = int((past["result"] == "won").sum())
-    pl = float(pd.to_numeric(past["profit"], errors="coerce").sum())
-    staked = len(past) * stake
+    if n_real:
+        _real_odds_summary(past[real.notna()], stake)
+    else:
+        st.warning(
+            "Aucune cote réelle en cache pour l'instant. Lance le remplissage en local :\n\n"
+            "`python -m src.update.odds_history --days 60`\n\n"
+            "Le plan gratuit est limité à 100 requêtes/heure : le script est **reprenable**, "
+            "relance-le d'heure en heure jusqu'à ce qu'il n'y ait plus d'attente."
+        )
+
+    mode = st.radio(
+        "P/L calculé sur", ("Cotes réelles archivées", "Cote hypothétique (toutes séries)"),
+        horizontal=True, index=0 if n_real else 1,
+        help="Les cotes réelles ne couvrent que les séries déjà récupérées. "
+             "L'hypothèse s'applique à toutes, mais reste une projection.",
+    )
+
+    from src.models.picks_roi import apply_odds
+
+    if mode.startswith("Cotes réelles"):
+        view = past[real.notna()].copy()
+        label = "cotes réelles"
+    else:
+        hyp = st.slider("Cote hypothétique appliquée à toutes les séries", 1.00, 2.50,
+                        float(round(max(needed + 0.05, 1.05), 2)), 0.05)
+        view = apply_odds(past, hyp, stake)
+        label = f"cote {hyp:.2f}"
+
+    if view.empty:
+        return
+
+    won = int((view["result"] == "won").sum())
+    pl = float(pd.to_numeric(view["profit"], errors="coerce").sum())
+    staked = len(view) * stake
+    hit = won / len(view)
     k = st.columns(4)
-    k[0].metric("Picks joués", len(past))
-    k[1].metric("Gagnés / perdus", f"{won} / {len(past) - won}")
-    k[2].metric(f"P/L à cote {hyp:.2f}", f"{pl:+.0f} €")
+    k[0].metric("Séries jouées", len(view))
+    k[1].metric("Gagnées / perdues", f"{won} / {len(view) - won}")
+    k[2].metric(f"P/L ({label})", f"{pl:+.0f} €")
     k[3].metric("ROI", f"{pl / staked * 100:+.1f}%" if staked else "—",
-                delta=f"cote mini requise {needed:.2f}")
+                delta=f"cote mini requise {1 / hit:.2f}" if hit else None)
 
     only_err = st.toggle("Erreurs seulement", value=False,
                          help="Utile pour voir sur quelles ligues/équipes on se trompe.")
-    show = past[past["result"] == "lost"] if only_err else past
+    show = view[view["result"] == "lost"] if only_err else view
     show = show.assign(result=show["result"].map(VERDICT))
     st.dataframe(
         show, width="stretch", hide_index=True, height=420,
         column_config={**_ledger_columns(),
                        "result": st.column_config.TextColumn("Résultat", width="small")},
     )
-    st.caption(
-        f"Les {len(past)} picks 🎯 des {days} derniers jours, du plus récent au plus ancien. "
-        "**Cote et P/L sont hypothétiques** (une seule cote pour tous) — c'est une "
-        "projection, pas un résultat constaté. Le bloc 2 ci-dessous, lui, fige la vraie "
-        "cote du book pick par pick : c'est la seule preuve de rentabilité réelle."
-    )
+
+
+def _real_odds_summary(real: pd.DataFrame, stake: float) -> None:
+    """Le verdict qui compte : sur les séries dont on connaît la vraie cote, ROI réel."""
+    pl = float(pd.to_numeric(real["profit"], errors="coerce").sum())
+    staked = len(real) * stake
+    roi = pl / staked if staked else 0.0
+    o = pd.to_numeric(real["odds"], errors="coerce")
+    b = pd.to_numeric(real["breakeven"], errors="coerce")
+    value = int((o > b).sum())
+
+    if roi > 0:
+        st.success(
+            f"**Sur les {len(real)} séries à cote réelle, le ROI est de {roi * 100:+.1f} %** "
+            f"({pl:+.0f} € pour {staked:.0f} € misés). La cote moyenne du book était "
+            f"{o.mean():.2f}, et {value} séries offraient une cote au-dessus de notre seuil "
+            "de rentabilité."
+        )
+    else:
+        st.error(
+            f"**Sur les {len(real)} séries à cote réelle, le ROI est de {roi * 100:+.1f} %** "
+            f"({pl:+.0f} € pour {staked:.0f} € misés). La cote moyenne du book était "
+            f"{o.mean():.2f} alors qu'il nous fallait {b.mean():.2f} en moyenne : le book "
+            f"cote trop court sur nos favoris. Seules {value} séries passaient le seuil."
+        )
 
 
 def _capture_report(cands: list[dict]) -> None:

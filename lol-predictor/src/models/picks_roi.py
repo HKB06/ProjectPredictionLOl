@@ -410,6 +410,88 @@ def past_picks(days: int = 15, conf: float = 0.70, cfg: dict | None = None,
     return _compute_profit(normalize(out))
 
 
+def past_series(days: int = 60, conf: float = 0.70, cfg: dict | None = None,
+                stake: float = STAKE, real_odds: bool = True) -> pd.DataFrame:
+    """Les picks passés agrégés au niveau **SÉRIE**, avec la vraie cote de clôture.
+
+    Pourquoi le niveau série : un bookmaker cote le vainqueur de la série (marché
+    ML), jamais la game isolée. `past_picks` (granularité game) ne peut donc pas
+    porter de cote réelle — un BO3 y occupe 3 lignes qu'on n'aurait jamais pariées
+    séparément. Ici, une ligne = un pari réellement plaçable.
+
+    Reconstruction : on regroupe les games d'une même paire d'équipes le même jour,
+    le format se déduit du nombre de manches gagnées (`wins_needed = max(w1, w2)`,
+    exact puisqu'une série s'arrête dès qu'une équipe l'atteint), et le favori est
+    celui de la **première game** — seul instant où la prédiction est pré-match.
+    """
+    from src.update.elo import series_prob
+
+    sim = simulate(days=days, conf=conf, cfg=cfg, stake=stake)
+    rec = sim.get("records")
+    if rec is None or len(rec) == 0:
+        return normalize(pd.DataFrame(columns=COLS))
+
+    rec = rec.sort_values("date")
+    rows: list[dict] = []
+    for (day, pair), g in rec.groupby([rec["date"].dt.date,
+                                       rec.apply(lambda r: frozenset((r["blue"], r["red"])), axis=1)]):
+        first = g.iloc[0]
+        teams = sorted(pair)
+        t1, t2 = (teams + teams)[:2]
+        w1 = int((g["vainqueur"] == t1).sum())
+        w2 = int((g["vainqueur"] == t2).sum())
+        if w1 == w2:                       # série incomplète dans la data -> inexploitable
+            continue
+        wins_needed = max(w1, w2)
+        pick = first["favori"]
+        p_series = series_prob(float(first["proba_fav"]), wins_needed)
+        winner = t1 if w1 > w2 else t2
+        rows.append({
+            "match_date": str(day),
+            "when": first["date"].strftime("%a %d/%m %H:%M"),
+            "league": first["league"],
+            "team1": t1, "team2": t2,
+            "bestof": wins_needed * 2 - 1,
+            "tier": TIER_HC,
+            "pick": pick,
+            "our_proba": round(p_series, 4),
+            "breakeven": round(1.0 / p_series, 2) if p_series > 0 else np.nan,
+            "odds": np.nan, "odds_source": "",
+            "stake": stake,
+            "result": "won" if winner == pick else "lost",
+            "winner": winner,
+            "score": f"{max(w1, w2)}-{min(w1, w2)}",
+            "profit": np.nan,
+            "captured_at": "walk-forward",
+        })
+
+    out = normalize(pd.DataFrame(rows)).sort_values("match_date", ascending=False)
+    if real_odds:
+        out = attach_real_odds(out)
+    return _compute_profit(out)
+
+
+def attach_real_odds(df: pd.DataFrame) -> pd.DataFrame:
+    """Remplit `odds` depuis l'archive des cotes de clôture (cf. odds_history)."""
+    try:
+        from src.update.odds_history import load_cache, lookup
+        cache = load_cache()
+    except Exception:  # noqa: BLE001 - archive absente = on reste sans cote
+        return df
+    if cache.empty:
+        return df
+    d = df.copy()
+    for i in d.index:
+        if pd.notna(d.at[i, "odds"]):
+            continue
+        val, src = lookup(cache, d.at[i, "team1"], d.at[i, "team2"],
+                          d.at[i, "match_date"], d.at[i, "pick"])
+        if val == val:                      # pas NaN
+            d.at[i, "odds"] = val
+            d.at[i, "odds_source"] = src
+    return d
+
+
 def apply_odds(df: pd.DataFrame, odds: float, stake: float = STAKE) -> pd.DataFrame:
     """Rejoue le P/L d'une table de picks à une cote uniforme (hypothèse de travail).
 
