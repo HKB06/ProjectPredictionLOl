@@ -21,6 +21,7 @@ from math import comb
 
 import numpy as np
 import pandas as pd
+from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
@@ -65,7 +66,12 @@ WINNER_C = 0.1
 
 
 def _logreg(C: float = WINNER_C):
-    return make_pipeline(StandardScaler(), LogisticRegression(max_iter=5000, C=C))
+    # SimpleImputer : les données OE récentes contiennent des matchs "partial" sans
+    # first blood/tower/dragon -> taux glissants NaN pour ~1 % des lignes. L'imputation
+    # médiane DANS le pipeline garantit le même traitement au fit et au predict
+    # (sans elle, sklearn refuse : "Input contains NaN").
+    return make_pipeline(SimpleImputer(strategy="median", keep_empty_features=True),
+                         StandardScaler(), LogisticRegression(max_iter=5000, C=C))
 
 
 def _lgbm_reg():

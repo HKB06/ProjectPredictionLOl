@@ -19,6 +19,7 @@ import warnings
 import numpy as np
 import pandas as pd
 from sklearn.calibration import CalibratedClassifierCV
+from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, brier_score_loss, roc_auc_score
 from sklearn.pipeline import make_pipeline
@@ -43,7 +44,10 @@ CONFIGS = [
 
 
 def _make(C: float, calib: str | None):
-    est = make_pipeline(StandardScaler(), LogisticRegression(max_iter=5000, C=C))
+    # Imputation médiane : les matchs "partial" (sans first blood/tower/dragon)
+    # produisent des taux glissants NaN — même correctif que src/models/predict.py.
+    est = make_pipeline(SimpleImputer(strategy="median", keep_empty_features=True),
+                        StandardScaler(), LogisticRegression(max_iter=5000, C=C))
     if calib:
         return CalibratedClassifierCV(est, method=calib, cv=3)
     return est
