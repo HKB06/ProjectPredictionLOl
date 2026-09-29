@@ -29,7 +29,33 @@ from src.update.watchlist import MIN_GAMES_CONF, core_tokens, fuzzy_match, norm,
 
 BASE = "https://api.odds-api.io/v3"
 OUT_PATH = ROOT.parent / "WATCHLIST_ODDSAPI.md"
-BOOKMAKERS = ("1xbet", "GG.bet")     # 2 books "mous" esports (plan gratuit = 2)
+
+
+def load_setting(name: str, default: str) -> str:
+    """Réglage plan-dépendant : variable d'env, puis Secrets Streamlit, puis défaut.
+
+    Permet d'exploiter un plan payant odds-api.io (plus de bookmakers, 5 000 req/h)
+    sans toucher au code : ODDS_API_BOOKMAKERS et ODDS_API_HOURLY_LIMIT.
+    """
+    val = os.environ.get(name)
+    if val:
+        return val.strip()
+    try:
+        import streamlit as st
+        v = st.secrets.get(name)
+        if v:
+            return str(v).strip()
+    except Exception:  # noqa: BLE001 - hors Streamlit ou aucun secret configuré
+        pass
+    return default
+
+
+# Défaut = les 2 books « mous » du plan gratuit. Plan payant : lister les books voulus
+# dans ODDS_API_BOOKMAKERS, ex. "Pinnacle,1xbet,GG.bet" (les sharps demandent un plan
+# payant ; le nombre de books sélectionnables dépend du palier : Solo 2, Starter 5...).
+BOOKMAKERS = tuple(b.strip() for b in
+                   load_setting("ODDS_API_BOOKMAKERS", "1xbet,GG.bet").split(",")
+                   if b.strip())
 EDGE_MIN = 0.04
 TIMEOUT = 40
 PARIS_OFFSET = dt.timedelta(hours=2)  # CEST (affichage)
@@ -389,12 +415,44 @@ def generate(days: int = 14) -> dict:
             "actionable": [r for r in rows if r.get("actionable")]}
 
 
+def check_key() -> None:
+    """Diagnostic de la clé et du plan : `python -m src.update.oddsapi --check`.
+
+    À lancer après tout changement de clé/plan : vérifie l'authentification, la
+    sélection des bookmakers et un appel réel (compte les events LoL à 7 jours).
+    """
+    key = load_key()
+    if not key:
+        print("Aucune clé trouvée (ODDS_API_KEY, st.secrets ou fichier oddsapi.key).")
+        return
+    print(f"Clé          : ...{key[-6:]}")
+    print(f"Books voulus : {', '.join(BOOKMAKERS)}  (ODDS_API_BOOKMAKERS pour changer)")
+    print(f"Quota client : {load_setting('ODDS_API_HOURLY_LIMIT', '100')} req/h "
+          f"(ODDS_API_HOURLY_LIMIT=5000 sur plan payant)")
+    ensure_bookmakers(key)
+    try:
+        sel = _get("/bookmakers/selected", key)
+        cur = sel.get("bookmakers") if isinstance(sel, dict) else sel
+        print(f"Books actifs côté API : {cur}")
+    except Exception as exc:  # noqa: BLE001
+        print(f"Lecture des books sélectionnés impossible : {exc}")
+    try:
+        evs = lol_events(key, days=7)
+        print(f"Événements LoL sous 7 jours : {len(evs)} -> clé FONCTIONNELLE.")
+    except requests.HTTPError as exc:
+        print(f"Appel /events en erreur : {exc} "
+              f"(clé invalide, expirée, ou quota épuisé)")
+
+
 def main() -> None:
     import sys
     try:
         sys.stdout.reconfigure(encoding="utf-8")
     except Exception:  # noqa: BLE001
         pass
+    if "--check" in sys.argv:
+        check_key()
+        return
     if not load_key():
         print("[oddsapi] Cle absente : pose ODDS_API_KEY ou un fichier oddsapi.key.")
         return

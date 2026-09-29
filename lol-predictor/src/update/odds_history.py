@@ -33,7 +33,7 @@ import pandas as pd
 import requests
 
 from src.ingest.load_oracle import ROOT
-from src.update.oddsapi import BASE, BOOKMAKERS, load_key
+from src.update.oddsapi import BASE, BOOKMAKERS, load_key, load_setting
 from src.update.watchlist import core_tokens
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -45,7 +45,9 @@ PROGRESS_PATH = ROOT / "data" / ".odds_discovery.json"
 COLS = ["event_id", "date", "league_slug", "home", "away",
         "odd_home", "odd_away", "books", "status", "fetched_at"]
 
-HOURLY_LIMIT = 100        # plan gratuit odds-api.io (message d'erreur 429 explicite)
+# 100 = plan gratuit (500/jour). Plan payant : ODDS_API_HOURLY_LIMIT=5000 (env ou
+# secrets Streamlit) et le backfill vide toute la file d'attente en un seul passage.
+HOURLY_LIMIT = int(load_setting("ODDS_API_HOURLY_LIMIT", "100"))
 SAFETY = 5                # marge : on ne colle jamais au plafond
 MAX_SPAN_DAYS = 31        # contrainte /historical/events
 TIMEOUT = 40
