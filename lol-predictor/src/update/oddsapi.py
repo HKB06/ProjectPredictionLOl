@@ -415,6 +415,47 @@ def generate(days: int = 14) -> dict:
             "actionable": [r for r in rows if r.get("actionable")]}
 
 
+def dump_markets(days: int = 7, limit: int = 12) -> None:
+    """Sonde les marchés réellement exposés par les books : `--markets [jours]`.
+
+    Pour chaque match LoL à venir, liste TOUS les marchés présents chez chaque book
+    sélectionné (une requête par match, tous marchés inclus dans la réponse). C'est
+    la matière première pour décider quoi parser en plus du ML série : Vainqueur
+    Map 1, totals par map, handicaps de maps, first blood...
+    """
+    from collections import Counter
+
+    key = load_key()
+    if not key:
+        print("Aucune clé trouvée (ODDS_API_KEY, st.secrets ou fichier oddsapi.key).")
+        return
+    ensure_bookmakers(key)
+    evs = lol_events(key, days=days)
+    n = min(limit, len(evs))
+    print(f"{len(evs)} événements LoL sous {days} jours — sondage des {n} premiers "
+          f"({n} requêtes) :\n")
+    seen: Counter = Counter()
+    for ev in evs[:limit]:
+        head = (f"{_iso_to_paris(ev.get('date', ''))} · "
+                f"{_league_name(ev).replace('League of Legends - ', '')} · "
+                f"{ev.get('home')} vs {ev.get('away')}")
+        try:
+            od = _get("/odds", key, eventId=ev["id"], bookmakers=",".join(BOOKMAKERS))
+        except Exception as exc:  # noqa: BLE001 - on continue le sondage
+            print(f"- {head} : erreur ({exc})")
+            continue
+        print(f"- {head}")
+        for book, markets in (od.get("bookmakers") or {}).items():
+            names = sorted({(m.get("name") or "").strip()
+                            for m in markets or [] if m.get("name")})
+            seen.update(names)
+            print(f"    {book:12}: {', '.join(names) if names else '(aucun marché)'}")
+    if seen:
+        print("\n=== Fréquence des marchés sur l'échantillon ===")
+        for name, cnt in seen.most_common():
+            print(f"  {cnt:3}x  {name}")
+
+
 def check_key() -> None:
     """Diagnostic de la clé et du plan : `python -m src.update.oddsapi --check`.
 
@@ -452,6 +493,12 @@ def main() -> None:
         pass
     if "--check" in sys.argv:
         check_key()
+        return
+    if "--markets" in sys.argv:
+        i = sys.argv.index("--markets")
+        days = (int(sys.argv[i + 1])
+                if len(sys.argv) > i + 1 and sys.argv[i + 1].isdigit() else 7)
+        dump_markets(days=days)
         return
     if not load_key():
         print("[oddsapi] Cle absente : pose ODDS_API_KEY ou un fichier oddsapi.key.")
