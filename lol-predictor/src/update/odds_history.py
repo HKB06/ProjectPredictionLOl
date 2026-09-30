@@ -34,7 +34,7 @@ import requests
 
 from src.ingest.load_oracle import ROOT
 from src.update.oddsapi import BASE, BOOKMAKERS, load_key, load_setting
-from src.update.watchlist import core_tokens
+from src.update.watchlist import DISTINCT_TOKENS, core_tokens
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -42,6 +42,7 @@ if hasattr(sys.stdout, "reconfigure"):
 CACHE_PATH = ROOT / "data" / "odds_history.csv"
 QUOTA_PATH = ROOT / "data" / ".odds_quota.json"
 PROGRESS_PATH = ROOT / "data" / ".odds_discovery.json"
+SEED_PATH = ROOT / "data" / ".odds_seed.json"
 COLS = ["event_id", "date", "league_slug", "home", "away",
         "odd_home", "odd_away", "books", "status", "fetched_at"]
 
@@ -141,9 +142,39 @@ def _save_progress(done: set[str]) -> None:
     PROGRESS_PATH.write_text(json.dumps(sorted(done)))
 
 
+def _load_seed() -> set[str]:
+    if not SEED_PATH.exists():
+        return set()
+    try:
+        return set(json.loads(SEED_PATH.read_text()))
+    except Exception:  # noqa: BLE001
+        return set()
+
+
+def _save_seed(done: set[str]) -> None:
+    SEED_PATH.parent.mkdir(parents=True, exist_ok=True)
+    SEED_PATH.write_text(json.dumps(sorted(done)))
+
+
 def past_events(slug: str, frm: str, to: str, quota: Quota) -> list[dict]:
     st, js = _get("/historical/events", quota, sport="esports", league=slug,
                   **{"from": frm, "to": to}, limit=200)
+    if st == 429:
+        raise RateLimited(str(js)[:120])
+    if st != 200:
+        return []
+    return (js.get("events") if isinstance(js, dict) else js) or []
+
+
+def search_events(query: str, frm: str, to: str, quota: Quota) -> list[dict]:
+    """Matchs passés retrouvés PAR NOM D'ÉQUIPE, toutes ligues (plan gratuit inclus).
+
+    C'est le complément indispensable de `past_events` : /leagues ne liste que les
+    ligues **encore actives**, donc un split terminé (LFL, LEC summer…) devient
+    invisible par ligue. La recherche par équipe, elle, fouille tout l'historique.
+    """
+    st, js = _get("/historical/events/search", quota, sport="esports",
+                  query=query, **{"from": frm, "to": to})
     if st == 429:
         raise RateLimited(str(js)[:120])
     if st != 200:
@@ -341,6 +372,114 @@ def backfill(days: int = 60, budget: int | None = None) -> dict:
             "pending": int((cache["status"] == "pending").sum())}
 
 
+def _pair_query(team1: str, team2: str) -> str:
+    """Fragment à chercher : le token le plus discriminant de la paire.
+
+    On évite les suffixes portés par des dizaines d'équipes (« academy »,
+    « challengers »…) et on prend le plus long — « karmine » retrouve
+    « Karmine Corp » quel que soit l'habillage sponsor du book.
+    """
+    toks = core_tokens(team1) | core_tokens(team2)
+    good = sorted((t for t in toks if t not in DISTINCT_TOKENS and len(t) >= 3),
+                  key=len, reverse=True)
+    if good:
+        return good[0]
+    toks = sorted(toks, key=len, reverse=True)
+    return toks[0] if toks and len(toks[0]) >= 3 else ""
+
+
+def seed_from_picks(days: int = 60, conf: float = 0.70) -> dict:
+    """Ajoute au cache les séries de nos PICKS que la découverte par ligue a ratées.
+
+    `/leagues` ne liste que les ligues **encore actives** : dès qu'un split se
+    termine (LFL, LEC summer…), ses matchs deviennent invisibles pour la phase 1
+    de `backfill`. On part donc des picks eux-mêmes : recherche par nom d'équipe
+    (`/historical/events/search`, fenêtre ±15 j), qui renvoie la série avec sa
+    vraie ligue. Les événements trouvés entrent en `pending` — la phase cotes
+    habituelle fait le reste. Reprenable : recherches mémorisées dans
+    `.odds_seed.json`, doublons écartés par event_id.
+    """
+    from src.models.picks_roi import past_series  # tardif : picks_roi importe ce module
+
+    quota = Quota()
+    cache = load_cache()
+    known = set(cache["event_id"].astype(str))
+    done = _load_seed()
+    picks = past_series(days=days, conf=conf, real_odds=False)
+    if picks.empty:
+        return {"searches": 0, "added": 0, "covered": 0, "limited": False}
+
+    cdates = pd.to_datetime(cache["date"], errors="coerce", utc=True).dt.tz_localize(None)
+    tol = pd.Timedelta(days=1)
+
+    # paires (tokens, date) de TOUS les picks : sert à ne garder, parmi les
+    # résultats d'une recherche, que les matchs qui nous intéressent vraiment
+    pairs = [(core_tokens(str(r.team1)), core_tokens(str(r.team2)),
+              pd.to_datetime(r.match_date)) for r in picks.itertuples()]
+
+    def wanted(ev: dict) -> bool:
+        d = pd.to_datetime(ev.get("date"), errors="coerce", utc=True)
+        if pd.isna(d):
+            return False
+        d = d.tz_localize(None)
+        h, a = core_tokens(str(ev.get("home"))), core_tokens(str(ev.get("away")))
+        return any(((t1 & h and t2 & a) or (t1 & a and t2 & h)) and abs(d - pdate) <= tol
+                   for t1, t2, pdate in pairs)
+
+    def covered(t1: set, t2: set, d) -> bool:
+        near = cache[(cdates >= d - tol) & (cdates <= d + tol)]
+        for r in near.itertuples():
+            h, a = core_tokens(str(r.home)), core_tokens(str(r.away))
+            if (t1 & h and t2 & a) or (t1 & a and t2 & h):
+                return True
+        return False
+
+    searches, new_rows, limited = 0, [], False
+    for r in picks.sort_values("match_date", ascending=False).itertuples():
+        t1, t2 = core_tokens(str(r.team1)), core_tokens(str(r.team2))
+        d = pd.to_datetime(r.match_date)
+        if covered(t1, t2, d):
+            continue
+        query = _pair_query(str(r.team1), str(r.team2))
+        if not query:
+            continue
+        key = f"{query}|{d:%Y-%m}"
+        if key in done:
+            continue
+        if quota.remaining() <= 0:
+            limited = True
+            break
+        frm = (d - pd.Timedelta(days=15)).strftime("%Y-%m-%dT00:00:00Z")
+        to = min(d + pd.Timedelta(days=15), pd.Timestamp.now()).strftime("%Y-%m-%dT%H:%M:%SZ")
+        try:
+            evs = search_events(query, frm, to, quota)
+        except RateLimited:
+            limited = True
+            break
+        searches += 1
+        done.add(key)
+        _save_seed(done)
+        for ev in evs:
+            lg = ev.get("league") or {}
+            slug = str(lg.get("slug", "") if isinstance(lg, dict) else lg)
+            eid = str(ev.get("id"))
+            if "league-of-legends" not in slug or eid in known or not wanted(ev):
+                continue
+            known.add(eid)
+            new_rows.append({
+                "event_id": eid, "date": ev.get("date"), "league_slug": slug,
+                "home": ev.get("home"), "away": ev.get("away"),
+                "odd_home": pd.NA, "odd_away": pd.NA, "books": pd.NA,
+                "status": "pending", "fetched_at": pd.NA,
+            })
+
+    if new_rows:
+        cache = pd.concat([cache, pd.DataFrame(new_rows)], ignore_index=True)
+        save_cache(cache)
+    return {"searches": searches, "added": len(new_rows), "limited": limited,
+            "pending": int((cache["status"] == "pending").sum())}
+
+
 # ---------------------------------------------------------------------- lecture
 def lookup(cache: pd.DataFrame, team1: str, team2: str, date: str,
            pick: str, tol_days: int = 1) -> tuple[float, str]:
@@ -386,7 +525,18 @@ def main() -> None:
     ap.add_argument("--days", type=int, default=60, help="profondeur à couvrir (def. 60 j)")
     ap.add_argument("--budget", type=int, default=None, help="requêtes max pour ce passage")
     ap.add_argument("--stats", action="store_true", help="état du cache, sans requête")
+    ap.add_argument("--seed-picks", action="store_true",
+                    help="retrouve par nom d'équipe les séries de picks absentes du cache "
+                         "(ligues terminées invisibles par /leagues)")
     args = ap.parse_args()
+
+    if args.seed_picks:
+        r = seed_from_picks(days=args.days)
+        print(f"{r['searches']} recherches par équipe, {r['added']} matchs de picks "
+              f"ajoutés en file d'attente ({r.get('pending', '?')} en attente au total).")
+        if r["limited"]:
+            print("Quota atteint : relance plus tard, la recherche est reprenable.")
+        return
 
     if args.stats:
         c = load_cache()
