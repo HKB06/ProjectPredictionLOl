@@ -49,6 +49,13 @@ def load_past_series(days: int, conf: float) -> pd.DataFrame:
     return past_series(days=days, conf=conf)
 
 
+@st.cache_data(ttl=600, show_spinner=False)
+def load_odds_cache() -> pd.DataFrame:
+    """Cache des cotes de clôture (rempli par src.update.odds_history en local)."""
+    from src.update.odds_history import load_cache
+    return load_cache()
+
+
 def _ledger_columns() -> dict:
     """Config des colonnes, partagée par la table du passé et le journal réel."""
     return {
@@ -150,6 +157,51 @@ def _simulation_block() -> None:
     _past_table(days, conf, stake, needed)
 
 
+def _league_label(slug: str) -> str:
+    """`league-of-legends-lec-summer` -> `Lec Summer` (lisible dans un tableau)."""
+    return str(slug).replace("league-of-legends-", "").replace("-", " ").title()
+
+
+def _odds_progress() -> None:
+    """Avancement du remplissage des cotes réelles : barre + détail par ligue.
+
+    Le cache est rempli en local (plan gratuit odds-api.io : 100 req/h, 500/jour)
+    puis poussé sur git — l'app en ligne voit donc l'état du dernier push.
+    """
+    cache = load_odds_cache()
+    if cache.empty:
+        return
+    n = len(cache)
+    ok = int((cache["status"] == "ok").sum())
+    none = int((cache["status"] == "none").sum())
+    pend = n - ok - none
+    st.progress(
+        (ok + none) / n,
+        text=f"📡 Cotes réelles : **{ok} récupérées** · {pend} en attente · "
+             f"{none} non cotées par les books — {n} matchs suivis",
+    )
+    with st.expander("Avancement détaillé par ligue"):
+        det = (cache.assign(Ligue=cache["league_slug"].map(_league_label),
+                            ok=cache["status"] == "ok",
+                            pend=cache["status"] == "pending",
+                            none=cache["status"] == "none")
+               .groupby("Ligue", as_index=False)
+               .agg(Total=("status", "size"), **{"Avec cote": ("ok", "sum"),
+                    "En attente": ("pend", "sum"), "Sans cote": ("none", "sum")})
+               .sort_values(["En attente", "Total"], ascending=False))
+        det["Traité"] = (det["Total"] - det["En attente"]) / det["Total"] * 100
+        st.dataframe(
+            det, width="stretch", hide_index=True,
+            column_config={"Traité": st.column_config.NumberColumn(format="%.0f%%")},
+        )
+        last = cache["fetched_at"].dropna().max()
+        st.caption(
+            "« Sans cote » = 1xbet/GG.bet ne proposaient rien sur ce match (petites "
+            "ligues surtout). Le remplissage tourne en boucle en local et le cache est "
+            f"poussé au fil de l'eau — dernière cote relevée le {last}."
+        )
+
+
 def _past_table(days: int, conf: float, stake: float, needed: float) -> None:
     """Le détail du passé, au niveau SÉRIE, avec la vraie cote de clôture du book."""
     st.markdown("### 📜 Détail des picks passés — même table que le journal, mais en arrière")
@@ -167,6 +219,8 @@ def _past_table(days: int, conf: float, stake: float, needed: float) -> None:
         "**vraie cote de clôture** relevée par odds-api.io juste avant le coup d'envoi, "
         f"quand elle est archivée — actuellement **{n_real} séries sur {len(past)}**."
     )
+
+    _odds_progress()
 
     if n_real:
         _real_odds_summary(past[real.notna()], stake)
