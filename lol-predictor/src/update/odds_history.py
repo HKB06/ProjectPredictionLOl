@@ -196,8 +196,16 @@ def closing_odds(event_id, quota: Quota) -> tuple[float | None, float | None, st
                     pairs.append((h, a, book))
     if not pairs:
         return None, None, ""
-    return (max(p[0] for p in pairs), max(p[1] for p in pairs),
-            "+".join(sorted({p[2] for p in pairs})))
+    best_h = max(p[0] for p in pairs)
+    best_a = max(p[1] for p in pairs)
+    if _plausible(best_h, best_a):
+        return best_h, best_a, "+".join(sorted({p[2] for p in pairs}))
+    # Le line shopping max/max ENTRE paires peut fabriquer une combinaison à
+    # marge < 1.00 que repair_cache rejette au passage suivant (boucle infinie :
+    # fetch -> rejet -> re-fetch, ~25 requêtes gaspillées par passe). Repli :
+    # la meilleure paire COHÉRENTE d'un même book (marge saine par construction).
+    h, a, book = max(pairs, key=lambda p: p[0] + p[1])
+    return h, a, book
 
 
 # ------------------------------------------------------------------------- cache
