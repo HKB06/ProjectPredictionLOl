@@ -49,13 +49,13 @@ event_id,date,league_slug,home,away,odd_home,odd_away,books,status,fetched_at
 5684780952,2026-08-22T21:45:00Z,league-of-legends-lcs-summer,Disguised,Dignitas,,,,pending,
 6664617823,2026-08-23T20:00:00Z,league-of-legends-lcs-summer,Disguised,Sentinels,,,,pending,
 4011842996,2026-08-23T21:45:00Z,league-of-legends-lcs-summer,Dignitas,FlyQuest,,,,pending,
-8244613773,2026-08-29T20:00:00Z,league-of-legends-lcs-summer,Team Liquid,Shopify Rebellion,6.2,7.95,1xbet+GG.bet,ok,2026-09-15 22:47
+8244613773,2026-08-29T20:00:00Z,league-of-legends-lcs-summer,Team Liquid,Shopify Rebellion,,,,pending,
 5153473441,2026-08-29T23:00:00Z,league-of-legends-lcs-summer,Cloud9,LYON,2.533,1.52,1xbet+GG.bet,ok,2026-09-15 22:47
 4818295283,2026-08-30T20:00:00Z,league-of-legends-lcs-summer,LYON,Team Liquid,1.704,2.16,1xbet+GG.bet,ok,2026-09-15 22:47
 4318323237,2026-08-30T21:50:00Z,league-of-legends-lcs-summer,Cloud9,Shopify Rebellion,1.29,4.38,1xbet+GG.bet,ok,2026-09-15 22:47
 6278073399,2026-09-05T20:00:00Z,league-of-legends-lcs-summer,Sentinels,Cloud9,2.422,1.59,1xbet+GG.bet,ok,2026-09-15 21:13
-8286844303,2026-09-05T21:45:00Z,league-of-legends-lcs-summer,Team Liquid,Dignitas,10.22,11.8,1xbet+GG.bet,ok,2026-09-15 22:47
-5909957755,2026-09-06T20:00:00Z,league-of-legends-lcs-summer,Shopify Rebellion,FlyQuest,2.816,2.52,1xbet+GG.bet,ok,2026-09-15 22:47
+8286844303,2026-09-05T21:45:00Z,league-of-legends-lcs-summer,Team Liquid,Dignitas,,,,pending,
+5909957755,2026-09-06T20:00:00Z,league-of-legends-lcs-summer,Shopify Rebellion,FlyQuest,,,,pending,
 4935695305,2026-09-06T21:45:00Z,league-of-legends-lcs-summer,LYON,Disguised,,,,none,2026-09-15 21:13
 4660764223,2026-09-12T20:00:00Z,league-of-legends-lcs-summer,Cloud9,Shopify Rebellion,1.157,5.3,1xbet+GG.bet,ok,2026-09-15 21:13
 4835386899,2026-09-13T20:00:00Z,league-of-legends-lcs-summer,Sentinels,FlyQuest,1.9,1.94,1xbet+GG.bet,ok,2026-09-15 21:13
@@ -363,8 +363,8 @@ event_id,date,league_slug,home,away,odd_home,odd_away,books,status,fetched_at
 5778645626,2026-09-07T20:00:00Z,league-of-legends-split-2,INTZ e-Sports,KaBuM! Ilha das Lendas,2.51,1.553,1xbet+GG.bet,ok,2026-09-15 21:13
 5370189860,2026-09-07T23:00:00Z,league-of-legends-split-2,Zeu5 Esports,Fuego,2.627,1.5,1xbet+GG.bet,ok,2026-09-15 21:13
 7839961538,2026-09-08T20:00:00Z,league-of-legends-split-2,Vivo Keyd Stars Academy,KaBuM! Ilha das Lendas,1.84,1.833,1xbet+GG.bet,ok,2026-09-15 21:13
-5273992763,2026-09-08T20:30:00Z,league-of-legends-split-2,9z Globant,Golden Lions,1.3,4.54,1xbet+GG.bet,ok,2026-09-15 22:47
-6302029740,2026-09-12T16:00:00Z,league-of-legends-split-2,LOS,FURIA Esports,1.3,4.47,1xbet+GG.bet,ok,2026-09-15 22:47
+5273992763,2026-09-08T20:30:00Z,league-of-legends-split-2,9z Globant,Golden Lions,,,,pending,
+6302029740,2026-09-12T16:00:00Z,league-of-legends-split-2,LOS,FURIA Esports,,,,pending,
 4751229344,2026-09-13T16:00:00Z,league-of-legends-split-2,LOUD,paiN Gaming,1.2,5.0,1xbet+GG.bet,ok,2026-09-15 21:13
 4789737656,2026-09-14T20:15:00Z,league-of-legends-split-2,Estral Esports,KaBuM! Ilha das Lendas,1.1,6.9,1xbet+GG.bet,ok,2026-09-15 21:13
 7568643826,2026-09-11T09:00:00Z,league-of-legends-vcs-finals,SN CyberCore Esports,1TAP Dino,,,,none,2026-09-15 21:13
@@ -456,3 +456,170 @@ event_id,date,league_slug,home,away,odd_home,odd_away,books,status,fetched_at
 5206326297,2026-07-14T20:00:00Z,league-of-legends-split-2,ZEN Esports,Docta Esports,,,,pending,
 5208402990,2026-07-14T22:00:00Z,league-of-legends-split-2,9z Globant,Malvinas Gaming,,,,pending,
 5305467591,2026-07-14T23:00:00Z,league-of-legends-split-2,Volticons,Seven Dark,,,,pending,
+6088885281,2026-09-29T00:50:00Z,league-of-legends-asian-games,Saudi Arabia,Vietnam,10.0,1.01,1xbet,ok,2026-09-30 12:17
+5837490928,2026-09-29T00:50:00Z,league-of-legends-asian-games,United Arab Emirates,Malaysia,,,,none,2026-09-30 12:17
+4994435300,2026-09-29T02:30:00Z,league-of-legends-asian-games,Saudi Arabia,United Arab Emirates,,,,none,2026-09-30 12:17
+6138716944,2026-09-29T02:40:00Z,league-of-legends-asian-games,Vietnam,Malaysia,1.01,8.7,1xbet,ok,2026-09-30 12:17
+7722209062,2026-09-29T05:00:00Z,league-of-legends-asian-games,Vietnam,United Arab Emirates,1.01,13.7,1xbet,ok,2026-09-30 12:17
+6180810868,2026-09-29T05:00:00Z,league-of-legends-asian-games,Saudi Arabia,Malaysia,,,,none,2026-09-30 12:17
+6074300081,2026-09-30T00:00:00Z,league-of-legends-asian-games,South Korea,Chinese Taipei,1.1,7.0,GG.bet,ok,2026-09-30 12:17
+4599457897,2026-09-30T00:00:00Z,league-of-legends-asian-games,India,Hong Kong,,,,none,2026-09-30 12:17
+7670297621,2026-09-30T02:30:00Z,league-of-legends-asian-games,India,South Korea,,,,none,2026-09-30 12:17
+7335923520,2026-09-30T02:30:00Z,league-of-legends-asian-games,Hong Kong,Chinese Taipei,4.65,1.18,GG.bet,ok,2026-09-30 12:17
+7316621875,2026-09-30T05:00:00Z,league-of-legends-asian-games,India,Chinese Taipei,,,,none,2026-09-30 12:17
+7868379806,2026-09-30T05:00:00Z,league-of-legends-asian-games,Hong Kong,South Korea,13.7,1.01,1xbet+GG.bet,ok,2026-09-30 12:17
+7696160421,2026-09-28T21:00:00Z,league-of-legends-cblol-promotion,KaBuM! Ilha das Lendas,Golden Lions,1.03,11.5,1xbet,ok,2026-09-30 12:17
+6749432883,2026-09-29T21:00:00Z,league-of-legends-cblol-promotion,Estral Esports,9z Globant,1.01,11.5,GG.bet,ok,2026-09-30 12:17
+5371075730,2026-09-21T15:00:00Z,league-of-legends-emea-masters-summer,SU Esports,Verdant,,,,pending,
+4531876546,2026-09-21T15:00:00Z,league-of-legends-emea-masters-summer,Skillcamp Esport,Arctic Pandas,,,,pending,
+6146585717,2026-09-21T15:00:00Z,league-of-legends-emea-masters-summer,Barça eSports,Bubliki,,,,pending,
+4790846132,2026-09-21T15:00:00Z,league-of-legends-emea-masters-summer,Unicorns Of Love Sexy Edition,The Otter Side,,,,pending,
+7404744796,2026-09-21T18:00:00Z,league-of-legends-emea-masters-summer,Pyramid IV Esports,Lodis,,,,pending,
+4908121896,2026-09-21T18:00:00Z,league-of-legends-emea-masters-summer,UCAM Esports Club,mCon esports,,,,pending,
+4492994874,2026-09-21T18:00:00Z,league-of-legends-emea-masters-summer,Gamespace Mediterranean College Esports,Only The Family,,,,pending,
+4199007383,2026-09-21T18:00:00Z,league-of-legends-emea-masters-summer,Team Aqua ASD,CITA Kaizen,,,,pending,
+4107989234,2026-09-22T15:00:00Z,league-of-legends-emea-masters-summer,SU Esports,UCAM Esports Club,,,,pending,
+4618272916,2026-09-22T15:00:00Z,league-of-legends-emea-masters-summer,Barça eSports,Gamespace Mediterranean College Esports,,,,pending,
+4945591924,2026-09-22T15:00:00Z,league-of-legends-emea-masters-summer,Skillcamp Esport,Lodis,,,,pending,
+6423172202,2026-09-22T15:00:00Z,league-of-legends-emea-masters-summer,Unicorns Of Love Sexy Edition,CITA Kaizen,,,,pending,
+7742972471,2026-09-22T18:00:00Z,league-of-legends-emea-masters-summer,The Otter Side,Team Aqua ASD,,,,pending,
+6740390469,2026-09-22T18:00:00Z,league-of-legends-emea-masters-summer,Bubliki,Only The Family,,,,pending,
+4705936112,2026-09-22T18:00:00Z,league-of-legends-emea-masters-summer,Verdant,mCon esports,,,,pending,
+5804103047,2026-09-22T18:15:00Z,league-of-legends-emea-masters-summer,Arctic Pandas,Pyramid IV Esports,,,,pending,
+8018936646,2026-09-23T17:00:00Z,league-of-legends-emea-masters-summer,CITA Kaizen,The Otter Side,,,,pending,
+4725085708,2026-09-23T17:00:00Z,league-of-legends-emea-masters-summer,Skillcamp Esport,Pyramid IV Esports,,,,pending,
+7275035358,2026-09-23T17:00:00Z,league-of-legends-emea-masters-summer,Gamespace Mediterranean College Esports,Only The Family,,,,pending,
+7788640210,2026-09-23T17:00:00Z,league-of-legends-emea-masters-summer,SU Esports,Verdant,,,,pending,
+6732208864,2026-09-26T16:00:00Z,league-of-legends-emea-masters-summer,Skillcamp Esport,Colossal Gaming,,,,pending,
+6384328722,2026-09-26T16:00:00Z,league-of-legends-emea-masters-summer,Valerion,Lodis,,,,pending,
+7499791078,2026-09-26T16:00:00Z,league-of-legends-emea-masters-summer,BIG,Frites Esports Club,,,,pending,
+6802796972,2026-09-26T16:00:00Z,league-of-legends-emea-masters-summer,JSK Esports,Barça eSports,,,,pending,
+4113093719,2026-09-26T17:00:00Z,league-of-legends-emea-masters-summer,TLN Pirates,MAGAZA,,,,pending,
+4088452484,2026-09-26T17:00:00Z,league-of-legends-emea-masters-summer,Ruddy Corporation,Kaufland Hangry Knights,,,,pending,
+5335839347,2026-09-26T17:00:00Z,league-of-legends-emea-masters-summer,UCAM Esports Club,HMBLE,,,,pending,
+6478594219,2026-09-26T17:00:00Z,league-of-legends-emea-masters-summer,Senshi Esports,Bushido Wildcats,,,,pending,
+5181888500,2026-09-26T18:00:00Z,league-of-legends-emea-masters-summer,Team Heretics Academy,eSuba,,,,pending,
+7338524501,2026-09-26T18:00:00Z,league-of-legends-emea-masters-summer,Forsaken,G2 NORD,,,,pending,
+5588778228,2026-09-26T18:00:00Z,league-of-legends-emea-masters-summer,Team Phantasma,SU Esports,,,,pending,
+7853196020,2026-09-26T19:00:00Z,league-of-legends-emea-masters-summer,NightBirds,The Otter Side,,,,pending,
+4055787905,2026-09-26T19:00:00Z,league-of-legends-emea-masters-summer,Anubis Gaming,The Secret Club,,,,pending,
+6354627774,2026-09-26T19:00:00Z,league-of-legends-emea-masters-summer,BOMBA Team,Gamespace Mediterranean College Esports,,,,pending,
+6308477502,2026-09-26T19:00:00Z,league-of-legends-emea-masters-summer,Unicorns Of Love Sexy Edition,PCIFIC,,,,pending,
+5898152884,2026-09-27T16:00:00Z,league-of-legends-emea-masters-summer,Colossal Gaming,Ruddy Corporation,6.05,1.15,1xbet+GG.bet,ok,2026-09-30 12:17
+4079646332,2026-09-27T16:00:00Z,league-of-legends-emea-masters-summer,G2 NORD,NightBirds,1.1,7.0,1xbet,ok,2026-09-30 12:17
+4002995251,2026-09-27T16:00:00Z,league-of-legends-emea-masters-summer,Team Heretics Academy,Senshi Esports,1.11,9.3,1xbet+GG.bet,ok,2026-09-30 12:17
+6568662652,2026-09-27T16:00:00Z,league-of-legends-emea-masters-summer,TLN Pirates,BOMBA Team,1.19,6.05,1xbet+GG.bet,ok,2026-09-30 12:17
+4137556487,2026-09-27T17:00:00Z,league-of-legends-emea-masters-summer,Team Phantasma,Barça eSports,2.525,1.58,1xbet+GG.bet,ok,2026-09-30 12:17
+7634542616,2026-09-27T17:00:00Z,league-of-legends-emea-masters-summer,Kaufland Hangry Knights,Skillcamp Esport,2.145,1.74,1xbet+GG.bet,ok,2026-09-30 12:17
+7885907169,2026-09-27T17:00:00Z,league-of-legends-emea-masters-summer,JSK Esports,SU Esports,3.26,1.38,1xbet+GG.bet,ok,2026-09-30 12:17
+6271950861,2026-09-27T17:00:00Z,league-of-legends-emea-masters-summer,Frites Esports Club,Lodis,1.96,1.9,1xbet+GG.bet,ok,2026-09-30 12:17
+4715381183,2026-09-27T17:50:00Z,league-of-legends-emea-masters-summer,Karmine Corp Blue,UCAM Esports Club,,,,none,2026-09-30 12:17
+7580050218,2026-09-27T18:00:00Z,league-of-legends-emea-masters-summer,BIG,Valerion,1.15,7.0,1xbet+GG.bet,ok,2026-09-30 12:17
+7437663472,2026-09-27T18:00:00Z,league-of-legends-emea-masters-summer,Forsaken,The Otter Side,1.11,5.98,1xbet,ok,2026-09-30 12:17
+6225175551,2026-09-27T18:00:00Z,league-of-legends-emea-masters-summer,PCIFIC,The Secret Club,1.2,7.0,1xbet+GG.bet,ok,2026-09-30 12:17
+8041603491,2026-09-27T19:00:00Z,league-of-legends-emea-masters-summer,Bushido Wildcats,eSuba,1.18,6.46,1xbet+GG.bet,ok,2026-09-30 12:17
+4527113995,2026-09-27T19:00:00Z,league-of-legends-emea-masters-summer,HMBLE,White Dragons,1.23,4.31,1xbet+GG.bet,ok,2026-09-30 12:17
+4401283392,2026-09-27T19:00:00Z,league-of-legends-emea-masters-summer,Anubis Gaming,Unicorns Of Love Sexy Edition,2.32,2.46,1xbet+GG.bet,ok,2026-09-30 12:17
+7020984637,2026-09-27T19:00:00Z,league-of-legends-emea-masters-summer,MAGAZA,Gamespace Mediterranean College Esports,1.14,8.1,1xbet+GG.bet,ok,2026-09-30 12:17
+6926687849,2026-09-28T16:00:00Z,league-of-legends-emea-masters-summer,G2 NORD,Frites Esports Club,1.17,5.0,1xbet+GG.bet,ok,2026-09-30 12:17
+7820499350,2026-09-28T16:00:00Z,league-of-legends-emea-masters-summer,Anubis Gaming,Skillcamp Esport,2.99,1.4,1xbet+GG.bet,ok,2026-09-30 12:17
+5322386130,2026-09-28T16:00:00Z,league-of-legends-emea-masters-summer,eSuba,Lodis,5.51,1.125,1xbet,ok,2026-09-30 12:17
+5268990478,2026-09-28T16:00:00Z,league-of-legends-emea-masters-summer,PCIFIC,UCAM Esports Club,3.82,1.264,1xbet,ok,2026-09-30 12:17
+5227856352,2026-09-28T17:00:00Z,league-of-legends-emea-masters-summer,Kaufland Hangry Knights,Senshi Esports,1.09,10.0,1xbet+GG.bet,ok,2026-09-30 12:17
+7417416101,2026-09-28T17:00:00Z,league-of-legends-emea-masters-summer,TLN Pirates,JSK Esports,1.24,5.65,1xbet+GG.bet,ok,2026-09-30 12:17
+7741778248,2026-09-28T17:00:00Z,league-of-legends-emea-masters-summer,Team Phantasma,The Otter Side,1.17,5.6,1xbet+GG.bet,ok,2026-09-30 12:17
+5815512624,2026-09-28T17:15:00Z,league-of-legends-emea-masters-summer,BOMBA Team,SU Esports,3.9,1.62,1xbet+GG.bet,ok,2026-09-30 12:17
+6400900979,2026-09-28T18:00:00Z,league-of-legends-emea-masters-summer,BIG,MAGAZA,1.18,7.38,1xbet+GG.bet,ok,2026-09-30 12:17
+4980310831,2026-09-28T18:00:00Z,league-of-legends-emea-masters-summer,Karmine Corp Blue,NightBirds,1.33,5.65,1xbet+GG.bet,ok,2026-09-30 12:17
+7842985322,2026-09-28T18:00:00Z,league-of-legends-emea-masters-summer,Team Heretics Academy,Valerion,1.25,5.02,1xbet+GG.bet,ok,2026-09-30 12:17
+5676258195,2026-09-28T18:00:00Z,league-of-legends-emea-masters-summer,Colossal Gaming,White Dragons,1.816,2.15,1xbet+GG.bet,ok,2026-09-30 12:17
+5488392257,2026-09-28T19:00:00Z,league-of-legends-emea-masters-summer,HMBLE,Unicorns Of Love Sexy Edition,3.46,1.31,1xbet,ok,2026-09-30 12:17
+4113272533,2026-09-28T19:00:00Z,league-of-legends-emea-masters-summer,Bushido Wildcats,Ruddy Corporation,2.58,2.02,1xbet+GG.bet,ok,2026-09-30 12:17
+7431468143,2026-09-28T19:00:00Z,league-of-legends-emea-masters-summer,Forsaken,Barça eSports,2.55,1.512,1xbet,ok,2026-09-30 12:17
+8283271030,2026-09-28T19:00:00Z,league-of-legends-emea-masters-summer,The Secret Club,Gamespace Mediterranean College Esports,3.04,1.63,1xbet+GG.bet,ok,2026-09-30 12:17
+5041385023,2026-09-29T15:00:00Z,league-of-legends-emea-masters-summer,Valerion,Skillcamp Esport,3.04,1.45,1xbet+GG.bet,ok,2026-09-30 12:17
+5003599039,2026-09-29T15:00:00Z,league-of-legends-emea-masters-summer,MAGAZA,Barça eSports,3.52,1.3,1xbet,ok,2026-09-30 12:17
+6188381087,2026-09-29T15:00:00Z,league-of-legends-emea-masters-summer,Colossal Gaming,SU Esports,4.44,1.22,1xbet+GG.bet,ok,2026-09-30 12:17
+7369032129,2026-09-29T15:00:00Z,league-of-legends-emea-masters-summer,G2 NORD,Ruddy Corporation,1.25,4.44,1xbet+GG.bet,ok,2026-09-30 12:17
+7373791431,2026-09-29T16:00:00Z,league-of-legends-emea-masters-summer,JSK Esports,Unicorns Of Love Sexy Edition,3.4,1.34,1xbet+GG.bet,ok,2026-09-30 12:17
+7167401698,2026-09-29T16:00:00Z,league-of-legends-emea-masters-summer,BIG,BOMBA Team,1.23,5.0,1xbet+GG.bet,ok,2026-09-30 12:17
+7848584205,2026-09-29T16:00:00Z,league-of-legends-emea-masters-summer,Frites Esports Club,Gamespace Mediterranean College Esports,1.52,3.12,1xbet+GG.bet,ok,2026-09-30 12:17
+4636825467,2026-09-29T16:15:00Z,league-of-legends-emea-masters-summer,PCIFIC,NightBirds,2.14,1.71,1xbet+GG.bet,ok,2026-09-30 12:17
+4337684326,2026-09-29T17:00:00Z,league-of-legends-emea-masters-summer,Team Phantasma,Lodis,2.05,1.74,1xbet+GG.bet,ok,2026-09-30 12:17
+7734595659,2026-09-29T17:00:00Z,league-of-legends-emea-masters-summer,HMBLE,Senshi Esports,1.29,5.51,1xbet+GG.bet,ok,2026-09-30 12:17
+5527463275,2026-09-29T17:00:00Z,league-of-legends-emea-masters-summer,Kaufland Hangry Knights,The Otter Side,1.24,5.55,1xbet+GG.bet,ok,2026-09-30 12:17
+6654573108,2026-09-29T17:00:00Z,league-of-legends-emea-masters-summer,Bushido Wildcats,UCAM Esports Club,2.47,1.59,1xbet+GG.bet,ok,2026-09-30 12:17
+5891245120,2026-09-29T18:00:00Z,league-of-legends-emea-masters-summer,eSuba,White Dragons,1.87,1.94,1xbet+GG.bet,ok,2026-09-30 12:17
+6328642071,2026-09-29T18:00:00Z,league-of-legends-emea-masters-summer,Forsaken,The Secret Club,1.192,4.31,1xbet,ok,2026-09-30 12:17
+6909092951,2026-09-29T18:00:00Z,league-of-legends-emea-masters-summer,TLN Pirates,Anubis Gaming,1.36,3.38,1xbet+GG.bet,ok,2026-09-30 12:17
+4037914514,2026-09-29T18:00:00Z,league-of-legends-emea-masters-summer,Team Heretics Academy,Karmine Corp Blue,2.53,1.52,1xbet+GG.bet,ok,2026-09-30 12:17
+7160878912,2026-09-18T20:00:00Z,league-of-legends-lcs-summer,Shopify Rebellion,Sentinels,,,,pending,
+7073661775,2026-09-19T20:00:00Z,league-of-legends-lcs-summer,LYON,Cloud9,,,,pending,
+4388761740,2026-09-20T20:00:00Z,league-of-legends-lcs-summer,Team Liquid,FlyQuest,,,,pending,
+7945507198,2026-09-25T20:00:00Z,league-of-legends-lcs-summer,FlyQuest,Shopify Rebellion,,,,pending,
+6035386123,2026-09-26T20:00:00Z,league-of-legends-lcs-summer,LYON,Shopify Rebellion,,,,pending,
+5623871475,2026-09-27T20:00:00Z,league-of-legends-lcs-summer,Cloud9,Team Liquid,2.677,1.472,1xbet+GG.bet,ok,2026-09-30 12:17
+4525199893,2026-09-19T16:00:00Z,league-of-legends-split-2,Vivo Keyd Stars,RED Canids,,,,pending,
+5508698187,2026-09-20T16:00:00Z,league-of-legends-split-2,paiN Gaming,RED Canids,,,,pending,
+7889081766,2026-09-26T16:00:00Z,league-of-legends-split-2,FURIA Esports,RED Canids,,,,pending,
+4187324977,2026-09-27T16:00:00Z,league-of-legends-split-2,LOUD,LOS,2.2,1.64,1xbet+GG.bet,ok,2026-09-30 12:17
+6259825022,2026-09-19T09:00:00Z,league-of-legends-vcs-finals,MVK Academy,1TAP Dino,,,,pending,
+7051633984,2026-09-19T12:00:00Z,league-of-legends-vcs-finals,9Gaming,SN CyberCore Esports,,,,pending,
+5412099532,2026-09-20T09:00:00Z,league-of-legends-vcs-finals,MVK Academy,Saigon Warriors,,,,pending,
+5674037534,2026-09-20T12:00:00Z,league-of-legends-vcs-finals,9Gaming,1TAP Dino,,,,pending,
+5006177529,2026-09-24T09:00:00Z,league-of-legends-vcs-finals,Saigon Warriors,9Gaming,,,,pending,
+8162279428,2026-09-24T12:00:00Z,league-of-legends-vcs-finals,SN CyberCore Esports,MVK Academy,,,,pending,
+7462691472,2026-09-25T09:00:00Z,league-of-legends-vcs-finals,Saigon Warriors,MVK Academy,,,,pending,
+6038279219,2026-09-26T09:00:00Z,league-of-legends-vcs-finals,9Gaming,SN CyberCore Esports,,,,pending,
+5912648456,2026-09-27T09:00:00Z,league-of-legends-vcs-finals,MVK Academy,SN CyberCore Esports,,,,pending,
+6919856810,2026-09-20T06:00:00Z,league-of-legends-world-star-challengers-invitational,EDward Gaming Youth Team,T1 Academy,,,,pending,
+8098017840,2026-09-20T07:00:00Z,league-of-legends-world-star-challengers-invitational,Fuego,DN SOOPers Challengers,,,,pending,
+6939647225,2026-09-20T08:15:00Z,league-of-legends-world-star-challengers-invitational,KT Rolster Challengers,Bilibili Gaming Junior,,,,pending,
+6833530066,2026-09-20T09:15:00Z,league-of-legends-world-star-challengers-invitational,⁠Movistar KOI Fénix,CTBC Flying Oyster Academy,,,,pending,
+7589323383,2026-09-20T10:15:00Z,league-of-legends-world-star-challengers-invitational,DN SOOPers Challengers,T1 Academy,,,,pending,
+7969267718,2026-09-20T11:15:00Z,league-of-legends-world-star-challengers-invitational,Fuego,EDward Gaming Youth Team,,,,pending,
+4835514103,2026-09-20T12:15:00Z,league-of-legends-world-star-challengers-invitational,CTBC Flying Oyster Academy,Bilibili Gaming Junior,,,,pending,
+5322876192,2026-09-20T12:45:00Z,league-of-legends-world-star-challengers-invitational,⁠Movistar KOI Fénix,KT Rolster Challengers,,,,pending,
+6310462791,2026-09-21T06:00:00Z,league-of-legends-world-star-challengers-invitational,Vivo Keyd Stars Academy,Dplus KIA Challengers,,,,pending,
+4425029171,2026-09-21T07:00:00Z,league-of-legends-world-star-challengers-invitational,FENNEL,Cupid Esports,,,,pending,
+5423666407,2026-09-21T08:00:00Z,league-of-legends-world-star-challengers-invitational,Galions,Saigon Warriors,,,,pending,
+4545124289,2026-09-21T09:00:00Z,league-of-legends-world-star-challengers-invitational,Solary,ZSK,,,,pending,
+7261347166,2026-09-21T10:00:00Z,league-of-legends-world-star-challengers-invitational,Cupid Esports,Dplus KIA Challengers,,,,pending,
+7069038382,2026-09-21T11:00:00Z,league-of-legends-world-star-challengers-invitational,FENNEL,Vivo Keyd Stars Academy,,,,pending,
+7697252090,2026-09-21T12:00:00Z,league-of-legends-world-star-challengers-invitational,ZSK,Saigon Warriors,,,,pending,
+8016667101,2026-09-21T13:00:00Z,league-of-legends-world-star-challengers-invitational,Solary,Galions,,,,pending,
+4833682808,2026-09-22T06:00:00Z,league-of-legends-world-star-challengers-invitational,⁠Movistar KOI Fénix,Bilibili Gaming Junior,,,,pending,
+4175008019,2026-09-22T07:00:00Z,league-of-legends-world-star-challengers-invitational,CTBC Flying Oyster Academy,KT Rolster Challengers,,,,pending,
+4117092603,2026-09-22T08:00:00Z,league-of-legends-world-star-challengers-invitational,Fuego,T1 Academy,,,,pending,
+7019800793,2026-09-22T09:00:00Z,league-of-legends-world-star-challengers-invitational,DN SOOPers Challengers,EDward Gaming Youth Team,,,,pending,
+4336237643,2026-09-22T09:45:00Z,league-of-legends-world-star-challengers-invitational,KT Rolster Challengers,Bilibili Gaming Junior,,,,pending,
+6890708144,2026-09-22T10:45:00Z,league-of-legends-world-star-challengers-invitational,⁠Movistar KOI Fénix,CTBC Flying Oyster Academy,,,,pending,
+7055899383,2026-09-22T11:20:00Z,league-of-legends-world-star-challengers-invitational,EDward Gaming Youth Team,T1 Academy,,,,pending,
+7155858188,2026-09-22T12:15:00Z,league-of-legends-world-star-challengers-invitational,Fuego,DN SOOPers Challengers,,,,pending,
+6359297009,2026-09-23T06:00:00Z,league-of-legends-world-star-challengers-invitational,Solary,Saigon Warriors,,,,pending,
+7850446971,2026-09-23T07:00:00Z,league-of-legends-world-star-challengers-invitational,ZSK,Galions,,,,pending,
+5496767277,2026-09-23T07:45:00Z,league-of-legends-world-star-challengers-invitational,FENNEL,Dplus KIA Challengers,,,,pending,
+5787624512,2026-09-23T08:45:00Z,league-of-legends-world-star-challengers-invitational,Cupid Esports,Vivo Keyd Stars Academy,,,,pending,
+5506784417,2026-09-23T09:45:00Z,league-of-legends-world-star-challengers-invitational,Galions,Saigon Warriors,,,,pending,
+8196644878,2026-09-23T10:45:00Z,league-of-legends-world-star-challengers-invitational,Solary,ZSK,,,,pending,
+7779740237,2026-09-23T11:45:00Z,league-of-legends-world-star-challengers-invitational,Vivo Keyd Stars Academy,Dplus KIA Challengers,,,,pending,
+5111404402,2026-09-23T12:45:00Z,league-of-legends-world-star-challengers-invitational,FENNEL,Cupid Esports,,,,pending,
+6329498785,2026-09-24T06:00:00Z,league-of-legends-world-star-challengers-invitational,DN SOOPers Challengers,T1 Academy,,,,pending,
+6858779986,2026-09-24T07:00:00Z,league-of-legends-world-star-challengers-invitational,Fuego,EDward Gaming Youth Team,,,,pending,
+5040373335,2026-09-24T08:00:00Z,league-of-legends-world-star-challengers-invitational,CTBC Flying Oyster Academy,Bilibili Gaming Junior,,,,pending,
+6321631132,2026-09-24T08:35:00Z,league-of-legends-world-star-challengers-invitational,⁠Movistar KOI Fénix,KT Rolster Challengers,,,,pending,
+4006118439,2026-09-24T09:30:00Z,league-of-legends-world-star-challengers-invitational,Fuego,T1 Academy,,,,pending,
+8278127394,2026-09-24T10:30:00Z,league-of-legends-world-star-challengers-invitational,DN SOOPers Challengers,EDward Gaming Youth Team,,,,pending,
+6984662456,2026-09-24T11:00:00Z,league-of-legends-world-star-challengers-invitational,⁠Movistar KOI Fénix,Bilibili Gaming Junior,,,,pending,
+4536347294,2026-09-24T12:00:00Z,league-of-legends-world-star-challengers-invitational,CTBC Flying Oyster Academy,KT Rolster Challengers,,,,pending,
+8101261543,2026-09-25T06:00:00Z,league-of-legends-world-star-challengers-invitational,Cupid Esports,Dplus KIA Challengers,,,,pending,
+5256594333,2026-09-25T07:15:00Z,league-of-legends-world-star-challengers-invitational,FENNEL,Vivo Keyd Stars Academy,,,,pending,
+5954994417,2026-09-25T08:15:00Z,league-of-legends-world-star-challengers-invitational,Solary,Galions,,,,pending,
+5594692971,2026-09-25T09:00:00Z,league-of-legends-world-star-challengers-invitational,FENNEL,Dplus KIA Challengers,,,,pending,
+8188517474,2026-09-25T10:00:00Z,league-of-legends-world-star-challengers-invitational,Cupid Esports,Vivo Keyd Stars Academy,,,,pending,
+5561174013,2026-09-25T11:00:00Z,league-of-legends-world-star-challengers-invitational,ZSK,Galions,,,,pending,
+5648526738,2026-09-27T06:00:00Z,league-of-legends-world-star-challengers-invitational,Solary,⁠Movistar KOI Fénix,,,,pending,
+4022406520,2026-09-27T09:00:00Z,league-of-legends-world-star-challengers-invitational,Dplus KIA Challengers,DN SOOPers Challengers,,,,pending,
+4948513144,2026-09-28T06:00:00Z,league-of-legends-world-star-challengers-invitational,T1 Academy,Cupid Esports,1.06,9.7,1xbet+GG.bet,ok,2026-09-30 12:17
+8015664541,2026-09-28T09:30:00Z,league-of-legends-world-star-challengers-invitational,KT Rolster Challengers,Galions,1.61,2.32,1xbet+GG.bet,ok,2026-09-30 12:17
+4655248186,2026-09-30T06:00:00Z,league-of-legends-world-star-challengers-invitational,Solary,DN SOOPers Challengers,1.45,3.03,1xbet+GG.bet,ok,2026-09-30 12:17
