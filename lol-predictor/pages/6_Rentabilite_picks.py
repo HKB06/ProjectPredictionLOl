@@ -93,7 +93,8 @@ def _simulation_block() -> None:
     )
 
     c = st.columns([1.2, 1.2, 1.4])
-    days = c[0].slider("Fenêtre (jours)", 15, 180, 60, 15)
+    # 300 j ≈ décembre 2025 : les cotes de clôture odds-api.io ne remontent pas plus loin.
+    days = c[0].slider("Fenêtre (jours)", 15, 300, 60, 15)
     conf = c[1].slider("Seuil de confiance (%/game)", 60, 90, 70, 5) / 100
     stake = c[2].number_input("Mise fixe par match (€)", 1.0, 100.0, STAKE, 1.0)
 
@@ -312,7 +313,7 @@ def _bankroll_block() -> None:
     c = st.columns([1.3, 1.1, 1.2, 1.8], vertical_alignment="bottom")
     bank0 = c[0].number_input("Bankroll de départ (€)", 50.0, 10_000.0, 500.0, 50.0)
     stake = c[1].number_input("Mise par série (€)", 1.0, 200.0, STAKE, 1.0, key="bk_stake")
-    days = c[2].slider("Fenêtre (jours)", 15, 180, 60, 15, key="bk_days")
+    days = c[2].slider("Fenêtre (jours)", 15, 300, 60, 15, key="bk_days")
     mode = c[3].radio(
         "Cotes utilisées", ("Réelles archivées", "Hypothétique (toutes séries)"),
         horizontal=True, key="bk_mode",
