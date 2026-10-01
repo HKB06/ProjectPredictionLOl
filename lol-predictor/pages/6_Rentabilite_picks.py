@@ -6,19 +6,18 @@ rapportent-ils de l'argent, ou juste des bonnes prédictions ?
 Deux blocs :
 1. **Simulation historique** (réponse immédiate) : réussite réelle des picks 🎯 du
    passé en walk-forward + la **cote moyenne minimale** de rentabilité.
-2. **Journal réel** : on fige date / prévision / cote du book, on règle
-   automatiquement depuis la data Oracle, et on applique 10 € à plat sur chaque pick.
+2. **Simulation bankroll** : on rejoue chronologiquement les picks à mise fixe
+   depuis une bankroll de départ — courbe, drawdown, séries de gains/pertes.
 
 Lancer : depuis l'app principale (menu de gauche).
 """
 from __future__ import annotations
 
+import numpy as np
 import pandas as pd
 import streamlit as st
 
-from src.models.picks_roi import (COLS, RESULTS, STAKE, add_candidates, candidates,
-                                  load_ledger, normalize, roi_at_odds, save_ledger,
-                                  settle, summary, value_flag)
+from src.models.picks_roi import STAKE, roi_at_odds
 
 st.set_page_config(page_title="LoL — Rentabilité des picks", page_icon="💵", layout="wide")
 
@@ -300,181 +299,97 @@ def _real_odds_summary(real: pd.DataFrame, stake: float) -> None:
         )
 
 
-def _capture_report(cands: list[dict]) -> None:
-    """Tri immédiat des picks capturés : jouables / sous la cote mini / sans cote."""
-    df = pd.DataFrame(cands)
-    o = pd.to_numeric(df["odds"], errors="coerce")
-    b = pd.to_numeric(df["breakeven"], errors="coerce")
-
-    def _lines(sub, fmt):
-        return "\n".join(fmt(r) for r in sub.itertuples())
-
-    good = df[o.notna() & (o > b)]
-    under = df[o.notna() & (o <= b)]
-    none_ = df[o.isna()]
-
-    if len(good):
-        st.markdown("**✅ Jouables — la cote offerte dépasse la cote mini :**\n\n" + _lines(
-            good, lambda r: f"- {r.tier} **{r.pick}** ({r.league}) · "
-                            f"cote {r.odds:.2f} > mini {r.breakeven:.2f}"))
-    if len(under):
-        st.warning("**❌ Sous la cote mini — à ne PAS jouer.** Le book cote trop court : "
-                   "même en gagnant souvent, ces paris perdent sur la durée.\n\n" + _lines(
-                       under, lambda r: f"- {r.tier} {r.pick} ({r.league}) · "
-                                        f"cote {r.odds:.2f} ≤ mini {r.breakeven:.2f}"))
-    if len(none_):
-        st.info(f"**{len(none_)} pick(s) sans cote** — ni odds-api.io ni Polymarket ne "
-                "cotent ces matchs. Saisis la cote à la main, sinon le ROI de la ligne "
-                "reste incalculable.\n\n" + _lines(
-                    none_, lambda r: f"- {r.tier} {r.pick} ({r.league}) · "
-                                     f"mini {r.breakeven:.2f}"))
-
-    pm = df[df["odds_source"].astype(str).str.startswith("polymarket")]
-    if len(pm):
-        st.caption(
-            "ℹ️ Les cotes marquées `polymarket` viennent d'un marché de prédiction, pas "
-            "d'un bookmaker : le prix est quasi sans marge, mais **regarde le volume "
-            "entre parenthèses**. Sous ~500 $, le prix est du bruit et ne vaut pas "
-            "qu'on s'appuie dessus."
-        )
-
-
-def _ledger_block() -> None:
-    st.subheader("2️⃣ Journal réel — mise fixe de 10 € sur chaque pick")
+def _bankroll_block() -> None:
+    """Rejeu chronologique à mise fixe : la courbe de caisse et ses trous."""
+    st.subheader("2️⃣ Simulation bankroll — encaisse-t-on les séries de pertes ?")
     st.caption(
-        "On **fige** chaque pick : date du match, notre prévision, notre proba, et la "
-        "**cote du book**. Le résultat est réglé automatiquement depuis la data Oracle. "
-        "C'est la seule preuve qui compte : le ROI réel, pas l'accuracy."
+        "On rejoue les picks 🎯 passés **dans l'ordre chronologique**, mise fixe, en "
+        "partant d'une bankroll de départ. La courbe montre le chemin réellement "
+        "parcouru : les séries de victoires, les trous (**drawdown**) et le pire creux. "
+        "C'est le test psychologique : sait-on traverser une mauvaise passe sans paniquer ?"
     )
 
-    if "led" not in st.session_state:
-        st.session_state.led = settle(load_ledger())
-    led = st.session_state.led
+    c = st.columns([1.3, 1.1, 1.2, 1.8], vertical_alignment="bottom")
+    bank0 = c[0].number_input("Bankroll de départ (€)", 50.0, 10_000.0, 500.0, 50.0)
+    stake = c[1].number_input("Mise par série (€)", 1.0, 200.0, STAKE, 1.0, key="bk_stake")
+    days = c[2].slider("Fenêtre (jours)", 15, 180, 60, 15, key="bk_days")
+    mode = c[3].radio(
+        "Cotes utilisées", ("Réelles archivées", "Hypothétique (toutes séries)"),
+        horizontal=True, key="bk_mode",
+        help="Réelles = uniquement les séries dont la cote de clôture est en cache "
+             "(fidèle mais échantillon partiel). Hypothétique = toutes les séries, "
+             "à une cote unique de ton choix.")
 
-    c = st.columns([1.2, 1.3, 1.5, 1.4], vertical_alignment="bottom")
-    days = c[0].selectbox("Fenêtre de capture", [1, 2, 3, 7, 14], index=3,
-                          format_func=lambda d: f"{d} jour(s)")
-    with_stars = c[1].checkbox(
-        "Inclure les ⭐", value=False,
-        help="Les ⭐ (proba de série ≥62 %) ont une cote mini élevée (1.3-1.6) que le "
-             "book dépasse rarement : attends-toi à beaucoup de ❌ sous la cote mini.")
-    # Libellé qui reflète la case : sinon on croit que cocher suffit à capturer.
-    if c[2].button(f"📥 Capturer {'🎯 + ⭐' if with_stars else 'les 🎯'}", type="primary",
-                   help="Cocher la case ne suffit pas : c'est ce bouton qui va chercher "
-                        "les matchs et les ajoute au journal."):
-        with st.spinner("Calcul Elo + récupération des matchs et des cotes…"):
-            try:
-                cands = candidates(days=days, include_strong=with_stars)
-            except Exception as exc:  # noqa: BLE001
-                st.error(f"Impossible de récupérer les picks : {exc}")
-                cands = []
-        if cands:
-            led, added = add_candidates(led, cands)
-            led = settle(led)
-            save_ledger(led)
-            st.session_state.led = led
-            n_hc = sum(1 for c_ in cands if c_.get("tier") == "🎯")
-            st.success(f"{added} pick(s) ajouté(s) sur {len(cands)} candidat(s) "
-                       f"({n_hc} 🎯, {len(cands) - n_hc} ⭐).")
-            _capture_report(cands)
-        elif cands is not None:
-            st.info("Aucun pick dans cette fenêtre — c'est normal, mieux vaut 0 pick "
-                    "qu'un faux favori.")
-
-    if c[3].button("🔄 Régler les résultats (data Oracle)"):
-        led = settle(led)
-        save_ledger(led)
-        st.session_state.led = led
-        st.success("Résultats mis à jour depuis la data Oracle.")
-
-    if led.empty:
-        st.info("Journal vide. Clique sur **Capturer** pour commencer le suivi. "
-                "Pense à mettre la data à jour avant, sinon les résultats ne se règlent pas.")
+    past = load_past_series(days, 0.70)
+    if past.empty:
+        st.info("Aucune série sur cette fenêtre.")
         return
 
-    st.markdown("**Saisis / corrige les cotes**, puis sauvegarde. La colonne **Value ?** "
-                "se recalcule à la sauvegarde et te dit si la cote couvre le seuil.")
-    disp = normalize(led)
-    disp.insert(disp.columns.get_loc("odds_source"), "value", value_flag(disp))
-    edited = st.data_editor(
-        disp, width="stretch", hide_index=True, num_rows="dynamic",
-        column_config={**_ledger_columns(),
-                       "result": st.column_config.SelectboxColumn(
-                           "Résultat", options=RESULTS, width="small"),
-                       "value": st.column_config.TextColumn(
-                           "Value ?", width="small", disabled=True,
-                           help="✅ = cote > cote mini (jouable). ❌ = cote trop courte : "
-                                "perdant sur la durée même en gagnant souvent.")},
-    )
-    if st.button("💾 Sauvegarder le journal", type="primary"):
-        saved = settle(edited[COLS])
-        save_ledger(saved)
-        st.session_state.led = saved
-        st.success("Journal sauvegardé et recalculé.")
-        led = saved
+    if mode.startswith("Réelles"):
+        view = past[pd.to_numeric(past["odds"], errors="coerce").notna()].copy()
+        label = "cotes réelles"
+        if view.empty:
+            st.info("Aucune cote réelle en cache sur cette fenêtre — le remplissage "
+                    "tourne encore, réessaie plus tard ou passe en hypothétique.")
+            return
+    else:
+        hyp = st.slider("Cote hypothétique", 1.00, 2.50, 1.20, 0.05, key="bk_hyp")
+        view = past.copy()
+        view["odds"] = hyp
+        label = f"cote uniforme {hyp:.2f}"
 
-    s = summary(led)
-    st.markdown("### Bilan")
-    if not s.get("n_settled"):
-        st.info(f"{s['n']} pick(s) enregistré(s), aucun réglé pour l'instant. "
-                "Les KPIs apparaîtront dès que les matchs auront été joués "
-                "et la data Oracle mise à jour.")
-        return
+    # L'ordre chronologique strict est ce qui fait apparaître les séries.
+    view = view.sort_values("match_date").reset_index(drop=True)
+    o = pd.to_numeric(view["odds"], errors="coerce")
+    won = (view["result"] == "won").to_numpy()
+    profit = np.where(won, stake * (o - 1.0), -stake)
+    bank = bank0 + np.cumsum(profit)
+    peak = np.maximum.accumulate(np.r_[bank0, bank])[1:]
+    dd = bank - peak                      # ≤ 0 : distance au dernier sommet
+    n = len(view)
+
+    # Plus longues chaînes de victoires / défaites consécutives.
+    best_win = best_lose = cur = 0
+    prev = None
+    for w in won:
+        cur = cur + 1 if w == prev else 1
+        prev = w
+        if w:
+            best_win = max(best_win, cur)
+        else:
+            best_lose = max(best_lose, cur)
 
     k = st.columns(5)
-    k[0].metric("Picks réglés", s["n_settled"], help=f"{s.get('n_open', 0)} encore en attente")
-    k[1].metric("Réussite", f"{s['hit_rate']*100:.1f}%",
-                delta=f"{(s['hit_rate'] - s['avg_proba'])*100:+.1f} pts vs annoncé")
-    k[2].metric("Cote mini requise", f"{s['odds_needed']:.2f}")
-    if s.get("n_priced"):
-        k[3].metric("Cote moyenne prise", f"{s['avg_odds']:.2f}",
-                    delta=f"{s['avg_odds'] - s['odds_needed']:+.2f} vs requise",
-                    help="Positif = tu prends des cotes assez hautes pour être rentable.")
-        k[4].metric("ROI réel", f"{s['roi']*100:+.1f}%",
-                    delta=f"{s['profit']:+.2f} € sur {s['staked']:.0f} € misés")
+    k[0].metric("Bankroll finale", f"{bank[-1]:.0f} €", delta=f"{bank[-1] - bank0:+.0f} €")
+    k[1].metric("Plus bas touché", f"{bank.min():.0f} €",
+                help="Le pire moment de la courbe : là où il fallait tenir.")
+    k[2].metric("Max drawdown", f"{dd.min():.0f} €",
+                help="La plus grosse descente depuis un sommet. C'est LE chiffre de risque.")
+    k[3].metric("Pire série de défaites", f"{best_lose} de suite",
+                delta=f"{-best_lose * stake:.0f} €")
+    k[4].metric("Meilleure série de victoires", f"{best_win} de suite")
+
+    idx = pd.RangeIndex(1, n + 1, name="pari n°")
+    st.line_chart(pd.DataFrame({"Bankroll (€)": bank, "Départ (€)": bank0}, index=idx),
+                  height=280)
+    st.area_chart(pd.DataFrame({"Drawdown (€)": dd}, index=idx), height=160)
+    st.caption(
+        f"{n} séries rejouées ({label}), mise {stake:.0f} € — le graphique du bas montre "
+        "à chaque instant la distance au dernier sommet : plus c'est profond, plus il "
+        "fallait de sang-froid (et de caisse) pour continuer."
+    )
+
+    if bool((bank <= 0).any()):
+        st.error(f"💀 Bankroll à zéro en cours de route : {bank0:.0f} € ne suffisent pas "
+                 f"pour une mise de {stake:.0f} €. Baisse la mise ou augmente la caisse.")
     else:
-        k[3].metric("Cote moyenne prise", "—")
-        k[4].metric("ROI réel", "—", help="Saisis les cotes pour calculer le ROI.")
-
-    if led["tier"].nunique() > 1:
-        rows = []
-        for tier, sub in led.groupby("tier"):
-            t = summary(sub)
-            if not t.get("n_settled"):
-                continue
-            rows.append({"Tier": tier, "Réglés": t["n_settled"],
-                         "Réussite": t["hit_rate"] * 100,
-                         "Cote mini requise": t["odds_needed"],
-                         "Cote moyenne prise": t.get("avg_odds"),
-                         "ROI": (t["roi"] * 100) if t.get("n_priced") else None})
-        if rows:
-            st.markdown("**Par tier** — les ⭐ tiennent-ils face aux 🎯 ?")
-            st.dataframe(
-                pd.DataFrame(rows), width="stretch", hide_index=True,
-                column_config={
-                    "Réussite": st.column_config.NumberColumn(format="%.1f%%"),
-                    "Cote mini requise": st.column_config.NumberColumn(format="%.2f"),
-                    "Cote moyenne prise": st.column_config.NumberColumn(format="%.2f"),
-                    "ROI": st.column_config.NumberColumn(format="%.1f%%"),
-                },
-            )
-            st.caption("Si le ROI des ⭐ reste négatif quand celui des 🎯 est positif, "
-                       "la réponse est claire : arrête de capturer les ⭐.")
-
-    if s.get("n_priced"):
-        d = led[led["result"].isin(["won", "lost"]) & led["odds"].notna()].copy()
-        d = d.sort_values("match_date")
-        d["Bankroll (€)"] = pd.to_numeric(d["profit"], errors="coerce").cumsum()
-        st.line_chart(d.set_index("match_date")["Bankroll (€)"], height=260)
-        st.caption(f"Cumul du P/L à {STAKE:.0f} € par pick. Si la courbe monte, "
-                   "la sélection **et** les cotes prises sont bonnes.")
-
-        verdict = ("✅ Rentable sur cet échantillon." if s["roi"] > 0
-                   else "❌ Perdant : la réussite est bonne mais les cotes prises sont trop courtes.")
-        st.markdown(f"**Verdict : {verdict}**")
-        if s["n_settled"] < 25:
-            st.warning(f"⚠️ Seulement {s['n_settled']} paris réglés : **trop peu pour conclure**. "
-                       "Il faut ~25-30 picks minimum avant de tirer une conclusion.")
+        worst_pct = abs(float(dd.min())) / bank0 * 100
+        st.markdown(
+            f"**Lecture :** le pire trou a représenté **{worst_pct:.0f} %** d'une bankroll "
+            f"de {bank0:.0f} € (mise = {stake / bank0 * 100:.1f} % de la caisse). Règle "
+            "simple : si le max drawdown dépasse ~30 % de la bankroll, la mise est trop "
+            "grosse pour tes nerfs — vise une mise qui laisse le pire trou sous 15-20 %."
+        )
 
 
 def main() -> None:
@@ -486,7 +401,7 @@ def main() -> None:
     )
     _simulation_block()
     st.divider()
-    _ledger_block()
+    _bankroll_block()
 
 
 if __name__ == "__main__":
