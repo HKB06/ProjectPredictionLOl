@@ -890,8 +890,22 @@ event_id,date,league_slug,home,away,odd_home,odd_away,books,status,fetched_at
 70612270,2026-04-09T18:00:00Z,league-of-legends-lfl,Tln Pirates,Solary,3.94,1.248,1xbet+GG.bet,ok,2026-10-05 12:28
 70064896,2026-04-08T13:00:00Z,league-of-legends-gll,Team Paradox,Team Insidious,,,,none,2026-10-05 12:28
 70424354,2026-04-02T17:00:00Z,league-of-legends-prime-league-pro-division,G2 Nord,E Wie Einfach E-Sports,1.192,4.31,1xbet,ok,2026-10-05 12:28
-70064804,2026-03-31T14:00:00Z,league-of-legends-gll,Almo Players,Team Phantasma,,,,pending,
+70064804,2026-03-31T14:00:00Z,league-of-legends-gll,Almo Players,Team Phantasma,,,,none,2026-10-05 13:29
 70231202,2026-04-05T19:00:00Z,league-of-legends-cblol,Keyd Stars,Furia Esports,5.74,1.12,GG.bet,ok,2026-10-05 12:28
-70270422,2026-03-26T10:00:00Z,league-of-legends-vcs,Mvk Academy,Saigon Warriors,,,,pending,
+70270422,2026-03-26T10:00:00Z,league-of-legends-vcs,Mvk Academy,Saigon Warriors,1.09,6.44,GG.bet,ok,2026-10-05 13:29
 70983658,2026-05-07T15:00:00Z,league-of-legends-prime-league-pro-division,Eintracht Frankfurt,Eintracht Spandau,5.17,1.15,1xbet+GG.bet,ok,2026-10-05 12:27
 71170466,2026-05-05T11:00:00Z,league-of-legends-ljl,New Meta,Fennel,10.0,1.03,1xbet,ok,2026-10-05 12:27
+70316746,2026-04-05T11:30:00Z,league-of-legends-lcp,Team Secret Whales,GAM Esports,,,,none,2026-10-05 14:30
+69621084,2026-03-06T17:00:00Z,league-of-legends-esport-balkan-league,Partizan eSports,Lupus eSports,1.07,7.75,1xbet,ok,2026-10-05 14:30
+69613702,2026-03-06T11:00:00Z,league-of-legends-ljl,New Meta,Inferno Drive Tokyo,,,,none,2026-10-05 14:30
+69368974,2026-03-06T17:00:00Z,league-of-legends-lit,Hmble,Colossal Gaming,1.18,4.72,1xbet,ok,2026-10-05 14:30
+69593308,2026-03-06T19:00:00Z,league-of-legends-americas-cup,Furia Esports,Sentinels,3.98,1.22,GG.bet,ok,2026-10-05 14:30
+69072004,2026-03-02T11:00:00Z,league-of-legends-ljl,Uwinks,Rising Gaming,,,,none,2026-10-05 14:30
+69286594,2026-02-26T16:00:00Z,league-of-legends-arabian-league,Fn eSports,Baam eSports,,,,none,2026-10-05 14:30
+69116128,2026-02-24T16:00:00Z,league-of-legends-arabian-league,Fn eSports,Baam eSports,1.21,4.29,1xbet,ok,2026-10-05 14:30
+69074670,2026-02-19T17:00:00Z,league-of-legends-road-of-legends,Frites eSports Club,The Bandits,1.07,8.18,1xbet+GG.bet,ok,2026-10-05 14:30
+68916912,2026-02-13T16:00:00Z,league-of-legends-arabian-league,Gng Amazigh,Dragons eSports,,,,none,2026-10-05 14:30
+68884816,2026-02-12T16:00:00Z,league-of-legends-arabian-league,Dragons eSports,3Bl eSports,1.18,4.72,1xbet,ok,2026-10-05 14:30
+68811420,2026-02-11T16:00:00Z,league-of-legends-arabian-league,Dragons eSports,Gng Amazigh,1.18,4.685,1xbet,ok,2026-10-05 14:30
+67803248,2026-02-06T18:30:00Z,league-of-legends-arabian-league,Dragons eSports,Baam eSports,,,,none,2026-10-05 14:30
+68884814,2026-02-12T18:30:00Z,league-of-legends-arabian-league,Gng Amazigh,Fn eSports,,,,none,2026-10-05 14:30
