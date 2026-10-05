@@ -785,20 +785,20 @@ event_id,date,league_slug,home,away,odd_home,odd_away,books,status,fetched_at
 71577386,2026-05-19T16:00:00Z,league-of-legends-road-of-legends,Dynasty,Frites eSports Club,1.01,13.7,1xbet,ok,2026-10-02 14:00
 71314826,2026-05-12T09:00:00Z,league-of-legends-esports-world-cup,Detonation Focusme,Deep Cross Gaming,4.31,1.19,GG.bet,ok,2026-10-02 14:00
 70316846,2026-05-10T09:00:00Z,league-of-legends-lcp,Detonation Focusme,Deep Cross Gaming,,,,none,2026-10-05 12:27
-70316826,2026-05-03T09:00:00Z,league-of-legends-lcp,Fukuoka Softbank Hawks Gaming,Detonation Focusme,,,,pending,
+70316826,2026-05-03T09:00:00Z,league-of-legends-lcp,Fukuoka Softbank Hawks Gaming,Detonation Focusme,,,,none,2026-10-05 12:27
 71434078,2026-05-17T16:00:00Z,league-of-legends-cblol,Furia Esports,Loud,1.29,3.4,GG.bet,ok,2026-10-02 14:00
 70855302,2026-05-17T15:00:00Z,league-of-legends-hitpoint-masters,Team Brute,Esuba,,,,none,2026-10-02 14:00
 70316860,2026-05-17T11:30:00Z,league-of-legends-lcp,GAM Esports,Ctbc Flying Oyster,1.31,3.375,1xbet,ok,2026-10-02 14:00
-71340478,2026-05-07T09:00:00Z,league-of-legends-esports-world-cup,Ctbc Flying Oyster,Fukuoka Softbank Hawks Gaming,,,,pending,
-70316828,2026-05-03T11:30:00Z,league-of-legends-lcp,Ctbc Flying Oyster,Team Secret Whales,,,,pending,
+71340478,2026-05-07T09:00:00Z,league-of-legends-esports-world-cup,Ctbc Flying Oyster,Fukuoka Softbank Hawks Gaming,2.754,1.49,1xbet+GG.bet,ok,2026-10-05 12:27
+70316828,2026-05-03T11:30:00Z,league-of-legends-lcp,Ctbc Flying Oyster,Team Secret Whales,5.0,1.143,1xbet,ok,2026-10-05 12:27
 70066968,2026-05-17T20:00:00Z,league-of-legends-lcs,Sentinels,Dignitas,1.137,6.15,1xbet+GG.bet,ok,2026-10-02 14:00
 70066954,2026-05-09T20:00:00Z,league-of-legends-lcs,Shopify Rebellion,Sentinels,3.48,1.36,1xbet+GG.bet,ok,2026-10-05 12:27
 71481536,2026-05-15T13:00:00Z,league-of-legends-vcs,Mvk Academy,9Gaming,2.08,1.7,GG.bet,ok,2026-10-02 14:00
-70066032,2026-05-04T17:15:00Z,league-of-legends-lec,Shifters,Movistar Koi,,,,pending,
-71192694,2026-04-30T15:00:00Z,league-of-legends-esports-world-cup,Team Vitality,Shifters,,,,pending,
+70066032,2026-05-04T17:15:00Z,league-of-legends-lec,Shifters,Movistar Koi,4.035,1.28,1xbet+GG.bet,ok,2026-10-05 12:27
+71192694,2026-04-30T15:00:00Z,league-of-legends-esports-world-cup,Team Vitality,Shifters,1.13,5.7,1xbet+GG.bet,ok,2026-10-05 12:27
 71209566,2026-05-14T18:00:00Z,league-of-legends-esports-world-cup,Giantx,Solary,1.22,4.0,GG.bet,ok,2026-10-02 14:00
 71240648,2026-05-07T19:00:00Z,league-of-legends-lfl,Solary,Zyb,1.05,8.5,GG.bet,ok,2026-10-05 12:27
-71045520,2026-05-01T20:00:00Z,league-of-legends-lfl,Solary,Zyb,,,,pending,
+71045520,2026-05-01T20:00:00Z,league-of-legends-lfl,Solary,Zyb,1.13,6.46,1xbet+GG.bet,ok,2026-10-05 12:27
 70450200,2026-05-14T15:00:00Z,league-of-legends-les,UCAM Esports,Lua Gaming,1.1,6.15,GG.bet,ok,2026-10-02 14:00
 70450196,2026-05-13T15:00:00Z,league-of-legends-les,Barca eSports,Falke eSports,1.02,12.01,GG.bet,ok,2026-10-02 14:00
 71481528,2026-05-13T13:00:00Z,league-of-legends-vcs,Saigon Dino,Mvk Academy,1.385,2.926,1xbet,ok,2026-10-02 14:00
@@ -809,89 +809,89 @@ event_id,date,league_slug,home,away,odd_home,odd_away,books,status,fetched_at
 70636426,2026-05-07T14:30:00Z,league-of-legends-tcl,Misa eSports,Bbl Dark Passage,1.015,12.0,1xbet,ok,2026-10-05 12:27
 70369422,2026-05-12T17:00:00Z,league-of-legends-road-of-legends,Frites eSports Club,mCon esports,1.02,12.1,1xbet,ok,2026-10-02 14:00
 70369350,2026-05-07T18:00:00Z,league-of-legends-road-of-legends,Myth eSports,Frites eSports Club,12.1,1.02,1xbet,ok,2026-10-05 12:27
-70369272,2026-04-28T17:00:00Z,league-of-legends-road-of-legends,Frites eSports Club,The Bandits,,,,pending,
+70369272,2026-04-28T17:00:00Z,league-of-legends-road-of-legends,Frites eSports Club,The Bandits,1.12,5.88,1xbet,ok,2026-10-05 12:27
 70066132,2026-05-10T13:00:00Z,league-of-legends-lec,Karmine Corp,Giantx,1.2,5.02,1xbet+GG.bet,ok,2026-10-02 14:00
 70066038,2026-05-09T14:00:00Z,league-of-legends-lec,G2 Esports,Giantx,1.09,7.34,1xbet,ok,2026-10-05 12:27
 70369190,2026-05-08T04:55:00Z,league-of-legends-lck-cl,Dplus Challengers,KT Rolster Challengers,1.51,2.46,GG.bet,ok,2026-10-05 12:27
 71209460,2026-05-07T16:00:00Z,league-of-legends-lit,Hmble,Colossal Gaming,1.09,7.75,1xbet+GG.bet,ok,2026-10-05 12:27
-70983656,2026-05-06T17:00:00Z,league-of-legends-prime-league-pro-division,Centaurs,TeamOrangeGaming,,,,pending,
-70983646,2026-04-30T15:00:00Z,league-of-legends-prime-league-pro-division,TeamOrangeGaming,Berlin International Gaming,,,,pending,
-70636422,2026-05-06T14:30:00Z,league-of-legends-tcl,Team Phoenix,Su eSports,,,,pending,
-71035810,2026-05-06T15:00:00Z,league-of-legends-gll,Almo Players,Team Insidious,,,,pending,
-70636420,2026-05-05T17:30:00Z,league-of-legends-tcl,Pcific eSports,Misa eSports,,,,pending,
-71284996,2026-05-05T08:00:00Z,league-of-legends-esports-world-cup,Hanwha Life Esports,Soopers,,,,pending,
-71250416,2026-05-04T07:00:00Z,league-of-legends-esports-world-cup,DRX,Soopers,,,,pending,
-70855274,2026-05-02T14:00:00Z,league-of-legends-hitpoint-masters,Cita Kaizen,Meavedron,,,,pending,
-70855260,2026-04-18T11:30:00Z,league-of-legends-hitpoint-masters,Meavedron,Nightbirds,,,,pending,
-70066886,2026-05-02T20:00:00Z,league-of-legends-lcs,Cloud9,Dignitas,,,,pending,
-70066864,2026-04-25T19:30:00Z,league-of-legends-lcs,Flyquest,Dignitas,,,,pending,
-71217660,2026-05-05T10:00:00Z,league-of-legends-esports-world-cup,Dplus,Nongshim Redforce,,,,pending,
-70066022,2026-05-02T17:15:00Z,league-of-legends-lec,Team Vitality,SK Gaming,,,,pending,
-71056082,2026-04-28T18:00:00Z,league-of-legends-esports-world-cup,Team Vitality,Solary,,,,pending,
-70913052,2026-04-23T20:00:00Z,league-of-legends-lfl,Solary,Vitality Bee,,,,pending,
-71190430,2026-04-30T15:00:00Z,league-of-legends-esports-world-cup,SK Gaming,Galions,,,,pending,
-71056078,2026-04-28T15:00:00Z,league-of-legends-esports-world-cup,Natus Wincere,Galions,,,,pending,
-70913040,2026-04-22T19:00:00Z,league-of-legends-lfl,Galions,Joblife,,,,pending,
-70819024,2026-04-17T17:00:00Z,league-of-legends-lfl,Galions,Tln Pirates,,,,pending,
-70817732,2026-04-16T17:00:00Z,league-of-legends-lfl,Skillcamp,Galions,,,,pending,
-70817606,2026-04-15T18:00:00Z,league-of-legends-lfl,Zyb,Galions,,,,pending,
-70855276,2026-05-02T16:30:00Z,league-of-legends-hitpoint-masters,Nightbirds,Exile eSports,,,,pending,
-70855268,2026-04-30T16:30:00Z,league-of-legends-hitpoint-masters,Nightbirds,Team Brute,,,,pending,
-70819020,2026-04-17T16:00:00Z,league-of-legends-lfl,Skillcamp,Solary,,,,pending,
-70819014,2026-04-16T18:55:00Z,league-of-legends-lfl,Karmine Corp Blue,Solary,,,,pending,
-70066020,2026-05-02T15:00:00Z,league-of-legends-lec,Fnatic,Team Heretics,,,,pending,
-71170702,2026-04-29T15:00:00Z,league-of-legends-esports-world-cup,G2 Esports,Fnatic,,,,pending,
-71173030,2026-04-29T18:00:00Z,league-of-legends-esports-world-cup,Karmine Corp,SK Gaming,,,,pending,
-70066014,2026-04-25T18:00:00Z,league-of-legends-lec,Karmine Corp,Shifters,,,,pending,
-70066006,2026-04-20T17:15:00Z,league-of-legends-lec,SK Gaming,Karmine Corp,,,,pending,
-70066016,2026-04-26T15:00:00Z,league-of-legends-lec,Shifters,Natus Wincere,,,,pending,
-70066004,2026-04-20T15:00:00Z,league-of-legends-lec,Shifters,G2 Esports,,,,pending,
-70231234,2026-04-26T16:00:00Z,league-of-legends-cblol,Furia Esports,Loud,,,,pending,
-70231222,2026-04-18T16:00:00Z,league-of-legends-cblol,Fluxo W7M,Furia Esports,,,,pending,
-70231214,2026-04-13T21:00:00Z,league-of-legends-cblol,Pain Gaming,Furia Esports,,,,pending,
-70231204,2026-04-11T16:00:00Z,league-of-legends-cblol,Furia Esports,Leviatan,,,,pending,
-70066892,2026-05-03T23:00:00Z,league-of-legends-lcs,Flyquest,Shopify Rebellion,,,,pending,
-70066880,2026-04-25T23:00:00Z,league-of-legends-lcs,Cloud9,Shopify Rebellion,,,,pending,
-70066856,2026-04-19T20:00:00Z,league-of-legends-lcs,Lyon Gaming,Shopify Rebellion,,,,pending,
-70316800,2026-04-25T09:00:00Z,league-of-legends-lcp,Detonation Focusme,GAM Esports,,,,pending,
-71314828,2026-05-07T09:00:00Z,league-of-legends-esports-world-cup,Team Secret Whales,GAM Esports,,,,pending,
-70316806,2026-04-25T11:30:00Z,league-of-legends-lcp,Team Secret Whales,Ground Zero,,,,pending,
-71019514,2026-04-23T16:00:00Z,league-of-legends-lit,Hmble,Gmblers eSports,,,,pending,
+70983656,2026-05-06T17:00:00Z,league-of-legends-prime-league-pro-division,Centaurs,TeamOrangeGaming,12.0,1.05,1xbet+GG.bet,ok,2026-10-05 12:27
+70983646,2026-04-30T15:00:00Z,league-of-legends-prime-league-pro-division,TeamOrangeGaming,Berlin International Gaming,,,,none,2026-10-05 12:27
+70636422,2026-05-06T14:30:00Z,league-of-legends-tcl,Team Phoenix,Su eSports,5.59,1.12,GG.bet,ok,2026-10-05 12:27
+71035810,2026-05-06T15:00:00Z,league-of-legends-gll,Almo Players,Team Insidious,,,,none,2026-10-05 12:27
+70636420,2026-05-05T17:30:00Z,league-of-legends-tcl,Pcific eSports,Misa eSports,7.69,1.12,1xbet+GG.bet,ok,2026-10-05 12:27
+71284996,2026-05-05T08:00:00Z,league-of-legends-esports-world-cup,Hanwha Life Esports,Soopers,1.06,8.35,1xbet,ok,2026-10-05 12:27
+71250416,2026-05-04T07:00:00Z,league-of-legends-esports-world-cup,DRX,Soopers,1.55,2.35,GG.bet,ok,2026-10-05 12:27
+70855274,2026-05-02T14:00:00Z,league-of-legends-hitpoint-masters,Cita Kaizen,Meavedron,,,,none,2026-10-05 12:27
+70855260,2026-04-18T11:30:00Z,league-of-legends-hitpoint-masters,Meavedron,Nightbirds,,,,none,2026-10-05 12:27
+70066886,2026-05-02T20:00:00Z,league-of-legends-lcs,Cloud9,Dignitas,1.044,11.9,1xbet+GG.bet,ok,2026-10-05 12:27
+70066864,2026-04-25T19:30:00Z,league-of-legends-lcs,Flyquest,Dignitas,1.198,5.57,1xbet+GG.bet,ok,2026-10-05 12:27
+71217660,2026-05-05T10:00:00Z,league-of-legends-esports-world-cup,Dplus,Nongshim Redforce,1.26,3.64,GG.bet,ok,2026-10-05 12:27
+70066022,2026-05-02T17:15:00Z,league-of-legends-lec,Team Vitality,SK Gaming,1.12,5.77,GG.bet,ok,2026-10-05 12:27
+71056082,2026-04-28T18:00:00Z,league-of-legends-esports-world-cup,Team Vitality,Solary,1.09,6.7,GG.bet,ok,2026-10-05 12:27
+70913052,2026-04-23T20:00:00Z,league-of-legends-lfl,Solary,Vitality Bee,1.09,6.5,GG.bet,ok,2026-10-05 12:27
+71190430,2026-04-30T15:00:00Z,league-of-legends-esports-world-cup,SK Gaming,Galions,1.32,3.19,GG.bet,ok,2026-10-05 12:27
+71056078,2026-04-28T15:00:00Z,league-of-legends-esports-world-cup,Natus Wincere,Galions,1.3,3.33,GG.bet,ok,2026-10-05 12:27
+70913040,2026-04-22T19:00:00Z,league-of-legends-lfl,Galions,Joblife,1.29,3.38,GG.bet,ok,2026-10-05 12:27
+70819024,2026-04-17T17:00:00Z,league-of-legends-lfl,Galions,Tln Pirates,1.32,3.47,1xbet+GG.bet,ok,2026-10-05 12:27
+70817732,2026-04-16T17:00:00Z,league-of-legends-lfl,Skillcamp,Galions,4.83,1.184,1xbet+GG.bet,ok,2026-10-05 12:27
+70817606,2026-04-15T18:00:00Z,league-of-legends-lfl,Zyb,Galions,3.615,1.33,1xbet+GG.bet,ok,2026-10-05 12:27
+70855276,2026-05-02T16:30:00Z,league-of-legends-hitpoint-masters,Nightbirds,Exile eSports,,,,none,2026-10-05 12:27
+70855268,2026-04-30T16:30:00Z,league-of-legends-hitpoint-masters,Nightbirds,Team Brute,,,,none,2026-10-05 12:27
+70819020,2026-04-17T16:00:00Z,league-of-legends-lfl,Skillcamp,Solary,4.54,1.2,1xbet+GG.bet,ok,2026-10-05 12:27
+70819014,2026-04-16T18:55:00Z,league-of-legends-lfl,Karmine Corp Blue,Solary,2.7,1.45,1xbet+GG.bet,ok,2026-10-05 12:27
+70066020,2026-05-02T15:00:00Z,league-of-legends-lec,Fnatic,Team Heretics,1.35,3.05,GG.bet,ok,2026-10-05 12:27
+71170702,2026-04-29T15:00:00Z,league-of-legends-esports-world-cup,G2 Esports,Fnatic,1.23,4.06,1xbet,ok,2026-10-05 12:27
+71173030,2026-04-29T18:00:00Z,league-of-legends-esports-world-cup,Karmine Corp,SK Gaming,1.05,8.65,GG.bet,ok,2026-10-05 12:27
+70066014,2026-04-25T18:00:00Z,league-of-legends-lec,Karmine Corp,Shifters,1.13,5.44,GG.bet,ok,2026-10-05 12:27
+70066006,2026-04-20T17:15:00Z,league-of-legends-lec,SK Gaming,Karmine Corp,5.95,1.14,1xbet+GG.bet,ok,2026-10-05 12:27
+70066016,2026-04-26T15:00:00Z,league-of-legends-lec,Shifters,Natus Wincere,2.77,1.41,GG.bet,ok,2026-10-05 12:27
+70066004,2026-04-20T15:00:00Z,league-of-legends-lec,Shifters,G2 Esports,5.72,1.12,GG.bet,ok,2026-10-05 12:27
+70231234,2026-04-26T16:00:00Z,league-of-legends-cblol,Furia Esports,Loud,1.36,2.99,1xbet,ok,2026-10-05 12:27
+70231222,2026-04-18T16:00:00Z,league-of-legends-cblol,Fluxo W7M,Furia Esports,3.78,1.24,GG.bet,ok,2026-10-05 12:27
+70231214,2026-04-13T21:00:00Z,league-of-legends-cblol,Pain Gaming,Furia Esports,6.11,1.1,GG.bet,ok,2026-10-05 12:28
+70231204,2026-04-11T16:00:00Z,league-of-legends-cblol,Furia Esports,Leviatan,1.2,4.17,GG.bet,ok,2026-10-05 12:28
+70066892,2026-05-03T23:00:00Z,league-of-legends-lcs,Flyquest,Shopify Rebellion,1.25,3.71,GG.bet,ok,2026-10-05 12:27
+70066880,2026-04-25T23:00:00Z,league-of-legends-lcs,Cloud9,Shopify Rebellion,1.14,5.26,GG.bet,ok,2026-10-05 12:27
+70066856,2026-04-19T20:00:00Z,league-of-legends-lcs,Lyon Gaming,Shopify Rebellion,1.16,4.78,GG.bet,ok,2026-10-05 12:27
+70316800,2026-04-25T09:00:00Z,league-of-legends-lcp,Detonation Focusme,GAM Esports,,,,none,2026-10-05 12:27
+71314828,2026-05-07T09:00:00Z,league-of-legends-esports-world-cup,Team Secret Whales,GAM Esports,1.44,2.986,1xbet+GG.bet,ok,2026-10-05 12:27
+70316806,2026-04-25T11:30:00Z,league-of-legends-lcp,Team Secret Whales,Ground Zero,1.22,4.175,1xbet,ok,2026-10-05 12:27
+71019514,2026-04-23T16:00:00Z,league-of-legends-lit,Hmble,Gmblers eSports,1.04,9.85,1xbet,ok,2026-10-05 12:27
 70983660,2026-05-07T17:00:00Z,league-of-legends-prime-league-pro-division,Kaufland Hangry Knights,Berlin International Gaming,,,,none,2026-10-05 12:27
-70970366,2026-04-23T17:00:00Z,league-of-legends-prime-league-pro-division,Centaurs,Berlin International Gaming,,,,pending,
-70424418,2026-04-16T18:00:00Z,league-of-legends-prime-league-pro-division,Eintracht Spandau,Berlin International Gaming,,,,pending,
-70424406,2026-04-15T17:00:00Z,league-of-legends-prime-league-pro-division,Eintracht Frankfurt,Berlin International Gaming,,,,pending,
-70424390,2026-04-10T15:00:00Z,league-of-legends-prime-league-pro-division,E Wie Einfach E-Sports,Berlin International Gaming,,,,pending,
-70636408,2026-04-23T17:30:00Z,league-of-legends-tcl,Misa eSports,Su eSports,,,,pending,
-70369270,2026-04-23T18:00:00Z,league-of-legends-road-of-legends,Frites eSports Club,Dynasty,,,,pending,
-70612286,2026-04-10T19:00:00Z,league-of-legends-lfl,Joblife,Solary,,,,pending,
-70965948,2026-04-21T20:00:00Z,league-of-legends-lrs,Golden Lions,Seven Dark,,,,pending,
-70884948,2026-04-20T23:00:00Z,league-of-legends-lrn,Fuego,Zeu5 eSports,,,,pending,
-70231226,2026-04-19T16:00:00Z,league-of-legends-cblol,Loud,Leviatan,,,,pending,
-70231216,2026-04-14T00:00:00Z,league-of-legends-cblol,Leviatan,Red Canids,,,,pending,
-70066002,2026-04-19T17:15:00Z,league-of-legends-lec,Team Heretics,Movistar Koi,,,,pending,
-70065962,2026-04-11T16:30:00Z,league-of-legends-lec,Movistar Koi,SK Gaming,,,,pending,
-70855258,2026-04-18T09:00:00Z,league-of-legends-hitpoint-masters,Exile eSports,Esuba,,,,pending,
-70424430,2026-04-17T19:00:00Z,league-of-legends-prime-league-pro-division,G2 Nord,Eintracht Frankfurt,,,,pending,
-70424422,2026-04-17T15:00:00Z,league-of-legends-prime-league-pro-division,Kaufland Hangry Knights,Eintracht Spandau,,,,pending,
-70424368,2026-04-03T19:00:00Z,league-of-legends-prime-league-pro-division,Eintracht Frankfurt,Unicorns of Love Sexy Edition,,,,pending,
-70552086,2026-04-17T16:00:00Z,league-of-legends-lit,Hmble,Zena eSports,,,,pending,
-70532770,2026-04-09T16:55:00Z,league-of-legends-lit,Hmble,EKO Esports,,,,pending,
-70424426,2026-04-17T17:00:00Z,league-of-legends-prime-league-pro-division,Centaurs,TeamOrangeGaming,,,,pending,
-70064946,2026-04-16T13:00:00Z,league-of-legends-gll,Almo Players,GOAL,,,,pending,
-70424414,2026-04-16T16:00:00Z,league-of-legends-prime-league-pro-division,G2 Nord,Kaufland Hangry Knights,,,,pending,
-70369254,2026-04-16T17:00:00Z,league-of-legends-road-of-legends,Frites eSports Club,Zennit,,,,pending,
-70368770,2026-04-07T18:00:00Z,league-of-legends-road-of-legends,Once Upon A Team,Frites eSports Club,,,,pending,
-70369258,2026-04-16T18:00:00Z,league-of-legends-road-of-legends,Once Upon A Team,The Bandits,,,,pending,
-70231220,2026-04-15T00:00:00Z,league-of-legends-cblol,Fluxo W7M,Loud,,,,pending,
-70369152,2026-04-14T18:00:00Z,league-of-legends-road-of-legends,Senshi eSports,mCon esports,,,,pending,
-70065944,2026-04-04T14:15:00Z,league-of-legends-lec,G2 Esports,Team Heretics,,,,pending,
-70231206,2026-04-11T19:00:00Z,league-of-legends-cblol,Red Canids,Pain Gaming,,,,pending,
-70612270,2026-04-09T18:00:00Z,league-of-legends-lfl,Tln Pirates,Solary,,,,pending,
-70064896,2026-04-08T13:00:00Z,league-of-legends-gll,Team Paradox,Team Insidious,,,,pending,
-70424354,2026-04-02T17:00:00Z,league-of-legends-prime-league-pro-division,G2 Nord,E Wie Einfach E-Sports,,,,pending,
+70970366,2026-04-23T17:00:00Z,league-of-legends-prime-league-pro-division,Centaurs,Berlin International Gaming,,,,none,2026-10-05 12:27
+70424418,2026-04-16T18:00:00Z,league-of-legends-prime-league-pro-division,Eintracht Spandau,Berlin International Gaming,,,,none,2026-10-05 12:27
+70424406,2026-04-15T17:00:00Z,league-of-legends-prime-league-pro-division,Eintracht Frankfurt,Berlin International Gaming,,,,none,2026-10-05 12:27
+70424390,2026-04-10T15:00:00Z,league-of-legends-prime-league-pro-division,E Wie Einfach E-Sports,Berlin International Gaming,,,,none,2026-10-05 12:28
+70636408,2026-04-23T17:30:00Z,league-of-legends-tcl,Misa eSports,Su eSports,1.18,4.44,GG.bet,ok,2026-10-05 12:27
+70369270,2026-04-23T18:00:00Z,league-of-legends-road-of-legends,Frites eSports Club,Dynasty,1.05,9.0,1xbet,ok,2026-10-05 12:27
+70612286,2026-04-10T19:00:00Z,league-of-legends-lfl,Joblife,Solary,2.97,1.36,GG.bet,ok,2026-10-05 12:28
+70965948,2026-04-21T20:00:00Z,league-of-legends-lrs,Golden Lions,Seven Dark,,,,none,2026-10-05 12:27
+70884948,2026-04-20T23:00:00Z,league-of-legends-lrn,Fuego,Zeu5 eSports,1.1,7.75,1xbet+GG.bet,ok,2026-10-05 12:27
+70231226,2026-04-19T16:00:00Z,league-of-legends-cblol,Loud,Leviatan,1.07,7.44,GG.bet,ok,2026-10-05 12:27
+70231216,2026-04-14T00:00:00Z,league-of-legends-cblol,Leviatan,Red Canids,6.78,1.08,GG.bet,ok,2026-10-05 12:28
+70066002,2026-04-19T17:15:00Z,league-of-legends-lec,Team Heretics,Movistar Koi,6.75,1.08,GG.bet,ok,2026-10-05 12:27
+70065962,2026-04-11T16:30:00Z,league-of-legends-lec,Movistar Koi,SK Gaming,1.171,5.9,1xbet+GG.bet,ok,2026-10-05 12:28
+70855258,2026-04-18T09:00:00Z,league-of-legends-hitpoint-masters,Exile eSports,Esuba,,,,none,2026-10-05 12:27
+70424430,2026-04-17T19:00:00Z,league-of-legends-prime-league-pro-division,G2 Nord,Eintracht Frankfurt,1.28,4.02,1xbet+GG.bet,ok,2026-10-05 12:27
+70424422,2026-04-17T15:00:00Z,league-of-legends-prime-league-pro-division,Kaufland Hangry Knights,Eintracht Spandau,3.53,1.296,1xbet+GG.bet,ok,2026-10-05 12:27
+70424368,2026-04-03T19:00:00Z,league-of-legends-prime-league-pro-division,Eintracht Frankfurt,Unicorns of Love Sexy Edition,2.61,1.46,GG.bet,ok,2026-10-05 12:28
+70552086,2026-04-17T16:00:00Z,league-of-legends-lit,Hmble,Zena eSports,1.1,6.5,1xbet+GG.bet,ok,2026-10-05 12:27
+70532770,2026-04-09T16:55:00Z,league-of-legends-lit,Hmble,EKO Esports,1.13,7.08,1xbet+GG.bet,ok,2026-10-05 12:28
+70424426,2026-04-17T17:00:00Z,league-of-legends-prime-league-pro-division,Centaurs,TeamOrangeGaming,,,,none,2026-10-05 12:27
+70064946,2026-04-16T13:00:00Z,league-of-legends-gll,Almo Players,GOAL,,,,none,2026-10-05 12:27
+70424414,2026-04-16T16:00:00Z,league-of-legends-prime-league-pro-division,G2 Nord,Kaufland Hangry Knights,1.31,3.74,1xbet+GG.bet,ok,2026-10-05 12:27
+70369254,2026-04-16T17:00:00Z,league-of-legends-road-of-legends,Frites eSports Club,Zennit,1.05,9.0,1xbet,ok,2026-10-05 12:27
+70368770,2026-04-07T18:00:00Z,league-of-legends-road-of-legends,Once Upon A Team,Frites eSports Club,9.0,1.05,1xbet,ok,2026-10-05 12:28
+70369258,2026-04-16T18:00:00Z,league-of-legends-road-of-legends,Once Upon A Team,The Bandits,3.76,1.26,1xbet,ok,2026-10-05 12:27
+70231220,2026-04-15T00:00:00Z,league-of-legends-cblol,Fluxo W7M,Loud,6.28,1.1,GG.bet,ok,2026-10-05 12:27
+70369152,2026-04-14T18:00:00Z,league-of-legends-road-of-legends,Senshi eSports,mCon esports,1.8,1.97,1xbet,ok,2026-10-05 12:27
+70065944,2026-04-04T14:15:00Z,league-of-legends-lec,G2 Esports,Team Heretics,1.1,6.06,GG.bet,ok,2026-10-05 12:28
+70231206,2026-04-11T19:00:00Z,league-of-legends-cblol,Red Canids,Pain Gaming,1.03,9.87,GG.bet,ok,2026-10-05 12:28
+70612270,2026-04-09T18:00:00Z,league-of-legends-lfl,Tln Pirates,Solary,3.94,1.248,1xbet+GG.bet,ok,2026-10-05 12:28
+70064896,2026-04-08T13:00:00Z,league-of-legends-gll,Team Paradox,Team Insidious,,,,none,2026-10-05 12:28
+70424354,2026-04-02T17:00:00Z,league-of-legends-prime-league-pro-division,G2 Nord,E Wie Einfach E-Sports,1.192,4.31,1xbet,ok,2026-10-05 12:28
 70064804,2026-03-31T14:00:00Z,league-of-legends-gll,Almo Players,Team Phantasma,,,,pending,
-70231202,2026-04-05T19:00:00Z,league-of-legends-cblol,Keyd Stars,Furia Esports,,,,pending,
+70231202,2026-04-05T19:00:00Z,league-of-legends-cblol,Keyd Stars,Furia Esports,5.74,1.12,GG.bet,ok,2026-10-05 12:28
 70270422,2026-03-26T10:00:00Z,league-of-legends-vcs,Mvk Academy,Saigon Warriors,,,,pending,
 70983658,2026-05-07T15:00:00Z,league-of-legends-prime-league-pro-division,Eintracht Frankfurt,Eintracht Spandau,5.17,1.15,1xbet+GG.bet,ok,2026-10-05 12:27
-71170466,2026-05-05T11:00:00Z,league-of-legends-ljl,New Meta,Fennel,,,,pending,
+71170466,2026-05-05T11:00:00Z,league-of-legends-ljl,New Meta,Fennel,10.0,1.03,1xbet,ok,2026-10-05 12:27

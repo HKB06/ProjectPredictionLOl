@@ -482,11 +482,20 @@ def seed_from_picks(days: int = 60, conf: float = 0.70) -> dict:
 
 # ---------------------------------------------------------------------- lecture
 def lookup(cache: pd.DataFrame, team1: str, team2: str, date: str,
-           pick: str, tol_days: int = 1) -> tuple[float, str]:
+           pick: str, tol_days: int = 1, max_odds: float | None = None) -> tuple[float, str]:
     """Cote de clôture archivée pour NOTRE pick sur cette série.
 
     Apparie sur les tokens du nom (les books ajoutent/retirent des sponsors) et
     tolère un jour d'écart (fuseaux horaires).
+
+    `max_odds` : garde-fou « cotes inversées ». Sur une partie du flux des books,
+    home/away sont intervertis : notre favori hérite alors de la cote de
+    l'outsider (5 à 14) — vérifié sur pièce (G2 NORD p=0.94 « coté » 5.77, Frites
+    p=0.99 « coté » 12.1, tous « gagnants »…). La paire passe le contrôle de marge
+    (elle est symétrique), donc le seul signal fiable est l'écart impossible entre
+    notre proba pré-match et la cote. On ÉCARTE ces lignes plutôt que de les
+    retourner : retourner reviendrait à s'attribuer un prix qu'on n'est pas sûr
+    d'avoir pu prendre.
     """
     if cache.empty:
         return float("nan"), ""
@@ -515,7 +524,10 @@ def lookup(cache: pd.DataFrame, team1: str, team2: str, date: str,
             continue
         if not _plausible(h_odd, a_odd):   # filet si le cache vient d'une version buguée
             continue
-        return (h_odd if side == "home" else a_odd), f"closing ({r.books})"
+        val = h_odd if side == "home" else a_odd
+        if max_odds is not None and val > max_odds:
+            continue                       # cote inversée presque sûre -> on écarte
+        return val, f"closing ({r.books})"
     return float("nan"), ""
 
 

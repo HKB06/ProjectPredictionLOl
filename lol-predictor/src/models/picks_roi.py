@@ -484,8 +484,13 @@ def attach_real_odds(df: pd.DataFrame) -> pd.DataFrame:
     for i in d.index:
         if pd.notna(d.at[i, "odds"]):
             continue
+        # Garde-fou cotes inversées (cf. lookup) : un favori modèle ne peut pas
+        # être coté au-delà de ~2.5x son seuil de rentabilité. Au-dessus, c'est
+        # une paire home/away intervertie côté book -> on n'attache rien.
+        b = pd.to_numeric(d.at[i, "breakeven"], errors="coerce")
+        cap = float(b) * 2.5 if b == b else None
         val, src = lookup(cache, d.at[i, "team1"], d.at[i, "team2"],
-                          d.at[i, "match_date"], d.at[i, "pick"])
+                          d.at[i, "match_date"], d.at[i, "pick"], max_odds=cap)
         if val == val:                      # pas NaN
             d.at[i, "odds"] = val
             d.at[i, "odds_source"] = src
