@@ -1,8 +1,9 @@
 """Page secondaire — prédicteur de match LoL avec prise en compte de la DRAFT.
 
 UI minimaliste façon DraftGap : un scoreboard central, deux colonnes de picks,
-une liste de champions cliquable. AUCUN menu déroulant pour les picks :
-clic sur un champion -> prochain slot vide du côté actif ; ✕ pour retirer.
+une liste de champions cliquable.
+Workflow : 1) clique un SLOT (rôle) -> il se surligne ; 2) clique un CHAMPION
+dans la liste -> il va dans ce slot (remplace l'occupant s'il y en a un).
 Icônes : Data Dragon (CDN officiel Riot), rien à héberger.
 """
 from __future__ import annotations
@@ -74,14 +75,42 @@ def all_picked() -> set[str]:
     return {c for side in ("blue", "red") for c in picked_champs(side).values() if c}
 
 
+def current_target() -> tuple[str, str] | None:
+    """Slot cible : celui cliqué par l'utilisateur, sinon le 1er slot libre."""
+    t = st.session_state.get("target")
+    if t:
+        return tuple(t)
+    for side in ("blue", "red"):
+        for role in ROLES:
+            if get_pick(side, role) is None:
+                return (side, role)
+    return None
+
+
+def _set_target(side: str, role: str) -> None:
+    st.session_state["target"] = (side, role)
+
+
+def _advance_target(side: str) -> None:
+    """Après un pick : slot libre suivant du même côté, sinon l'autre côté."""
+    for s in (side, "red" if side == "blue" else "blue"):
+        for role in ROLES:
+            if get_pick(s, role) is None:
+                st.session_state["target"] = (s, role)
+                return
+    st.session_state.pop("target", None)
+
+
 def _clear_slot(side: str, role: str) -> None:
     st.session_state[f"{side}_{role}"] = None
+    st.session_state["target"] = (side, role)
 
 
 def _reset_draft() -> None:
     for side in ("blue", "red"):
         for role in ROLES:
             st.session_state[f"{side}_{role}"] = None
+    st.session_state.pop("target", None)
     st.session_state.pop("_last_click", None)
 
 
@@ -102,26 +131,32 @@ def _handle_table_click() -> None:
     champ = names[ridx]
     if champ in all_picked():
         return
-    side = "blue" if str(st.session_state.get("fill_side", "🔵 Bleu")).startswith("🔵") else "red"
-    for role in ROLES:
-        if get_pick(side, role) is None:
-            st.session_state[f"{side}_{role}"] = champ
-            st.toast(f"{champ} → {ROLE_LABELS[role]} ({'bleu' if side == 'blue' else 'rouge'})",
-                     icon="✅")
-            return
-    st.toast("Côté complet — retire un champion d'abord (✕).", icon="ℹ️")
+    tgt = current_target()
+    if tgt is None:
+        st.toast("Draft complète — retire un champion (✕) ou efface tout.", icon="ℹ️")
+        return
+    side, role = tgt
+    old = get_pick(side, role)
+    st.session_state[f"{side}_{role}"] = champ
+    label = f"{ROLE_LABELS[role]} {'bleu' if side == 'blue' else 'rouge'}"
+    st.toast(f"{champ} remplace {old} ({label})" if old else f"{champ} → {label}", icon="✅")
+    _advance_target(side)
 
 
 # --------------------------------------------------------- suggestions (modèle)
-def suggestion_frame(mp: MatchPredictor, blue: str, red: str, side: str,
+def suggestion_frame(mp: MatchPredictor, blue: str, red: str,
+                     tgt: tuple[str, str] | None,
                      is_playoffs: int, search: str) -> pd.DataFrame:
-    """Un rang par champion dispo : P(win) du côté actif s'il est pické maintenant.
+    """Un rang par champion dispo : P(win) du côté cible s'il est mis dans le slot cible.
 
-    Vectorisé : une seule passe predict_proba sur ~170 variantes de la ligne de
-    features (seul le winrate de draft change) -> instantané.
+    Si le slot cible est occupé, on simule le REMPLACEMENT (l'occupant sort du calcul).
+    Vectorisé : une seule passe predict_proba sur ~170 variantes -> instantané.
     """
+    side, role = tgt if tgt else ("blue", None)
     bc, rc = picked_champs("blue"), picked_champs("red")
-    taken = all_picked()
+    if role is not None:                       # remplacement : l'occupant sort
+        (bc if side == "blue" else rc)[role] = None
+    taken = {c for c in list(bc.values()) + list(rc.values()) if c}
     cands = [c for c in mp.champions if c not in taken]
     if search:
         s = _norm(search)
@@ -132,7 +167,7 @@ def suggestion_frame(mp: MatchPredictor, blue: str, red: str, side: str,
     base = mp._feature_row(blue, red, bc, rc, is_playoffs)
     wr_cand = np.array([mp.champ_idx.asof(c, mp.asof_date) for c in cands])
     cur = [mp.champ_idx.asof(c, mp.asof_date)
-           for c in picked_champs(side).values() if c]
+           for c in (bc if side == "blue" else rc).values() if c]
 
     X = pd.concat([base] * len(cands), ignore_index=True)
     col = "blue_champ_wr" if side == "blue" else "red_champ_wr"
@@ -175,30 +210,31 @@ def scoreboard(blue_team: str, red_team: str, p_blue: float) -> None:
     )
 
 
-def pick_slot(side: str, role: str) -> None:
+def pick_slot(side: str, role: str, active: bool) -> None:
     color = BLUE if side == "blue" else RED
     champ = get_pick(side, role)
-    c_ico, c_txt, c_rm = st.columns([1.1, 3, 0.8])
+    c_ico, c_btn, c_rm = st.columns([1.1, 3.4, 0.8])
     with c_ico:
         url = icon_url(champ)
         if url:
+            border = f"3px solid {color}" if active else f"2px solid {color}66"
             st.markdown(
                 f"<img src='{url}' width='46' style='border-radius:10px;"
-                f"border:2px solid {color};display:block;'/>",
+                f"border:{border};display:block;'/>",
                 unsafe_allow_html=True)
         else:
+            style = f"2px dashed {color}" if active else f"2px dashed {color}44"
             st.markdown(
-                f"<div style='width:46px;height:46px;border:2px dashed {color}55;"
+                f"<div style='width:46px;height:46px;border:{style};"
                 f"border-radius:10px;display:flex;align-items:center;justify-content:center;"
-                f"font-size:.7rem;opacity:.6;'>{ROLE_LABELS[role][:3]}</div>",
+                f"font-size:.7rem;opacity:.7;'>{ROLE_LABELS[role][:3]}</div>",
                 unsafe_allow_html=True)
-    with c_txt:
-        if champ:
-            st.markdown(f"**{champ}**  \n<span style='font-size:.75rem;opacity:.6;'>"
-                        f"{ROLE_LABELS[role]}</span>", unsafe_allow_html=True)
-        else:
-            st.markdown(f"<span style='opacity:.45;'>{ROLE_LABELS[role]} — libre</span>",
-                        unsafe_allow_html=True)
+    with c_btn:
+        label = f"{ROLE_LABELS[role]} · {champ}" if champ else f"{ROLE_LABELS[role]} — libre"
+        st.button(label, key=f"sel_{side}_{role}",
+                  type="primary" if active else "secondary",
+                  on_click=_set_target, args=(side, role), width="stretch",
+                  help="Le prochain champion cliqué ira dans ce slot")
     with c_rm:
         if champ:
             st.button("✕", key=f"rm_{side}_{role}", on_click=_clear_slot,
@@ -249,33 +285,36 @@ def main() -> None:
     scoreboard(blue_team, red_team, live["winner"]["blue"])
 
     # --------------------------------------------- picks + liste cliquable
+    tgt = current_target()
     col_blue, col_mid, col_red = st.columns([3, 4.5, 3])
 
     with col_blue:
         st.markdown(f"<div style='color:{BLUE};font-weight:700;margin-bottom:6px;'>"
                     "PICKS BLEUS</div>", unsafe_allow_html=True)
         for role in ROLES:
-            pick_slot("blue", role)
+            pick_slot("blue", role, active=(tgt == ("blue", role)))
 
     with col_red:
         st.markdown(f"<div style='color:{RED};font-weight:700;margin-bottom:6px;"
                     "text-align:right;'>PICKS ROUGES</div>", unsafe_allow_html=True)
         for role in ROLES:
-            pick_slot("red", role)
+            pick_slot("red", role, active=(tgt == ("red", role)))
 
     with col_mid:
-        f1, f2 = st.columns([2, 3])
-        with f1:
-            st.segmented_control("Côté", ["🔵 Bleu", "🔴 Rouge"], key="fill_side",
-                                 default="🔵 Bleu", label_visibility="collapsed")
-        with f2:
-            search = st.text_input("Recherche", key="champ_search",
-                                   placeholder="🔎 Chercher un champion…",
-                                   label_visibility="collapsed")
-        side = "blue" if str(st.session_state.get("fill_side", "🔵 Bleu")).startswith("🔵") else "red"
+        if tgt:
+            side, role = tgt
+            color = BLUE if side == "blue" else RED
+            st.markdown(
+                f"<div style='border-left:4px solid {color};padding:4px 10px;margin-bottom:6px;"
+                f"font-weight:600;'>Prochain pick → {ROLE_LABELS[role]} "
+                f"{'🔵' if side == 'blue' else '🔴'}</div>", unsafe_allow_html=True)
+        search = st.text_input("Recherche", key="champ_search",
+                               placeholder="🔎 Chercher un champion…",
+                               label_visibility="collapsed")
 
-        sug = suggestion_frame(mp, blue_team, red_team, side, int(is_playoffs), search or "")
+        sug = suggestion_frame(mp, blue_team, red_team, tgt, int(is_playoffs), search or "")
         st.session_state["_table_names"] = sug["champion"].tolist()
+        side_icon = "🔵" if (tgt and tgt[0] == "blue") else "🔴" if tgt else ""
         st.dataframe(
             sug,
             key="champ_table",
@@ -287,11 +326,11 @@ def main() -> None:
                 "icon": st.column_config.ImageColumn("", width="small"),
                 "champion": st.column_config.TextColumn("Champion", width="medium"),
                 "p": st.column_config.NumberColumn(
-                    "P(win)" + (" 🔵" if side == "blue" else " 🔴"), format="%.1f %%",
-                    help="Probabilité de victoire de ce côté si ce champion est pris maintenant"),
+                    f"P(win) {side_icon}", format="%.1f %%",
+                    help="Probabilité de victoire de ce côté si ce champion prend le slot surligné"),
             },
         )
-        st.caption("Un clic = le champion rejoint le prochain slot libre du côté choisi.")
+        st.caption("1) Clique un **slot** à gauche/droite · 2) clique un **champion** ici.")
         st.button("♻️ Tout effacer", on_click=_reset_draft, width="stretch")
 
     # ------------------------------------------------------------ détail complet
