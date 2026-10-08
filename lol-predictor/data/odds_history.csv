@@ -909,3 +909,10 @@ event_id,date,league_slug,home,away,odd_home,odd_away,books,status,fetched_at
 68811420,2026-02-11T16:00:00Z,league-of-legends-arabian-league,Dragons eSports,Gng Amazigh,1.18,4.685,1xbet,ok,2026-10-05 14:30
 67803248,2026-02-06T18:30:00Z,league-of-legends-arabian-league,Dragons eSports,Baam eSports,,,,none,2026-10-05 14:30
 68884814,2026-02-12T18:30:00Z,league-of-legends-arabian-league,Gng Amazigh,Fn eSports,,,,none,2026-10-05 14:30
+5332138826,2026-10-07T21:00:00Z,league-of-legends-lcs-promotion,Disguised,Maryville University,1.31,3.8,1xbet+GG.bet,ok,2026-10-08 14:27
+5293815558,2026-09-20T11:30:00Z,league-of-legends-hitpoint-masters-summer,NightBirds,eSuba,1.03,10.8,1xbet+GG.bet,ok,2026-10-08 14:27
+6161216338,2026-09-19T16:15:00Z,league-of-legends-lit-summer,HMBLE,Colossal Gaming,,,,none,2026-10-08 14:27
+7563001213,2026-09-17T18:00:00Z,league-of-legends-arabian-league-summer,Anubis Gaming,JSK Esports,,,,none,2026-10-08 14:27
+7893177240,2026-09-17T16:00:00Z,league-of-legends-road-of-legends-summer,Frites Esports Club,Senshi Esports,1.065,7.52,1xbet,ok,2026-10-08 14:27
+7051699064,2026-09-17T15:00:00Z,league-of-legends-hitpoint-masters-summer,CITA Kaizen,eSuba,1.25,3.855,1xbet,ok,2026-10-08 14:27
+71664232,2026-05-26T15:00:00Z,league-of-legends-rift-legends,Bomba Team,Anonymo Esports,1.03,10.0,1xbet,ok,2026-10-08 14:27
