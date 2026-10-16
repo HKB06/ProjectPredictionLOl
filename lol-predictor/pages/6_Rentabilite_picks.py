@@ -28,6 +28,56 @@ require_password()
 ODDS_GRID = (1.10, 1.15, 1.20, 1.25, 1.30, 1.40, 1.50, 1.75, 2.00)
 VERDICT = {"won": "✅ gagné", "lost": "❌ perdu", "void": "➖ annulé", "open": "⏳ en attente"}
 
+# Plancher de cote de la stratégie recommandée. Mesuré sur 300 j de cotes réelles
+# (analyse du 16/10) : les « values » à cote courte (<1.35) sont les désaccords
+# modèle/book sur de gros favoris, et là c'est le BOOK qui a raison (ROI -15,3 % en
+# BO1, -3,4 % en BO3/5). À cote ≥ 1.35 la value gagne dans TOUS les formats
+# (+19,1 % BO1, +11,9 % BO3/5) et reste positive sur les deux moitiés de la fenêtre
+# (+26 % puis +6 %) — contrairement à « enlever le BO1 », qui s'inverse (+6 %/-6 %).
+MIN_VALUE_ODDS = 1.35
+
+STRAT_RECO = f"💎 Value & cote ≥ {MIN_VALUE_ODDS:.2f} (recommandée)"
+STRAT_VALUE = "✅ Value seulement"
+STRAT_ALL = "Tout jouer"
+
+
+def apply_strategy(df: pd.DataFrame, strat: str) -> pd.DataFrame:
+    """Filtre une table de picks selon la stratégie de jeu choisie."""
+    o = pd.to_numeric(df["odds"], errors="coerce")
+    b = pd.to_numeric(df["breakeven"], errors="coerce")
+    if strat == STRAT_RECO:
+        return df[(o > b) & (o >= MIN_VALUE_ODDS)]
+    if strat == STRAT_VALUE:
+        return df[o > b]
+    return df
+
+
+def _strategy_table(base: pd.DataFrame, stake: float) -> pd.DataFrame:
+    """Décomposition mesurée : ce que chaque règle aurait donné sur CETTE fenêtre."""
+    o = pd.to_numeric(base["odds"], errors="coerce")
+    b = pd.to_numeric(base["breakeven"], errors="coerce")
+    bo = pd.to_numeric(base["bestof"], errors="coerce")
+    segs = {
+        STRAT_RECO: base[(o > b) & (o >= MIN_VALUE_ODDS)],
+        STRAT_VALUE: base[o > b],
+        f"⚠️ Value à cote < {MIN_VALUE_ODDS:.2f} (le piège)": base[(o > b) & (o < MIN_VALUE_ODDS)],
+        STRAT_ALL: base,
+        "BO1 (tout)": base[bo == 1],
+        "BO3/BO5 (tout)": base[bo >= 3],
+    }
+    rows = []
+    for name, sub in segs.items():
+        if sub.empty:
+            continue
+        pl = float(pd.to_numeric(sub["profit"], errors="coerce").sum())
+        staked = len(sub) * stake
+        won = int((sub["result"] == "won").sum())
+        rows.append({"Règle": name, "Séries": len(sub),
+                     "Réussite": won / len(sub) * 100,
+                     "Cote moy.": float(o[sub.index].mean()),
+                     "P/L (€)": round(pl, 0), "ROI": pl / staked * 100})
+    return pd.DataFrame(rows)
+
 
 @st.cache_data(ttl=1800, show_spinner="Rejeu walk-forward des picks passés…")
 def load_sim(days: int, conf: float) -> dict:
@@ -253,6 +303,52 @@ def _past_table(days: int, conf: float, stake: float, needed: float) -> None:
     if view.empty:
         return
 
+    # --- stratégie de jeu : quelles lignes aurait-on réellement misées ? ---
+    base = view.copy()                      # tout, avant stratégie (pour la décomposition)
+    c = st.columns([2.6, 1.4])
+    strat = c[0].radio(
+        "Stratégie de jeu", (STRAT_RECO, STRAT_VALUE, STRAT_ALL), horizontal=True,
+        help="La stratégie filtre la table ET les KPIs : seules les lignes qu'on aurait "
+             "réellement jouées comptent. La recommandée écarte les favoris courts, même "
+             "« en value » : c'est là que le book a raison contre nous (voir décomposition).",
+    )
+    bo_opts = ["BO1", "BO3", "BO5"]
+    bo_sel = c[1].multiselect("Formats", bo_opts, default=bo_opts,
+                              help="Pour tester toi-même : le problème n'est pas le BO1 en "
+                                   "soi, mais les cotes courtes (cf. décomposition).")
+    view = apply_strategy(view, strat)
+    if bo_sel and len(bo_sel) < len(bo_opts):
+        keep = [int(x[2:]) for x in bo_sel]
+        view = view[pd.to_numeric(view["bestof"], errors="coerce").isin(keep)]
+
+    with st.expander("🔬 Pourquoi cette stratégie ? Ce que chaque règle donne sur cette fenêtre"):
+        comp = _strategy_table(base, stake)
+        st.dataframe(
+            comp, width="stretch", hide_index=True,
+            column_config={
+                "Réussite": st.column_config.NumberColumn(format="%.1f%%"),
+                "Cote moy.": st.column_config.NumberColumn(format="%.2f"),
+                "ROI": st.column_config.NumberColumn(format="%+.1f%%"),
+            },
+        )
+        st.caption(
+            "**Lecture (mesure du 16/10 sur 300 j de cotes réelles).** Les erreurs se "
+            "concentrent sur les **values à cote courte** : quand on voit un gros favori "
+            "encore plus sûr que le book, c'est presque toujours NOTRE sur-confiance "
+            "(annoncé ~86 %, réalisé ~66-75 %). Le BO1 a mauvaise mine en bloc, mais c'est "
+            "parce qu'il héberge nos picks les plus faibles : sa **value à cote longue est "
+            "le meilleur segment du tableau** (+19 % à ≥1.35). Enlever tout le BO1 ferait "
+            "PERDRE de l'argent (la règle s'inverse d'une moitié de fenêtre à l'autre). "
+            "La règle stable, positive sur les deux moitiés : **value ET cote ≥ 1.35**. "
+            "⚠️ Échantillon ~45 paris : l'ordre de grandeur honnête est **+5 à +15 % de "
+            "ROI**, pas un distributeur de billets — et ~1-2 paris par semaine seulement."
+        )
+
+    if view.empty:
+        st.info("Aucune série ne passe cette stratégie sur la fenêtre — élargis la fenêtre "
+                "ou change de stratégie.")
+        return
+
     won = int((view["result"] == "won").sum())
     pl = float(pd.to_numeric(view["profit"], errors="coerce").sum())
     staked = len(view) * stake
@@ -338,6 +434,16 @@ def _bankroll_block() -> None:
         view = past.copy()
         view["odds"] = hyp
         label = f"cote uniforme {hyp:.2f}"
+
+    strat = st.radio("Stratégie de jeu", (STRAT_RECO, STRAT_VALUE, STRAT_ALL),
+                     horizontal=True, key="bk_strat",
+                     help="La même stratégie que la table du haut : la courbe ne rejoue "
+                          "que les paris que la règle aurait réellement pris.")
+    view = apply_strategy(view, strat)
+    if view.empty:
+        st.info("Aucune série ne passe cette stratégie sur la fenêtre.")
+        return
+    label = f"{label} · {strat}"
 
     # L'ordre chronologique strict est ce qui fait apparaître les séries.
     view = view.sort_values("match_date").reset_index(drop=True)
