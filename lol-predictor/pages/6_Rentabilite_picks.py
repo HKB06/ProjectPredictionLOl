@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from src.models.picks_roi import STAKE, roi_at_odds
+from src.models.picks_roi import STAKE, family_of, roi_at_odds
 
 st.set_page_config(page_title="LoL — Rentabilité des picks", page_icon="💵", layout="wide")
 
@@ -79,6 +79,103 @@ def _strategy_table(base: pd.DataFrame, stake: float) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def _fmt_agg(sub: pd.DataFrame, labels: dict) -> dict | None:
+    """Une ligne de stat (picks, cote, proba, réussite, P/L, ROI, verdict) pour un segment."""
+    if sub.empty:
+        return None
+    o = pd.to_numeric(sub["odds"], errors="coerce")
+    pl = float(pd.to_numeric(sub["profit"], errors="coerce").sum())
+    staked = float(pd.to_numeric(sub["stake"], errors="coerce").sum())
+    won = int((sub["result"] == "won").sum())
+    roi = pl / staked * 100 if staked else float("nan")
+    return {**labels, "Picks": len(sub), "Cote moy.": float(o.mean()),
+            "Proba annoncée": float(pd.to_numeric(sub["our_proba"], errors="coerce").mean()) * 100,
+            "Réussite": won / len(sub) * 100, "P/L (€)": round(pl, 0), "ROI": roi,
+            "Verdict": "✅" if roi > 1 else ("❌" if roi < -1 else "≈")}
+
+
+def _by_format_table(d: pd.DataFrame, key_col: str, key_label: str,
+                     min_n: int = 1) -> pd.DataFrame:
+    """Casse un découpage (famille, compétition…) PAR FORMAT BO, trié ROI croissant.
+
+    Règle du projet : aucune stat de décision sans découpage BO1/BO3/BO5 — un
+    événement (Worlds, MSI…) traverse les trois formats, l'agréger n'a aucun sens.
+    La ligne « — tous » de chaque bloc n'est là que pour comparer.
+    """
+    rows: list[dict] = []
+    for key, sub in d.groupby(key_col, sort=True):
+        lines = []
+        for b, s2 in sub.groupby(pd.to_numeric(sub["bestof"], errors="coerce").astype(int)):
+            if len(s2) < min_n:
+                continue
+            row = _fmt_agg(s2, {key_label: str(key), "Format": f"BO{int(b)}"})
+            if row:
+                lines.append(row)
+        lines.sort(key=lambda x: x["ROI"] if x["ROI"] == x["ROI"] else 0)
+        total = _fmt_agg(sub, {key_label: str(key), "Format": "— tous"})
+        if total:
+            lines.append(total)
+        rows += lines
+    return pd.DataFrame(rows)
+
+
+def _seg_colcfg() -> dict:
+    return {
+        "Cote moy.": st.column_config.NumberColumn(format="%.2f"),
+        "Proba annoncée": st.column_config.NumberColumn(format="%.1f%%"),
+        "Réussite": st.column_config.NumberColumn(format="%.1f%%"),
+        "ROI": st.column_config.NumberColumn(format="%+.1f%%"),
+    }
+
+
+def _format_tables(base: pd.DataFrame) -> None:
+    """Tables de décision sur COTES RÉELLES : famille × BO, compétition × BO, cote × BO."""
+    if "family" not in base.columns or base.empty:
+        return
+    st.markdown("### 📐 Décision par format — famille et compétition × BO")
+    st.caption(
+        "Trois familles, jamais mélangées : **saison régulière**, **playoffs de ligue** "
+        "(même ligue, autre format), **événements** (Worlds, MSI, EWC… qui passent du BO1 "
+        "au BO5 entre le play-in et la finale — « Worlds ROI = X % » en une ligne est "
+        "interdit ici). Le tag régulière/playoffs vient du flag match par match du CSV "
+        "Oracle, pas d'une règle « ligue = format ». Tri : du BO le moins rentable au "
+        "plus rentable dans chaque bloc."
+    )
+
+    fam = _by_format_table(base, "family", "Famille")
+    if not fam.empty:
+        st.dataframe(fam, width="stretch", hide_index=True, column_config=_seg_colcfg())
+
+    with st.expander("🏆 Par compétition × BO (et par tranche de cote si l'échantillon suit)"):
+        comp = _by_format_table(base, "league", "Compétition", min_n=3)
+        if comp.empty:
+            st.info("Pas assez de séries par compétition (minimum 3 par format).")
+        else:
+            st.dataframe(comp, width="stretch", hide_index=True, height=420,
+                         column_config=_seg_colcfg())
+            st.caption("Formats avec ≥3 séries cotées. « — tous » = comparaison, pas décision.")
+
+        o = pd.to_numeric(base["odds"], errors="coerce")
+        bands = pd.cut(o, bins=[1.0, 1.20, 1.35, 1.60, 2.20, 99.0],
+                       labels=["<1.20", "1.20-1.35", "1.35-1.60", "1.60-2.20", "≥2.20"])
+        rows: list[dict] = []
+        for (lg, band), sub in base.groupby([base["league"], bands], observed=True):
+            for b, s2 in sub.groupby(pd.to_numeric(sub["bestof"], errors="coerce").astype(int)):
+                if len(s2) < 5:
+                    continue
+                row = _fmt_agg(s2, {"Compétition": str(lg), "Tranche": str(band),
+                                    "Format": f"BO{int(b)}"})
+                if row:
+                    rows.append(row)
+        if rows:
+            det = pd.DataFrame(rows).sort_values(["Compétition", "Tranche", "ROI"])
+            st.markdown("**Compétition × tranche de cote × BO** (cellules d'au moins 5 séries)")
+            st.dataframe(det, width="stretch", hide_index=True, column_config=_seg_colcfg())
+        else:
+            st.caption("Compétition × tranche × BO : aucune cellule n'atteint encore "
+                       "5 séries cotées — l'échantillon grandira avec la collecte.")
+
+
 @st.cache_data(ttl=1800, show_spinner="Rejeu walk-forward des picks passés…")
 def load_sim(days: int, conf: float) -> dict:
     from src.models.picks_roi import simulate
@@ -133,6 +230,100 @@ def _ledger_columns() -> dict:
     }
 
 
+@st.cache_data(ttl=600, show_spinner="Pronos à venir + cotes du moment…")
+def load_today(days: int = 3) -> pd.DataFrame:
+    from src.models.picks_roi import candidates
+    return pd.DataFrame(candidates(days=days))
+
+
+def _today_block() -> None:
+    """Chaque prono du jour relu dans SA case : compétition × format BO × tranche de cote.
+
+    La moyenne globale ne décide de rien : un BO1 d'événement à 1.25 et un BO5 de
+    playoffs à 1.25 ne sont pas le même pari. On affiche donc, pour chaque pick à
+    venir, l'historique de SA cellule (cotes réelles, walk-forward).
+    """
+    st.subheader("0️⃣ Pronos confiants à venir — relus dans leur case")
+    try:
+        today = load_today()
+    except Exception as exc:  # noqa: BLE001 - réseau/clé absente ne doit pas bloquer la page
+        st.info(f"Pronos à venir indisponibles pour l'instant ({exc}).")
+        return
+    if today.empty:
+        st.caption("Aucun pick 🎯 sur les 3 prochains jours — la section se remplira "
+                   "avec le calendrier.")
+        return
+
+    hist = load_past_series(300, 0.70)
+    hist = hist[hist["result"].isin(["won", "lost"])]
+    priced = hist[pd.to_numeric(hist["odds"], errors="coerce").notna()].copy()
+    po = pd.to_numeric(priced["odds"], errors="coerce")
+    bands = pd.cut(po, bins=[1.0, 1.20, 1.35, 1.60, 2.20, 99.0],
+                   labels=["<1.20", "1.20-1.35", "1.35-1.60", "1.60-2.20", "≥2.20"])
+
+    rows: list[dict] = []
+    for r in today.itertuples():
+        bo = int(r.bestof) if r.bestof == r.bestof else 1
+        lg = str(r.league)
+        odds = float(r.odds) if r.odds == r.odds else float("nan")
+
+        cell = priced[(priced["league"] == lg) & (priced["bestof"] == bo)]
+        scope = f"{lg} × BO{bo}"
+        if odds == odds and len(cell) >= 5:            # on affine par tranche de cote
+            band = pd.cut(pd.Series([odds]), bins=[1.0, 1.20, 1.35, 1.60, 2.20, 99.0],
+                          labels=["<1.20", "1.20-1.35", "1.35-1.60", "1.60-2.20", "≥2.20"]).iloc[0]
+            fine = cell[bands.loc[cell.index] == band]
+            if len(fine) >= 5:
+                cell, scope = fine, f"{lg} × BO{bo} × cote {band}"
+        if len(cell) < 5 and "family" in priced.columns:
+            fam = family_of(lg, None)                  # phase inconnue à l'avance
+            cell = priced[(priced["family"] == fam) & (priced["bestof"] == bo)]
+            scope = f"{fam} × BO{bo}"
+
+        if cell.empty:
+            n, hit, roi, avis = 0, float("nan"), float("nan"), "⚠️ case vide : aucun historique"
+        else:
+            n = len(cell)
+            hit = float((cell["result"] == "won").mean()) * 100
+            pl = float(pd.to_numeric(cell["profit"], errors="coerce").sum())
+            staked = float(pd.to_numeric(cell["stake"], errors="coerce").sum())
+            roi = pl / staked * 100 if staked else float("nan")
+            if n < 10:
+                avis = f"⚠️ case presque vide (n={n}) : prudence"
+            elif roi > 1:
+                avis = "✅ case historiquement rentable"
+            elif roi < -1:
+                avis = "❌ case historiquement perdante"
+            else:
+                avis = "≈ case neutre"
+
+        rows.append({
+            "Quand": getattr(r, "when", ""), "Ligue": lg, "Format": f"BO{bo}",
+            "Match": f"{r.team1} vs {r.team2}", "Pick": r.pick,
+            "Notre p": float(r.our_proba) * 100,
+            "Cote": odds if odds == odds else None,
+            "Case de lecture": scope, "n case": n, "Réussite case": hit,
+            "ROI case": roi, "Avis": avis,
+        })
+
+    st.dataframe(
+        pd.DataFrame(rows), width="stretch", hide_index=True,
+        column_config={
+            "Notre p": st.column_config.NumberColumn(format="%.0f%%"),
+            "Cote": st.column_config.NumberColumn(format="%.2f"),
+            "Réussite case": st.column_config.NumberColumn(format="%.1f%%"),
+            "ROI case": st.column_config.NumberColumn(format="%+.1f%%"),
+        },
+    )
+    st.caption(
+        "La **case** est choisie au plus fin possible : compétition × BO × tranche de "
+        "cote si ≥5 séries d'historique, sinon compétition × BO, sinon famille × BO. "
+        "⚠️ La phase (régulière/playoffs) d'un match à venir n'étant pas connue du "
+        "calendrier, la famille est approchée par le code de compétition. Cote absente = "
+        "book pas encore ouvert (ou clé API absente en ligne) — la case se lit quand même."
+    )
+
+
 def _simulation_block() -> None:
     st.subheader("1️⃣ Réponse immédiate — les picks 🎯 du passé étaient-ils rentables ?")
     st.caption(
@@ -171,19 +362,7 @@ def _simulation_block() -> None:
         "c'est exactement le piège des gros favoris à cote courte."
     )
 
-    rows = []
-    for o in ODDS_GRID:
-        r = roi_at_odds(hit, o, sim["n"], stake)
-        rows.append({"Cote moyenne": f"{o:.2f}", "Mise totale (€)": round(r["staked"], 0),
-                     "P/L (€)": round(r["profit"], 0), "ROI": r["roi"] * 100,
-                     "Verdict": "✅ rentable" if r["roi"] > 0 else "❌ perdant"})
-    grid = pd.DataFrame(rows)
-    st.dataframe(
-        grid, width="stretch", hide_index=True,
-        column_config={"ROI": st.column_config.NumberColumn("ROI", format="%.1f%%")},
-    )
-    st.caption(f"ROI simulé si **tous** les {sim['n']} picks avaient été joués à "
-               f"{stake:.0f} € et à la cote de la ligne.")
+    _grid_by_format(days, conf, stake)
 
     st.markdown("**Par ligue** — où la stratégie tient vraiment")
     by_lg = sim["by_league"].copy()
@@ -202,9 +381,74 @@ def _simulation_block() -> None:
         },
     )
     st.caption("Ligues avec ≥10 picks. Une **cote mini basse** = ligue où le modèle est "
-               "très fiable ; mais le book y cote souvent court, donc vérifie la cote réelle.")
+               "très fiable ; mais le book y cote souvent court, donc vérifie la cote réelle. "
+               "⚠️ Granularité *game* = info de calibration, **PAS une table de décision** : "
+               "les décisions se lisent dans les tables × BO (grille de cotes ci-dessus et "
+               "section 📐 plus bas).")
 
     _past_table(days, conf, stake, needed)
+
+
+def _grid_by_format(days: int, conf: float, stake: float) -> None:
+    """Table de décision n°1 : tranche de cote × format BO, au niveau SÉRIE.
+
+    Un BO1 et un BO5 à la même cote ne sont pas le même pari : le taux de réussite
+    d'un favori ≥70 %/game est mécaniquement plus haut en BO5 (la série amortit la
+    variance d'une game). La ligne agrégée masque ça — elle n'est gardée que pour
+    comparaison.
+    """
+    st.markdown("**Table de décision — tranche de cote × format BO (niveau série)**")
+    past = load_past_series(days, conf)
+    settled = past[past["result"].isin(["won", "lost"])] if not past.empty else past
+    if settled.empty:
+        st.info("Aucune série réglée sur cette fenêtre — la grille cote × BO viendra "
+                "avec les résultats.")
+        return
+
+    bo = pd.to_numeric(settled["bestof"], errors="coerce")
+    formats = [int(b) for b in sorted(bo.dropna().unique())]
+    hit_all = float((settled["result"] == "won").mean())
+
+    def verdict(roi: float) -> str:
+        if roi > 0.01:
+            return "✅ rentable"
+        if roi < -0.01:
+            return "❌ perdant"
+        return "≈ neutre"
+
+    rows: list[dict] = []
+    for o in ODDS_GRID:
+        tranche = []
+        for b in formats:
+            sub = settled[bo == b]
+            h = float((sub["result"] == "won").mean())
+            r = roi_at_odds(h, o, len(sub), stake)
+            tranche.append({"Cote": f"{o:.2f}", "Format": f"BO{b}", "Picks": len(sub),
+                            "Réussite": h * 100, "Mise (€)": round(r["staked"], 0),
+                            "P/L (€)": round(r["profit"], 0), "ROI": r["roi"] * 100,
+                            "Verdict": verdict(r["roi"])})
+        tranche.sort(key=lambda x: x["ROI"])           # du moins au plus rentable
+        r = roi_at_odds(hit_all, o, len(settled), stake)
+        tranche.append({"Cote": f"{o:.2f}", "Format": "— tous (comparaison)",
+                        "Picks": len(settled), "Réussite": hit_all * 100,
+                        "Mise (€)": round(r["staked"], 0), "P/L (€)": round(r["profit"], 0),
+                        "ROI": r["roi"] * 100, "Verdict": verdict(r["roi"])})
+        rows += tranche
+
+    st.dataframe(
+        pd.DataFrame(rows), width="stretch", hide_index=True, height=420,
+        column_config={
+            "Réussite": st.column_config.NumberColumn(format="%.1f%%"),
+            "ROI": st.column_config.NumberColumn(format="%+.1f%%"),
+        },
+    )
+    st.caption(
+        f"Mise fixe {stake:.0f} € à la cote de la ligne, réussite **mesurée par format** "
+        f"(walk-forward, niveau série, fenêtre {days} j). Dans chaque tranche, les BO sont "
+        "triés du **moins rentable au plus rentable** : si une tranche est négative en "
+        "global, cette grille montre QUEL format la casse. La ligne « — tous » n'est "
+        "**pas** une ligne de décision."
+    )
 
 
 def _league_label(slug: str) -> str:
@@ -343,6 +587,8 @@ def _past_table(days: int, conf: float, stake: float, needed: float) -> None:
             "⚠️ Échantillon ~45 paris : l'ordre de grandeur honnête est **+5 à +15 % de "
             "ROI**, pas un distributeur de billets — et ~1-2 paris par semaine seulement."
         )
+
+    _format_tables(base)
 
     if view.empty:
         st.info("Aucune série ne passe cette stratégie sur la fenêtre — élargis la fenêtre "
@@ -504,8 +750,12 @@ def main() -> None:
     st.caption(
         f"Mise **fixe de {STAKE:.0f} € par match**, uniquement sur les picks 🎯 "
         "(marché vainqueur). Principe : **trouver le bon vainqueur ne suffit pas** — "
-        "il faut que la cote paie plus que le risque."
+        "il faut que la cote paie plus que le risque. Règle transverse : **aucune stat "
+        "de décision sans découpage par format BO** (un BO1 et un BO5 à la même cote ne "
+        "sont pas le même pari)."
     )
+    _today_block()
+    st.divider()
     _simulation_block()
     st.divider()
     _bankroll_block()

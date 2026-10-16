@@ -37,6 +37,31 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 STAKE = 10.0                 # mise FIXE par pick (€) — jamais de mise variable
+
+# Codes Oracle's Elixir des ÉVÉNEMENTS (internationaux, coupes, invitationnels).
+# Un événement n'a PAS un format unique : les Worlds commencent en BO1/BO3 et
+# finissent en BO5 — d'où l'interdiction d'agréger « Worlds » en une seule ligne.
+EVENT_LEAGUES = {"WLDs", "WLRQ", "MSI", "EWC", "FST", "AM", "AC", "CCWS", "WSCI",
+                 "DCup", "DCGI", "KeSPA Cup", "IEM", "MSC"}
+FAM_EVENT = "Événement international / coupe"
+FAM_PLAYOFFS = "Playoffs de ligue"
+FAM_REGULAR = "Saison régulière"
+
+
+def family_of(league: str, playoffs: int | float | None) -> str:
+    """Famille de compétition d'un match : événement, playoffs ou saison régulière.
+
+    Le tag se fait MATCH PAR MATCH (flag `playoffs` du CSV Oracle), jamais
+    « ligue = format » en dur : une même ligue passe de BO1 en régulière à
+    BO3/BO5 en playoffs.
+    """
+    if str(league) in EVENT_LEAGUES:
+        return FAM_EVENT
+    try:
+        po = int(playoffs) if playoffs == playoffs and playoffs is not None else 0
+    except (TypeError, ValueError):
+        po = 0
+    return FAM_PLAYOFFS if po else FAM_REGULAR
 LEDGER_PATH = ROOT / "data" / "picks_ledger.csv"
 COLS = [
     "match_date", "when", "league", "team1", "team2", "bestof",
@@ -468,7 +493,22 @@ def past_series(days: int = 60, conf: float = 0.70, cfg: dict | None = None,
     out = normalize(pd.DataFrame(rows)).sort_values("match_date", ascending=False)
     if real_odds:
         out = attach_real_odds(out)
-    return _compute_profit(out)
+    out = _compute_profit(out)
+
+    # --- contexte de décision (APRÈS normalize, qui ne garde que COLS) :
+    # flag playoffs du CSV remonté au niveau série + famille de compétition.
+    from src.update.elo import load_games
+    g = load_games(cfg)
+    pmap: dict[tuple, int] = {}
+    if "playoffs" in g.columns:
+        for day, b, r, po in zip(g["date"].dt.date.astype(str), g["blue"],
+                                 g["red"], g["playoffs"]):
+            k = (day, frozenset((b, r)))
+            pmap[k] = max(pmap.get(k, 0), int(po))
+    out["playoffs"] = [pmap.get((str(d)[:10], frozenset((t1, t2))), 0)
+                       for d, t1, t2 in zip(out["match_date"], out["team1"], out["team2"])]
+    out["family"] = [family_of(lg, po) for lg, po in zip(out["league"], out["playoffs"])]
+    return out
 
 
 def attach_real_odds(df: pd.DataFrame) -> pd.DataFrame:

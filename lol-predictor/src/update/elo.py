@@ -61,7 +61,8 @@ def _mov_mult(kb, kr) -> float:
 
 
 # Colonnes réellement utilisées (sur ~170 du CSV) -> lecture frugale en RAM (cloud).
-_GAME_COLS = {"gameid", "teamname", "result", "date", "league", "kills", "position", "side"}
+_GAME_COLS = {"gameid", "teamname", "result", "date", "league", "kills", "position", "side",
+              "playoffs"}
 
 
 def load_games(cfg: dict | None = None) -> pd.DataFrame:
@@ -77,6 +78,8 @@ def load_games(cfg: dict | None = None) -> pd.DataFrame:
     df = df.dropna(subset=["date"])
     t = df[df["position"].str.lower() == "team"]
     cb = ["gameid", "teamname", "result", "date", "league", "kills"]
+    if "playoffs" in t.columns:            # phase du match (0 = régulière, 1 = playoffs)
+        cb.append("playoffs")
     tb = t[t["side"].str.lower() == "blue"][cb]
     tr = t[t["side"].str.lower() == "red"][["gameid", "teamname", "kills"]]
     g = (tb.merge(tr, on="gameid", suffixes=("_b", "_r"))
@@ -85,6 +88,8 @@ def load_games(cfg: dict | None = None) -> pd.DataFrame:
     g = g.rename(columns={"teamname_b": "blue", "teamname_r": "red", "result": "yb",
                           "kills_b": "kblue", "kills_r": "kred"})
     g["yb"] = g["yb"].astype(int)
+    if "playoffs" in g.columns:
+        g["playoffs"] = pd.to_numeric(g["playoffs"], errors="coerce").fillna(0).astype(int)
     return g
 
 
