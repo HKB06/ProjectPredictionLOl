@@ -1,6 +1,6 @@
 # Watchlist pré-match (auto)
 
-> Généré le **2026-10-08 13:35** (Paris) · fenêtre **7 j** · 6 matchs couverts, 5 non couverts.
+> Généré le **2026-10-16 14:14** (Paris) · fenêtre **7 j** · 5 matchs couverts, 0 non couverts.
 
 **Méthode** : Elo toutes-ligues **K32 + marge de victoire (MOV)**, proba **calibrée par ligue** (aplatie là où le modèle est chaotique, cf. EM ~56 % d'accuracy). Signal *partiel* (pas de draft). **Usage** : comparer NOTRE proba à la **cote du book** dès qu'elle ouvre. Si le book **sur-cote un favori** qu'on voit plus serré → **value** (cf. KC @2.45, VKS @2.7, Heretics @2.60). ⚠️ **Poser le pari TÔT** (marché soft ouvert) = le vrai enjeu.
 
@@ -15,18 +15,8 @@ _Aucun match 🎯 dans la fenêtre (ligues fiables + favori ≥70 %/game). Patie
 
 | Quand (Paris) | Ligue | Match | BO | Notre proba | Elo | Fiab. | Cote 1 / 2 | Edge |
 |---|---|---|---|---|---|---|---|---|
-| Thu 08/10 23:00 | LCS Promotion | Maryville University vs Cupid Esports ⭐ | BO5 | **Maryville University 30%** / Cupid Esports 70% | 1614 / 1686 | 65% | _ / _ | _ |
-| Fri 09/10 18:00 | EMEA Masters | TLN Pirates vs Movistar KOI Fénix  🌪️ ⚠️x-ligue | BO5 | **TLN Pirates 26%** / Movistar KOI Fénix 74% | 1665 / 1803 | 57% | _ / _ | _ |
-| Fri 09/10 18:00 | EMEA Masters | Kaufland Hangry Knights vs Galions  🌪️ ⚠️x-ligue | BO5 | **Kaufland Hangry Knights 10%** / Galions 90% | 1578 / 1891 | 57% | _ / _ | _ |
-| Fri 09/10 23:00 | LCS Promotion | Disguised vs Fuego ⭐ ⚠️x-ligue | BO5 | **Disguised 0%** / Fuego 100% | 1303 / 1805 | 65% | _ / _ | _ |
-| Sat 10/10 18:00 | EMEA Masters | G2 NORD vs Solary  🌪️ ⚠️x-ligue | BO5 | **G2 NORD 52%** / Solary 48% | 1743 / 1731 | 57% | _ / _ | _ |
-| Sat 10/10 18:00 | EMEA Masters | Anubis Gaming vs Karmine Corp Blue  🌪️ ⚠️x-ligue | BO5 | **Anubis Gaming 69%** / Karmine Corp Blue 31% | 1776 / 1671 | 57% | _ / _ | _ |
-
-## Matchs non couverts (5) — équipes absentes de notre data
-*(noms Leaguepedia ≠ Oracle, ou ligue non collectée. À ignorer ou à mapper plus tard.)*
-
-- Thu 08/10 11:00 · DCGI · RED Kalunga vs FlyQuest
-- Thu 08/10 13:00 · DCGI · Natus Vincere vs Beijing JDG Esports
-- Sat 10/10 18:00 · CBLOL · FURIA vs LOS
-- Sun 11/10 12:00 · VCS · Saigon MVKE Academy vs Saigon Warrior
-- Mon 12/10 23:00 · CBLOL Promotion · KaBuM! Eports vs LOS
+| Fri 16/10 01:00 | Worlds | MVK Esports vs FURIA  🌪️ | BO5 | **MVK Esports 35%** / FURIA 65% | 1521 / 1628 | 35% | _ / _ | _ |
+| Fri 16/10 20:00 | Worlds | Karmine Corp vs MVK Esports  🌪️ | BO5 | **Karmine Corp 68%** / MVK Esports 32% | 1647 / 1521 | 35% | _ / _ | _ |
+| Sat 17/10 01:00 | Worlds | Cloud9 vs FURIA  🌪️ | BO5 | **Cloud9 47%** / FURIA 53% | 1610 / 1628 | 35% | _ / _ | _ |
+| Sat 17/10 11:00 | DCGI | Team WE vs BNK FEARX  🌪️ | BO5 | **Team WE 43%** / BNK FEARX 57% | 1541 / 1589 | 48% | _ / _ | _ |
+| Thu 22/10 14:00 | EMEA Masters | Galions vs Solary  🌪️ | BO5 | **Galions 58%** / Solary 42% | 1976 / 1934 | 58% | _ / _ | _ |

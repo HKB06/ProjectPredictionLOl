@@ -1,0 +1,6 @@
+id,created,title,note,status,done_at
+1,2026-10-16,Coter les Worlds au fil de l'eau,"Après chaque journée : python -m src.update.daily puis odds_history --days 7, et push du cache",a_faire,
+2,2026-10-16,Données joueurs / rosters,"Levier accuracy n°1 : savoir qui joue (titulaire, remplaçant, roster remanié)",a_faire,
+3,2026-10-16,Suivi CLV automatique,"Comparer cote prise vs cote de clôture sur chaque pari loggé — la preuve d'edge rapide",a_faire,
+4,2026-10-16,Bankroll : Kelly fractionné plafonné,"Mise proportionnelle à l'edge, réservée aux picks à value positive",a_faire,
+5,2026-10-16,Vérifier la résiliation de the-odds-api.com,"Plan payant (~60 €/mois) pris par erreur fin septembre — confirmer l'annulation",a_faire,
