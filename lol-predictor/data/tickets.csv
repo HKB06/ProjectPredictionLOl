@@ -4,3 +4,5 @@ id,created,title,note,status,done_at
 3,2026-10-16,Suivi CLV automatique,"Comparer cote prise vs cote de clôture sur chaque pari loggé — la preuve d'edge rapide",a_faire,
 4,2026-10-16,Bankroll : Kelly fractionné plafonné,"Mise proportionnelle à l'edge, réservée aux picks à value positive",a_faire,
 5,2026-10-16,Vérifier la résiliation de the-odds-api.com,"Plan payant (~60 €/mois) pris par erreur fin septembre — confirmer l'annulation",a_faire,
+6,2026-10-16,Étendre la watchlist aux picks p≥65 %,"Le Plan de jeu joue dès 65 % de proba série ; la watchlist coupe à 70 %/game → les picks 65-70 % n'apparaissent pas dans « À venir »",a_faire,
+7,2026-10-16,Notes joueurs / forme récente,"Fournir un CSV : date,équipe,joueur,rôle,note 1-10 (ou roster changé O/N + qui) sur les matchs du plan — à backtester en feature avant d'y croire",a_faire,
