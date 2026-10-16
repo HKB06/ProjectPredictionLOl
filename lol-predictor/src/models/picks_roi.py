@@ -42,7 +42,9 @@ STAKE = 10.0                 # mise FIXE par pick (€) — jamais de mise varia
 # Un événement n'a PAS un format unique : les Worlds commencent en BO1/BO3 et
 # finissent en BO5 — d'où l'interdiction d'agréger « Worlds » en une seule ligne.
 EVENT_LEAGUES = {"WLDs", "WLRQ", "MSI", "EWC", "FST", "AM", "AC", "CCWS", "WSCI",
-                 "DCup", "DCGI", "KeSPA Cup", "IEM", "MSC"}
+                 "DCup", "DCGI", "KeSPA Cup", "IEM", "MSC",
+                 # libellés côté calendrier lolesports (≠ codes Oracle) :
+                 "Worlds", "First Stand", "Asia Masters", "Esports World Cup"}
 FAM_EVENT = "Événement international / coupe"
 FAM_PLAYOFFS = "Playoffs de ligue"
 FAM_REGULAR = "Saison régulière"
