@@ -192,6 +192,25 @@ class RateLimited(Exception):
 OVERROUND_MIN, OVERROUND_MAX = 1.00, 1.30
 
 
+def _team_match(a: set[str], b: set[str]) -> bool:
+    """Deux noms d'équipe désignent-ils la MÊME équipe ? (tolérant aux sponsors)
+
+    Deux pièges réels, attrapés par audit le 16/10 :
+      1. Un token GÉNÉRIQUE partagé ne suffit pas : « Vivo Keyd Stars Academy » et
+         « paiN Gaming Academy » partagent « academy » → le match naïf (intersection
+         non vide) attachait la cote d'un AUTRE match du même jour.
+      2. « X Academy » ≠ « X » : si un suffixe d'équipe secondaire (academy, junior…)
+         distingue les deux noms, ce sont deux équipes différentes.
+    Même logique que `fuzzy_match` de la watchlist, appliquée aux paires de cotes.
+    """
+    inter = a & b
+    if not inter or not (inter - DISTINCT_TOKENS):   # rien de distinctif en commun
+        return False
+    if (a ^ b) & DISTINCT_TOKENS:                    # équipe principale vs académie
+        return False
+    return True
+
+
 def _plausible(h: float, a: float) -> bool:
     if not (h and a) or h < 1.01 or a < 1.01:
         return False
@@ -423,14 +442,17 @@ def seed_from_picks(days: int = 60, conf: float = 0.70) -> dict:
             return False
         d = d.tz_localize(None)
         h, a = core_tokens(str(ev.get("home"))), core_tokens(str(ev.get("away")))
-        return any(((t1 & h and t2 & a) or (t1 & a and t2 & h)) and abs(d - pdate) <= tol
+        return any(((_team_match(t1, h) and _team_match(t2, a))
+                    or (_team_match(t1, a) and _team_match(t2, h)))
+                   and abs(d - pdate) <= tol
                    for t1, t2, pdate in pairs)
 
     def covered(t1: set, t2: set, d) -> bool:
         near = cache[(cdates >= d - tol) & (cdates <= d + tol)]
         for r in near.itertuples():
             h, a = core_tokens(str(r.home)), core_tokens(str(r.away))
-            if (t1 & h and t2 & a) or (t1 & a and t2 & h):
+            if (_team_match(t1, h) and _team_match(t2, a)) \
+                    or (_team_match(t1, a) and _team_match(t2, h)):
                 return True
         return False
 
@@ -512,9 +534,9 @@ def lookup(cache: pd.DataFrame, team1: str, team2: str, date: str,
     t1, t2 = core_tokens(team1), core_tokens(team2)
     for r in near.itertuples():
         h, a = core_tokens(str(r.home)), core_tokens(str(r.away))
-        if (t1 & h and t2 & a):
+        if _team_match(t1, h) and _team_match(t2, a):
             side = "home" if pick == team1 else "away"
-        elif (t1 & a and t2 & h):
+        elif _team_match(t1, a) and _team_match(t2, h):
             side = "away" if pick == team1 else "home"
         else:
             continue

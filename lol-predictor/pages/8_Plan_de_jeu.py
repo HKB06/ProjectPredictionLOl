@@ -73,24 +73,29 @@ def _mask_satellite(d: pd.DataFrame) -> pd.Series:
 
 
 PROFILES = {
-    "🏗️ Socle volume — ~315 paris/an": {
+    "🏗️ Socle volume": {
         "mask": _mask_socle,
         "rule": "Proba série ≥ 65 % · ligues fiables · hors événements internationaux · "
                 "BO1 joué UNIQUEMENT si cote ≥ 1.35 · BO3/BO5 à toute cote.",
-        "why": "Le profil « 200+ matchs/an au meilleur ROI » : le volume vient des BO3/BO5 "
-               "réguliers, et la règle BO1 asymétrique coupe le poison mesuré (BO1 courts).",
+        "why": "Le profil « 200+ matchs/an » : le volume vient des BO3/BO5 réguliers, la "
+               "règle BO1 asymétrique coupe le poison mesuré (BO1 courts). Honnêteté : "
+               "son edge est FIN — l'essentiel du profit vient des sous-ensembles Cœur et "
+               "Satellite qu'il contient ; sur la 2e moitié de la fenêtre il est à "
+               "l'équilibre. C'est un profil de volume, pas de rendement.",
     },
-    "🎯 Cœur rentable — ~146 paris/an": {
+    "🎯 Cœur rentable": {
         "mask": _mask_coeur,
         "rule": "Proba série ≥ 65 % · hors événements · cote ≥ 1.25 (tous formats).",
         "why": "Le plancher de prix fait le travail : on ne joue plus aucun favori court. "
-               "Moitié moins de paris, ROI environ doublé.",
+               "Moitié moins de paris que le socle, ROI environ doublé, positif sur les "
+               "deux moitiés de la fenêtre. Le meilleur équilibre volume/rendement.",
     },
-    "💎 Satellite value — ~72 paris/an": {
+    "💎 Satellite value": {
         "mask": _mask_satellite,
         "rule": "Proba série ≥ 65 % · hors événements · value (cote > cote mini) · cote ≥ 1.35.",
         "why": "La crème : désaccords favorables avec le book sur des matchs serrés de "
-               "ligues régionales (LFL/PRM en tête). Peu de paris, gros ROI mesuré.",
+               "ligues régionales (LFL/PRM en tête). Peu de paris, gros ROI mesuré, "
+               "stable sur les deux moitiés.",
     },
 }
 
@@ -253,9 +258,13 @@ def main() -> None:
         "DÉGRADE le ROI (+1,3 %, instable). Haute confiance = cote courte = zone où le "
         "book est plus fort que nous. Notre argent se fait à p 65-80 % et cote 1,3-1,8 "
         "dans les régionales (LFL, PRM…), pas sur les gros favoris.\n"
-        "- **Incertitude :** ±2 écarts-types ≈ ±6 pts de ROI sur le socle (n=259), "
-        "±11 pts sur le cœur (n=120), ±21 pts sur le satellite (n=59). Les signes sont "
-        "solides, les grandeurs sont des ordres de grandeur.\n"
+        "- **Incertitude :** ±2 écarts-types ≈ ±6 pts de ROI sur le socle, ±12 pts sur "
+        "le cœur, ±20 pts sur le satellite (aux tailles d'échantillon actuelles). Les "
+        "signes sont solides, les grandeurs sont des ordres de grandeur.\n"
+        "- **Intégrité des cotes (audit du 16/10) :** chaque cote est tracée vers une "
+        "ligne brute du cache (id d'événement, book, horodatage). L'audit a attrapé et "
+        "corrigé un bug d'appariement (équipes académie appariées au mauvais match via "
+        "le mot « academy ») — les chiffres affichés sont post-correction.\n"
         "- **Base de mesure :** cotes de CLÔTURE. En prenant les lignes plus tôt et en "
         "comparant 2-3 books, on gagne typiquement 2-5 pts de mieux.\n"
         "- **Discipline :** mise fixe, jamais de rattrapage, et le plan s'applique à la "

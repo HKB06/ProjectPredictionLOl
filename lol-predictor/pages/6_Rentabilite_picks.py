@@ -29,11 +29,13 @@ ODDS_GRID = (1.10, 1.15, 1.20, 1.25, 1.30, 1.40, 1.50, 1.75, 2.00)
 VERDICT = {"won": "✅ gagné", "lost": "❌ perdu", "void": "➖ annulé", "open": "⏳ en attente"}
 
 # Plancher de cote de la stratégie recommandée. Mesuré sur 300 j de cotes réelles
-# (analyse du 16/10) : les « values » à cote courte (<1.35) sont les désaccords
-# modèle/book sur de gros favoris, et là c'est le BOOK qui a raison (ROI -15,3 % en
-# BO1, -3,4 % en BO3/5). À cote ≥ 1.35 la value gagne dans TOUS les formats
-# (+19,1 % BO1, +11,9 % BO3/5) et reste positive sur les deux moitiés de la fenêtre
-# (+26 % puis +6 %) — contrairement à « enlever le BO1 », qui s'inverse (+6 %/-6 %).
+# (analyse du 16/10, re-vérifiée après correction du matching d'équipes) : les
+# « values » à cote courte (<1.35) sont les désaccords modèle/book sur de gros
+# favoris, et là c'est le BOOK qui a raison (ROI négatif dans tous les formats).
+# À cote ≥ 1.35, la value est positive dans tous les formats — alors que « enlever
+# le BO1 » s'inverse d'une moitié de fenêtre à l'autre (c'était du bruit).
+# La version la plus robuste de cette doctrine (pool élargi à p≥65 % + hors
+# événements internationaux) vit dans la page 🧭 Plan de jeu.
 MIN_VALUE_ODDS = 1.35
 
 STRAT_RECO = f"💎 Value & cote ≥ {MIN_VALUE_ODDS:.2f} (recommandée)"
@@ -576,16 +578,17 @@ def _past_table(days: int, conf: float, stake: float, needed: float) -> None:
             },
         )
         st.caption(
-            "**Lecture (mesure du 16/10 sur 300 j de cotes réelles).** Les erreurs se "
-            "concentrent sur les **values à cote courte** : quand on voit un gros favori "
-            "encore plus sûr que le book, c'est presque toujours NOTRE sur-confiance "
-            "(annoncé ~86 %, réalisé ~66-75 %). Le BO1 a mauvaise mine en bloc, mais c'est "
-            "parce qu'il héberge nos picks les plus faibles : sa **value à cote longue est "
-            "le meilleur segment du tableau** (+19 % à ≥1.35). Enlever tout le BO1 ferait "
+            "**Lecture (mesure du 16/10 sur 300 j de cotes réelles, corrigée après audit "
+            "du matching d'équipes).** Les erreurs se concentrent sur les **values à cote "
+            "courte** : quand on voit un gros favori encore plus sûr que le book, c'est "
+            "presque toujours NOTRE sur-confiance. Le BO1 a mauvaise mine en bloc, mais "
+            "c'est parce qu'il héberge nos picks les plus faibles : sa **value à cote "
+            "longue est le meilleur segment du tableau**. Enlever tout le BO1 ferait "
             "PERDRE de l'argent (la règle s'inverse d'une moitié de fenêtre à l'autre). "
-            "La règle stable, positive sur les deux moitiés : **value ET cote ≥ 1.35**. "
-            "⚠️ Échantillon ~45 paris : l'ordre de grandeur honnête est **+5 à +15 % de "
-            "ROI**, pas un distributeur de billets — et ~1-2 paris par semaine seulement."
+            "La règle qui tient : **value ET cote ≥ 1.35** — et sa version la plus "
+            "robuste (pool p≥65 % + hors événements) est mesurée dans la page 🧭 Plan de "
+            "jeu. ⚠️ Échantillon ~40-55 paris ici : l'ordre de grandeur honnête est "
+            "**+5 à +15 % de ROI**, pas un distributeur de billets."
         )
 
     _format_tables(base)
