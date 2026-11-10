@@ -1,6 +1,6 @@
 # Watchlist pré-match (auto)
 
-> Généré le **2026-10-16 14:14** (Paris) · fenêtre **7 j** · 5 matchs couverts, 0 non couverts.
+> Généré le **2026-11-10 14:35** (Paris) · fenêtre **7 j** · 2 matchs couverts, 3 non couverts.
 
 **Méthode** : Elo toutes-ligues **K32 + marge de victoire (MOV)**, proba **calibrée par ligue** (aplatie là où le modèle est chaotique, cf. EM ~56 % d'accuracy). Signal *partiel* (pas de draft). **Usage** : comparer NOTRE proba à la **cote du book** dès qu'elle ouvre. Si le book **sur-cote un favori** qu'on voit plus serré → **value** (cf. KC @2.45, VKS @2.7, Heretics @2.60). ⚠️ **Poser le pari TÔT** (marché soft ouvert) = le vrai enjeu.
 
@@ -15,8 +15,12 @@ _Aucun match 🎯 dans la fenêtre (ligues fiables + favori ≥70 %/game). Patie
 
 | Quand (Paris) | Ligue | Match | BO | Notre proba | Elo | Fiab. | Cote 1 / 2 | Edge |
 |---|---|---|---|---|---|---|---|---|
-| Fri 16/10 01:00 | Worlds | MVK Esports vs FURIA  🌪️ | BO5 | **MVK Esports 35%** / FURIA 65% | 1521 / 1628 | 35% | _ / _ | _ |
-| Fri 16/10 20:00 | Worlds | Karmine Corp vs MVK Esports  🌪️ | BO5 | **Karmine Corp 68%** / MVK Esports 32% | 1647 / 1521 | 35% | _ / _ | _ |
-| Sat 17/10 01:00 | Worlds | Cloud9 vs FURIA  🌪️ | BO5 | **Cloud9 47%** / FURIA 53% | 1610 / 1628 | 35% | _ / _ | _ |
-| Sat 17/10 11:00 | DCGI | Team WE vs BNK FEARX  🌪️ | BO5 | **Team WE 43%** / BNK FEARX 57% | 1541 / 1589 | 48% | _ / _ | _ |
-| Thu 22/10 14:00 | EMEA Masters | Galions vs Solary  🌪️ | BO5 | **Galions 58%** / Solary 42% | 1976 / 1934 | 58% | _ / _ | _ |
+| Wed 11/11 11:00 | LCP P&R | Ground Zero Gaming vs Frank Esports  🌪️ ⚠️x-ligue | BO5 | **Ground Zero Gaming 7%** / Frank Esports 93% | 1396 / 1638 | 56% | _ / _ | _ |
+| Sat 14/11 21:00 | Worlds | Gen.G vs Bilibili Gaming  🌪️ | BO5 | **Gen.G 58%** / Bilibili Gaming 42% | 1851 / 1806 | 53% | _ / _ | _ |
+
+## Matchs non couverts (3) — équipes absentes de notre data
+*(noms Leaguepedia ≠ Oracle, ou ligue non collectée. À ignorer ou à mapper plus tard.)*
+
+- Tue 10/11 07:00 · LCP P&R · FENNEL vs Nothin'Here
+- Tue 10/11 11:00 · LCP P&R · Saigon Warrior vs Team Gromp 
+- Thu 12/11 11:00 · LCP P&R · Saigon Warrior vs Nothin'Here
