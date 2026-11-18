@@ -90,10 +90,13 @@ class DraftState:
         demandées ne reculent jamais : les entrées trop vieilles sont retirées au passage."""
         if not hist:
             return 0.0
-        while hist and hist[0][0] < lo:
-            hist.popleft()
-        s = sum(w for _, w in hist)
-        return (s - 0.5 * len(hist)) / (len(hist) + K_PAIR)
+        if isinstance(hist, deque):
+            while hist and hist[0][0] < lo:
+                hist.popleft()
+            vals = [w for _, w in hist]
+        else:                              # moteur calculé par une version antérieure (listes)
+            vals = [w for d, w in hist if d >= lo]
+        return (sum(vals) - 0.5 * len(vals)) / (len(vals) + K_PAIR)
 
     def team_side(self, own: dict, opp: dict, bans: list, date: pd.Timestamp) -> dict:
         """`own` / `opp` : {poste: (joueur, champion)}. Signaux d'UN côté (non différenciés)."""
