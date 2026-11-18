@@ -31,6 +31,7 @@ from src.ingest.load_oracle import ROOT, load_config
 from src.features.champion_priors import (ChampionWinrateIndex,
                                           load_full_champion_results)
 from src.models.high_confidence import CONF_GAME
+from src.update.bet_universe import is_bettable
 from src.update.elo import (RELIABLE_ACC, _norm, calibrate, compute_elo,
                             load_games, series_prob, win_prob)
 
@@ -95,6 +96,7 @@ class DataContext:
         self.elo: dict[str, float] = state["elo"]
         self.n: dict[str, int] = state["n"]
         self.league: dict[str, str] = state["league"]
+        self.home: dict[str, str] = state["home"]
         self.reliability: dict[str, float] = state["reliability"]
         self.shrink: dict[str, float] = state["shrink"]
         self.global_rel: float = state["global_rel"]
@@ -131,10 +133,18 @@ class DataContext:
         if exact:
             return exact[0], exact
 
-        qtok = set(_split_tokens(query))
+        # Les mots passe-partout (esports, gaming, team…) ne désignent personne : sans ce
+        # filtre « Misa Esports » tombait sur Hanwha Life Esports, « Team BDS » sur Team WE.
+        from src.update.watchlist import STOP_WORDS
+
+        def core(name: str) -> set[str]:
+            toks = set(_split_tokens(name))
+            return (toks - STOP_WORDS) or toks
+
+        qtok = core(query)
         scored = []
         for t in by_games:
-            ttok = set(_split_tokens(t))
+            ttok = core(t)
             ov = qtok & ttok
             if not ov:
                 continue
@@ -221,16 +231,20 @@ class DataContext:
         p_fav_cal = max(0.5, min(0.99, calibrate(p_fav_raw, shrink_fav)))
 
         p_a_cal = p_fav_cal if fav == a else 1.0 - p_fav_cal
-        cross = self.league.get(a) != self.league.get(b)
+        cross = self.home.get(a) != self.home.get(b)       # ligues d'origine, pas le dernier tournoi
         rel = self.reliability.get(lg_fav, 0.0)
         reliable = rel >= RELIABLE_ACC
         min_g = min(self.n.get(a, 0), self.n.get(b, 0))
         wins_needed = max(1, int(bestof) // 2 + 1)
         p_series_fav = series_prob(p_fav_cal, wins_needed)
-        high_conf = bool(reliable and not cross
+        bettable = is_bettable(None, self.home.get(a), self.home.get(b), self.cfg)
+        high_conf = bool(reliable and not cross and bettable
                          and p_fav_cal >= CONF_GAME and min_g >= MIN_GAMES_CONF)
 
         notes = []
+        if not bettable:
+            notes.append(f"HORS LIGUES PARIABLES ({self.home.get(a, '?')} / {self.home.get(b, '?')}) : "
+                         "marché trop petit pour miser ~100 € sans bouger le prix. Pas de pick.")
         if cross:
             notes.append("CROSS-LIGUE : Elo peu comparable entre régions (ex. MSI). "
                          "Proba à prendre avec prudence, croise avec les cotes/roster.")
@@ -257,6 +271,7 @@ class DataContext:
             "favorite_league_reliability": round(rel, 3),
             "favorite_league_reliable": bool(reliable),
             "min_games_played": int(min_g),
+            "bettable": bool(bettable),
             "high_confidence": high_conf,
             "notes": notes,
             "model": "Elo K32 + marge de victoire (MOV), calibré par ligue. "
@@ -315,8 +330,10 @@ class DataContext:
         else:
             devig, vig = raw_implied, None
         edge = prob_team - raw_implied            # EV vs cote brute
-        if odd_team < 1.20:
-            verdict = "⛔ favori court (<1.20) — on ne fade jamais, value rare"
+        if odd_opponent and float(odd_opponent) < 1.20:
+            verdict = "⛔ en face d'un favori court (<1.20) — on ne fade jamais"
+        elif odd_team < 1.20:
+            verdict = "⛔ favori court (<1.20) — cote trop basse, value rare"
         elif edge > 0.03:
             verdict = "✅ VALUE (+EV) — pari défendable, pose tôt"
         elif edge > 0:

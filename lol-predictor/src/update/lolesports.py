@@ -24,7 +24,7 @@ HEADERS = {"x-api-key": API_KEY}
 SKIP_SLUGS = {"tft_esports"}  # pas du LoL
 # On garde aussi les matchs déjà commencés/terminés AUJOURD'HUI (le front les affiche
 # grisés au lieu de les supprimer) : la borne basse de la fenêtre = minuit (Paris).
-PARIS_OFFSET = dt.timedelta(hours=2)  # CEST (été)
+from src.update.paris import PARIS, midnight_utc  # noqa: E402
 ALLOWED_STATES = {"unstarted", "inProgress", "completed"}
 
 
@@ -98,9 +98,8 @@ def fetch_upcoming(days: int = 7, league_ids: list[str] | None = None,
     now = dt.datetime.now(dt.timezone.utc)
     end = now + dt.timedelta(days=days)
     # Borne basse = minuit AUJOURD'HUI (Paris) : garde les matchs du jour déjà lancés/finis.
-    today_paris = (now + PARIS_OFFSET).date()
-    start_bound = dt.datetime.combine(today_paris, dt.time(0, 0),
-                                      tzinfo=dt.timezone.utc) - PARIS_OFFSET
+    today_paris = now.astimezone(PARIS).date()
+    start_bound = midnight_utc(today_paris)
     ids = league_ids or get_league_ids()
 
     all_events: list[dict] = []

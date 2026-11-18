@@ -1,0 +1,660 @@
+Name,OverviewPage,League,Region,Country,EventType,DateStart,Date,TournamentLevel,IsPlayoffs,IsQualifier,Split
+4 Nations 2023 Autumn,4 Nations/2023 Season/Autumn Season,4 Nations,EMEA,United Kingdom,Online,2023-09-18,2023-11-02,Secondary,0.0,0.0,
+4 Nations 2023 Autumn Playoffs,4 Nations/2023 Season/Autumn Playoffs,4 Nations,EMEA,United Kingdom,Online,2023-11-06,2023-11-18,Secondary,1.0,0.0,
+666 LAN 2023: Valhalla Edition,666 LAN 2023,666 Lan,EMEA,Belgium,Offline,2023-04-21,2023-04-23,Secondary,1.0,0.0,
+A1 eSports Legends Cup 2023,A1 eSports Legends Cup/2023 Season,A1 eSports League Austria Season 2,EMEA,Austria,Online,2023-04-19,2023-05-27,Secondary,1.0,0.0,
+ACL 2023 Fall,Aegis Champion League/2023 Season/Fall Season,Aegis Champion League,North America,United States,Online,2023-09-22,2023-11-04,Secondary,0.0,0.0,Fall
+ACL 2023 Fall Playoffs,Aegis Champion League/2023 Season/Fall Playoffs,Aegis Champion League,North America,United States,Online,2023-11-10,2023-12-15,Secondary,1.0,0.0,Fall
+ACL 2023 Summer,Aegis Champion League/2023 Season/Summer Season,Aegis Champion League,North America,United States,Online,2023-06-02,2023-07-21,Secondary,0.0,0.0,Summer
+ACL 2023 Summer Playoffs,Aegis Champion League/2023 Season/Summer Playoffs,Aegis Champion League,North America,United States,Online,2023-07-24,2023-08-18,Secondary,1.0,0.0,Summer
+AEC 2023,2023 Asia Esports Championship,Asia Esports Championship,Asia Pacific,Taiwan,Offline,2023-08-14,2023-09-03,Secondary,0.0,0.0,
+AEC 2023 Blue Magpie Open Qualifiers,2023 Asia Esports Championship/Blue Magpie Open Qualifiers,Asia Esports Championship,Asia Pacific,Taiwan,Offline,2023-06-30,2023-07-05,Secondary,0.0,0.0,
+AEC 2023 Emerald Tree Frog Open Qualifiers,2023 Asia Esports Championship/Emerald Tree Frog Open Qualifiers,Asia Esports Championship,Asia Pacific,Taiwan,Offline,2023-07-06,2023-08-09,Secondary,0.0,0.0,
+AEC 2023 Landlocked Salmon Open Qualifiers,2023 Asia Esports Championship/Landlocked Salmon Open Qualifiers,Asia Esports Championship,Asia Pacific,Taiwan,Offline,2023-07-11,2023-07-12,Secondary,0.0,0.0,
+AEC 2023 Leopard Cat Open Qualifiers,2023 Asia Esports Championship/Leopard Cat Open Qualifiers,Asia Esports Championship,Asia Pacific,Taiwan,Offline,2023-07-28,2023-08-02,Secondary,0.0,0.0,
+AEC 2023 Pangolin Open Qualifiers,2023 Asia Esports Championship/Pangolin Open Qualifiers,Asia Esports Championship,Asia Pacific,Taiwan,Offline,2023-07-14,2023-07-19,Secondary,0.0,0.0,
+AEC 2023 Sika Deer Open Qualifiers,2023 Asia Esports Championship/Sika Deer Open Qualifiers,Asia Esports Championship,Asia Pacific,Taiwan,Offline,2023-07-21,2023-07-26,Secondary,0.0,0.0,
+Alicante Digital Gaming 2023,Alicante Digital Gaming 2023,Alicante Digital Gaming,EMEA,Spain,Offline,2023-01-14,2023-01-14,Secondary,1.0,0.0,
+Alicante Digital Gaming 2023 Online Tournament,Alicante Digital Gaming 2023/Online Tournament,Alicante Digital Gaming,EMEA,Spain,Online,2023-01-14,2023-01-15,Secondary,1.0,0.0,
+Alicante Digital Gaming 2023 Qualifier 1,Alicante Digital Gaming 2023/Qualifier 1,Alicante Digital Gaming,EMEA,Spain,Online,2023-01-07,2023-01-07,Secondary,0.0,1.0,
+Alicante Digital Gaming 2023 Qualifier 2,Alicante Digital Gaming 2023/Qualifier 2,Alicante Digital Gaming,EMEA,Spain,Online,2023-01-08,2023-01-08,Secondary,0.0,1.0,
+Amazon University Esports Italia 2023,Amazon University Esports Italia 2023,Amazon University Esports Italia,EMEA,Italy,Online,2023-04-12,2023-05-25,Secondary,0.0,0.0,
+Arabian League 2023 Spring,Arabian League/2023 Season/Spring Split,Arabian League,EMEA,Arab League,Online,2023-02-01,2023-03-11,Secondary,0.0,0.0,Spring
+Arabian League 2023 Spring Playoffs,Arabian League/2023 Season/Spring Playoffs,Arabian League,EMEA,Arab League,Online,2023-03-09,2023-03-30,Secondary,1.0,0.0,Spring
+Arabian League 2023 Summer,Arabian League/2023 Season/Summer Split,Arabian League,EMEA,Arab League,Online,2023-06-13,2023-07-26,Secondary,0.0,0.0,Summer
+Arabian League 2023 Summer Playoffs,Arabian League/2023 Season/Summer Playoffs,Arabian League,EMEA,Arab League,Online,2023-08-08,2023-08-11,Secondary,1.0,0.0,Summer
+Arabian League 2023 Summer Promotion,Arabian League/2023 Season/Summer Promotion,Arabian League,EMEA,Arab League,Online,2023-04-12,2023-04-19,Secondary,0.0,1.0,
+Arabian League 2nd Division 2023 Spring,Arabian League 2nd Division/2023 Season/Spring Split,Arabian League 2nd Division,EMEA,Arab League,Online,2023-02-01,2023-03-08,Secondary,0.0,0.0,Spring
+Arabian League 2nd Division 2023 Spring Playoffs,Arabian League 2nd Division/2023 Season/Spring Playoffs,Arabian League 2nd Division,EMEA,Arab League,Online,2023-03-09,2023-03-29,Secondary,1.0,0.0,Spring
+Arabian League 2nd Division 2023 Summer,Arabian League 2nd Division/2023 Season/Summer Split,Arabian League 2nd Division,EMEA,Arab League,Online,2023-06-13,2023-07-26,Secondary,0.0,0.0,Summer
+Arabian League 2nd Division 2023 Summer Playoffs,Arabian League 2nd Division/2023 Season/Summer Playoffs,Arabian League 2nd Division,EMEA,Arab League,Online,2023-08-16,2023-08-19,Secondary,1.0,0.0,Spring
+Armony League 2023 Winter,Armony League/2023 Season/Winter Season,Armony League,Latin America,Mexico,Online,2023-02-11,2023-03-05,Secondary,0.0,0.0,
+Armony League 2023 Winter Playoffs,Armony League/2023 Season/Winter Playoffs,Armony League,Latin America,Mexico,Online,2023-03-11,2023-04-01,Secondary,1.0,0.0,
+arrMY Open Season 1 Playoffs,ArrMY Open/Season 1/Playoffs,arrMY Open,EMEA,Poland,Online,2023-06-25,2023-06-29,Secondary,1.0,0.0,Spring
+arrMY Open Season 1 Regular,ArrMY Open/Season 1/Regular,arrMY Open,EMEA,Poland,Online,2023-05-17,2023-06-22,Secondary,0.0,0.0,Spring
+arrMY Open Season 2 Playoffs,ArrMY Open/Season 2/Playoffs,arrMY Open,EMEA,Poland,Online,2023-10-28,2023-11-05,Secondary,1.0,0.0,Autumn
+arrMY Open Season 2 Regular,ArrMY Open/Season 2/Regular,arrMY Open,EMEA,Poland,Online,2023-09-21,2023-10-23,Secondary,0.0,0.0,Spring
+arrMY Rising Season 1 Open Qualifier 1,ArrMY Rising/Season 1/Open Qualifiers/Open Qualifier 1,arrMY Rising,EMEA,Poland,Online,2023-09-16,2023-09-16,Secondary,0.0,1.0,Autumn
+arrMY Rising Season 1 Open Qualifier 2,ArrMY Rising/Season 1/Open Qualifiers/Open Qualifier 2,arrMY Rising,EMEA,Poland,Online,2023-09-17,2023-09-17,Secondary,0.0,1.0,Autumn
+arrMY Rising Season 1 Playoffs,ArrMY Rising/Season 1/Playoffs,arrMY Rising,EMEA,Poland,Online,2023-10-27,2023-10-29,Secondary,1.0,0.0,Autumn
+arrMY Rising Season 1 Regular,ArrMY Rising/Season 1/Regular,arrMY Rising,EMEA,Poland,Online,2023-09-21,2023-10-15,Secondary,0.0,0.0,Autumn
+arrMY Summer Cup 2023,ArrMY Summer Cup 2023,arrMY Cup,EMEA,Poland,Online,2023-08-04,2023-09-03,Secondary,0.0,0.0,
+Asia Star Challengers Invitational 2023,2023 Asia Star Challengers Invitational,Asia Star Challengers Invitational,International,,,2023-09-03,2023-09-15,Secondary,0.0,0.0,
+Asian Games 2022,2022 Asian Games,Asian Games 2018,Asia,China,Offline,2023-09-25,2023-09-29,Secondary,0.0,1.0,
+AUEM 2023 Last Chance Qualifier,University Esports Masters 2023/Last Chance Qualifier,University Esports Masters,EMEA,Europe,Online,2023-05-13,2023-05-13,Secondary,0.0,1.0,
+AUEM 2023 MENA Finals,University Esports Masters 2023/MENA Finals,University Esports Masters,EMEA,Europe,Offline,2023-07-13,2023-07-14,Secondary,1.0,0.0,
+AUEM 2023 Playoffs,University Esports Masters 2023/Playoffs,University Esports Masters,EMEA,Europe,Online/Offline,2023-05-28,2023-07-08,Secondary,1.0,0.0,
+AUEM 2023 Qualification Bracket,University Esports Masters 2023/Qualification Bracket,University Esports Masters,EMEA,Europe,Online,2023-03-18,2023-03-19,Secondary,0.0,1.0,
+Aurora Cup 2023 Main Event,Aurora Cup 2023/Main Event,NLC Aurora Open,EMEA,,Online,2023-10-02,2023-11-08,Secondary,1.0,0.0,
+Aurora Cup 2023 Play-In,Aurora Cup 2023/Play-In,NLC Aurora Open,EMEA,,Online,2023-09-25,2023-09-29,Secondary,0.0,1.0,
+Baltic Playground 2023 Promotional Regular,Baltic Playground/2023 Season/Promotional Regular,Baltic Playground,EMEA,Poland,Online,2023-09-15,2023-09-17,Secondary,0.0,1.0,
+Baltic Playground 2023 Spring,Baltic Playground/2023 Season/Spring Split,Baltic Playground,EMEA,Poland,Online,2023-03-11,2023-04-16,Secondary,0.0,0.0,Spring
+Baltic Playground 2023 Spring Playoffs,Baltic Playground/2023 Season/Spring Playoffs,Baltic Playground,EMEA,Poland,Online,2023-04-28,2023-04-30,Secondary,1.0,0.0,Spring
+Baltic Playground 2023 Spring Qualifier 1,Baltic Playground/2023 Season/Spring Qualifiers/Qualifier 1,Baltic Playground,EMEA,Poland,Online,2023-02-24,2023-02-24,Secondary,0.0,1.0,Spring
+Baltic Playground 2023 Spring Qualifier 2,Baltic Playground/2023 Season/Spring Qualifiers/Qualifier 2,Baltic Playground,EMEA,Poland,Online,2023-03-02,2023-03-02,Secondary,0.0,1.0,Spring
+Baltic Playground 2023 Spring Qualifier 3,Baltic Playground/2023 Season/Spring Qualifiers/Qualifier 3,Baltic Playground,EMEA,Poland,Online,2023-03-04,2023-03-04,Secondary,0.0,1.0,Spring
+Baltic Playground 2023 Summer,Baltic Playground/2023 Season/Summer Split,Baltic Playground,EMEA,Poland,Online,2023-05-28,2023-08-13,Secondary,0.0,0.0,Summer
+Baltic Playground 2023 Summer Playoffs,Baltic Playground/2023 Season/Summer Playoffs,Baltic Playground,EMEA,Poland,Online,2023-08-25,2023-08-27,Secondary,1.0,0.0,Summer
+Baltic Playground 2023 Summer Qualifier 1,Baltic Playground/2023 Season/Summer Qualifiers/Qualifier 1,Baltic Playground,EMEA,Poland,Online,2023-05-14,2023-05-14,Secondary,0.0,1.0,Summer
+Baltic Playground 2023 Summer Qualifier 2,Baltic Playground/2023 Season/Summer Qualifiers/Qualifier 2,Baltic Playground,EMEA,Poland,Online,2023-05-21,2023-05-21,Secondary,0.0,1.0,Summer
+Beltway Battles 2023,Beltway Battles 2023,Beltway Battles,North America,United States,Online/Offline,2023-10-06,2023-11-11,Secondary,1.0,0.0,
+Blooming Talents League 2023 Split 1,Blooming Talents League/2023 Season/Split 1,Blooming Talents League,EMEA,Italy,Online,2023-05-23,2023-06-21,Secondary,0.0,0.0,Split 1
+Blooming Talents League 2023 Split 1 Playoffs,Blooming Talents League/2023 Season/Split 1 Playoffs,Blooming Talents League,EMEA,Italy,Online,2023-06-27,2023-07-02,Secondary,1.0,0.0,Split 1
+Bredase Esports Kampioenschappen 2023,Bredase Esports Kampioenschappen 2023,Bredase Esports Kampioenschappen,EMEA,Netherlands,Online,2023-07-08,2023-07-08,Secondary,0.0,0.0,
+CBLOL 2023 Split 1,CBLOL/2023 Season/Split 1,Circuit Brazilian League of Legends,Brazil,Brazil,Offline,2023-01-21,2023-03-19,Primary,0.0,0.0,Split 1
+CBLOL 2023 Split 1 Playoffs,CBLOL/2023 Season/Split 1 Playoffs,Circuit Brazilian League of Legends,Brazil,Brazil,Offline,2023-03-24,2023-04-15,Primary,1.0,0.0,Split 1
+CBLOL 2023 Split 2,CBLOL/2023 Season/Split 2,Circuit Brazilian League of Legends,Brazil,Brazil,Offline,2023-06-10,2023-08-06,Primary,0.0,0.0,Split 2
+CBLOL 2023 Split 2 Playoffs,CBLOL/2023 Season/Split 2 Playoffs,Circuit Brazilian League of Legends,Brazil,Brazil,Offline,2023-08-11,2023-09-09,Primary,1.0,0.0,Split 2
+CBLOL Academy 2023 Split 1,CBLOL Academy/2023 Season/Split 1,Circuit Brazilian League of Legends Academy,Brazil,Brazil,Online,2023-01-23,2023-03-21,Secondary,0.0,0.0,Split 1
+CBLOL Academy 2023 Split 1 Playoffs,CBLOL Academy/2023 Season/Split 1 Playoffs,Circuit Brazilian League of Legends Academy,Brazil,Brazil,Online,2023-03-27,2023-04-22,Secondary,1.0,0.0,Split 1
+CBLOL Academy 2023 Split 2,CBLOL Academy/2023 Season/Split 2,Circuit Brazilian League of Legends Academy,Brazil,Brazil,Online,2023-06-12,2023-08-08,Secondary,0.0,0.0,Split 2
+CBLOL Academy 2023 Split 2 Playoffs,CBLOL Academy/2023 Season/Split 2 Playoffs,Circuit Brazilian League of Legends Academy,Brazil,Brazil,Online,2023-08-14,2023-09-02,Secondary,1.0,0.0,Split 2
+CBOLÃO Season 5,CBOLÃO/Season 5,CBOLÃO,Brazil,Brazil,Offline,2023-06-03,2023-06-04,Secondary,0.0,0.0,
+CBOLÃO Season 5 Qualifier,CBOLÃO/Season 5/Qualifier,CBOLÃO,Brazil,Brazil,Offline,2023-05-22,2023-05-27,Secondary,0.0,0.0,
+CBOLÃO Season 6,CBOLÃO/Season 6,CBOLÃO,Brazil,Brazil,Offline,2023-12-01,2023-12-03,Secondary,0.0,0.0,
+Celestial Cup 2023,Celestial Cup 2023,Celestial Cup,EMEA,Tunisia,Online/Offline,2023-12-07,2023-12-21,Secondary,0.0,0.0,
+Circuito Tormenta 22-23,Circuito Tormenta 2023,Circuito Tormenta,EMEA,Spain,Online,2023-06-30,2023-07-23,Secondary,1.0,0.0,
+Circuito Tormenta Italy 2023,Circuito Tormenta Italy 2023,Circuito Tormenta Italy,EMEA,Italy,Online,,,Secondary,1.0,0.0,
+CLOL 2023 Championship,College League of Legends/2023 Season/Championship,College League of Legends,North America,United States,Online/Offline,2023-04-22,2023-06-06,Secondary,1.0,0.0,
+Coca-Cola STAGE:0 eSPORTS High-School Championship 2023,Coca-Cola STAGE:0 eSPORTS High-School Championship 2023,STAGE:0 eSPORTS High-School Championship,Japan,Japan,Online/Offline,2023-06-03,2023-08-07,Showmatch,1.0,0.0,
+Comic Con Baltics 2023,Comic Con Baltics 2023,Comic Con Baltics,EMEA,Lithuania,Online/Offline,2023-10-04,2023-10-21,Secondary,1.0,0.0,
+Copa Naciones 2023,Copa Naciones 2023,Copa Naciones,Latin America,,Online,2023-04-17,2023-04-30,Showmatch,0.0,0.0,
+Copa Naciones 2023 Main Event,Copa Naciones 2023/Main Event,Copa Naciones,Latin America,,Online,2023-04-24,2023-04-30,Showmatch,0.0,0.0,
+Copa Naciones 2023 Play-In,Copa Naciones 2023/Play-In,Copa Naciones,Latin America,,Online,2023-04-17,2023-04-23,Showmatch,0.0,0.0,
+Coupe de France 2023,Coupe de France 2023,Coupe de France,EMEA,France,Online/Offline,2023-09-26,2023-11-01,Secondary,1.0,0.0,
+Coupe de France 2023 Qualifier 1,Coupe de France 2023/Qualifiers/Qualifier 1,Coupe de France,EMEA,France,Online,2023-09-02,2023-09-03,Secondary,0.0,1.0,
+Coupe de France 2023 Qualifier 2,Coupe de France 2023/Qualifiers/Qualifier 2,Coupe de France,EMEA,France,Online,2023-09-23,2023-09-24,Secondary,0.0,1.0,
+Coupe des Étoiles 2023,Coupe des Étoiles 2023,Coupe des Étoiles,EMEA,,Online/Offline,2023-10-16,2023-10-31,Secondary,1.0,0.0,
+Coupe des Étoiles 2023 Open Qualifier 1,Coupe des Étoiles 2023/Open Qualifier 1,Coupe des Étoiles,EMEA,,Online,2023-09-04,2023-09-04,Secondary,1.0,0.0,
+Coupe des Étoiles 2023 Open Qualifier 2,Coupe des Étoiles 2023/Open Qualifier 2,Coupe des Étoiles,EMEA,,Online,2023-09-05,2023-09-05,Secondary,1.0,0.0,
+Csl 5G HKPL Season 1,Csl 5G Hong Kong Esports Premier League Season 1,Csl 5G Hong Kong Esports Premier League,Asia Pacific,Hong Kong,Offline,2021-02-27,2021-02-27,Secondary,0.0,0.0,
+Dantes Invitational,Dantes Invitational,Dantes Invitational,North America,,Online,2023-12-15,2023-12-20,Secondary,0.0,0.0,
+DDH 2023 Opening,División de Honor/2023 Season/Opening Season,LVP División de Honor,Latin America,Mexico,Online,2023-01-12,2023-02-25,Secondary,0.0,0.0,
+DDH 2023 Opening Playoffs,División de Honor/2023 Season/Opening Playoffs,LVP División de Honor,Latin America,Mexico,Online,2023-03-02,2023-03-30,Secondary,1.0,0.0,
+DDH 2023 Opening Promotion,División de Honor/2023 Season/Opening Promotion,LVP División de Honor,Latin America,Mexico,Online,2022-07-20,2022-07-20,Secondary,0.0,1.0,
+Demacia Cup 2023,Demacia Cup 2023,Demacia Cup,China,China,Online/Offline,2023-12-25,2024-01-06,Primary,0.0,0.0,Season
+Dr Pepper Winter Cup 2023,Dr Pepper Winter Cup 2023,arrMY,EMEA,Poland,Online,2023-11-22,2023-12-15,Secondary,0.0,0.0,
+Dr Pepper Winter Cup 2023 - Parszywa Piątka Veggiego Showmatch,Dr Pepper Winter Cup 2023/Parszywa Piątka Veggiego Showmatch,arrMY,EMEA,Poland,Offline,2023-12-16,2023-12-16,Showmatch,0.0,0.0,
+DreamHack Winter 2023,DreamHack Winter 2023,DreamHack,Europe,Sweden,Offline,2023-11-25,2023-11-25,Secondary,0.0,0.0,
+Drututt Ultimate Showdown,Drututt Ultimate Showdown,Drututt Ultimate Showdown,EMEA,Europe,Online,2023-09-22,2023-09-24,Secondary,0.0,0.0,
+Drututt Ultimate Showdown 2,Drututt Ultimate Showdown 2,Drututt Ultimate Showdown,EMEA,Europe,Online,2023-12-07,2023-12-13,Secondary,0.0,0.0,
+Duelo de Reyes 2023,Duelo de Reyes 2023,Duelo de Reyes,Latin America,Argentina,Offline,2023-10-15,2023-10-15,Secondary,0.0,0.0,
+Dutch College League Season 9,Dutch College League/Premier League/Season 9,Dutch College League,EMEA,Netherlands,Online,2023-01-11,2023-02-08,Secondary,0.0,0.0,
+Dutch Student League Season 2,Dutch Student League/Season 2,Dutch Student League,EMEA,Netherlands,Online,2023-02-13,2023-06-03,Secondary,0.0,0.0,
+EBL 2023 Closed Qualifier,Esports Balkan League/2023 Season/Promotion/Closed Qualifier,Esports Balkan League,Europe,Serbia,Online,2022-09-19,2022-09-20,Secondary,0.0,1.0,
+EBL 2023 Open Qualifier 1,Esports Balkan League/2023 Season/Promotion/Open Qualifier 1,Esports Balkan League,Europe,Serbia,Online,2022-09-17,2022-09-17,Secondary,0.0,1.0,
+EBL 2023 Open Qualifier 2,Esports Balkan League/2023 Season/Promotion/Open Qualifier 2,Esports Balkan League,Europe,Serbia,Online,2022-09-18,2022-09-18,Secondary,0.0,1.0,
+EBL 2023 Pro-Am,Esports Balkan League/2023 Season/Pro-Am,EBL2021 Pro-Am,EMEA,Serbia,Online,2023-09-28,2023-10-07,Secondary,0.0,0.0,
+EBL 2023 Pro-Am Open Qualifier 1,Esports Balkan League/2023 Season/Pro-Am/Qualifiers/Open Qualifier 1,EBL2021 Pro-Am,EMEA,Serbia,Online,2023-09-23,2023-09-23,Secondary,0.0,1.0,
+EBL 2023 Pro-Am Open Qualifier 2,Esports Balkan League/2023 Season/Pro-Am/Qualifiers/Open Qualifier 2,EBL2021 Pro-Am,EMEA,Serbia,Online,2023-09-24,2023-09-24,Secondary,0.0,1.0,
+EBL 2023 Promotion,Esports Balkan League/2023 Season/Promotion,Esports Balkan League,Europe,Serbia,Online,2022-09-23,2022-09-27,Secondary,0.0,1.0,
+EBL 2023 Spring,Esports Balkan League/2023 Season/Spring Split,Esports Balkan League,EMEA,Serbia,Online,2023-01-25,2023-03-10,Secondary,0.0,0.0,Spring
+EBL 2023 Spring Playoffs,Esports Balkan League/2023 Season/Spring Playoffs,Esports Balkan League,EMEA,Serbia,Online,2023-03-16,2023-04-01,Secondary,1.0,0.0,
+EBL 2023 Summer,Esports Balkan League/2023 Season/Summer Split,Esports Balkan League,EMEA,Serbia,Online,2023-06-07,2023-07-21,Secondary,0.0,0.0,Summer
+EBL 2023 Summer Playoffs,Esports Balkan League/2023 Season/Summer Playoffs,Esports Balkan League,EMEA,Serbia,Online,2023-07-26,2023-08-12,Secondary,1.0,0.0,
+Eindhoven Game Festival 2023 Showmatch,Eindhoven Game Festival 2023 Showmatch,Eindhoven Game Festival,EMEA,Netherlands,Offline,2023-04-22,2023-04-22,Secondary,0.0,0.0,
+EL 2023 Opening,Elements League/2023 Season/Opening Season,Elements League,Latin America,,Online,2023-01-13,2023-03-03,Secondary,0.0,0.0,
+EL 2023 Opening Playoffs,Elements League/2023 Season/Opening Playoffs,Elements League,Latin America,,Online,2023-03-10,2023-03-24,Secondary,1.0,0.0,
+EL 2023 Opening Promotion,Elements League/2023 Season/Opening Promotion,Elements League,Latin America,,Online,2022-07-18,2022-07-18,Secondary,0.0,1.0,
+Elite Series 2023 Benelux Masters,Elite Series/2023 Season/Benelux Masters,Elite Series: League of Legends,EMEA,Belgium,Online,2023-10-10,2023-11-12,Secondary,1.0,0.0,BLX Masters
+Elite Series 2023 Promotion,Elite Series/2023 Season/Promotion,Elite Series: League of Legends,Europe,Belgium,Online,2022-09-12,2022-09-20,Secondary,0.0,1.0,
+Elite Series 2023 Spring,Elite Series/2023 Season/Spring Split,Elite Series: League of Legends,EMEA,Belgium,Online,2023-01-24,2023-03-09,Secondary,0.0,0.0,Spring
+Elite Series 2023 Spring Playoffs,Elite Series/2023 Season/Spring Playoffs,Elite Series: League of Legends,EMEA,Belgium,Online,2023-03-21,2023-03-30,Secondary,1.0,0.0,Spring
+Elite Series 2023 Summer,Elite Series/2023 Season/Summer Split,Elite Series: League of Legends,EMEA,Belgium,Online,2023-06-06,2023-07-20,Secondary,0.0,0.0,Summer
+Elite Series 2023 Summer Playoffs,Elite Series/2023 Season/Summer Playoffs,Elite Series: League of Legends,EMEA,Belgium,Online/Offline,2023-08-01,2023-08-12,Secondary,1.0,0.0,Summer
+Elite Series 2nd Division 2023 Spring,Elite Series 2nd Division/2023 Season/Spring Split,Elite Series 2nd Division,EMEA,Belgium,Online,2023-01-25,2023-03-19,Secondary,0.0,0.0,Spring
+Elite Series 2nd Division 2023 Spring Closed Qualifier,Elite Series 2nd Division/2023 Season/Spring Qualifiers,Elite Series 2nd Division,EMEA,Belgium,Online,2023-01-21,2023-01-22,Secondary,0.0,1.0,Spring
+Elite Series 2nd Division 2023 Spring Open Qualifier,Elite Series 2nd Division/2023 Season/Spring Qualifiers/Open Qualifier,Elite Series 2nd Division,EMEA,Belgium,Online,2023-01-18,2023-01-19,Secondary,0.0,1.0,Spring
+Elite Series 2nd Division 2023 Spring Playoffs,Elite Series 2nd Division/2023 Season/Spring Playoffs,Elite Series 2nd Division,EMEA,Belgium,Online,2023-03-22,2023-03-31,Secondary,1.0,0.0,Spring
+Elite Series 2nd Division 2023 Summer,Elite Series 2nd Division/2023 Season/Summer Split,Elite Series 2nd Division,EMEA,Belgium,Online,2023-06-07,2023-07-21,Secondary,0.0,0.0,Summer
+Elite Series 2nd Division 2023 Summer Playoffs,Elite Series 2nd Division/2023 Season/Summer Playoffs,Elite Series 2nd Division,EMEA,Belgium,Online,2023-07-25,2023-08-04,Secondary,1.0,0.0,Summer
+Elite Series Amateur Circuit 2023 Spring Open 1,Elite Series Amateur Circuit/2023 Season/Spring Open Tournaments/Open 1,Elite Series Amateur Circuit,EMEA,Belgium,Online,2023-02-04,2023-02-05,Secondary,0.0,0.0,
+Elite Series Amateur Circuit 2023 Spring Open 2,Elite Series Amateur Circuit/2023 Season/Spring Open Tournaments/Open 2,Elite Series Amateur Circuit,EMEA,Belgium,Online,2023-03-04,2023-03-05,Secondary,0.0,0.0,
+Elite Series Amateur Circuit 2023 Spring Open 3,Elite Series Amateur Circuit/2023 Season/Spring Open Tournaments/Open 3,Elite Series Amateur Circuit,EMEA,Belgium,Online,2023-04-08,2023-04-09,Secondary,0.0,0.0,
+Elite Series Amateur Circuit 2023 Spring Playoffs,Elite Series Amateur Circuit/2023 Season/Spring Playoffs,Elite Series Amateur Circuit,EMEA,Belgium,Online,2023-04-28,2023-05-03,Secondary,1.0,1.0,
+Elite Series Amateur Circuit 2023 Summer Open 1,Elite Series Amateur Circuit/2023 Season/Summer Open Tournaments/Open 1,Elite Series Amateur Circuit,EMEA,Belgium,Online,2023-06-17,2023-06-18,Secondary,0.0,0.0,
+Elite Series Amateur Circuit 2023 Summer Open 2,Elite Series Amateur Circuit/2023 Season/Summer Open Tournaments/Open 2,Elite Series Amateur Circuit,EMEA,Belgium,Online,2023-07-01,2023-07-02,Secondary,0.0,0.0,
+Elite Series Amateur Circuit 2023 Summer Open 3,Elite Series Amateur Circuit/2023 Season/Summer Open Tournaments/Open 3,Elite Series Amateur Circuit,EMEA,Belgium,Online,2023-07-15,2023-07-16,Secondary,0.0,0.0,
+Elite Series Amateur Circuit 2023 Summer Playoffs,Elite Series Amateur Circuit/2023 Season/Summer Playoffs,Elite Series Amateur Circuit,EMEA,Belgium,Online,2023-07-22,2023-08-08,Secondary,1.0,0.0,
+Elite500 x Sidekick Nations Cup,Elite500 x Sidekick Nations Cup,Elite500 x Sidekick Nations Cup,EMEA,Europe,Online,2023-10-06,2023-10-08,Secondary,0.0,0.0,
+Elite500 x Sidekick Nations Cup Community Tournament,Elite500 x Sidekick Nations Cup/Community Tournament,Elite500 x Sidekick Nations Cup,EMEA,Europe,Online,2023-09-30,2023-10-01,Secondary,0.0,1.0,
+EM 2023 Spring Main Event,EMEA Masters/2023 Season/Spring Main Event,EMEA Masters,EMEA,,Online,2023-04-11,2023-04-29,Secondary,0.0,0.0,Spring
+EM 2023 Spring Play-In,EMEA Masters/2023 Season/Spring Play-In,EMEA Masters,EMEA,,Online,2023-04-04,2023-04-07,Secondary,0.0,1.0,Spring
+EM 2023 Summer Main Event,EMEA Masters/2023 Season/Summer Main Event,EMEA Masters,EMEA,,"Online, Offline (Final)",2023-08-21,2023-09-08,Secondary,0.0,0.0,Summer
+EM 2023 Summer Play-In,EMEA Masters/2023 Season/Summer Play-In,EMEA Masters,EMEA,,Online,2023-08-14,2023-08-17,Secondary,0.0,1.0,Summer
+Empresses Showdown,Empresses Showdown,Empresses Showdown,EMEA,Poland,Offline,2023-12-02,2023-12-03,Secondary,0.0,0.0,
+Empyrean Cup 2023,Empyrean Cup 2023,Empyrean Cup,Asia Pacific,Philippines,Offline,2023-11-03,2023-11-05,,,,
+Equal Esports Cup 2023,Equal Esports Cup 2023,Equal Esports Cup,EMEA,Germany,Offline,2023-09-20,2023-09-21,Secondary,1.0,0.0,
+Equal Esports Cup 2023 Closed Qualifier 1,Equal Esports Cup 2023/Closed Qualifier 1,Equal Esports Cup,EMEA,Germany,Online,2023-06-03,2023-06-04,Secondary,0.0,0.0,
+Equal Esports Cup 2023 Closed Qualifier 2,Equal Esports Cup 2023/Closed Qualifier 2,Equal Esports Cup,EMEA,Germany,Online,2023-07-01,2023-07-02,Secondary,0.0,0.0,
+Equal Esports Cup 2023 Closed Qualifier 3,Equal Esports Cup 2023/Closed Qualifier 3,Equal Esports Cup,EMEA,Germany,Online,2023-07-29,2023-07-30,Secondary,0.0,0.0,
+Equal Esports Cup 2023 Closed Qualifier 4,Equal Esports Cup 2023/Closed Qualifier 4,Equal Esports Cup,EMEA,Germany,Online,2023-09-02,2023-09-03,Secondary,0.0,0.0,
+Equal Esports Cup 2023 Open Qualifier 1,Equal Esports Cup 2023/Open Qualifier 1,Equal Esports Cup,EMEA,Germany,Online,2023-06-02,2023-06-02,Secondary,0.0,1.0,
+Equal Esports Cup 2023 Open Qualifier 2,Equal Esports Cup 2023/Open Qualifier 2,Equal Esports Cup,EMEA,Germany,Online,2023-06-30,2023-06-30,Secondary,0.0,1.0,
+Equal Esports Cup 2023 Open Qualifier 3,Equal Esports Cup 2023/Open Qualifier 3,Equal Esports Cup,EMEA,Germany,Online,2023-07-28,2023-07-28,Secondary,0.0,1.0,
+Equal Esports Cup 2023 Open Qualifier 4,Equal Esports Cup 2023/Open Qualifier 4,Equal Esports Cup,EMEA,Germany,Online,2023-09-01,2023-09-01,Secondary,0.0,1.0,
+Esports Championships East Asia 2023,2023 Esports Championships East Asia,Esports Championships East Asia,Asia,South Korea,Offline,2023-12-15,2023-12-17,Secondary,0.0,0.0,
+Esports Series Madrid 2023,Esports Series Madrid 2023,Esports Series Madrid,EMEA,Spain,Offline,2023-03-25,2023-03-25,Secondary,1.0,0.0,
+Esports Series Madrid 2023 Online Qualifier,Esports Series Madrid 2023/Online Qualifier,Esports Series Madrid,EMEA,Spain,Online,2023-03-12,2023-03-12,Secondary,0.0,1.0,
+Esports Series Madrid 2023 Online Qualifier 1,Esports Series Madrid 2023/Online Qualifier/Qualifier 1,Esports Series Madrid,EMEA,Spain,Online,2023-03-10,2023-03-10,Secondary,0.0,1.0,
+Esports Series Madrid 2023 Online Qualifier 2,Esports Series Madrid 2023/Online Qualifier/Qualifier 2,Esports Series Madrid,EMEA,Spain,Online,2023-03-11,2023-03-11,Secondary,0.0,1.0,
+Esports Series Madrid 2023 Online Tournament,Esports Series Madrid 2023/Online Tournament,Esports Series Madrid,EMEA,Spain,Online,2023-03-25,2023-03-26,Secondary,0.0,0.0,
+Esports Series Madrid 23-24,Esports Series Madrid 23-24,Esports Series Madrid,EMEA,Spain,Offline,2023-12-03,2023-12-03,Secondary,1.0,0.0,
+Esports Series Madrid 23-24 Online Qualifier,Esports Series Madrid 23-24/Online Qualifier,Esports Series Madrid,EMEA,Spain,Online,2023-11-12,2023-11-12,Secondary,0.0,1.0,
+Esports Series Madrid 23-24 Online Qualifier 1,Esports Series Madrid 23-24/Online Qualifier/Qualifier 1,Esports Series Madrid,EMEA,Spain,Online,2023-11-10,2023-11-10,Secondary,0.0,1.0,
+Esports Series Madrid 23-24 Online Qualifier 2,Esports Series Madrid 23-24/Online Qualifier/Qualifier 2,Esports Series Madrid,EMEA,Spain,Online,2023-11-11,2023-11-12,Secondary,0.0,1.0,
+Esports Series Madrid 23-24 Online Tournament,Esports Series Madrid 23-24/Online Tournament,Esports Series Madrid,EMEA,Spain,Online,2023-12-02,2023-12-03,Secondary,0.0,0.0,
+Esports Shanghai Masters 2023,Esports Shanghai Masters 2023,Esports Shanghai Masters,Asia,China,Offline,2023-12-01,2023-12-02,Showmatch,0.0,0.0,
+European Pro League Season 1,European Pro League/Season 1,European Pro League,EMEA,Europe,Online,2023-06-08,2023-07-03,Secondary,0.0,0.0,
+FPL 2023 Autumn,Finnish Pro League/2023 Season/Autumn Season,Finnish Pro League,EMEA,Finland,Online,2023-08-31,2023-10-15,Secondary,0.0,0.0,
+FPL 2023 Autumn Playoffs,Finnish Pro League/2023 Season/Autumn Playoffs,Finnish Pro League,EMEA,Finland,Online,2023-10-19,2023-11-05,Secondary,1.0,0.0,
+GAME 23,GAME 23,GAME 23,EMEA,Belgium,Offline,2023-02-24,2023-02-26,Secondary,1.0,0.0,
+GAME 24,GAME 24,GAME 23,EMEA,Belgium,Offline,2024-02-23,2024-02-24,Secondary,1.0,0.0,
+GAME 25,GAME 25,GAME 23,EMEA,Belgium,Offline,2025-03-22,2025-03-23,Secondary,1.0,0.0,
+Game Show Arena Itaú 2023,Game Show Arena Itaú 2023,Game Show Arena Itaú,Latin America,Chile,Online/Offline,2023-07-09,2023-08-14,Secondary,0.0,0.0,
+Game Show Arena Itaú 2023 Qualifiers,Game Show Arena Itaú 2023/Qualifiers,Game Show Arena Itaú,Latin America,Chile,Online,2023-07-01,2023-07-06,Secondary,0.0,0.0,
+GameMode Pro League 2023,GameMode Pro League 2023,GameMode Pro League,EMEA,Egypt,Online,2023-07-21,2023-07-23,Secondary,0.0,0.0,
+Gamepolis 2023,Gamepolis 2023,Gamepolis,EMEA,Spain,Offline,2023-07-21,2023-07-23,Secondary,1.0,0.0,
+Gamergy 23-24,Gamergy 23-24,Gamergy,EMEA,Spain,Offline,2023-12-17,2023-12-17,Secondary,1.0,0.0,
+Gamergy 23-24 Offline Qualifier,Gamergy 23-24/Offline Qualifier,Gamergy,EMEA,Spain,Offline,2023-12-16,2023-12-16,Secondary,0.0,1.0,
+Gamergy 23-24 Offline Qualifier 1,Gamergy 23-24/Offline Qualifier/Qualifier 1,Gamergy,EMEA,Spain,Offline,2023-12-15,2023-12-15,Secondary,0.0,1.0,
+Gamergy 23-24 Offline Qualifier 2,Gamergy 23-24/Offline Qualifier/Qualifier 2,Gamergy,EMEA,Spain,Offline,2023-12-16,2023-12-16,Secondary,0.0,1.0,
+Gamergy 23-24 Online Qualifier,Gamergy 23-24/Online Qualifier,Gamergy,EMEA,Spain,Online,2023-11-26,2023-11-26,Secondary,0.0,1.0,
+Gamergy 23-24 Online Qualifier 1,Gamergy 23-24/Online Qualifier/Qualifier 1,Gamergy,EMEA,Spain,Online,2023-11-24,2023-11-24,Secondary,0.0,1.0,
+Gamergy 23-24 Online Qualifier 2,Gamergy 23-24/Online Qualifier/Qualifier 2,Gamergy,EMEA,Spain,Online,2023-11-25,2023-11-25,Secondary,0.0,1.0,
+Gamergy 23-24 Online Tournament,Gamergy 23-24/Online Tournament,Gamergy,EMEA,Spain,Online,2023-12-09,2023-12-10,Secondary,1.0,0.0,
+Games.CON 2023,Games.CON 2023,Games.CON,EMEA,Serbia,Offline,2023-12-09,2023-12-10,Secondary,1.0,0.0,
+GIRLGAMER 2023 Cape Town Festival,GIRLGAMER 2023 Cape Town Festival,GIRLGAMER Esports Festival,Africa,South Africa,Offline,2023-10-26,2023-10-28,Secondary,1.0,0.0,
+GIRLGAMER 2023 Daejeon Festival,GIRLGAMER 2023 Daejeon Festival,GIRLGAMER Esports Festival,Asia,South Korea,Offline,2023-08-25,2023-08-27,Secondary,1.0,0.0,
+GIRLGAMER 2023 Dubai Festival,GIRLGAMER 2023 Dubai Festival,GIRLGAMER Esports Festival,EMEA,United Arab Emirates,Offline,,,Secondary,1.0,0.0,
+GL 2023 Opening,Golden League/2023 Season/Opening Season,Golden League,Latin America,Colombia,Online,2023-01-15,2023-02-27,Secondary,0.0,0.0,
+GL 2023 Opening Playoffs,Golden League/2023 Season/Opening Playoffs,Golden League,Latin America,Colombia,Online,2023-03-04,2023-03-27,Secondary,1.0,0.0,
+GL 2023 Opening Promotion,Golden League/2023 Season/Opening Promotion,Golden League,Latin America,Colombia,Online,2022-08-22,2022-08-30,Secondary,0.0,1.0,
+GL2D 2023 Spring,GL2D/2023 Season/Spring Season,Greek Legends League 2nd Division,EMEA,Greece,,2023-01-19,2023-03-06,Secondary,0.0,0.0,Spring
+GL2D 2023 Spring Playoffs,GL2D/2023 Season/Spring Playoffs,Greek Legends League 2nd Division,EMEA,Greece,,2023-03-09,2023-03-24,Secondary,1.0,0.0,Spring
+GL2D 2023 Summer,GL2D/2023 Season/Summer Season,Greek Legends League 2nd Division,EMEA,Greece,,2023-06-01,2023-07-08,Secondary,0.0,0.0,Summer
+GL2D 2023 Summer Playoffs,GL2D/2023 Season/Summer Playoffs,Greek Legends League 2nd Division,EMEA,Greece,,2023-07-13,2023-07-27,Secondary,1.0,0.0,Summer
+GL2D 2023 Summer Promotion,GL2D/2023 Season/Summer Promotion,Greek Legends League 2nd Division,EMEA,Greece,,2023-04-18,2023-04-20,Secondary,0.0,1.0,
+GLL 2023 Pro-Am,Greek Legends League/2023 Season/Pro-Am,GLL20 ProAm,EMEA,Greece,,2023-10-07,2023-10-25,Secondary,0.0,0.0,
+GLL 2023 Spring,Greek Legends League/2023 Season/Spring Season,Greek Legends League,EMEA,Greece,,2023-01-24,2023-03-08,Secondary,0.0,0.0,Spring
+GLL 2023 Spring Playoffs,Greek Legends League/2023 Season/Spring Playoffs,Greek Legends League,EMEA,Greece,,2023-03-14,2023-04-01,Secondary,1.0,0.0,
+GLL 2023 Spring Promotion,Greek Legends League/2023 Season/Spring Promotion,Greek Legends League,Europe,Greece,,2022-09-12,2022-09-20,Secondary,0.0,1.0,
+GLL 2023 Summer,Greek Legends League/2023 Season/Summer Season,Greek Legends League,EMEA,Greece,,2023-06-05,2023-07-12,Secondary,0.0,0.0,Summer
+GLL 2023 Summer Playoffs,Greek Legends League/2023 Season/Summer Playoffs,Greek Legends League,EMEA,Greece,,2023-07-18,2023-08-05,Secondary,1.0,0.0,
+GLWL 2023 Spring Promotion,GLWL/2023 Season/Spring Promotion,Greek Legends Wings League,Europe,Greece,,2022-09-17,2022-09-24,Secondary,0.0,1.0,
+Good Game-ligaen 2023 Autumn,Good Game-ligaen/2023 Season/Autumn Season,Good Game-ligaen,EMEA,Norway,,2023-08-20,2023-10-29,Secondary,0.0,0.0,
+Good Game-ligaen 2023 Autumn Playoffs,Good Game-ligaen/2023 Season/Autumn Playoffs,Good Game-ligaen,EMEA,Norway,,2023-11-03,2023-11-18,Secondary,1.0,0.0,
+Granada Gaming 2023,Granada Gaming 2023,Granada Gaming,EMEA,Spain,Offline,2023-04-23,2023-04-23,Secondary,1.0,0.0,
+Granada Gaming 2023 Offline Qualifier,Granada Gaming 2023/Offline Qualifier,Granada Gaming,EMEA,Spain,Offline,2023-04-22,2023-04-22,Secondary,0.0,1.0,
+Granada Gaming 2023 Online Qualifier,Granada Gaming 2023/Online Qualifier,Granada Gaming,EMEA,Spain,Online,2023-04-02,2023-04-02,Secondary,0.0,1.0,
+Granada Gaming 2023 Online Qualifier 1,Granada Gaming 2023/Online Qualifier/Qualifier 1,Granada Gaming,EMEA,Spain,Online,2023-03-31,2023-03-31,Secondary,0.0,1.0,
+Granada Gaming 2023 Online Qualifier 2,Granada Gaming 2023/Online Qualifier/Qualifier 2,Granada Gaming,EMEA,Spain,Online,2023-04-01,2023-04-01,Secondary,0.0,1.0,
+Granada Gaming 2023 Online Tournament,Granada Gaming 2023/Online Tournament,Granada Gaming,EMEA,Spain,Online,2023-04-08,2023-04-09,Secondary,1.0,0.0,
+Granada Gaming 23-24,Granada Gaming 23-24,Granada Gaming,EMEA,Spain,Offline,2023-10-22,2023-10-22,Secondary,1.0,0.0,
+Granada Gaming 23-24 Offline Qualifier,Granada Gaming 23-24/Offline Qualifier,Granada Gaming,EMEA,Spain,Offline,2023-10-21,2023-10-22,Secondary,0.0,1.0,
+Granada Gaming 23-24 Online Qualifier,Granada Gaming 23-24/Online Qualifier,Granada Gaming,EMEA,Spain,Online,2023-10-08,2023-10-08,Secondary,0.0,1.0,
+Granada Gaming 23-24 Online Qualifier 1,Granada Gaming 23-24/Online Qualifier/Qualifier 1,Granada Gaming,EMEA,Spain,Online,2023-10-06,2023-10-06,Secondary,0.0,1.0,
+Granada Gaming 23-24 Online Qualifier 2,Granada Gaming 23-24/Online Qualifier/Qualifier 2,Granada Gaming,EMEA,Spain,Online,2023-10-07,2023-10-07,Secondary,0.0,1.0,
+Granada Gaming 23-24 Online Tournament,Granada Gaming 23-24/Online Tournament,Granada Gaming,EMEA,Spain,Online,2023-10-21,2023-10-22,Secondary,1.0,0.0,
+HEH LAN 11,HEH LAN 11,HEH LAN,EMEA,Belgium,Offline,2023-03-31,2023-04-02,Secondary,1.0,0.0,
+Hextech Series 1st Div 22-23 Split 1,Hextech Series 1st Division/2023 Season/Split 1,Hextech Series 1st Division,EMEA,Spain,Online,2022-10-17,2022-11-29,Secondary,0.0,0.0,
+Hextech Series 1st Div 22-23 Split 2,Hextech Series 1st Division/2023 Season/Split 2,Hextech Series 1st Division,EMEA,Spain,Online,2023-02-13,2023-04-04,Secondary,0.0,0.0,
+Hextech Series 1st Div 22-23 Split 3,Hextech Series 1st Division/2023 Season/Split 3,Hextech Series 1st Division,EMEA,Spain,Online,2023-05-15,2023-06-26,Secondary,0.0,0.0,
+Hitpoint 2nd Div Challengers 2023 Spring,Hitpoint 2nd Division Challengers/2023 Season/Spring Season,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-02-01,2023-03-09,Secondary,0.0,0.0,Spring
+Hitpoint 2nd Div Challengers 2023 Spring Closed Qualifier,Hitpoint 2nd Division Challengers/2023 Season/Spring Qualifiers,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-01-21,2023-01-22,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2023 Spring Open Qualifier 1,Hitpoint 2nd Division Challengers/2023 Season/Spring Qualifiers/Open Qualifier 1,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-01-13,2023-01-13,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2023 Spring Open Qualifier 2,Hitpoint 2nd Division Challengers/2023 Season/Spring Qualifiers/Open Qualifier 2,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-01-15,2023-01-15,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2023 Spring Open Qualifier 3,Hitpoint 2nd Division Challengers/2023 Season/Spring Qualifiers/Open Qualifier 3,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-01-17,2023-01-17,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2023 Spring Playoffs,Hitpoint 2nd Division Challengers/2023 Season/Spring Playoffs,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-03-15,2023-03-29,Secondary,1.0,0.0,Spring
+Hitpoint 2nd Div Challengers 2023 Summer,Hitpoint 2nd Division Challengers/2023 Season/Summer Season,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-06-07,2023-07-09,Secondary,0.0,0.0,Summer
+Hitpoint 2nd Div Challengers 2023 Summer Closed Qualifier,Hitpoint 2nd Division Challengers/2023 Season/Summer Qualifiers/Closed Qualifier,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-05-20,2023-05-21,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2023 Summer Open Qualifier 1,Hitpoint 2nd Division Challengers/2023 Season/Summer Qualifiers/Open Qualifier 1,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-05-10,2023-05-11,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2023 Summer Open Qualifier 2,Hitpoint 2nd Division Challengers/2023 Season/Summer Qualifiers/Open Qualifier 2,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-05-12,2023-05-13,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2023 Summer Open Qualifier 3,Hitpoint 2nd Division Challengers/2023 Season/Summer Qualifiers/Open Qualifier 3,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-05-14,2023-05-15,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2023 Summer Open Qualifier 4,Hitpoint 2nd Division Challengers/2023 Season/Summer Qualifiers/Open Qualifier 4,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-05-16,2023-05-16,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2023 Summer Playoffs,Hitpoint 2nd Division Challengers/2023 Season/Summer Playoffs,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-07-12,2023-07-26,Secondary,1.0,0.0,Summer
+Hitpoint 2nd Div Challengers 2023 Summer Relegations,Hitpoint 2nd Division Challengers/2023 Season/Summer Qualifiers,Hitpoint Challengers,EMEA,Czech Republic,Online,2023-05-25,2023-05-28,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2023 Spring,Hitpoint 3rd Division/2023 Season/Spring Season,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2023-03-16,2023-04-30,Secondary,0.0,0.0,
+Hitpoint 3rd Div 2023 Spring Closed Qualifier,Hitpoint 3rd Division/2023 Season/Spring Qualifiers,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2023-03-11,2023-03-12,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2023 Spring Open Qualifier 1,Hitpoint 3rd Division/2023 Season/Spring Qualifiers/Open Qualifier 1,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2023-03-03,2023-03-03,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2023 Spring Open Qualifier 2,Hitpoint 3rd Division/2023 Season/Spring Qualifiers/Open Qualifier 2,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2023-03-05,2023-03-05,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2023 Spring Open Qualifier 3,Hitpoint 3rd Division/2023 Season/Spring Qualifiers/Open Qualifier 3,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2023-03-07,2023-03-07,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2023 Spring Playoffs,Hitpoint 3rd Division/2023 Season/Spring Playoffs,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2023-05-02,2023-05-16,Secondary,1.0,0.0,
+Hitpoint Masters 2023 Promotion,Hitpoint Masters/2023 Season/Promotion,Hitpoint Masters,Europe,Czech Republic,,2022-09-14,2022-09-20,Secondary,0.0,1.0,
+Hitpoint Masters 2023 Spring,Hitpoint Masters/2023 Season/Spring Season,Hitpoint Masters,EMEA,Czech Republic,,2023-01-27,2023-03-17,Secondary,0.0,0.0,Spring
+Hitpoint Masters 2023 Spring Playoffs,Hitpoint Masters/2023 Season/Spring Playoffs,Hitpoint Masters,EMEA,Czech Republic,,2023-03-21,2023-03-31,Secondary,1.0,0.0,Spring
+Hitpoint Masters 2023 Summer,Hitpoint Masters/2023 Season/Summer Season,Hitpoint Masters,EMEA,Czech Republic,,2023-06-06,2023-07-21,Secondary,0.0,0.0,Summer
+Hitpoint Masters 2023 Summer Playoffs,Hitpoint Masters/2023 Season/Summer Playoffs,Hitpoint Masters,EMEA,Czech Republic,,2023-07-25,2023-08-05,Secondary,1.0,0.0,Summer
+Hitpoint Winter 2023 Closed Qualifier,Hitpoint Winter/2023 Season/Qualifiers,Hitpoint Winter,EMEA,Czech Republic,Online,2023-09-23,2023-09-24,Secondary,0.0,1.0,
+Hitpoint Winter 2023 Main Event,Hitpoint Winter/2023 Season/Main Event,Hitpoint Winter,EMEA,Czech Republic,Online,2023-09-28,2023-10-25,Secondary,0.0,0.0,
+Hitpoint Winter 2023 Open Qualifier 1,Hitpoint Winter/2023 Season/Qualifiers/Open Qualifier 1,Hitpoint Winter,EMEA,Czech Republic,Online,2023-09-12,2023-09-12,Secondary,0.0,1.0,
+Hitpoint Winter 2023 Open Qualifier 2,Hitpoint Winter/2023 Season/Qualifiers/Open Qualifier 2,Hitpoint Winter,EMEA,Czech Republic,Online,2023-09-16,2023-09-16,Secondary,0.0,1.0,
+Hitpoint Winter 2023 Open Qualifier 3,Hitpoint Winter/2023 Season/Qualifiers/Open Qualifier 3,Hitpoint Winter,EMEA,Czech Republic,Online,2023-09-19,2023-09-19,Secondary,0.0,1.0,
+Iberian Cup 2023,Iberian Cup 2023,Iberian Cup,EMEA,Spain,Online/Offline,2023-10-02,2023-11-10,Secondary,0.0,0.0,
+Iberian Cup 2023 Qualifier,Iberian Cup 2023/Qualifier,Iberian Cup,EMEA,Spain,Online,2023-09-28,2023-09-28,Secondary,0.0,1.0,
+Ignis Academy 2023,Ignis Academy 2023,Ignis Academy,Brazil,Brazil,Offline,2023-10-28,2023-10-28,Secondary,1.0,0.0,
+Ignis Academy 2023 Qualifier 1,Ignis Academy 2023/Qualifier 1,Ignis Academy,Brazil,Brazil,,2023-06-29,2023-07-02,Minor,0.0,1.0,
+Ignis Academy 2023 Qualifier 2,Ignis Academy 2023/Qualifier 2,Ignis Academy,Brazil,Brazil,,2023-07-06,2023-07-09,Minor,0.0,1.0,
+Ignis Academy 2023 Qualifier 3,Ignis Academy 2023/Qualifier 3,Ignis Academy,Brazil,Brazil,,2023-07-27,2023-07-30,Minor,0.0,1.0,
+Ignis Academy 2023 Qualifier 4,Ignis Academy 2023/Qualifier 4,Ignis Academy,Brazil,Brazil,,2023-08-03,2023-08-06,Minor,0.0,1.0,
+Ignis Academy 2023 Qualifier 5,Ignis Academy 2023/Qualifier 5,Ignis Academy,Brazil,Brazil,,2023-09-14,2023-09-17,Minor,0.0,1.0,
+Ignis Academy 2023 Qualifier 6,Ignis Academy 2023/Qualifier 6,Ignis Academy,Brazil,Brazil,,2023-09-21,2023-09-24,Minor,0.0,1.0,
+Ignis Cup 2023 Closing Season,Ignis Cup 2023/Closing Season,Ignis Cup,Brazil,Brazil,Online/Offline,2023-10-05,2023-10-28,Secondary,1.0,0.0,
+Ignis Cup 2023 Closing Season Goddess Tour 1,Ignis Cup 2023/Closing Season/Goddess Tour 1,Ignis Cup,Brazil,Brazil,,2023-08-10,2023-08-13,Minor,0.0,1.0,
+Ignis Cup 2023 Closing Season Goddess Tour 2,Ignis Cup 2023/Closing Season/Goddess Tour 2,Ignis Cup,Brazil,Brazil,,2023-08-24,2023-08-27,Minor,0.0,1.0,
+Ignis Cup 2023 Closing Season Goddess Tour 3,Ignis Cup 2023/Closing Season/Goddess Tour 3,Ignis Cup,Brazil,Brazil,,2023-09-03,2023-09-06,Minor,0.0,1.0,
+Ignis Cup 2023 Opening Season,Ignis Cup 2023/Opening Season,Ignis Cup,Brazil,Brazil,Online/Offline,2023-05-25,2023-06-09,Secondary,1.0,0.0,
+Ignis Cup 2023 Opening Season Goddess Tour 1,Ignis Cup 2023/Opening Season/Goddess Tour 1,Ignis Cup,Brazil,Brazil,,2023-03-30,2023-04-02,Minor,0.0,1.0,
+Ignis Cup 2023 Opening Season Goddess Tour 2,Ignis Cup 2023/Opening Season/Goddess Tour 2,Ignis Cup,Brazil,Brazil,,2023-04-10,2023-04-13,Minor,0.0,1.0,
+Ignis Cup 2023 Opening Season Goddess Tour 3,Ignis Cup 2023/Opening Season/Goddess Tour 3,Ignis Cup,Brazil,Brazil,,2023-04-27,2023-04-30,Minor,0.0,1.0,
+Immortals Winter Showcase,Immortals Winter Showcase,Immortals Winter Showcase,North America,,Online,2023-12-09,2023-12-10,Secondary,1.0,0.0,
+Insomnia 70,Insomnia 70,Insomnia New,EMEA,United Kingdom,Offline,2023-04-07,2023-04-09,Secondary,1.0,0.0,
+Insomnia 71,Insomnia 71,Insomnia New,EMEA,United Kingdom,Offline,2023-09-07,2023-09-09,Secondary,1.0,0.0,
+International E-sports Festival 2023,International E-sports Festival 2023,International e-Culture Festival,International,China,Offline,2023-11-11,2023-11-12,Secondary,0.0,0.0,
+JUCA 2023,JUCA 2023,,Brazil,Brazil,Offline,2023-05-27,2023-05-27,,1.0,0.0,
+Jynxzi Streamer Tournament,Jynxzi Streamer Tournament,jynxzi streamer tournament,North America,,Online,2026-05-11,2026-05-11,Secondary,0.0,0.0,
+KeG Championship 2023,2023 KeG Championship,KeG Championship,Korea,South Korea,Online,2023-08-19,2023-08-20,Secondary,1.0,0.0,
+KeG League 2023 Championship,KeG League/2023 Season/Championship,KeG League,Korea,South Korea,Online,2023-12-09,2023-12-10,Secondary,0.0,0.0,Champ
+KeG League 2023 October,KeG League/2023 Season/October,KeG League,Korea,South Korea,Online,2023-10-03,2023-10-15,Secondary,0.0,0.0,
+KeG League 2023 September,KeG League/2023 Season/September,KeG League,Korea,South Korea,Online,2023-09-10,2023-09-24,Secondary,0.0,0.0,
+KOREA Pre Evaluation for 2022 Asian Games,KOREA Pre Evaluation for 2022 Asian Games,KOREA Pre Evaluation for Asian Games,Asia,South Korea,Offline,2023-09-11,2023-09-12,Showmatch,0.0,1.0,
+LCD 2023 Autumn,League Championship Denmark/2023 Season/Autumn Season,League Championship Denmark,EMEA,Denmark,Online,2023-08-31,2023-09-28,Secondary,0.0,0.0,
+LCD 2023 Autumn Playoffs,League Championship Denmark/2023 Season/Autumn Playoffs,League Championship Denmark,EMEA,Denmark,Online,2023-10-05,2023-11-04,Secondary,1.0,0.0,
+LCK 2023 Regional Finals,LCK/2023 Season/Regional Finals,World Championship,Korea,South Korea,,2023-08-24,2023-08-26,Primary,0.0,1.0,
+LCK 2023 Spring,LCK/2023 Season/Spring Season,LoL Champions Korea,Korea,South Korea,,2023-01-18,2023-03-19,Primary,0.0,0.0,Spring
+LCK 2023 Spring Playoffs,LCK/2023 Season/Spring Playoffs,LoL Champions Korea,Korea,South Korea,Offline,2023-03-22,2023-04-09,Primary,1.0,0.0,Spring
+LCK 2023 Summer,LCK/2023 Season/Summer Season,LoL Champions Korea,Korea,South Korea,,2023-06-07,2023-08-06,Primary,0.0,0.0,Summer
+LCK 2023 Summer Playoffs,LCK/2023 Season/Summer Playoffs,LoL Champions Korea,Korea,South Korea,Offline,2023-08-08,2023-08-20,Primary,1.0,0.0,Summer
+LCK AS 2023 1st Championship,LCK Academy Series/2023 Season/1st Championship,LCK Academy Series,Korea,South Korea,Online,2023-05-06,2023-05-27,Secondary,0.0,0.0,Champ 1
+LCK AS 2023 1st Championship Playoffs,LCK Academy Series/2023 Season/1st Championship Playoffs,LCK Academy Series,Korea,South Korea,Offline,2023-06-03,2023-06-04,Secondary,1.0,0.0,Champ 1
+LCK AS 2023 2nd Championship,LCK Academy Series/2023 Season/2nd Championship,LCK Academy Series,Korea,South Korea,Online,2023-10-21,2023-11-18,Secondary,0.0,0.0,Champ 2
+LCK AS 2023 2nd Championship Playoffs,LCK Academy Series/2023 Season/2nd Championship Playoffs,LCK Academy Series,Korea,South Korea,Online,2023-11-25,2023-11-26,Secondary,1.0,0.0,Champ 2
+LCK AS 2023 April,LCK Academy Series/2023 Season/April,LCK Academy Series,Korea,South Korea,Online,2023-03-26,2023-04-02,Secondary,0.0,0.0,
+LCK AS 2023 August,LCK Academy Series/2023 Season/August,LCK Academy Series,Korea,South Korea,Online,2023-08-06,2023-08-13,Secondary,0.0,0.0,
+LCK AS 2023 February,LCK Academy Series/2023 Season/February,LCK Academy Series,Korea,South Korea,Online,2023-01-29,2023-02-05,Secondary,0.0,0.0,
+LCK AS 2023 July,LCK Academy Series/2023 Season/July,LCK Academy Series,Korea,South Korea,Online,2023-07-16,2023-07-23,Secondary,0.0,0.0,
+LCK AS 2023 June,LCK Academy Series/2023 Season/June,LCK Academy Series,Korea,South Korea,Online,2023-06-25,2023-07-02,Secondary,0.0,0.0,
+LCK AS 2023 March,LCK Academy Series/2023 Season/March,LCK Academy Series,Korea,South Korea,Online,2023-02-26,2023-03-05,Secondary,0.0,0.0,
+LCK CL 2023 Spring,LCK CL/2023 Season/Spring Season,LCK Challengers League,Korea,South Korea,Online/Offline,2023-01-16,2023-03-17,Secondary,0.0,0.0,Spring
+LCK CL 2023 Spring Playoffs,LCK CL/2023 Season/Spring Playoffs,LCK Challengers League,Korea,South Korea,Offline,2023-03-20,2023-04-07,Secondary,1.0,0.0,Spring
+LCK CL 2023 Summer,LCK CL/2023 Season/Summer Season,LCK Challengers League,Korea,South Korea,Online/Offline,2023-06-05,2023-08-04,Secondary,0.0,0.0,Summer
+LCK CL 2023 Summer Playoffs,LCK CL/2023 Season/Summer Playoffs,LCK Challengers League,Korea,South Korea,Offline,2023-08-07,2023-08-22,Secondary,1.0,0.0,Summer
+LCO 2023 Split 1,LCO/2023 Season/Split 1,LoL Circuit Oceania,Asia Pacific,Australia,,2023-01-23,2023-02-07,Primary,0.0,0.0,Split 1
+LCO 2023 Split 1 Playoffs,LCO/2023 Season/Split 1 Playoffs,LoL Circuit Oceania,Asia Pacific,Australia,,2023-02-27,2023-04-29,Primary,1.0,0.0,Split 1
+LCO 2023 Split 1 Showmatch,LCO/2023 Season/Split 1 Playoffs/Showmatch,LoL Circuit Oceania,Asia Pacific,Australia,,2023-04-29,2023-04-29,Showmatch,0.0,0.0,
+LCO 2023 Split 2,LCO/2023 Season/Split 2,LoL Circuit Oceania,Asia Pacific,Australia,,2023-06-05,2023-07-12,Primary,0.0,0.0,Split 2
+LCO 2023 Split 2 Playoffs,LCO/2023 Season/Split 2 Playoffs,LoL Circuit Oceania,Asia Pacific,Australia,,2023-07-17,2023-07-30,Primary,1.0,0.0,Split 2
+LCS 2023 Championship,LCS/2023 Season/Championship,League of Legends Championship Series,North America,United States,Online/Offline,2023-07-27,2023-08-20,Primary,1.0,0.0,Summer
+LCS 2023 Spring,LCS/2023 Season/Spring Season,League of Legends Championship Series,North America,United States,,2023-01-26,2023-03-17,Primary,0.0,0.0,Spring
+LCS 2023 Spring Playoffs,LCS/2023 Season/Spring Playoffs,League of Legends Championship Series,North America,United States,,2023-03-23,2023-04-09,Primary,1.0,0.0,Spring
+LCS 2023 Summer,LCS/2023 Season/Summer Season,League of Legends Championship Series,North America,United States,,2023-06-14,2023-07-21,Primary,0.0,0.0,Summer
+LCS Game Changers 2023,LCS Game Changers 2023,LCS Game Changers,North America,North America,Online/Offline,2023-09-02,2023-09-23,Secondary,1.0,0.0,
+LDL 2023 Grand Finals,LDL/2023 Season/Grand Finals,LoL Development League,China,China,Offline,2023-07-20,2023-08-13,Secondary,1.0,0.0,
+LDL 2023 Placements,LDL/2023 Season/Placements,LoL Development League,China,China,Online,2023-02-04,2023-02-10,Secondary,0.0,0.0,Placements
+LDL 2023 Replacements 1,LDL/2023 Season/Replacements 1,LoL Development League,China,China,Offline,2023-03-21,2023-03-26,Secondary,0.0,1.0,
+LDL 2023 Replacements 2,LDL/2023 Season/Replacements 2,LoL Development League,China,China,Offline,2023-05-26,2023-05-28,Secondary,0.0,1.0,
+LDL 2023 Split 1,LDL/2023 Season/Split 1,LoL Development League,China,China,Offline,2023-02-15,2023-03-18,Secondary,0.0,0.0,Split 1
+LDL 2023 Split 1 Playoffs,LDL/2023 Season/Split 1 Playoffs,LoL Development League,China,China,Offline,2023-03-28,2023-04-04,Secondary,1.0,0.0,
+LDL 2023 Split 2,LDL/2023 Season/Split 2,LoL Development League,China,China,Offline,2023-04-19,2023-05-24,Secondary,0.0,0.0,Split 2
+LDL 2023 Split 2 Playoffs,LDL/2023 Season/Split 2 Playoffs,LoL Development League,China,China,Offline,2023-06-06,2023-06-10,Secondary,1.0,0.0,
+LDL 2023 Split 3,LDL/2023 Season/Split 3,LoL Development League,China,China,Offline,2023-06-19,2023-07-18,Secondary,0.0,0.0,Split 3
+League Epitech Lyon 5,LEL 5,LEL,EMEA,France,Offline,2023-02-11,2023-02-12,Secondary,0.0,0.0,
+LEC 2023 Season Finals,LEC/2023 Season/Season Finals,LoL EMEA Championship,EMEA,,Offline,2023-08-19,2023-09-10,Primary,1.0,0.0,Finals
+LEC 2023 Spring Groups,LEC/2023 Season/Spring Groups,LoL EMEA Championship,EMEA,Germany,Offline,2023-04-08,2023-04-16,Primary,0.0,0.0,Spring
+LEC 2023 Spring Playoffs,LEC/2023 Season/Spring Playoffs,LoL EMEA Championship,EMEA,Germany,Offline,2023-04-17,2023-04-23,Primary,1.0,0.0,Spring
+LEC 2023 Spring Season,LEC/2023 Season/Spring Season,LoL EMEA Championship,EMEA,Germany,Offline,2023-03-11,2023-03-27,Primary,0.0,0.0,Spring
+LEC 2023 Summer Groups,LEC/2023 Season/Summer Groups,LoL EMEA Championship,EMEA,Germany,Offline,2023-07-15,2023-07-23,Primary,0.0,0.0,Summer
+LEC 2023 Summer Playoffs,LEC/2023 Season/Summer Playoffs,LoL EMEA Championship,EMEA,Germany,Offline,2023-07-24,2023-07-30,Primary,1.0,0.0,Summer
+LEC 2023 Summer Season,LEC/2023 Season/Summer Season,LoL EMEA Championship,EMEA,Germany,Offline,2023-06-17,2023-07-03,Primary,0.0,0.0,Summer
+LEC 2023 Winter Groups,LEC/2023 Season/Winter Groups,LoL EMEA Championship,EMEA,Germany,Offline,2023-02-11,2023-02-19,Primary,0.0,0.0,Winter
+LEC 2023 Winter Playoffs,LEC/2023 Season/Winter Playoffs,LoL EMEA Championship,EMEA,Germany,Offline,2023-02-20,2023-02-26,Primary,1.0,0.0,Winter
+LEC 2023 Winter Season,LEC/2023 Season/Winter Season,LoL EMEA Championship,EMEA,Germany,Offline,2023-01-21,2023-02-06,Primary,0.0,0.0,Winter
+Legends Clash,Legends Clash/Finals,Legends Clash,EMEA,Poland,Offline,2023-08-31,2023-08-31,Secondary,1.0,0.0,
+Legends Clash Team Coca-Cola Qualifier,Legends Clash/Team Coca-Cola Qualifier,Legends Clash,EMEA,Poland,Online,2023-08-04,2023-08-09,Secondary,0.0,1.0,
+Legends Clash Team Żabka Qualifier,Legends Clash/Team Żabka Qualifier,Legends Clash,EMEA,Poland,Online,2023-08-04,2023-08-08,Secondary,0.0,1.0,
+LFL 2023 Promotion,LFL/2023 Season/Promotion,La Ligue Française,Europe,France,Online/Offline,2022-09-12,2022-09-20,Secondary,0.0,1.0,
+LFL 2023 Spring,LFL/2023 Season/Spring Season,La Ligue Française,EMEA,France,Online/Offline,2023-01-18,2023-03-16,Secondary,0.0,0.0,Spring
+LFL 2023 Spring Playoffs,LFL/2023 Season/Spring Playoffs,La Ligue Française,EMEA,France,Online/Offline,2023-03-22,2023-03-31,Secondary,1.0,0.0,Spring
+LFL 2023 Summer,LFL/2023 Season/Summer Season,La Ligue Française,EMEA,France,Online/Offline,2023-05-31,2023-07-27,Secondary,0.0,0.0,Summer
+LFL 2023 Summer Playoffs,LFL/2023 Season/Summer Playoffs,La Ligue Française,EMEA,France,Online/Offline,2023-08-02,2023-08-11,Secondary,1.0,0.0,Summer
+LFL Division 2 2023 Promotion,LFL Division 2/2023 Season/Promotion,La Ligue Française Division 2,Europe,France,Online/Offline,2022-09-23,2022-09-28,Secondary,0.0,1.0,
+LFL Division 2 2023 Spring,LFL Division 2/2023 Season/Spring Season,La Ligue Française Division 2,EMEA,France,Online,2023-01-10,2023-03-10,Secondary,0.0,0.0,Spring
+LFL Division 2 2023 Spring Playoffs,LFL Division 2/2023 Season/Spring Playoffs,La Ligue Française Division 2,EMEA,France,Online,2023-03-14,2023-04-02,Secondary,1.0,0.0,
+LFL Division 2 2023 Summer,LFL Division 2/2023 Season/Summer Season,La Ligue Française Division 2,EMEA,France,Online/Offline,2023-05-23,2023-07-21,Secondary,0.0,0.0,Summer
+LFL Division 2 2023 Summer Playoffs,LFL Division 2/2023 Season/Summer Playoffs,La Ligue Française Division 2,EMEA,France,Online,2023-07-31,2023-08-13,Secondary,1.0,0.0,
+LH 2023 Opening,Liga de Honor/2023 Season/Opening Season,Liga de Honor Entel,Latin America,Chile,Online,2023-01-23,2023-02-20,Secondary,0.0,0.0,
+LH 2023 Opening Playoffs,Liga de Honor/2023 Season/Opening Playoffs,Liga de Honor Entel,Latin America,Chile,Online,2023-02-27,2023-03-30,Secondary,1.0,0.0,
+LHE 2023 Opening Promotion,Liga de Honor Entel/2023 Season/Opening Promotion,Liga de Honor Entel,Latin America,Chile,Online,2022-07-11,2022-07-11,Secondary,0.0,1.0,
+Liga Nexo 22-23 Split 1,Liga Nexo/2023 Season/Split 1,Liga Nexo,Europe,Spain,Online,2022-10-11,2022-11-17,Secondary,0.0,0.0,Split 1
+Liga Nexo 22-23 Split 1 Playoffs,Liga Nexo/2023 Season/Split 1 Playoffs,Liga Nexo,EMEA,Spain,Online,2022-11-22,2022-12-04,Secondary,1.0,0.0,Split 1
+Liga Nexo 22-23 Split 1 Relegations,Liga Nexo/2023 Season/Split 1 Relegations,Liga Nexo,EMEA,Spain,Online,2022-11-30,2022-12-21,Secondary,0.0,1.0,Split 1
+Liga Nexo 22-23 Split 2,Liga Nexo/2023 Season/Split 2,Liga Nexo,EMEA,Spain,Online,2023-01-16,2023-03-16,Secondary,0.0,0.0,Split 2
+Liga Nexo 22-23 Split 2 Playoffs,Liga Nexo/2023 Season/Split 2 Playoffs,Liga Nexo,EMEA,Spain,Online,2023-03-20,2023-04-03,Secondary,1.0,0.0,Split 2
+Liga Nexo 22-23 Split 2 Relegations,Liga Nexo/2023 Season/Split 2 Relegations,Liga Nexo,EMEA,Spain,Online,2023-04-10,2023-04-27,Secondary,0.0,1.0,Split 2
+Liga Nexo 22-23 Split 3,Liga Nexo/2023 Season/Split 3,Liga Nexo,EMEA,Spain,Online,2023-05-11,2023-06-09,Secondary,0.0,0.0,Split 3
+Liga Nexo 22-23 Split 3 Playoffs,Liga Nexo/2023 Season/Split 3 Playoffs,Liga Nexo,EMEA,Spain,Online,2023-06-12,2023-06-19,Secondary,1.0,0.0,Split 3
+Liga Nexo 22-23 Split 3 Relegations,Liga Nexo/2023 Season/Split 3 Relegations,Liga Nexo,EMEA,Spain,Online,2023-06-22,2023-06-29,Secondary,0.0,1.0,Split 2
+LigaGG CELOL A 2023 Split 1,LigaGG/CELOL Série A/2023 Season/Split 1,CELOL,Brazil,Brazil,Online,2023-02-04,2023-03-11,Secondary,0.0,0.0,Split 1
+LigaGG CELOL A 2023 Split 1 Playoffs,LigaGG/CELOL Série A/2023 Season/Split 1 Playoffs,CELOL,Brazil,Brazil,Online/Offline,2023-03-18,2023-03-25,Secondary,1.0,0.0,Split 1
+LJL 2023 Academy League,LJL Academy League/2023 Season/Regular Season,LJL Academy League,Japan,Japan,Online,2023-06-21,2023-07-26,Secondary,0.0,0.0,Regular
+LJL 2023 Academy League Playoffs,LJL Academy League/2023 Season/Playoffs,LJL Academy League,Japan,Japan,,2023-08-02,2023-08-11,Secondary,1.0,0.0,Regular
+LJL 2023 Spring,LJL/2023 Season/Spring Season,LoL Japan League,Japan,Japan,Online,2023-01-28,2023-03-26,Primary,0.0,0.0,Spring
+LJL 2023 Spring Playoffs,LJL/2023 Season/Spring Playoffs,LoL Japan League,Japan,Japan,Online,2023-04-01,2023-04-15,Primary,1.0,0.0,
+LJL 2023 Summer,LJL/2023 Season/Summer Season,LoL Japan League,Japan,Japan,Online,2023-06-10,2023-07-16,Primary,0.0,0.0,Summer
+LJL 2023 Summer Playoffs,LJL/2023 Season/Summer Playoffs,LoL Japan League,Japan,Japan,"Online, Offline (Final)",2023-07-22,2023-08-20,Primary,1.0,0.0,Summer
+LLA 2023 Closing,LLA/2023 Season/Closing Season,Liga Latinoamerica,Latin America,Mexico,Offline,2023-06-06,2023-07-19,Primary,0.0,0.0,Closing
+LLA 2023 Closing Playoffs,LLA/2023 Season/Closing Playoffs,Liga Latinoamerica,Latin America,Mexico,Offline,2023-07-25,2023-08-26,Primary,1.0,0.0,Closing
+LLA 2023 Opening,LLA/2023 Season/Opening Season,Liga Latinoamerica,Latin America,Mexico,Offline,2023-01-24,2023-03-08,Primary,0.0,0.0,Opening
+LLA 2023 Opening Playoffs,LLA/2023 Season/Opening Playoffs,Liga Latinoamerica,Latin America,,Offline,2023-03-14,2023-04-14,Primary,1.0,0.0,Opening
+LLA 2023 Opening Promotion,LLA/2023 Season/Opening Promotion,Liga Latinoamerica,Latin America,Mexico,Offline,2022-09-10,2022-09-11,Primary,0.0,1.0,
+LMF 2023 Opening,Liga Master Flow/2023 Season/Opening Season,Liga Master Flow,Latin America,Argentina,Online,2023-01-19,2023-02-23,Secondary,0.0,0.0,
+LMF 2023 Opening Playoffs,Liga Master Flow/2023 Season/Opening Playoffs,Liga Master Flow,Latin America,Argentina,Online,2023-03-02,2023-03-31,Secondary,1.0,0.0,
+LMF 2023 Opening Promotion,Liga Master Flow/2023 Season/Opening Promotion,Liga Master Flow,Latin America,Argentina,Online,2022-07-21,2022-07-22,Secondary,0.0,1.0,
+LoL Cash Cup by PYspace,LoL Cash Cup by PYspace,arrMY,EMEA,Poland,Online,2023-05-27,2023-05-28,Secondary,0.0,0.0,
+LoL Caster &amp; Host Championship 2023,League of Legends Caster &amp; Host Championship 2023,League of Legends Caster &amp; Host Championship,China,China,Online/Offline(Playoffs),2023-08-26,2023-09-16,Secondary,0.0,0.0,
+Lotus League 2023,Lotus League 2023,Lotus League,Latin America,Mexico,,2023-09-22,2023-11-05,,0.0,0.0,
+LPL 2023 Regional Finals,LPL/2023 Season/Regional Finals,World Championship,China,China,Offline,2023-08-06,2023-08-08,Primary,0.0,1.0,
+LPL 2023 Spring,LPL/2023 Season/Spring Season,Tencent LoL Pro League,China,China,Offline,2023-01-14,2023-03-26,Primary,0.0,0.0,Spring
+LPL 2023 Spring Playoffs,LPL/2023 Season/Spring Playoffs,Tencent LoL Pro League,China,China,Offline,2023-03-30,2023-04-15,Primary,1.0,0.0,Spring
+LPL 2023 Summer,LPL/2023 Season/Summer Season,Tencent LoL Pro League,China,China,Offline,2023-05-29,2023-07-17,Primary,0.0,0.0,Summer
+LPL 2023 Summer Playoffs,LPL/2023 Season/Summer Playoffs,Tencent LoL Pro League,China,China,Offline,2023-07-20,2023-08-05,Primary,1.0,0.0,Summer
+LPL All-Star 2023,LPL All-Star 2023,LPL All-Star 2022,China,China,Offline,2023-12-09,2023-12-11,Secondary,1.0,0.0,
+LPLOL 2023 Promotion,LPLOL/2023 Season/Promotion,Liga Portuguesa,Europe,Portugal,Online,2022-09-12,2022-09-20,Secondary,0.0,1.0,
+LPLOL 2023 Spring,LPLOL/2023 Season/Spring Season,Liga Portuguesa,EMEA,Portugal,Online,2023-01-26,2023-03-10,Secondary,0.0,0.0,Spring
+LPLOL 2023 Spring Playoffs,LPLOL/2023 Season/Spring Playoffs,Liga Portuguesa,EMEA,Portugal,Online,2023-03-16,2023-04-01,Secondary,1.0,0.0,Spring
+LPLOL 2023 Summer,LPLOL/2023 Season/Summer Season,Liga Portuguesa,EMEA,Portugal,Online,2023-06-05,2023-07-14,Secondary,0.0,0.0,Summer
+LPLOL 2023 Summer Playoffs,LPLOL/2023 Season/Summer Playoffs,Liga Portuguesa,EMEA,Portugal,Online,2023-07-20,2023-08-05,Secondary,1.0,0.0,Summer
+LPLOL 2nd Division 2023 Spring,LPLOL 2nd Division/2023 Season/Spring Season,LPLOL 2nd Division,EMEA,Portugal,Online,2023-01-24,2023-03-14,Secondary,0.0,0.0,Spring
+LPLOL 2nd Division 2023 Spring Playoffs,LPLOL 2nd Division/2023 Season/Spring Playoffs,LPLOL 2nd Division,EMEA,Portugal,Online,2023-03-21,2023-03-31,Secondary,1.0,0.0,Spring
+LPLOL 2nd Division 2023 Summer,LPLOL 2nd Division/2023 Season/Summer Season,LPLOL 2nd Division,EMEA,Portugal,Online,2023-06-12,2023-07-19,Secondary,0.0,0.0,Summer
+LPLOL 2nd Division 2023 Summer Playoffs,LPLOL 2nd Division/2023 Season/Summer Playoffs,LPLOL 2nd Division,EMEA,Portugal,Online,2023-07-25,2023-08-04,Secondary,1.0,0.0,Summer
+LPLOL Rift 2023,LPLOL/2023 Season/Rift,LPLOL ProAm,EMEA,Portugal,Online/Offline,2023-11-08,2023-11-25,Secondary,0.0,0.0,
+LRN 2023 Closing,Liga Regional Norte/2023 Season/Closing Season,Liga Regional Norte,Latin America,,Online,2023-05-27,2023-07-10,Secondary,0.0,0.0,Closing
+LRN 2023 Closing Playoffs,Liga Regional Norte/2023 Season/Closing Playoffs,Liga Regional Norte,Latin America,,Online/Offline,2023-07-16,2023-08-19,Secondary,1.0,0.0,
+LRS 2023 Closing,Liga Regional Sur/2023 Season/Closing Season,Liga Regional Sur,Latin America,,Online,2023-06-01,2023-07-21,Secondary,0.0,0.0,Closing
+LRS 2023 Closing Playoffs,Liga Regional Sur/2023 Season/Closing Playoffs,Liga Regional Sur,Latin America,,Online/Offline,2023-07-27,2023-08-26,Secondary,1.0,0.0,
+LSC Season 6 Summer,League of Legends School Championship/Season 6/Summer Season,League of Legends School Championship,Asia Pacific,Taiwan,Offline,2023-04-12,2023-06-08,Secondary,0.0,0.0,
+LSC Season 6 Summer Playoffs,League of Legends School Championship/Season 6/Summer Playoffs,League of Legends School Championship,Asia Pacific,Taiwan,Offline,2023-07-13,2023-07-27,Secondary,0.0,0.0,Summer
+LSC Season 6 Summer Promotion,League of Legends School Championship/Season 6/Summer Promotion,League of Legends School Championship,Asia Pacific,Taiwan,Offline,2023-07-06,2023-07-07,Secondary,0.0,1.0,
+LSC Season 6 Winter Promotion,League of Legends School Championship/Season 6/Winter Promotion,League of Legends School Championship,Asia Pacific,Taiwan,Offline,2023-01-04,2023-01-05,Secondary,0.0,1.0,
+LVK LAN 2023 Opening,Liga Valkyria LAN/2023 Season/Opening Season,Liga Valkyria,Latin America,South America,Online,2023-06-03,2023-07-23,Secondary,0.0,0.0,
+LVK LAS 2023 Closing,Liga Valkyria LAS/2023 Season/Closing Season,Liga Valkyria,Latin America,Argentina,Online,2023-08-05,2023-09-24,Secondary,0.0,0.0,
+LVK LAS 2023 Opening,Liga Valkyria LAS/2023 Season/Opening Season,Liga Valkyria,Latin America,Argentina,Online,2023-04-01,2023-05-21,Secondary,0.0,0.0,
+LVP SL 2023 Promotion,LVP SuperLiga/2023 Season/Promotion,LVP SuperLiga,Europe,Spain,Online,2022-09-12,2022-09-23,Secondary,0.0,1.0,
+LVP SL 2023 Spring,LVP SuperLiga/2023 Season/Spring Season,LVP SuperLiga,EMEA,Spain,Online,2023-01-16,2023-03-09,Secondary,0.0,0.0,Spring
+LVP SL 2023 Spring Playoffs,LVP SuperLiga/2023 Season/Spring Playoffs,LVP SuperLiga,EMEA,Spain,Online/Offline,2023-03-14,2023-04-01,Secondary,1.0,0.0,Spring
+LVP SL 2023 Summer,LVP SuperLiga/2023 Season/Summer Season,LVP SuperLiga,EMEA,Spain,Online/Offline,2023-05-29,2023-07-20,Secondary,0.0,0.0,Summer
+LVP SL 2023 Summer Playoffs,LVP SuperLiga/2023 Season/Summer Playoffs,LVP SuperLiga,EMEA,Spain,Online/Offline,2023-07-25,2023-08-12,Secondary,1.0,0.0,Summer
+LVP SL 2nd Division 2023 Promotion,LVP SuperLiga 2nd Division/2023 Season/Promotion,LVP SuperLiga 2nd Division,Europe,Spain,,2022-09-14,2022-09-14,Secondary,0.0,1.0,
+LVP SL 2nd Division 2023 Spring,LVP SuperLiga 2nd Division/2023 Season/Spring Season,LVP SuperLiga 2nd Division,EMEA,Spain,,2023-01-18,2023-03-17,Secondary,0.0,0.0,Spring
+LVP SL 2nd Division 2023 Spring Playoffs,LVP SuperLiga 2nd Division/2023 Season/Spring Playoffs,LVP SuperLiga 2nd Division,EMEA,Spain,,2023-03-22,2023-04-03,Secondary,1.0,0.0,Spring
+LVP SL 2nd Division 2023 Summer,LVP SuperLiga 2nd Division/2023 Season/Summer Season,LVP SuperLiga 2nd Division,EMEA,Spain,,2023-05-31,2023-07-21,Secondary,0.0,0.0,Summer
+LVP SL 2nd Division 2023 Summer Playoffs,LVP SuperLiga 2nd Division/2023 Season/Summer Playoffs,LVP SuperLiga 2nd Division,EMEA,Spain,,2023-07-31,2023-08-11,Secondary,1.0,0.0,Summer
+Málaga Open 2023,Málaga Open 2023,Málaga Open,EMEA,Spain,Offline,2023-06-03,2023-06-03,Secondary,1.0,0.0,
+Málaga Open 2023 Online Qualifier,Málaga Open 2023/Online Qualifier,Málaga Open,EMEA,Spain,Online,2023-05-21,2023-05-21,Secondary,0.0,1.0,
+Málaga Open 2023 Online Qualifier 1,Málaga Open 2023/Online Qualifier/Qualifier 1,Málaga Open,EMEA,Spain,Online,2023-05-19,2023-05-19,Secondary,0.0,1.0,
+Málaga Open 2023 Online Qualifier 2,Málaga Open 2023/Online Qualifier/Qualifier 2,Málaga Open,EMEA,Spain,Online,2023-05-20,2023-05-20,Secondary,0.0,1.0,
+Málaga Open 2023 Online Tournament,Málaga Open 2023/Online Tournament,Málaga Open,EMEA,Spain,Online,2023-06-10,2023-06-11,Secondary,0.0,0.0,
+MEG 2023,Multiplataform eSports Games 2023,Multiplataform eSports Games,Brazil,Brazil,Online/Offline,2023-10-24,2023-11-05,Secondary,0.0,0.0,
+MNEB Season 5 Major Cup,Magyar Nemzeti E-sport Bajnokság/Season 5/Major Cup,Magyar Nemzeti E-sport Bajnokság,EMEA,Hungary,Online,2023-09-23,2023-10-01,Secondary,1.0,0.0,
+MNEB Season 5 Minor Cup 1,Magyar Nemzeti E-sport Bajnokság/Season 5/Minor Cup 1,Magyar Nemzeti E-sport Bajnokság,EMEA,Hungary,Online,2023-03-22,2023-04-07,Secondary,1.0,0.0,
+MNEB Season 5 Minor Cup 2,Magyar Nemzeti E-sport Bajnokság/Season 5/Minor Cup 2,Magyar Nemzeti E-sport Bajnokság,EMEA,Hungary,Online,2023-06-07,2023-06-27,Secondary,1.0,0.0,
+MNEB Season 5 Minor Cup 3,Magyar Nemzeti E-sport Bajnokság/Season 5/Minor Cup 3,Magyar Nemzeti E-sport Bajnokság,EMEA,Hungary,Online,2023-07-19,2023-08-13,Secondary,1.0,0.0,
+MNT 2023 Etape 4,Mastercard Nexus Tour 2023/Etape 4,Mastercard Nexus Tour,EMEA,France,Online,2023-05-06,2023-05-07,Secondary,0.0,0.0,
+MNT 2023 Etape 5,Mastercard Nexus Tour 2023/Etape 5,Mastercard Nexus Tour,EMEA,France,Online,2023-05-27,2023-05-28,Secondary,0.0,0.0,
+MNT 2023 Etape 7,Mastercard Nexus Tour 2023/Etape 7,Mastercard Nexus Tour,EMEA,France,Online,2023-06-24,2023-06-25,Secondary,0.0,0.0,
+MNT 2023 Etape 8,Mastercard Nexus Tour 2023/Etape 8,Mastercard Nexus Tour,EMEA,France,Online,2023-07-08,2023-07-09,Secondary,0.0,0.0,
+MNT 2023 Etape 9,Mastercard Nexus Tour 2023/Etape 9,Mastercard Nexus Tour,EMEA,France,Online,2023-07-29,2023-07-30,Secondary,0.0,0.0,
+MNT 2023 Playoffs,Mastercard Nexus Tour 2023/Playoffs,Mastercard Nexus Tour,EMEA,France,Online,2023-08-19,2023-08-27,Secondary,0.0,0.0,
+MSI 2023,2023 Mid-Season Invitational,Mid-Season Invitational,International,United Kingdom,Offline,2023-05-02,2023-05-21,Primary,0.0,0.0,
+Mystic League 2023,Mystic League/2023 Season,Mystic League,Latin America,Colombia,Online,2023-03-31,2023-05-13,Secondary,0.0,0.0,
+NA Legends Invitational,NA Legends Invitational,NA Legends Invitational,North America,United States,Offline,2023-09-16,2023-09-17,Secondary,0.0,0.0,
+NACL 2023 Spring,North American Challengers League/2023 Season/Spring Season,North American Challengers League,North America,United States,Online,2023-01-21,2023-03-06,Secondary,0.0,0.0,Spring
+NACL 2023 Spring Playoffs,North American Challengers League/2023 Season/Spring Playoffs,North American Challengers League,North America,United States,Online,2023-03-11,2023-04-02,Secondary,1.0,0.0,Spring
+NACL 2023 Spring Qualifier 1,North American Challengers League/2023 Season/Spring Qualifier 1,North American Challengers League,North America,,Online,2023-01-28,2023-01-29,Secondary,0.0,1.0,
+NACL 2023 Spring Qualifier 1 Playoffs,North American Challengers League/2023 Season/Spring Qualifier 1 Playoffs,North American Challengers League,North America,,Online,2023-02-04,2023-02-26,Secondary,0.0,1.0,
+NACL 2023 Spring Qualifier 2,North American Challengers League/2023 Season/Spring Qualifier 2,North American Challengers League,North America,,Online,2023-03-04,2023-03-05,Secondary,0.0,1.0,
+NACL 2023 Spring Qualifier 2 Playoffs,North American Challengers League/2023 Season/Spring Qualifier 2 Playoffs,North American Challengers League,North America,,Online,2023-03-11,2023-04-02,Secondary,0.0,1.0,
+NACL 2023 Summer,North American Challengers League/2023 Season/Summer Season,North American Challengers League,North America,United States,Online,2023-06-10,2023-07-17,Secondary,0.0,0.0,Summer
+NACL 2023 Summer Playoffs,North American Challengers League/2023 Season/Summer Playoffs,North American Challengers League,North America,United States,Online/Offline,2023-07-22,2023-08-09,Secondary,1.0,0.0,Summer
+NACL 2023 Summer Promotion,North American Challengers League/2023 Season/Summer Promotion,North American Challengers League,North America,United States,Online,2023-04-17,2023-04-23,Secondary,0.0,1.0,Summer
+NACL 2023 Summer Qualifier 1,North American Challengers League/2023 Season/Summer Qualifier 1,North American Challengers League,North America,,Online,2023-06-10,2023-06-11,Secondary,0.0,1.0,
+NACL 2023 Summer Qualifier 1 Playoffs,North American Challengers League/2023 Season/Summer Qualifier 1 Playoffs,North American Challengers League,North America,,Online,2023-06-17,2023-07-09,Secondary,0.0,1.0,
+NACL 2023 Summer Qualifier 2,North American Challengers League/2023 Season/Summer Qualifier 2,North American Challengers League,North America,,Online,2023-07-15,2023-07-16,Secondary,0.0,1.0,
+NACL 2023 Summer Qualifier 2 Playoffs,North American Challengers League/2023 Season/Summer Qualifier 2 Playoffs,North American Challengers League,North America,,Online,2023-07-22,2023-08-13,Secondary,0.0,1.0,
+NECC 2023,College League of Legends/2023 Season/National Esports Collegiate Conference/Regular Season,NECC,North America,United States,Online,2023-02-18,2023-03-18,Secondary,0.0,0.0,
+NECC 2023 Playoffs,College League of Legends/2023 Season/National Esports Collegiate Conference/Playoffs,NECC,North America,United States,Online,2023-03-25,2023-04-08,Secondary,1.0,0.0,
+NEST 2023,National Electronic Sports Tournament 2023,National Electronic Sports Tournament,China,China,,2023-11-20,2023-12-03,Primary,0.0,0.0,
+NimoTV Ba LOL Championship 2023,NimoTV Ba LOL Championship 2023,NimoTV,Vietnam,Vietnam,,2023-12-11,2023-12-19,,,,
+NimoTV Ba LOL Championship Community 2024,NimoTV Ba LOL Championship Community 2024,NimoTV,Vietnam,Vietnam,,2024-03-11,2024-03-26,,,,
+NLC 2023 Promotion,NLC/2023 Season/Promotion,Northern League of Legends Championship,Europe,,,2022-09-12,2022-09-28,Secondary,0.0,1.0,
+NLC 2023 Spring,NLC/2023 Season/Spring Season,Northern League of Legends Championship,EMEA,,Online,2023-01-24,2023-03-10,Secondary,0.0,0.0,Spring
+NLC 2023 Spring Playoffs,NLC/2023 Season/Spring Playoffs,Northern League of Legends Championship,EMEA,,Online,2023-03-14,2023-03-28,Secondary,1.0,0.0,Spring
+NLC 2023 Summer,NLC/2023 Season/Summer Season,Northern League of Legends Championship,EMEA,,Online,2023-06-06,2023-07-19,Secondary,0.0,0.0,Summer
+NLC 2023 Summer Playoffs,NLC/2023 Season/Summer Playoffs,Northern League of Legends Championship,EMEA,,Online,2023-07-25,2023-08-05,Secondary,1.0,0.0,Summer
+NLC 2nd Division 2023 Last Chance Qualifier,NLC 2nd Division/2023 Season/Last Chance Qualifier,Northern League of Legends Championship 2nd Division,EMEA,,Online,2023-01-30,2023-02-12,Secondary,0.0,1.0,
+NLC 2nd Division 2023 Spring,NLC 2nd Division/2023 Season/Spring Season,Northern League of Legends Championship 2nd Division,EMEA,,Online,2023-02-16,2023-03-19,Secondary,0.0,0.0,Spring
+NLC 2nd Division 2023 Spring Playoffs,NLC 2nd Division/2023 Season/Spring Playoffs,Northern League of Legends Championship 2nd Division,EMEA,,Online,2023-03-23,2023-04-16,Secondary,1.0,0.0,
+NLC 2nd Division 2023 Spring Promotion,NLC 2nd Division/2023 Season/Spring Promotion,Northern League of Legends Championship 2nd Division,Europe,,Online,2022-08-17,2022-09-01,Secondary,0.0,1.0,
+NLC 2nd Division 2023 Spring Promotion 2,NLC 2nd Division/2023 Season/Spring Promotion 2,Northern League of Legends Championship 2nd Division,Europe,,Online,2022-11-10,2022-11-19,Secondary,0.0,1.0,
+NLC 2nd Division 2023 Summer,NLC 2nd Division/2023 Season/Summer Season,Northern League of Legends Championship 2nd Division,EMEA,,Online,2023-06-15,2023-08-07,Secondary,0.0,0.0,Summer
+NLC 2nd Division 2023 Summer Playoffs,NLC 2nd Division/2023 Season/Summer Playoffs,Northern League of Legends Championship 2nd Division,EMEA,,Online,2023-08-11,2023-08-27,Secondary,1.0,0.0,
+NLC 2nd Division 2023 Summer Promotion,NLC 2nd Division/2023 Season/Summer Promotion,Northern League of Legends Championship 2nd Division,EMEA,,Online,2023-04-20,2023-04-23,Secondary,0.0,1.0,
+NLC 3rd Division 2023 Spring,NLC 3rd Division/2023 Season/Spring Season,Northern League of Legends Championship 3rd Division,EMEA,,Online,2023-02-16,2023-03-16,Secondary,0.0,0.0,Spring
+NLC 3rd Division 2023 Spring Playoffs,NLC 3rd Division/2023 Season/Spring Playoffs,Northern League of Legends Championship 3rd Division,EMEA,,Online,2023-03-22,2023-04-16,Secondary,1.0,0.0,Spring
+NLC 3rd Division 2023 Spring Promotion,NLC 3rd Division/2023 Season/Spring Promotion,Northern League of Legends Championship 3rd Division,EMEA,,Online,2022-12-10,2022-12-11,Secondary,1.0,0.0,
+NLC 3rd Division 2023 Summer,NLC 3rd Division/2023 Season/Summer Season,Northern League of Legends Championship 3rd Division,EMEA,,Online,2023-06-15,2023-07-17,Secondary,0.0,0.0,Summer
+NLC 3rd Division 2023 Summer Playoffs,NLC 3rd Division/2023 Season/Summer Playoffs,Northern League of Legends Championship 3rd Division,EMEA,,Online,2023-07-19,2023-08-13,Secondary,1.0,0.0,Summer
+NLC 3rd Division 2023 Summer Promotion,NLC 3rd Division/2023 Season/Summer Promotion,Northern League of Legends Championship 3rd Division,EMEA,,Online,2023-04-20,2023-04-27,Secondary,1.0,0.0,
+NT 2024 Playoffs,Nexus Tour 2024/Playoffs,Nexus Tour,EMEA,France,Online,2024-08-23,2024-08-25,Secondary,0.0,0.0,
+ODT 2023 Main Event,ODT/2023 Season/Main Event,Oceanic Developmental Tournament,Asia Pacific,Australia,,2023-10-09,2023-10-13,Secondary,0.0,0.0,
+Olhsa Cup Invitational 2023,Olhsa Cup Invitational 2023,Olhsa Invitational,Latin America,Mexico,,2023-12-08,2023-12-10,Secondary,0.0,0.0,
+Our Party 23-24,Our Party 23-24,Our Party,EMEA,Spain,Online/Offline,2023-12-01,2023-12-16,Secondary,1.0,0.0,
+PATHFINDERS 1 Main Event,PATHFINDERS/Tournament 1,PATHFINDERS,EMEA,,,2023-05-27,2023-05-28,Secondary,1.0,0.0,
+PATHFINDERS 1 Open Qualifiers,PATHFINDERS/Tournament 1/Open Qualifiers,PATHFINDERS,EMEA,,,2023-05-13,2023-05-14,Secondary,0.0,1.0,
+PATHFINDERS 2 Main Event,PATHFINDERS/Tournament 2,PATHFINDERS,EMEA,,,2023-08-19,2023-08-20,Secondary,1.0,0.0,
+PATHFINDERS 2 Open Qualifiers,PATHFINDERS/Tournament 2/Open Qualifiers,PATHFINDERS,EMEA,,,2023-08-12,2023-08-13,Secondary,0.0,1.0,
+PATHFINDERS 3 Main Event,PATHFINDERS/Tournament 3,PATHFINDERS,EMEA,,,2023-09-30,2023-10-01,Secondary,1.0,0.0,
+PATHFINDERS 3 Open Qualifiers,PATHFINDERS/Tournament 3/Open Qualifiers,PATHFINDERS,EMEA,,,2023-09-16,2023-09-17,Secondary,0.0,1.0,
+PCL 2023 Group Stage,PCL/2023 Season/Group Stage,Pacific Challengers League,Asia Pacific,,Online,2023-08-15,2023-08-28,Secondary,0.0,0.0,2023 Season
+PCL 2023 Open Qualifier,PCL/2023 Season/Open Qualifier,Pacific Challengers League,Asia Pacific,,Online,2023-09-14,2023-09-17,Secondary,0.0,1.0,2023 Season
+PCL 2023 Playoffs,PCL/2023 Season/Playoffs,Pacific Challengers League,Asia Pacific,,Online,2023-09-21,2023-10-01,Secondary,1.0,0.0,2023 Season
+PCS 2023 Spring,PCS/2023 Season/Spring Season,Pacific Championship Series,Asia Pacific,,Online,2023-02-03,2023-03-12,Primary,0.0,0.0,Spring
+PCS 2023 Spring Playoffs,PCS/2023 Season/Spring Playoffs,Pacific Championship Series,Asia Pacific,,,2023-03-23,2023-04-09,Primary,1.0,0.0,Spring
+PCS 2023 Summer,PCS/2023 Season/Summer Season,Pacific Championship Series,Asia Pacific,,Offline,2023-06-30,2023-08-07,Primary,0.0,0.0,Summer
+PCS 2023 Summer Playoffs,PCS/2023 Season/Summer Playoffs,Pacific Championship Series,Asia Pacific,,Offline,2023-08-11,2023-09-09,Primary,1.0,0.0,Summer
+PG Nationals 2023 Promotion,PG Nationals/2023 Season/Promotion,PG Nationals,Europe,Italy,Online,2022-09-13,2022-09-19,Secondary,0.0,1.0,
+PG Nationals 2023 Spring,PG Nationals/2023 Season/Spring Season,PG Nationals,EMEA,Italy,Online,2023-01-26,2023-03-10,Secondary,0.0,0.0,Spring
+PG Nationals 2023 Spring Playoffs,PG Nationals/2023 Season/Spring Playoffs,PG Nationals,EMEA,Italy,Online,2023-03-16,2023-03-31,Secondary,1.0,0.0,Spring
+PG Nationals 2023 Summer,PG Nationals/2023 Season/Summer Season,PG Nationals,EMEA,Italy,Online,2023-06-08,2023-07-21,Secondary,0.0,0.0,Summer
+PG Nationals 2023 Summer Playoffs,PG Nationals/2023 Season/Summer Playoffs,PG Nationals,EMEA,Italy,Online,2023-07-26,2023-08-05,Secondary,1.0,0.0,Summer
+PG Nats Ultima Battaglia 2023,PG Nats Ultima Battaglia 2023,PG Nationals,EMEA,Italy,Online/Offline,2023-10-02,2023-11-04,Secondary,1.0,0.0,
+PG Proving Grounds 2023 Spring,PG Proving Grounds/2023 Season/Spring Season,PG Proving Grounds,EMEA,Italy,Online,2023-01-31,2023-03-21,Secondary,0.0,0.0,Spring
+PG Proving Grounds 2023 Spring Playoffs,PG Proving Grounds/2023 Season/Spring Playoffs,PG Proving Grounds,EMEA,Italy,Online,2023-03-22,2023-03-30,Secondary,1.0,0.0,Spring
+PG Proving Grounds 2023 Spring Staff Rumble,PG Proving Grounds/2023 Season/Spring Staff Rumble,PG Esports Events,EMEA,Italy,Online,2023-01-09,2023-01-11,Secondary,1.0,0.0,
+PG Proving Grounds 2023 Summer,PG Proving Grounds/2023 Season/Summer Season,PG Proving Grounds,EMEA,Italy,Online,2023-06-13,2023-07-25,Secondary,0.0,0.0,Summer
+PG Proving Grounds 2023 Summer Playoffs,PG Proving Grounds/2023 Season/Summer Playoffs,PG Proving Grounds,EMEA,Italy,Online,2023-08-01,2023-08-08,Secondary,1.0,0.0,Summer
+Playground MENA 2023 Season 1,Playground MENA 2023/Season 1,Playground MENA,EMEA,Arab League,Online,2023-05-13,2023-05-28,Secondary,0.0,0.0,Spring
+Playground MENA 2023 Season 2,Playground MENA 2023/Season 2,Playground MENA,EMEA,Arab League,Online,2023-09-02,2023-10-01,Secondary,0.0,0.0,Summer
+Playground MENA 2023 Season 3,Playground MENA 2023/Season 3,Playground MENA,EMEA,Arab League,Online,2023-11-14,2023-11-30,Secondary,0.0,0.0,
+Polestar 2023,Polestar 2023,Polestar,EMEA,,Online,2023-10-07,2023-10-15,,0.0,0.0,
+PRM 1st Division 2023 Promotion,Prime League 1st Division/2023 Season/Promotion,Prime League Pro Division,Europe,Germany,Online,2022-09-13,2022-09-27,Secondary,0.0,1.0,Spring
+PRM 1st Division 2023 Spring,Prime League 1st Division/2023 Season/Spring Season,Prime League Pro Division,EMEA,Germany,,2023-01-19,2023-03-14,Secondary,0.0,0.0,Spring
+PRM 1st Division 2023 Spring Playoffs,Prime League 1st Division/2023 Season/Spring Playoffs,Prime League Pro Division,EMEA,Germany,Online,2023-03-16,2023-04-01,Secondary,1.0,0.0,
+PRM 1st Division 2023 Summer,Prime League 1st Division/2023 Season/Summer Season,Prime League Pro Division,EMEA,Germany,,2023-06-01,2023-07-21,Secondary,0.0,0.0,Summer
+PRM 1st Division 2023 Summer Playoffs,Prime League 1st Division/2023 Season/Summer Playoffs,Prime League Pro Division,EMEA,Germany,Online,2023-07-26,2023-08-12,Secondary,1.0,0.0,Summer
+PRM 2nd Division 2023 Spring,Prime League 2nd Division/2023 Season/Spring Season,Prime League 1st Division,EMEA,Germany,Online,2023-01-09,2023-03-04,Secondary,0.0,0.0,Spring
+PRM 2nd Division 2023 Spring Playoffs,Prime League 2nd Division/2023 Season/Spring Playoffs,Prime League 1st Division,EMEA,Germany,Online,2023-03-06,2023-03-30,Secondary,1.0,0.0,
+PRM 2nd Division 2023 Spring Promotion,Prime League 2nd Division/2023 Season/Spring Promotion,Prime League 1st Division,Europe,Germany,Online,2022-08-16,2022-08-31,Secondary,0.0,1.0,
+PRM 2nd Division 2023 Spring Promotion 2,Prime League 2nd Division/2023 Season/Spring Promotion 2,Prime League 1st Division,Europe,Germany,Online,2022-11-09,2022-11-18,Secondary,0.0,1.0,
+PRM 2nd Division 2023 Summer,Prime League 2nd Division/2023 Season/Summer Season,Prime League 1st Division,EMEA,Germany,Online,2023-05-29,2023-07-18,Secondary,0.0,0.0,Summer
+PRM 2nd Division 2023 Summer Playoffs,Prime League 2nd Division/2023 Season/Summer Playoffs,Prime League 1st Division,EMEA,Germany,Online,2023-07-31,2023-08-09,Secondary,1.0,0.0,
+PRM 2nd Division 2023 Summer Promotion,Prime League 2nd Division/2023 Season/Summer Promotion,Prime League 1st Division,EMEA,Germany,Online,2023-03-29,2023-04-27,Secondary,0.0,1.0,
+PRM 3rd Division 2023 Spring,Prime League 3rd Division/2023 Season/Spring Season,Prime League 2nd Division,EMEA,Germany,Online,2023-01-29,2023-03-19,Secondary,0.0,0.0,
+PRM 3rd Division 2023 Spring Playoffs,Prime League 3rd Division/2023 Season/Spring Playoffs,Prime League 2nd Division,EMEA,Germany,Online,2023-03-25,2023-03-27,Secondary,1.0,0.0,
+PRM 3rd Division 2023 Summer,Prime League 3rd Division/2023 Season/Summer Season,Prime League 2nd Division,EMEA,Germany,Online,2023-06-08,2023-07-30,Secondary,0.0,0.0,
+PRM 3rd Division 2023 Summer Playoffs,Prime League 3rd Division/2023 Season/Summer Playoffs,Prime League 2nd Division,EMEA,Germany,Online,2023-08-05,2023-08-07,Secondary,1.0,0.0,
+PRM 3rd Division 2023 Summer Promotion,Prime League 3rd Division/2023 Season/Summer Promotion,Prime League 2nd Division,EMEA,Germany,Online,2023-03-25,2023-03-27,Secondary,0.0,1.0,
+PRM 3rd Division 2024 Spring Promotion,Prime League 3rd Division/2024 Season/Spring Promotion,Prime League 2nd Division,EMEA,Germany,Online,2023-08-03,2023-08-07,Secondary,0.0,1.0,
+PRM 3rd Division 2024 Spring Promotion 2,Prime League 3rd Division/2024 Season/Spring Promotion 2,Prime League 2nd Division,EMEA,Germany,Online,2023-12-05,2023-12-11,Secondary,0.0,1.0,
+PRM Pokal 2023 Closed Qualifier,Prime Pokal 2023/Closed Qualifier,Prime Pokal,EMEA,Germany,Online,2023-09-09,2023-09-11,Secondary,0.0,1.0,
+PRM Pokal 2023 Main Event,Prime Pokal 2023/Main Event,Prime Pokal,EMEA,Germany,Online,2023-10-02,2023-11-01,Secondary,0.0,0.0,
+PRM Pokal 2023 Play-In,Prime Pokal 2023/Play-In,Prime Pokal,EMEA,Germany,Online,2023-09-25,2023-09-29,Secondary,0.0,0.0,
+RDAG 2022 East Asia,2022 Asian Games/East Asia Qualifier,Road to Asian Games 2022,SEA,Macao,,2023-06-15,2023-06-17,Primary,0.0,1.0,
+RDAG 2022 South &amp; Central Asia,2022 Asian Games/South Asia Qualifier,Road to Asian Games 2022,Asia Pacific,Macao,Offline,2023-06-21,2023-06-22,Primary,0.0,1.0,
+RDAG 2022 Southeast Asia,2022 Asian Games/Southeast Asia Qualifier,Road to Asian Games 2022,Asia Pacific,Macao,Offline,2023-06-16,2023-06-18,Primary,0.0,1.0,
+RDAG 2022 West Asia,2022 Asian Games/West Asia Qualifier,Road to Asian Games 2022,MENA,Macao,Offline,2023-06-19,2023-06-21,Primary,0.0,1.0,
+Red Bull League of Its Own 2023,2023 Red Bull League of Its Own,Red Bull League of Its Own,International,Germany,Offline,2023-12-09,2023-12-09,Showmatch,0.0,0.0,
+Red Bull ProSeed 2023,Red Bull ProSeed 2023,Red Bull ProSeed,EMEA,Egypt,Online/Offline,2023-09-20,2023-09-29,Secondary,1.0,0.0,
+REIGNITE Open Tournament 2023,REIGNITE Open Tournament 2023,REIGNITE,Asia Pacific,Thailand,Online,2023-12-14,2023-12-17,Secondary,1.0,0.0,
+Reykjavik International Games 2023,Reykjavik International Games 2023,Reykjavik International Games,EMEA,Iceland,,2023-02-04,2023-02-05,Secondary,1.0,0.0,
+Road to Insomnia Egypt 2023,Road to Insomnia Egypt 2023,Insomnia New,EMEA,Egypt,Online,2023-01-28,2023-01-31,Secondary,0.0,1.0,
+Road to Insomnia Egypt 2023 Qualifier 1,Road to Insomnia Egypt 2023/Qualifier 1,Insomnia New,EMEA,Egypt,Online,2023-01-17,2023-01-20,Secondary,0.0,1.0,
+Road to Insomnia Egypt 2023 Qualifier 2,Road to Insomnia Egypt 2023/Qualifier 2,Insomnia New,EMEA,Egypt,Online,2023-01-21,2023-01-24,Secondary,0.0,1.0,
+Saudi eLeagues 2023 Season 1,Saudi eLeagues/2023 Season/Season 1,Saudi eLeagues,EMEA,Saudi Arabia,Offline,2023-04-27,2023-05-10,Secondary,0.0,0.0,Season 1
+Saudi eLeagues 2023 Season 2,Saudi eLeagues/2023 Season/Season 2,Saudi eLeagues,EMEA,Saudi Arabia,Offline,2023-11-13,2023-11-22,Secondary,0.0,0.0,Season 2
+Sigma Cup 2023,Sigma Cup 2023,Sigma Cup,EMEA,Serbia,Offline,2023-11-11,2023-11-12,Secondary,1.0,0.0,
+Sigma Cup 2023 Gauntlet,Sigma Cup 2023/Gauntlet,Sigma Cup,EMEA,Serbia,Online,2023-10-30,2023-11-01,Secondary,0.0,0.0,
+Sixty Six Games Expo 2023,Sixty Six Games Expo 2023,Sixty Six Games Expo,North America,United States,Offline,2023-10-21,2023-10-22,Secondary,0.0,0.0,
+SKE 2023,2023 Season Kickoff,Season 2023 Kickoff,International,,Online/Offline,2022-12-29,2023-01-11,Primary,0.0,0.0,
+SKE 2023 Brazil,2023 Season Kickoff/Brazil,Season 2023 Kickoff,Brazil,Brazil,Offline,2023-01-10,2023-01-10,Primary,0.0,0.0,
+SKE 2023 China,2023 Season Kickoff/China,Season 2023 Kickoff,China,China,Offline,2023-01-11,2023-01-11,Primary,0.0,0.0,
+SKE 2023 EMEA,2023 Season Kickoff/EMEA,Season 2023 Kickoff,EMEA,Germany,Offline,2023-01-11,2023-01-11,Primary,0.0,0.0,
+SKE 2023 Japan,2023 Season Kickoff/Japan,Season 2023 Kickoff,Japan,Japan,Offline,2023-01-11,2023-01-11,Primary,0.0,0.0,
+SKE 2023 Korea,2023 Season Kickoff/Korea,Season 2023 Kickoff,Korea,South Korea,Offline,2023-01-10,2023-01-10,Primary,0.0,0.0,
+SKE 2023 Korea 1v1 Battle,2023 Season Kickoff/Korea/1v1 Battle,Season 2023 Kickoff,Korea,South Korea,Offline,2022-12-29,2022-12-29,Primary,0.0,0.0,
+SKE 2023 Latin America,2023 Season Kickoff/Latin America,Season 2023 Kickoff,Latin America,Mexico,Offline,2023-01-11,2023-01-11,Primary,0.0,0.0,
+SKE 2023 North America,2023 Season Kickoff/North America,Season 2023 Kickoff,North America,North America,Offline,2023-01-10,2023-01-10,Primary,0.0,0.0,
+SKE 2023 Pacific,2023 Season Kickoff/Pacific,Season 2023 Kickoff,Asia Pacific,Taiwan,Offline,2023-01-11,2023-01-11,Primary,0.0,0.0,
+SKE 2023 Vietnam,2023 Season Kickoff/Vietnam,Season 2023 Kickoff,Vietnam,Vietnam,Offline,2023-01-10,2023-01-10,Primary,0.0,0.0,
+SL 2023 Opening,Claro Stars League/2023 Season/Opening Season,Claro Stars League,Latin America,Peru,Online,2023-01-19,2023-03-09,Secondary,0.0,0.0,
+SL 2023 Opening Playoffs,Claro Stars League/2023 Season/Opening Playoffs,Claro Stars League,Latin America,Peru,Online,2023-03-09,2023-03-30,Secondary,1.0,0.0,
+SL 2023 Opening Promotion,Claro Stars League/2023 Season/Opening Promotion,Claro Stars League,Latin America,Peru,Online,2022-08-25,2022-09-01,Secondary,0.0,1.0,
+Slovensko Državno Prvenstvo 2023,Slovensko Državno Prvenstvo 2023,Slovensko Državno Prvenstvo,EMEA,Slovenia,,2023-03-10,2023-04-02,Secondary,1.0,0.0,
+SLY LAN,Mastercard Nexus Tour 2023/SLY LAN,SLY LAN,EMEA,France,Offline,2023-06-10,2023-06-11,Secondary,0.0,0.0,
+Spring ShowDown 2023,Spring ShowDown 2023,Spring ShowDown,EMEA,Spain,Online,2023-06-04,2023-06-04,Secondary,1.0,0.0,
+Spring ShowDown 2023 Online Qualifier,Spring ShowDown 2023/Online Qualifier,Spring ShowDown,EMEA,Spain,Online,2023-05-28,2023-05-28,Secondary,0.0,1.0,
+Spring ShowDown 2023 Online Qualifier 1,Spring ShowDown 2023/Online Qualifier/Qualifier 1,Spring ShowDown,EMEA,Spain,Online,2023-05-26,2023-05-26,Secondary,0.0,1.0,
+Spring ShowDown 2023 Online Qualifier 2,Spring ShowDown 2023/Online Qualifier/Qualifier 2,Spring ShowDown,EMEA,Spain,Online,2023-05-27,2023-05-27,Secondary,0.0,1.0,
+Spring ShowDown 2023 Online Tournament,Spring ShowDown 2023/Online Tournament,Spring ShowDown,EMEA,Spain,Online,2023-06-03,2023-06-04,Secondary,0.0,0.0,
+Střet vyvolávačů 2023,Střet vyvolávačů 2023,Střet vyvolávačů,EMEA,Czech Republic,Online/Offline,2023-11-22,2024-01-06,Secondary,1.0,0.0,
+Summer Meet at Rift 2023 Invitational,Summer Meet at Rift 2023 Invitational,Meet at Rift Invitational,EMEA,Poland,Offline,2023-06-30,2023-07-01,Secondary,1.0,0.0,
+Super Girl Gamer Pro 2023 Championship,Super Girl Gamer Pro 2023 Championship,Super Girl Gamer Pro,North America,North America,Online,2023-10-27,2023-10-29,Secondary,1.0,0.0,
+Superdome Cairo 2023,Superdome Cairo 2023,Superdome,EMEA,Egypt,,2023-11-29,2023-12-02,Secondary,1.0,0.0,
+Superdome Cairo 2023 Qualifier,Superdome Cairo 2023/Qualifier,Superdome,EMEA,Egypt,,2023-11-02,2023-11-04,Secondary,0.0,1.0,
+Svenska Onlineligan Season 6,Svenska Onlineligan/2023 Season/Season 6,Svenska Onlineligan,EMEA,Sweden,Online,2023-03-12,2023-04-29,Secondary,0.0,0.0,
+Svenska Onlineligan Season 6 Playoffs,Svenska Onlineligan/2023 Season/Season 6 Playoffs,Svenska Onlineligan,EMEA,Sweden,Online,2023-06-03,2023-06-04,Secondary,1.0,0.0,
+Svenska Onlineligan Season 7,Svenska Onlineligan/2023 Season/Season 7,Svenska Onlineligan,EMEA,Sweden,Online,2023-08-20,2023-10-01,Secondary,0.0,0.0,
+Svenska Onlineligan Season 7 Playoffs,Svenska Onlineligan/2023 Season/Season 7 Playoffs,Svenska Onlineligan,EMEA,Sweden,Online,2023-11-04,2023-11-05,Secondary,1.0,0.0,
+Swisscom Hero Cup 2023,Swisscom Hero Cup 2023,Swisscom Hero Cup,EMEA,Switzerland,Online/Offline,2023-10-01,2023-10-14,Secondary,0.0,0.0,
+Syaruru Cup 4th,Syaruru Cup 4th,Syaruru Cup,Japan,Japan,Online,2023-11-16,2023-11-16,Secondary,1.0,0.0,
+T1 Lucca Comics and Games,Circuito Tormenta Italy 2023/T1 Lucca Comics and Games,T1 Lucca Comics and Games,EMEA,Italy,Offline,2023-11-01,2023-11-02,Secondary,1.0,0.0,
+T1 Milan Games Week,Circuito Tormenta Italy 2023/T1 Milan Games Week,T1 Milan Games Week,EMEA,Italy,Offline,2023-11-24,2023-11-25,Secondary,1.0,0.0,
+T1 Napoli Comicon,Circuito Tormenta Italy 2023/T1 Napoli Comicon,T1 Napoli Comicon,EMEA,Italy,Offline,2023-04-28,2023-04-29,Secondary,1.0,0.0,
+Taichung Esports Carnival 2023,Taichung Esports Carnival 2023,Taichung Esports Carnival,Asia Pacific,Taiwan,Offline,2023-12-16,2023-12-16,Showmatch,0.0,0.0,
+Taiwan Legend Championship 2023,2023 Taiwan Legend Championship,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2023-09-16,2023-09-16,Secondary,0.0,0.0,
+Taiwan Legend Championship 2023 - Northern Open Qualifiers,2023 Taiwan Legend Championship/Northern Open Qualifiers,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2023-08-24,2023-09-06,Secondary,0.0,0.0,
+Taiwan Legend Championship 2023 - Southern Open Qualifiers,2023 Taiwan Legend Championship/Southern Open Qualifiers,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2023-08-10,2023-08-23,Secondary,0.0,0.0,
+TCL 2023 Summer,TCL/2023 Season/Summer Season,Turkish Championship League,EMEA,Turkey,Online,2023-06-14,2023-07-21,Secondary,0.0,0.0,Summer
+TCL 2023 Summer Playoffs,TCL/2023 Season/Summer Playoffs,Turkish Championship League,EMEA,Turkey,,2023-07-25,2023-08-12,Secondary,1.0,0.0,Summer
+TCL 2023 Winter,TCL/2023 Season/Winter Season,Turkish Championship League,EMEA,Turkey,Online,2023-01-26,2023-03-17,Secondary,0.0,0.0,Winter
+TCL 2023 Winter Playoffs,TCL/2023 Season/Winter Playoffs,Turkish Championship League,EMEA,Turkey,,2023-03-22,2023-04-01,Secondary,1.0,0.0,Winter
+TCL Division 2 2023 Closed Qualifier,TCL Division 2/2023 Season/Closed Qualifier,TCL Division 2,EMEA,Turkey,Online,2023-06-08,2023-06-10,Secondary,0.0,1.0,
+TCL Division 2 2023 Last Chance Qualifier,TCL Division 2/2023 Season/Last Chance Qualifier,TCL Division 2,EMEA,Turkey,Online,2023-06-10,2023-06-12,Secondary,0.0,1.0,
+TCL Division 2 2023 Open Qualifier 1,TCL Division 2/2023 Season/Open Qualifiers/Open Qualifier 1,TCL Division 2,EMEA,Turkey,Online,2023-05-24,2023-05-25,Secondary,0.0,1.0,
+TCL Division 2 2023 Open Qualifier 2,TCL Division 2/2023 Season/Open Qualifiers/Open Qualifier 2,TCL Division 2,EMEA,Turkey,Online,2023-05-29,2023-05-30,Secondary,0.0,1.0,
+TCL Division 2 2023 Open Qualifier 3,TCL Division 2/2023 Season/Open Qualifiers/Open Qualifier 3,TCL Division 2,EMEA,Turkey,Online,2023-06-01,2023-06-02,Secondary,0.0,1.0,
+TCL Division 2 2023 Open Qualifier 4,TCL Division 2/2023 Season/Open Qualifiers/Open Qualifier 4,TCL Division 2,EMEA,Turkey,Online,2023-06-04,2023-06-05,Secondary,0.0,1.0,
+TCL Division 2 2023 Summer,TCL Division 2/2023 Season/Summer Season,TCL Division 2,EMEA,Turkey,Online,2023-06-20,2023-08-08,Secondary,0.0,0.0,Summer
+TCL Division 2 2023 Summer Playoffs,TCL Division 2/2023 Season/Summer Playoffs,TCL Division 2,EMEA,Turkey,Online,2023-08-10,2023-08-25,Secondary,1.0,0.0,
+Team Amazigh LOL Cup 2023,Team Amazigh LOL Cup 2023,Team Amazigh LOL Cup,EMEA,Tunisia,Online/Offline,2023-09-19,2023-09-27,Secondary,0.0,0.0,
+TEC Season 2,TEC/Season 2,Telekom eSports Championship,EMEA,Croatia,Online (Round 1 - Round 4)&lt;br&gt;Offline (Finals),2023-05-22,2023-06-10,Secondary,1.0,0.0,
+TEC Season 2 Qualifier,TEC/Season 2/Qualifier,Telekom eSports Championship,EMEA,Croatia,Online,2023-05-06,2023-05-06,Secondary,0.0,1.0,
+Telialigaen 2023 Spring,Telialigaen/2023 Season/Spring Season,Telialigaen,EMEA,Norway,,2023-01-31,2023-04-16,Secondary,0.0,0.0,
+Telialigaen 2023 Spring Playoffs,Telialigaen/2023 Season/Spring Playoffs,Telialigaen,EMEA,Norway,,2023-04-21,2023-05-13,Secondary,1.0,0.0,
+TESFED Türkiye Cup 2023,TESFED Türkiye Cup 2023,TESFED Türkiye Cup 2023,EMEA,Turkey,Online/Offline,2023-12-16,2023-12-23,Secondary,0.0,1.0,
+The k4sen Tournament 4th,The k4sen Tournament 4th,The k4sen Tournament,Japan,Japan,Online,2023-03-31,2023-03-31,Showmatch,0.0,0.0,
+The k4sen Tournament 5th,The k4sen Tournament 5th,The k4sen Tournament,Japan,Japan,Online,2023-04-07,2023-04-07,Showmatch,0.0,0.0,
+The k4sen Tournament 6th,The k4sen Tournament 6th,The k4sen Tournament,Japan,Japan,Offline,2023-05-13,2023-05-13,Showmatch,0.0,0.0,
+The k4sen Tournament 7th,The k4sen Tournament 7th,The k4sen Tournament,Japan,Japan,Offline,2023-12-02,2023-12-03,Showmatch,0.0,0.0,
+The k4sen Tournament 8th,The k4sen Tournament 8th,The k4sen Tournament,Japan,Japan,Online,2023-12-28,2023-12-30,Showmatch,0.0,0.0,
+The Major Six 2024,The Major Six 2024,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2024-09-02,2024-09-21,Secondary,0.0,0.0,
+The Major Six 2025,The Major Six 2025,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2025-08-18,2025-08-30,Secondary,0.0,0.0,
+The Major Six 2026,The Major Six 2026,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2026-07-20,2026-08-28,Secondary,0.0,0.0,
+Tormenta Open Comicon Napoli Qualifier T1,Circuito Tormenta Italy 2023/Comicon Napoli Qualifier T1,Tormenta Open Comicon Napoli Qualifier T1,EMEA,Italy,Online,2023-04-01,2023-04-02,Secondary,0.0,1.0,
+Tormenta Open KIA Roma Qualifier T1,Circuito Tormenta Italy 2023/KIA Roma Qualifier T1,Tormenta Open KIA Roma Qualifier T1,EMEA,Italy,Online,2023-06-05,2023-06-06,Secondary,0.0,1.0,
+Tormenta Open SPS Cup,Circuito Tormenta Italy 2023/SPS Cup,Tormenta Open SPS Cup,EMEA,Italy,Online,2023-02-28,2023-03-03,Secondary,0.0,0.0,
+Tormenta Open SPS Cup #2,Circuito Tormenta Italy 2023/SPS Cup n2,Tormenta Open SPS Cup #2,EMEA,Italy,Online,2023-05-30,2023-06-02,Secondary,0.0,0.0,
+Tormenta Open T2 #1,Circuito Tormenta Italy 2023/T2 n1,Tormenta Open T2 #1,EMEA,Italy,Online,2023-02-20,2023-02-26,Secondary,0.0,0.0,
+Tormenta Open T2 #2,Circuito Tormenta Italy 2023/T2 n2,Tormenta Open T2 #2,EMEA,Italy,Online,2023-03-13,2023-03-19,Secondary,0.0,0.0,
+Tormenta Open T2 KIA Roma,Circuito Tormenta Italy 2023/T2 KIA Roma,Tormenta Open T2 KIA Roma,EMEA,Italy,Online,2023-05-20,2023-05-28,Secondary,0.0,0.0,
+Tormenta Open T3 Romagna Esports,Circuito Tormenta Italy 2023/Romagna Esports,Tormenta Open T3 Romagna Esports,EMEA,Italy,Online,2023-06-09,2023-06-11,Secondary,0.0,0.0,
+TRIFORC3 TOURNAMENT 2023,TRIFORC3 TOURNAMENT 2023,TRIFORC3 TOURNAMENT,EMEA,Spain,Online,2023-02-25,2023-02-25,Secondary,1.0,0.0,
+TRIFORC3 TOURNAMENT 2023 2,TRIFORC3 TOURNAMENT 2023 2,TRIFORC3 TOURNAMENT,EMEA,Spain,Online,2023-05-07,2023-05-07,Secondary,1.0,0.0,
+TRIFORC3 TOURNAMENT 2023 2 Qualifier 1,TRIFORC3 TOURNAMENT 2023 2/Qualifier 1,TRIFORC3 TOURNAMENT,EMEA,Spain,Online,2023-05-05,2023-05-05,Secondary,0.0,1.0,
+TRIFORC3 TOURNAMENT 2023 2 Qualifier 2,TRIFORC3 TOURNAMENT 2023 2/Qualifier 2,TRIFORC3 TOURNAMENT,EMEA,Spain,Online,2023-05-06,2023-05-06,Secondary,0.0,1.0,
+TRIFORC3 TOURNAMENT 2023 Qualifier 1,TRIFORC3 TOURNAMENT 2023/Qualifier 1,TRIFORC3 TOURNAMENT,EMEA,Spain,Online,2023-02-11,2023-02-11,Secondary,0.0,1.0,
+TRIFORC3 TOURNAMENT 2023 Qualifier 2,TRIFORC3 TOURNAMENT 2023/Qualifier 2,TRIFORC3 TOURNAMENT,EMEA,Spain,Online,2023-02-18,2023-02-18,Secondary,0.0,1.0,
+Tunisian Super League 2023,Tunisian Super League/2023 Season,Tunisian Super League,EMEA,Tunisia,Online/Offline,2023-11-11,2023-12-28,Secondary,0.0,0.0,
+UCLan 2,UCLan 2,UCLan,EMEA,Belgium,Offline,2023-10-21,2023-10-22,Secondary,1.0,0.0,
+Ultimate Tormenta 2023,Ultimate Tormenta 2023,Ultimate Tormenta,EMEA,Spain,Online,2023-06-23,2023-06-25,Secondary,1.0,0.0,
+Ultimate Tormenta 2023 Qualifier 1,Ultimate Tormenta 2023/Qualifier 1,Ultimate Tormenta,EMEA,Spain,Online,2023-06-17,2023-06-17,Secondary,1.0,0.0,
+Ultimate Tormenta 2023 Qualifier 2,Ultimate Tormenta 2023/Qualifier 2,Ultimate Tormenta,EMEA,Spain,Online,2023-06-18,2023-06-18,Secondary,1.0,0.0,
+Ultraliga 2nd Division Season 6,Ultraliga 2nd Division/Season 6,Ultraliga 2nd Division,EMEA,Poland,,2023-01-12,2023-03-10,Secondary,0.0,0.0,Split 1
+Ultraliga 2nd Division Season 6 Playoffs,Ultraliga 2nd Division/Season 6 Playoffs,Ultraliga 2nd Division,EMEA,Poland,,2023-03-16,2023-03-30,Secondary,1.0,0.0,
+Ultraliga 2nd Division Season 6 Promotion,Ultraliga 2nd Division/Season 6 Promotion,Ultraliga 2nd Division,EMEA,Poland,Online,2022-12-02,2022-12-04,Secondary,0.0,1.0,
+Ultraliga 2nd Division Season 7,Ultraliga 2nd Division/Season 7,Ultraliga 2nd Division,EMEA,Poland,Online,2023-05-25,2023-07-14,Secondary,0.0,0.0,Split 2
+Ultraliga 2nd Division Season 7 Playoffs,Ultraliga 2nd Division/Season 7 Playoffs,Ultraliga 2nd Division,EMEA,Poland,Online,2023-07-21,2023-08-10,Secondary,1.0,0.0,
+Ultraliga Season 10,Ultraliga/Season 10,Ultraliga,EMEA,Poland,Online,2023-05-29,2023-07-20,Secondary,0.0,0.0,Split 2
+Ultraliga Season 10 Playoffs,Ultraliga/Season 10 Playoffs,Ultraliga,EMEA,Poland,,2023-07-25,2023-08-12,Secondary,1.0,0.0,
+Ultraliga Season 9,Ultraliga/Season 9,Ultraliga,EMEA,Poland,Online,2023-01-16,2023-03-08,Secondary,0.0,0.0,Split 1
+Ultraliga Season 9 Playoffs,Ultraliga/Season 9 Playoffs,Ultraliga,EMEA,Poland,,2023-03-14,2023-03-31,Secondary,1.0,0.0,
+Ultraliga Season 9 Promotion,Ultraliga/Season 9 Promotion,Ultraliga,Europe,Poland,Online,2022-09-12,2022-09-23,Secondary,0.0,1.0,
+Ultraliga Super Puchar 2023 Main Event,Ultraliga Super Puchar 2023/Main Event,Ultraliga Super Puchar,EMEA,Poland,Online,2023-11-07,2023-11-17,Secondary,0.0,0.0,
+Ultraliga Super Puchar 2023 Open Qualifier 1,Ultraliga Super Puchar 2023/Open Qualifiers/Open Qualifier 1,Ultraliga Super Puchar,EMEA,Poland,Online,2023-10-27,2023-10-27,Secondary,0.0,1.0,
+Ultraliga Super Puchar 2023 Open Qualifier 2,Ultraliga Super Puchar 2023/Open Qualifiers/Open Qualifier 2,Ultraliga Super Puchar,EMEA,Poland,Online,2023-10-30,2023-10-30,Secondary,0.0,1.0,
+Ultraliga Super Puchar 2023 Open Qualifier 3,Ultraliga Super Puchar 2023/Open Qualifiers/Open Qualifier 3,Ultraliga Super Puchar,EMEA,Poland,Online,2023-11-03,2023-11-03,Secondary,0.0,1.0,
+VCS 2023 Spring,VCS/2023 Season/Spring Season,Vietnam Championship Series,Vietnam,Vietnam,Offline,2023-02-24,2023-04-10,Primary,0.0,0.0,Spring
+VCS 2023 Spring Playoffs,VCS/2023 Season/Spring Playoffs,Vietnam Championship Series,Vietnam,Vietnam,Offline,2023-04-14,2023-04-23,Primary,1.0,0.0,Spring
+VCS 2023 Spring Showmatch,VCS/2023 Season/Spring Playoffs/Showmatch,Vietnam Championship Series,Vietnam,Vietnam,Offline,2023-04-14,2023-04-22,Showmatch,0.0,0.0,
+VCS 2023 Summer,VCS/2023 Season/Summer Season,Vietnam Championship Series,Vietnam,Vietnam,Offline,2023-06-23,2023-08-06,Primary,0.0,0.0,Summer
+VCS 2023 Summer Playoffs,VCS/2023 Season/Summer Playoffs,Vietnam Championship Series,Vietnam,Vietnam,Offline,2023-08-12,2023-09-09,Primary,1.0,0.0,Summer
+VCS CL 2023 Group Stage,VCS CL/2023 Season/Group Stage,VCSCL,Vietnam,Vietnam,Offline,,,Primary,0.0,0.0,Summer
+VL 2023 Opening,Volcano League/2023 Season/Opening Season,Volcano League,Latin America,Ecuador,Online,2023-01-19,2023-03-03,Secondary,0.0,0.0,
+VL 2023 Opening Playoffs,Volcano League/2023 Season/Opening Playoffs,Volcano League,Latin America,Ecuador,Online,2023-03-09,2023-03-31,Secondary,1.0,0.0,
+VL 2023 Opening Promotion,Volcano League/2023 Season/Opening Promotion,Volcano League,Latin America,Ecuador,Online,2022-08-24,2022-09-02,Secondary,0.0,1.0,
+Wandercon 2023,Wandercon 2023,Wandercon,EMEA,Croatia,Offline,2023-02-05,2023-02-05,Secondary,1.0,0.0,
+Whiteers Cup Season 5 Group Stage,Whiteers Cup/Season 5 Group Stage,Whiteers Cup,EMEA,Poland,Online,2023-02-11,2023-02-19,Secondary,0.0,0.0,
+Whiteers Cup Season 5 Playoffs,Whiteers Cup/Season 5 Playoffs,Whiteers Cup,EMEA,Poland,Online,2023-02-28,2023-03-21,Secondary,1.0,0.0,
+Whiteers Cup Season 6 Group Stage,Whiteers Cup/Season 6 Group Stage,Whiteers Cup,EMEA,Poland,Online,2023-09-01,2023-10-01,Secondary,0.0,0.0,
+Whiteers Cup Season 6 Playoffs,Whiteers Cup/Season 6 Playoffs,Whiteers Cup,EMEA,Poland,Online,2023-10-06,2023-10-21,Secondary,1.0,0.0,
+Worlds 2023 Main Event,2023 Season World Championship/Main Event,World Championship,International,South Korea,Offline,2023-10-19,2023-11-19,Primary,0.0,0.0,
+Worlds 2023 Play-In,2023 Season World Championship/Play-In,World Championship,International,South Korea,Offline,2023-10-10,2023-10-15,Primary,0.0,1.0,
+Worlds Qualifying Series 2023,2023 Worlds Qualifying Series,World Championship,International,South Korea,Offline,2023-10-09,2023-10-09,Primary,0.0,1.0,
+Xayoo Cup 2,Xayoo Cup 2,Xayoo Cup,EMEA,Poland,Online,2023-12-01,2023-12-03,Secondary,1.0,0.0,
+Zide Fem League 2023 Closing,Zide Fem League/2023 Season/Closing Season,Zide Fem League,Latin America,Argentina,Online,2023-09-02,2023-09-16,Secondary,0.0,0.0,
+Zide Fem League 2023 Closing Playoffs,Zide Fem League/2023 Season/Closing Playoffs,Zide Fem League,Latin America,Argentina,Online,2023-09-20,2023-10-07,Secondary,1.0,0.0,
+Zide Fem League 2023 Opening,Zide Fem League/2023 Season/Opening Season,Zide Fem League,Latin America,Argentina,Online,2023-01-28,2023-02-19,Secondary,0.0,0.0,
+Zide Fem League 2023 Opening Playoffs,Zide Fem League/2023 Season/Opening Playoffs,Zide Fem League,Latin America,Argentina,Online,2023-02-25,2023-03-11,Secondary,1.0,0.0,
+Zide Pro League 2023 Opening,Zide Pro League/2023 Season/Opening Season,Zide Pro League,Latin America,Argentina,Online,2023-02-06,2023-03-17,Secondary,0.0,0.0,
+Zide Pro League 2023 Opening Playoffs,Zide Pro League/2023 Season/Opening Playoffs,Zide Pro League,Latin America,Argentina,Online,2023-03-23,2023-04-14,Secondary,1.0,0.0,

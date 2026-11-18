@@ -36,6 +36,10 @@ def load_tickets() -> pd.DataFrame:
         if c not in df.columns:
             df[c] = None
     df["id"] = pd.to_numeric(df["id"], errors="coerce").fillna(0).astype(int)
+    # Colonnes texte : une colonne entièrement vide est lue comme float par pandas,
+    # ce qui fait planter l'éditeur (colonne « texte » sur des nombres).
+    for c in ("created", "title", "note", "status", "done_at"):
+        df[c] = df[c].astype(object).where(df[c].notna(), None)
     return df[COLS]
 
 

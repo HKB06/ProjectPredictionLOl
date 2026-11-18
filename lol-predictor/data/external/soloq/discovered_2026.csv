@@ -1,0 +1,782 @@
+player,id,role,region,game_name,tag,confidence,tier,lp,team,first_seen,last_seen
+Phantasm,Phantasm,Mid,KR,Phantasm,korea,faible,challenger,2680,CGN Esports,2026-11-11,2026-11-11
+Sponge,Sponge,Jungle,KR,Sponge,gji,moyen,challenger,2615,Nongshim RedForce,2026-11-11,2026-11-11
+Daemi,Daemi,Mid,KR,Daemi,F A,moyen,challenger,2599,Arneb,2026-11-11,2026-11-11
+Bull,Bull,Bot,KR,Bull,480,moyen,challenger,2566,LOUD,2026-11-11,2026-11-11
+Quantum (Son Jeong-hwan),Quantum,Support,KR,DNS Quantum,KR 1,fort,challenger,2540,DN SOOPers Challengers,2026-11-11,2026-11-11
+Clozer,Clozer,Mid,KR,Clozer,0727,moyen,challenger,2539,DN SOOPers,2026-11-11,2026-11-11
+Bonnie,Bonnie,Jungle,KR,Bonnie,0314,moyen,challenger,2533,S2G Esports,2026-11-11,2026-11-11
+Way (Han Gil),Way,Support,KR,Way,꼬마몬,moyen,challenger,2508,Team Heretics,2026-11-11,2026-11-11
+LazyFeel,LazyFeel,Bot,KR,LazyFeel,KR7,moyen,challenger,2471,Kiwoom DRX,2026-11-11,2026-11-11
+Croco,Croco,Jungle,KR,Croco,0223,moyen,challenger,2450,LNG Esports,2026-11-11,2026-11-11
+Bluffing,Bluffing,Support,KR,Bluffing,1207,moyen,challenger,2445,Hanwha Life Esports Challengers,2026-11-11,2026-11-11
+SeTab,SeTab,Mid,KR,SeTab,123,moyen,challenger,2435,Nongshim Esports Academy,2026-11-11,2026-11-11
+Nevid,Nevid,Top,KR,DK Nevid,동두천왕,fort,challenger,2430,Dplus Kia Youth,2026-11-11,2026-11-11
+Guardian (Seong Tae-hyo),Guardian,Top,KR,T1 Guardian,KR3,fort,challenger,2419,T1 Esports Academy,2026-11-11,2026-11-11
+Pungyeon,Pungyeon,Mid,KR,Pungyeon,0116,moyen,challenger,2409,CTBC Flying Oyster,2026-11-11,2026-11-11
+Carim,Carim,Jungle,KR,T1 Carim,0409,fort,challenger,2379,T1 Esports Academy Rookies,2026-11-11,2026-11-11
+Sharvel,Sharvel,Jungle,KR,Sharvel,1102,moyen,challenger,2374,DN SOOPers,2026-11-11,2026-11-11
+Moham,Moham,Support,KR,Moham,0808,moyen,challenger,2373,Weibo Gaming,2026-11-11,2026-11-11
+Frog (Lee Min-hoi),Frog,Top,KR,Frog,KRX,moyen,challenger,2364,Kiwoom DRX Challengers,2026-11-11,2026-11-11
+Pollu,Pollu,Support,KR,Pollu,0107,moyen,challenger,2363,KT Rolster Challengers,2026-11-11,2026-11-11
+Daemi,Daemi,Mid,KR,Daemi,Arneb,moyen,challenger,2346,Arneb,2026-11-11,2026-11-11
+Flip (Kim Sang-wook),Flip,Mid,KR,DNS Flip,2008,fort,challenger,2321,DN SOOPers Challengers,2026-11-11,2026-11-11
+Karis,Karis,Mid,KR,WE Karis,0521,fort,challenger,2301,Team WE,2026-11-11,2026-11-11
+Callme,Callme,Mid,KR,Dont Callme,0530,faible,challenger,2293,Disguised,2026-11-11,2026-11-11
+Luna (Luna Sánchez),Luna,Mid,KR,luna,jie,faible,challenger,2278,Five Leaf Clover,2026-11-11,2026-11-11
+Casting,Casting,Top,KR,Casting,KR11,moyen,challenger,2244,HANJIN BRION,2026-11-11,2026-11-11
+Grizzly,Grizzly,Jungle,KR,Grizzly,KR3,moyen,challenger,2240,BNK FEARX Youth,2026-11-11,2026-11-11
+Chesterbb,chesterbb,Bot,KR,chesterbb,0811,moyen,challenger,2213,,2026-11-11,2026-11-11
+Kingdom (Kim Seong-kwon),Kingdom,Bot,KR,FA Kingdom,KR1,faible,challenger,2195,Seoul,2026-11-11,2026-11-11
+Tempester,Tempester,Mid,KR,Tempester,KR3,moyen,challenger,2195,HANJIN BRION Challengers,2026-11-11,2026-11-11
+Painter,Painter,Jungle,KR,T1 Painter,KR3,fort,challenger,2195,T1 Esports Academy,2026-11-11,2026-11-11
+Sylvie,Sylvie,Jungle,KR,Sylvie,77777,moyen,challenger,2189,KT Rolster Challengers,2026-11-11,2026-11-11
+SIRIUSS,SIRIUSS,Support,KR,SIRIUSS,KR 1,moyen,challenger,2173,Gen.G Global Academy,2026-11-11,2026-11-11
+13day,13day,Jungle,KR,13day,Kyoka,moyen,challenger,2161,LYA-A,2026-11-11,2026-11-11
+Vincenzo (Ha Seung-min),Vincenzo,Jungle,KR,KRX Vincenzo,KR4,faible,challenger,2154,Kiwoom DRX Challengers,2026-11-11,2026-11-11
+Faker,Faker,Mid,KR,Faker,구라티,moyen,challenger,2105,T1,2026-11-11,2026-11-11
+Effort,Effort,Support,KR,Effort,4444,moyen,challenger,2104,KT Rolster,2026-11-11,2026-11-11
+Miyi,Miyi,Support,KR,Miyi,oymy,moyen,challenger,2094,LYA-A,2026-11-11,2026-11-11
+Ivory,Ivory,Mid,KR,Ivory,1012,moyen,challenger,2086,Fuego,2026-11-11,2026-11-11
+Aether (Hwang Hwi-sang),Aether,Support,KR,T1 Aether,KR33,fort,challenger,2059,T1 Esports Academy Rookies,2026-11-11,2026-11-11
+About,About,Bot,KR,About,8468,moyen,challenger,2044,Team WE,2026-11-11,2026-11-11
+Zhiqiuyi,zhiqiuyi,Bot,KR,zhiqiuyi,mio韩服,moyen,challenger,2034,,2026-11-11,2026-11-11
+1Jiang,1Jiang,Top,KR,1Jiang,7777,faible,challenger,2028,Team Dragon (MSI 2026),2026-11-11,2026-11-11
+TheHank,TheHank,Support,KR,TheHank,Xhh,moyen,challenger,2027,Bilibili Gaming Junior,2026-11-11,2026-11-11
+Wen (Liao Wen-Wei),Wen,Top,KR,zhang wen zi,KR1,faible,challenger,2019,Weibo Gaming Youth Team,2026-11-11,2026-11-11
+Eclipse (Kim Min-jun),Eclipse,Bot,KR,T1 Eclipse,2009,fort,challenger,2001,T1 Esports Academy,2026-11-11,2026-11-11
+Dongnan,dongnan,Mid,KR,Dongnan,030,moyen,challenger,1978,Seoul,2026-11-11,2026-11-11
+Despair (Kim Seon-woo),Despair,Mid,KR,DK Despair,안 산,fort,challenger,1972,Dplus Kia Youth,2026-11-11,2026-11-11
+Re0,re0,Jungle,KR,re0,2007,moyen,challenger,1972,,2026-11-11,2026-11-11
+Pyosik,Pyosik,Jungle,KR,DNS Pyosik,KR2,fort,challenger,1962,DN SOOPers,2026-11-11,2026-11-11
+Cypher,Cypher,Bot,KR,Cypher,2144,moyen,challenger,1961,T1 Esports Academy,2026-11-11,2026-11-11
+Sharon,Sharon,Mid,KR,Sharon,1121,faible,challenger,1957,Zarrix-mix,2026-11-11,2026-11-11
+Sama,Sama,Coach,KR,Sama,水原铃瑞,faible,challenger,1937,Oui Oui Baguette,2026-11-11,2026-11-11
+Solid (Nam Hyeon-seo),Solid,Jungle,KR,DK Solid,마 산,fort,challenger,1936,Dplus Kia Challengers,2026-11-11,2026-11-11
+Comfy,Comfy,Bot,KR,KRX Comfy,KRX,fort,challenger,1921,Kiwoom DRX Academy,2026-11-11,2026-11-11
+Willer,Willer,Jungle,KR,KRX Willer,KRX,fort,challenger,1920,Kiwoom DRX,2026-11-11,2026-11-11
+Bean (Kim Jong-wan),Bean,Top,KR,Bean,커피빈,moyen,challenger,1914,Gen.G Scholars,2026-11-11,2026-11-11
+Castle (Cho Hyeon-seong),Castle,Top,KR,Castle,Jo1,moyen,challenger,1911,Disguised,2026-11-11,2026-11-11
+Crow (Kim Seung-woo),Crow,Mid,KR,Crow,crow9,moyen,challenger,1910,T1 Esports Academy Rookies,2026-11-11,2026-11-11
+Dorian,Dorian,Support,KR,Dorian,0404,moyen,challenger,1909,Oh My God,2026-11-11,2026-11-11
+Fisher (Lee Jeong-tae),Fisher,Mid,KR,Fisher,KR2,moyen,challenger,1885,DetonatioN FocusMe,2026-11-11,2026-11-11
+UmTi,UmTi,Broadcast Talent,KR,BABO UmTi,바보아님,faible,challenger,1883,KR Legends (CHZZK),2026-11-11,2026-11-11
+Carim,Carim,Jungle,KR,Carim,0409,moyen,challenger,1882,T1 Esports Academy Rookies,2026-11-11,2026-11-11
+Yuny,Yuny,Mid,KR,Yuny,유니짜장맨,moyen,challenger,1880,Gen.G Scholars,2026-11-11,2026-11-11
+Levitate,Levitate,Bot,KR,Levitate,KR3,faible,challenger,1875,Blue Otter,2026-11-11,2026-11-11
+Burdol,Burdol,Top,KR,Burdol,1225,moyen,challenger,1874,LGD Gaming,2026-11-11,2026-11-11
+GGomZi,GGomZi,Bot,KR,HLE GGomZi,666,fort,challenger,1842,Hanwha Life Esports Academy,2026-11-11,2026-11-11
+Lingyo,lingyo,Mid,KR,lingyo,6511,moyen,grandmaster,1862,,2026-11-11,2026-11-11
+Liangchen,Liangchen,Top,KR,LiangChen,0611,moyen,grandmaster,1833,Bilibili Gaming Junior,2026-11-11,2026-11-11
+Kingen,Kingen,Top,KR,Kingen,KR1,moyen,grandmaster,1808,Nongshim RedForce,2026-11-11,2026-11-11
+CoBiT,CoBiT,Support,KR,CoBiT,KR1,moyen,grandmaster,1774,Eunpyeong Meditech High School,2026-11-11,2026-11-11
+Wooper,Wooper,Bot,KR,BRO Wooper,KR3,fort,grandmaster,1767,HANJIN BRION Academy,2026-11-11,2026-11-11
+Heru,Heru,Mid,KR,Heru,KR821,moyen,grandmaster,1766,ThunderTalk Gaming,2026-11-11,2026-11-11
+Midir,Midir,Top,KR,Midir,FA06,moyen,grandmaster,1762,T1 Esports Academy Rookies,2026-11-11,2026-11-11
+Kingpo54,kingpo54,Support,KR,kingpo54,KR1,faible,grandmaster,1691,,2026-11-11,2026-11-11
+Mitsuki,Mitsuki,Support,KR,Mitsuki,TES1,moyen,grandmaster,1690,Top Esports Challenger,2026-11-11,2026-11-11
+SMITE (Kong Tae-rang),SMITE,Jungle,KR,SMITE,K T,moyen,grandmaster,1678,KT Rolster Academy,2026-11-11,2026-11-11
+IDEA,IDEA,Jungle,KR,BRO IDEA,2006,fort,grandmaster,1676,HANJIN BRION Academy,2026-11-11,2026-11-11
+Sanling,Sanling,Mid,KR,Sanling,FPX,moyen,grandmaster,1675,LYA-B,2026-11-11,2026-11-11
+Abyss (Yoon Ki-chan),Abyss,Top,KR,Abyss,1753,moyen,grandmaster,1658,Seoul,2026-11-11,2026-11-11
+Solbon,Solbon,Mid,KR,T1 Solbon,KR6,fort,grandmaster,1652,T1 Esports Academy Rookies,2026-11-11,2026-11-11
+Ignar,Ignar,Support,KR,IgNar,3525,moyen,grandmaster,1630,Dignitas,2026-11-11,2026-11-11
+Kael (Kim Jin-hong),Kael,Support,KR,AL Kael,0211,fort,grandmaster,1629,Anyone's Legend,2026-11-11,2026-11-11
+1Jiang,1Jiang,Top,KR,1Jiang,2003,faible,grandmaster,1628,Team Dragon (MSI 2026),2026-11-11,2026-11-11
+YiNova,YiNova,Top,KR,YiNova,2006,moyen,grandmaster,1625,LYA-B,2026-11-11,2026-11-11
+,,,KR,Kim Sang Hoon,Rell,ambigu,grandmaster,1622,,2026-11-11,2026-11-11
+Pleata,Pleata,Support,KR,pleata,KR22,moyen,grandmaster,1619,Nongshim Esports Academy,2026-11-11,2026-11-11
+Kiin,Kiin,Top,KR,Kiin,0820,moyen,grandmaster,1600,Gen.G,2026-11-11,2026-11-11
+Gumayusi,Gumayusi,Bot,KR,HLE Gumayusi,0298,fort,grandmaster,1592,Hanwha Life Esports,2026-11-11,2026-11-11
+Luon,Luon,Support,KR,Luon,11111,moyen,grandmaster,1585,BNK FEARX Youth,2026-11-11,2026-11-11
+Savage (Kim Jae-hyeon),Savage,Top,KR,Savage,KR1,moyen,grandmaster,1582,Equinox Core,2026-11-11,2026-11-11
+Hanghang,hanghang,Support,KR,hanghang,Nova,moyen,grandmaster,1552,,2026-11-11,2026-11-11
+Ghost (Jang Yong-jun),Ghost,Bot,KR,Summer Ghost,KR1,faible,grandmaster,1552,KT Rolster Challengers,2026-11-11,2026-11-11
+Ming (Shi Sen-Ming),Ming,Support,KR,Ming,GJH,moyen,grandmaster,1548,Team Legendary,2026-11-11,2026-11-11
+Peyz,Peyz,Bot,KR,T1 peyz,2010,fort,grandmaster,1539,T1,2026-11-11,2026-11-11
+Loopy,Loopy,Support,KR,Loopy,1813,moyen,grandmaster,1535,Dplus Kia Challengers,2026-11-11,2026-11-11
+Look,Look,Support,KR,look,mio韩服,faible,grandmaster,1527,PREDIQT,2026-11-11,2026-11-11
+Samkz,Samkz,Jungle,KR,Samkz,SCTA,faible,grandmaster,1493,paiN Gaming Academy,2026-11-11,2026-11-11
+Destiny (Mitchell Shaw),destiny,Bot,KR,Destiny,KR1,faible,grandmaster,1488,Team Dragon (MSI 2026),2026-11-11,2026-11-11
+Beluga,Beluga,Top,KR,Beluga,0520,moyen,grandmaster,1483,Weibo Gaming Youth Team,2026-11-11,2026-11-11
+Keria,Keria,Support,KR,keria,1212,moyen,grandmaster,1480,T1,2026-11-11,2026-11-11
+GIDEON,GIDEON,Jungle,KR,GIDEON,KR2,moyen,grandmaster,1458,HANJIN BRION,2026-11-11,2026-11-11
+Kog,Kog,Bot,KR,Kog,КR1,faible,grandmaster,1450,Ei Nerd Esports,2026-11-11,2026-11-11
+,,,KR,Heart,KR1,ambigu,grandmaster,1446,,2026-11-11,2026-11-11
+TheHank,TheHank,Support,KR,TheHank,反迷你,moyen,grandmaster,1442,Bilibili Gaming Junior,2026-11-11,2026-11-11
+Life,Life,Support,KR,Have A Nice Life,asd,faible,grandmaster,1438,DN SOOPers,2026-11-11,2026-11-11
+,,,KR,Heart,0 0,ambigu,grandmaster,1435,,2026-11-11,2026-11-11
+Cloud (Moon Hyeon-ho),Cloud,Support,KR,Cloud,KR8,moyen,grandmaster,1430,T1 Esports Academy,2026-11-11,2026-11-11
+MINO (Kim Min-ho),MINO,Mid,KR,KRX MINO,KRX,fort,grandmaster,1426,Kiwoom DRX Academy,2026-11-11,2026-11-11
+Enosh,Enosh,Bot,KR,Enosh,144,moyen,grandmaster,1423,DN SOOPers Challengers,2026-11-11,2026-11-11
+Nostalgia,Nostalgia,Bot,KR,Nostalgia,1941,faible,grandmaster,1419,Tan'i eSports,2026-11-11,2026-11-11
+Mihile,Mihile,Top,KR,Mihile,0301,moyen,grandmaster,1417,Team Heretics Academy,2026-11-11,2026-11-11
+Jesus (Hong Eun-chong),Jesus,Mid,KR,BRO Jesus,2009,fort,grandmaster,1391,HANJIN BRION Academy,2026-11-11,2026-11-11
+Xiaoshen,xiaoshen,Jungle,KR,Xiaoshen,132,moyen,grandmaster,1390,,2026-11-11,2026-11-11
+Felix (Lee Seung-min),Felix,Support,KR,BRO Felix,1012,fort,grandmaster,1385,HANJIN BRION Academy,2026-11-11,2026-11-11
+Faker,Faker,Mid,KR,faker big fan,mid,faible,grandmaster,1377,T1,2026-11-11,2026-11-11
+Maikehan,Maikehan,Mid,KR,WPE Maikehan,dmnkd,moyen,grandmaster,1373,West Point Esports Philippines,2026-11-11,2026-11-11
+Woong (Kim Sun-woong),Woong,Coach,KR,woong,111,moyen,grandmaster,1372,Dplus Kia Challengers,2026-11-11,2026-11-11
+SkyK,SkyK,Bot,KR,SkyK,2710K,faible,grandmaster,1369,Shiba Team,2026-11-11,2026-11-11
+Eggbap,Eggbap,Top,KR,WF black EggBap,에그밥,faible,grandmaster,1322,Nongshim RedForce Academy,2026-11-11,2026-11-11
+Ryuk (David Hörmann),Ryuk,Bot,EUW,Ryuk,adc,moyen,challenger,3320,TeamOrangeGaming,2026-11-11,2026-11-11
+Oleg (Oleg Karkachev),Oleg,Jungle,EUW,OLEG INSEC,OLEG,faible,challenger,3254,PURPLE WARRIORS,2026-11-11,2026-11-11
+Theocacs,Theocacs,Jungle,EUW,Theocacs,EUW,moyen,challenger,3206,Anubis Gaming,2026-11-11,2026-11-11
+Velja,Velja,Jungle,EUW,LR Velja,2203,fort,challenger,3206,Team Lo Ratones,2026-11-11,2026-11-11
+3XA,3XA,Bot,EUW,3XA,ida,moyen,challenger,3193,Joblife,2026-11-11,2026-11-11
+Kozi,Kozi,Top,EUW,Kozi,UCAM,moyen,challenger,3171,UCAM Esports,2026-11-11,2026-11-11
+Vasco,Vasco,Mid,EUW,L Vasco O ,EUW,faible,challenger,3169,Nightbirds,2026-11-11,2026-11-11
+Yuta,Yuta,Jungle,EUW,Yuta Okkotsu,BOAT,faible,challenger,3163,inca friends i robi,2026-11-11,2026-11-11
+Skeanz,Skeanz,Jungle,EUW,Skeanz,Neil,moyen,challenger,3144,SK Gaming,2026-11-11,2026-11-11
+Noz2k,Noz2k,Bot,EUW,noz2k,1807,moyen,challenger,3133,,2026-11-11,2026-11-11
+Dekap,Dekap,Support,EUW,Dekap,EUW,moyen,challenger,3073,Vitality.Bee,2026-11-11,2026-11-11
+Afroboi,Afroboi,Jungle,EUW,Afroboi,depu,moyen,challenger,3008,E WIE EINFACH E-SPORTS,2026-11-11,2026-11-11
+Simpli,Simpli,Mid,EUW,Simpli,000,moyen,challenger,2981,Arctic Pandas,2026-11-11,2026-11-11
+Mojito,Mojito,Coach,EUW,BAR MOJITO,MACA,faible,challenger,2970,Team Phantasma,2026-11-11,2026-11-11
+Strode,Strode,Bot,EUW,Strode,1508,moyen,challenger,2949,Savero123's party,2026-11-11,2026-11-11
+Soldier,Soldier,Bot,EUW,Soldier,Asu,moyen,challenger,2922,Ici Japon Corp. Esport,2026-11-11,2026-11-11
+OMON,OMON,Mid,EUW,HF OMON,FUEGO,faible,challenger,2912,Galions,2026-11-11,2026-11-11
+Fun K3y,Fun K3y,Bot,EUW,FUN k3y,EUW,moyen,challenger,2905,,2026-11-11,2026-11-11
+Jezu,Jezu,Bot,EUW,Jezu,KR01,moyen,challenger,2901,ZYB Esport,2026-11-11,2026-11-11
+Toffe,Toffe,Mid,EUW,Toffe,ren,moyen,challenger,2898,TLN Pirates,2026-11-11,2026-11-11
+Kite (Petr Maroušek),Kite,Coach,EUW,Kite Machine,2015,faible,challenger,2883,BRUTE,2026-11-11,2026-11-11
+MathisV,MathisV,Mid,EUW,MathisV,ARCHE,moyen,challenger,2880,DKMCM,2026-11-11,2026-11-11
+Boda,Boda,Top,EUW,Boda,win,moyen,challenger,2873,JSK Esports,2026-11-11,2026-11-11
+Death (Lyuboslav Nedelev),Death,Jungle,EUW,Poo of Death,K405,faible,challenger,2868,Magaza Esports,2026-11-11,2026-11-11
+Parein,Parein,Support,EUW,LTU Parein,Ožys,faible,challenger,2808,Lithuania (National Team),2026-11-11,2026-11-11
+Notiko,Notiko,Bot,EUW,Notiko,EUW01,moyen,challenger,2804,Eintracht Frankfurt,2026-11-11,2026-11-11
+FlickeR (Rodrigo de Oliveira),FlickeR,Bot,EUW,FlickeR,1601,moyen,challenger,2796,Frites Esports Club,2026-11-11,2026-11-11
+Asta (Rémi Cavrel),Asta,Jungle,EUW,ASTA,RRRR,moyen,challenger,2755,Lausanne-Sport Esports,2026-11-11,2026-11-11
+Wicked (Fares Bouhajja),Wicked,Mid,EUW,Wicked,2007,moyen,challenger,2740,Lokmays Circus Esports,2026-11-11,2026-11-11
+Koldo,Koldo,Jungle,EUW,Koldo,1233,moyen,challenger,2740,Barça eSports,2026-11-11,2026-11-11
+Relative,Relative,Mid,EUW,Relative,00003,moyen,challenger,2721,E WIE EINFACH E-SPORTS,2026-11-11,2026-11-11
+Nae,Nae,Bot,EUW,nae,1way,moyen,challenger,2719,Movistar KOI Karps,2026-11-11,2026-11-11
+Omni (Lucas Karlsson),Omni,Bot,EUW,Omni,Bomni,moyen,challenger,2709,Fritt Fall,2026-11-11,2026-11-11
+Relative,Relative,Mid,EUW,Relative,00002,moyen,challenger,2707,E WIE EINFACH E-SPORTS,2026-11-11,2026-11-11
+ESCIK,ESCIK,Mid,EUW,ESCIK,EU1,moyen,challenger,2701,UCAM Esports,2026-11-11,2026-11-11
+Myrtus,Myrtus,Support,EUW,Myrtus,P38,moyen,challenger,2678,Movistar KOI Fénix,2026-11-11,2026-11-11
+TTobias,TTobias,Coach,EUW,TTobias lol,feet,faible,challenger,2676,LODIS (Polish Team),2026-11-11,2026-11-11
+Jopa,Jopa,Bot,EUW,Jopa,1WAY,moyen,challenger,2665,SK Gaming,2026-11-11,2026-11-11
+Mihile,Mihile,Top,EUW,mihile toplaner,shiba,faible,challenger,2646,Team Heretics Academy,2026-11-11,2026-11-11
+HARPOON,HARPOON,Bot,EUW,HARPOON,goat,moyen,challenger,2638,Galions,2026-11-11,2026-11-11
+Jeykup,Jeykup,Jungle,EUW,Jeykup,xie,moyen,challenger,2628,Colossal Gaming,2026-11-11,2026-11-11
+Stab,Stab,Jungle,EUW,Stab,6969,moyen,challenger,2621,Confrérie Secrète de l’Ombre,2026-11-11,2026-11-11
+Infinity (Christian Hernando),Infinity,Jungle,EUW,Infinity,5365,moyen,challenger,2611,Guinea Pink,2026-11-11,2026-11-11
+Mishi (Kevin Westerbacka),Mishi,Bot,EUW,Mishi,001,moyen,challenger,2605,Ex Verdant,2026-11-11,2026-11-11
+Dawidsonek,Dawidsonek,Top,EUW,Dawidsonek,2137,moyen,challenger,2605,DOCISK Academy,2026-11-11,2026-11-11
+Raydio,Raydio,Jungle,EUW,404 Raydio,Ray,fort,challenger,2599,404 Multigaming e.V.,2026-11-11,2026-11-11
+Calmsky,Calmsky,Support,EUW,Calmsky,meow,moyen,challenger,2585,bom jogo,2026-11-11,2026-11-11
+Lurox,Lurox,Jungle,EUW,Lurox,Lurox,moyen,challenger,2584,Team Heretics Academy,2026-11-11,2026-11-11
+Mercy9,Mercy9,Mid,EUW,Mercy9,4918,moyen,challenger,2575,Çakıl,2026-11-11,2026-11-11
+Abner,Abner,Bot,EUW,Abner,EUW0,moyen,challenger,2567,Oxygen Gaming,2026-11-11,2026-11-11
+Peaker,Peaker,Mid,EUW,Peaker,Kind,moyen,challenger,2560,Kanji Esports AKA,2026-11-11,2026-11-11
+Sama,Sama,Coach,EUW,TakeSet sama,srhy,faible,challenger,2542,Oui Oui Baguette,2026-11-11,2026-11-11
+MetroArcher,MetroArcher,Bot,EUW,MetroArcher,EUW,moyen,challenger,2541,New Era Team,2026-11-11,2026-11-11
+TommyG,TommyG,Support,EUW,LiL TommyG,EUW,faible,challenger,2540,GD Esports,2026-11-11,2026-11-11
+TeaZing,TeaZing,Bot,EUW,TeaZing,Liebe,moyen,challenger,2537,Swiss Ghosts,2026-11-11,2026-11-11
+Tockimo,Tockimo,Support,EUW,Tockimo,freak,moyen,challenger,2527,G2 NORD,2026-11-11,2026-11-11
+Mahonix,Mahonix,Support,EUW,MT1 Mahonix,BROCK,fort,challenger,2523,MT1 Esports,2026-11-11,2026-11-11
+APP,APP,Top,EUW,app,slon,moyen,challenger,2520,HMBLE,2026-11-11,2026-11-11
+Frezzer,Frezzer,Bot,EUW,Frezzer,YoRHa,moyen,challenger,2518,7 Serpents Nemesis,2026-11-11,2026-11-11
+Alex (Alexandre Afonso),Alex,Mid,EUW,Alex Consani,EUW3,faible,challenger,2514,Circus Kittens,2026-11-11,2026-11-11
+Guli,Guli,Jungle,EUW,Guli,BRN,moyen,challenger,2510,Barcząca Esports by Yumisu,2026-11-11,2026-11-11
+Palco,Palco,Top,EUW,CHINESE PALCO,NA1,faible,challenger,2494,Rugby Club Havířov,2026-11-11,2026-11-11
+Faetski,Faetski,Bot,EUW,Faetski,Hera,moyen,challenger,2487,devils.one inStreamly,2026-11-11,2026-11-11
+Evangelyne,Evangelyne,Bot,EUW,Évangelyne,LOVE,moyen,challenger,2484,Team Phantasma,2026-11-11,2026-11-11
+AxeL,AxeL,Bot,EUW,SSO Axel,EUW,faible,challenger,2478,,2026-11-11,2026-11-11
+Maged,Maged,Top,EUW,ANB Maged,44444,faible,challenger,2474,Egypt (National Team),2026-11-11,2026-11-11
+Koba,Koba,Bot,EUW,Koba Libre,JEF,faible,challenger,2470,Void Walkers,2026-11-11,2026-11-11
+Lebster,Lebster,Mid,EUW,Lebster,Vegan,moyen,challenger,2469,Adam West Corp,2026-11-11,2026-11-11
+Fleshy,Fleshy,Support,EUW,Fleshy,EU1,moyen,challenger,2469,Team Vitality,2026-11-11,2026-11-11
+Unicow,Unicow,Mid,EUW,Unicow,EUW,moyen,challenger,2457,2 Massive,2026-11-11,2026-11-11
+SmallBugi,SmallBugi,Mid,EUW,SmallBugi,EUW,moyen,challenger,2456,Global Pause,2026-11-11,2026-11-11
+Twilon,Twilon,Mid,EUW,twtv Twilon,끝까지간다,faible,challenger,2456,Praksters,2026-11-11,2026-11-11
+MKR,MKR,Bot,EUW,MKR,Eva,moyen,challenger,2451,Arcane Enigma,2026-11-11,2026-11-11
+GoldenGod,GoldenGod,Bot,EUW,GoldenGod,EUW,moyen,challenger,2450,Playwell Rød Q,2026-11-11,2026-11-11
+Guli,Guli,Jungle,EUW,TTV Guli,00000,faible,challenger,2440,Barcząca Esports by Yumisu,2026-11-11,2026-11-11
+Sama,Sama,Coach,EUW,Usan sama,z1v9,faible,challenger,2437,Oui Oui Baguette,2026-11-11,2026-11-11
+Divine (Alex Corona),Divine,Mid,EUW,Divine,real7,moyen,challenger,2434,Sticchi Di Navarrone,2026-11-11,2026-11-11
+Trailblazer (Oskar Moreno),Trailblazer,Support,EUW,Trailblazer,005,moyen,grandmaster,2451,The Bandits Prime,2026-11-11,2026-11-11
+Scimmia,Scimmia,Mid,EUW,Scimmia,simi,moyen,grandmaster,2437,lowelomentescsapat,2026-11-11,2026-11-11
+Krisimaru,Krisimaru,Mid,EUW,Krisimaru,EUW,moyen,grandmaster,2428,Team Krisimaru,2026-11-11,2026-11-11
+Passzi,Passzi,Support,EUW,Passzi,OwO,moyen,grandmaster,2423,UCAM Esports,2026-11-11,2026-11-11
+Sylvie,Sylvie,Jungle,EUW,Sylvie,1377,faible,grandmaster,2396,KT Rolster Challengers,2026-11-11,2026-11-11
+Maynter,Maynter,Top,EUW,Maynter,EUW,moyen,grandmaster,2395,Natus Vincere,2026-11-11,2026-11-11
+Guli,Guli,Jungle,EUW,TTV Guli,7VEN,faible,grandmaster,2390,Barcząca Esports by Yumisu,2026-11-11,2026-11-11
+Nilsog,Nilsog,Bot,EUW,Nilsog,EUW,moyen,grandmaster,2384,Antic ESC,2026-11-11,2026-11-11
+Shourdy,Shourdy,Top,EUW,Shourdy,EUW,moyen,grandmaster,2377,PvB (Swiss Team),2026-11-11,2026-11-11
+Facen,Facen,Mid,EUW,Facen,EUW,moyen,grandmaster,2377,LOMBards,2026-11-11,2026-11-11
+FireAscept,FireAscept,Mid,EUW,FireAscept,1310,moyen,grandmaster,2370,PCIFIC Esports,2026-11-11,2026-11-11
+Citron (Edward Thelin),Citron,Jungle,EUW,Citron,Smile,moyen,grandmaster,2369,Tung Sahur Mid,2026-11-11,2026-11-11
+Zicssi,Zicssi,Jungle,EUW,SMRADOCH ZICSSI,EUW,faible,grandmaster,2364,Solary,2026-11-11,2026-11-11
+Raffy,Raffy,Top,EUW,R A F F Y,TOP,moyen,grandmaster,2359,Crystal Rose (French Team),2026-11-11,2026-11-11
+Inugami (David Gironde),Inugami,Mid,EUW,HLT Inugami,loser,faible,grandmaster,2359,HL Tauri Esports,2026-11-11,2026-11-11
+Kobs,Kobs,Jungle,EUW,Zhou Yang Kobs,VEN1,faible,grandmaster,2356,ZYB Esport,2026-11-11,2026-11-11
+Harbo,Harbo,Mid,EUW,Harbo,000,moyen,grandmaster,2353,MT1 Esports,2026-11-11,2026-11-11
+Tsiper,Tsiper,Mid,EUW,Tsiper,akos,moyen,grandmaster,2352,WLGaming Esports,2026-11-11,2026-11-11
+Fred (Frederico Galvão),Fred,Mid,EUW,Fred,yuki,moyen,grandmaster,2339,bom jogo,2026-11-11,2026-11-11
+KPr,kPr,Top,EUW,SHG kpR,ZAZUN,faible,grandmaster,2318,,2026-11-11,2026-11-11
+,,,EUW,Artoria Prime,eProd,ambigu,grandmaster,2315,,2026-11-11,2026-11-11
+Akanania,Akanania,Bot,EUW,Akanania,1213,moyen,grandmaster,2315,mYinsanity,2026-11-11,2026-11-11
+Towhat,towhat,Support,EUW,towhat,EUW,moyen,grandmaster,2305,ZeroZone Gaming,2026-11-11,2026-11-11
+Diamondprox,Diamondprox,Jungle,EUW,Diamondprox,ProX,moyen,grandmaster,2298,Meavedron,2026-11-11,2026-11-11
+Dark (Aitor Paredes),Dark,Support,EUW,Dark Magician,123,faible,grandmaster,2296,Valkiria's Valhalla,2026-11-11,2026-11-11
+Kryzik,Kryzik,Mid,EUW,Kryzik,EUW,moyen,grandmaster,2293,PvB (Swiss Team),2026-11-11,2026-11-11
+Dyenn,Dyenn,Mid,EUW,Dyenn,2444,moyen,grandmaster,2287,GIANTX iTero,2026-11-11,2026-11-11
+Baashh,Baashh,Jungle,EUW,TTV BAASHH,EUW,faible,grandmaster,2285,,2026-11-11,2026-11-11
+RustySniper,RustySniper,Bot,EUW,TwTv RustySniper,Aura,faible,grandmaster,2281,Lund Esports Organization OGs,2026-11-11,2026-11-11
+Drali,Drali,Top,EUW,Drali,ACC,moyen,grandmaster,2274,DKMCM,2026-11-11,2026-11-11
+Yeti (Szymon Wójcicki),Yeti,Top,EUW,niezły yeti pl,hui,faible,grandmaster,2266,Skillcamp,2026-11-11,2026-11-11
+BanaBeer,BanaBeer,Jungle,EUW,BanaBeer,EUW2,moyen,grandmaster,2259,Croatian Flair x RLX,2026-11-11,2026-11-11
+Scorth,Scorth,Bot,EUW,Scorth,EUW,moyen,grandmaster,2258,Çakıl,2026-11-11,2026-11-11
+Krysia,Krysia,Jungle,EUW,Krysia,jdisa,moyen,grandmaster,2244,KAMASUTRA,2026-11-11,2026-11-11
+Fantomisto,fantomisto,Mid,EUW,fantomisto,MID,moyen,grandmaster,2242,Esprit Shōnen,2026-11-11,2026-11-11
+Quetz,Quetz,Mid,EUW,Quetz,Mig,moyen,grandmaster,2242,multiculturalidad,2026-11-11,2026-11-11
+Nille,Nille,Top,EUW,Nille,76100,moyen,grandmaster,2234,Arctic Pandas,2026-11-11,2026-11-11
+Boltox,Boltox,Support,EUW,Boltox,EUW,moyen,grandmaster,2231,No Temptation Esports,2026-11-11,2026-11-11
+Manaty,Manaty,Jungle,EUW,MANATY MID ACC,CHALL,faible,grandmaster,2228,Ici Japon Corp. Esport,2026-11-11,2026-11-11
+Cocytos,Cocytos,Bot,EUW,Cocytos,Him,moyen,grandmaster,2221,HatTrick Gaming,2026-11-11,2026-11-11
+Jacobmolly,Jacobmolly,Jungle,EUW,Jacobmolly,1234,moyen,grandmaster,2217,UP2UMEDIA Cebulaki,2026-11-11,2026-11-11
+VAEII,VAEII,Mid,EUW,VAEII,EUW,moyen,grandmaster,2217,Simplicity Esports (Tunisian Team),2026-11-11,2026-11-11
+Wakz,Wakz,Manager,EUW,SLY Wakz,SLY,fort,grandmaster,2216,Solary,2026-11-11,2026-11-11
+JayJay,JayJay,Mid,EUW,JayJay,RANK1,moyen,grandmaster,2213,Randoms Deluxe,2026-11-11,2026-11-11
+Dreilix,Dreilix,Bot,EUW,Dreilix,CN3,moyen,grandmaster,2207,DKB XPERION NXT,2026-11-11,2026-11-11
+Artanis,Artanis,Jungle,EUW,Artanis,EUW2,moyen,grandmaster,2196,Frites Esports Club,2026-11-11,2026-11-11
+Bisgaard,Bisgaard,Mid,EUW,Bisgaard,Supp,moyen,grandmaster,2194,Crownless,2026-11-11,2026-11-11
+NattyNatt,NattyNatt,Jungle,EUW,NattyNatt,2005,moyen,grandmaster,2189,Team MarIsOki,2026-11-11,2026-11-11
+Enoch,Enoch,Support,EUW,Inverted Enoch,EUW,faible,grandmaster,2182,The Secret Club,2026-11-11,2026-11-11
+Marth (Julian Maletzky),Marth,Bot,EUW,Marth,ADC,moyen,grandmaster,2178,Babos Gaming,2026-11-11,2026-11-11
+Pinki,Pinki,Bot,EUW,Pinki,PPPPP,moyen,grandmaster,2166,Zwischenzug,2026-11-11,2026-11-11
+Kaine,Kaine,Mid,EUW,kaine,2405,moyen,grandmaster,2165,Bushido Wildcats,2026-11-11,2026-11-11
+Rin (Khalil Sahraoui),Rin,Bot,EUW,Itoshi Rin,SSSS,faible,grandmaster,2158,Algeria (National Team),2026-11-11,2026-11-11
+Farfetch,Farfetch,Support,EUW,farfetch,296,moyen,grandmaster,2156,PvB (Swiss Team),2026-11-11,2026-11-11
+Ragner,Ragner,Top,EUW,Ragner,Rago,moyen,grandmaster,2154,PCIFIC Esports,2026-11-11,2026-11-11
+Effortless,Effortless,Bot,EUW,Effortless,Kind,moyen,grandmaster,2143,Kanji Esports AKA,2026-11-11,2026-11-11
+Jankos,Jankos,Streamer,EUW,G2 Jankos,unc2,faible,grandmaster,2127,Team Żabka,2026-11-11,2026-11-11
+EUNE,EUNE,Bot,EUW,eune racecar,0014,faible,grandmaster,2127,Alpha Impact,2026-11-11,2026-11-11
+Frajgo,frajgo,Top,EUW,frajgo,rank1,moyen,grandmaster,2124,,2026-11-11,2026-11-11
+Batuuu,Batuuu,Support,EUW,Kral Batuuu,kral,faible,grandmaster,2121,Team Heretics Academy,2026-11-11,2026-11-11
+DizL,DizL,Bot,EUW,DizL,2297,moyen,grandmaster,2118,MT1 Esports,2026-11-11,2026-11-11
+,,,EUW,sin of pride,tali,ambigu,grandmaster,2117,,2026-11-11,2026-11-11
+Joki37,Joki37,Jungle,EUW,Joki37,EUW,moyen,grandmaster,2112,PALETKA ENJOYERS,2026-11-11,2026-11-11
+Jankos,Jankos,Streamer,EUW,Jankos Tribute,King,faible,grandmaster,2107,Team Żabka,2026-11-11,2026-11-11
+,,,EUW,WHITE MONSTER,M69,ambigu,grandmaster,2106,,2026-11-11,2026-11-11
+Humble (Martin Petreski),Humble,Bot,EUW,Humble v9,EUW,faible,grandmaster,2106,R5 Esports,2026-11-11,2026-11-11
+StarScreen,StarScreen,Top,EUW,StarScreen,1702,moyen,grandmaster,2106,Pyramid IV Esports,2026-11-11,2026-11-11
+Hummelu,Hummelu,Jungle,EUW,Hummelu,Hum,moyen,grandmaster,2104,doobie scoot canoe,2026-11-11,2026-11-11
+Sad (Ibrahim El Sayed),Sad,Top,EUW,sad FGE,UwU,faible,grandmaster,2103,Unpaid Interns,2026-11-11,2026-11-11
+Wao,Wao,Top,EUW,WAO,WAO1,moyen,grandmaster,2102,ZYB Esport,2026-11-11,2026-11-11
+Dimill,Dimill,Support,EUW,Dimill,322,moyen,grandmaster,2100,Лоток Яиц,2026-11-11,2026-11-11
+Exofeng,Exofeng,Bot,EUW,EXOFENG,KNEEL,moyen,grandmaster,2095,,2026-11-11,2026-11-11
+Bao (Bahadır Polat),bao,Manager,EUW,Xiao Lang Bao,EUW,faible,grandmaster,2086,,2026-11-11,2026-11-11
+Yuros,Yuros,Mid,EUW,Yuros,00001,moyen,grandmaster,2086,DIA Ozarox Esports,2026-11-11,2026-11-11
+Amelia,Amelia,Top,EUW,Amelia,EUW12,faible,grandmaster,2079,Nongshim RedForce Academy,2026-11-11,2026-11-11
+Destru,Destru,Mid,EUW,Destru,KING,moyen,grandmaster,2079,Navarra In Game,2026-11-11,2026-11-11
+,,,EUW,rato,EUWE,ambigu,grandmaster,2077,,2026-11-11,2026-11-11
+Dym,Dym,Mid,EUW,DYM,BÉNI,moyen,grandmaster,2070,Antic ESC,2026-11-11,2026-11-11
+,,,EUW,Mercury,MyEmi,ambigu,grandmaster,2068,,2026-11-11,2026-11-11
+Rediby,Rediby,Bot,EUW,Rediby,EUW,moyen,grandmaster,2063,Team ShortCut,2026-11-11,2026-11-11
+XYZ (Sebastian Rinner),XYZ,Top,EUW,XYZ,NR001,moyen,grandmaster,2057,LOOKSMAXXER,2026-11-11,2026-11-11
+Lothen,Lothen,Bot,EUW,LOTHEN,gabi,moyen,grandmaster,2057,Anonymo Esports,2026-11-11,2026-11-11
+SeyZo,SeyZo,Bot,EUW,SeyZo,bête,moyen,grandmaster,2049,Mind Blue eSports,2026-11-11,2026-11-11
+Just1Bastard,Just1Bastard,Jungle,EUW,Just1Bastard,FRA,moyen,grandmaster,2045,Orgless (Belgian Team),2026-11-11,2026-11-11
+Creepano,Creepano,Bot,EUW,Creepano,gfghs,moyen,grandmaster,2044,Lausanne-Sport Esports,2026-11-11,2026-11-11
+DarkBlue,DarkBlue,Mid,EUW,DarkBlue,rofl,moyen,grandmaster,2029,Capybara Esports,2026-11-11,2026-11-11
+Kolios,Kolios,Support,EUW,Kolios,focus,moyen,grandmaster,2027,Lausanne-Sport Esports,2026-11-11,2026-11-11
+Marty (Martin Dimitrov),Marty,Mid,EUW,Marty Supreme,BEAST,faible,grandmaster,2023,Galions Sharks,2026-11-11,2026-11-11
+Miella,Miella,Bot,EUW,MRS Miella,MEOOW,fort,grandmaster,2021,Mental Rush,2026-11-11,2026-11-11
+,,,EUW,Rush,SUPP,ambigu,grandmaster,2018,,2026-11-11,2026-11-11
+Jekko (Jemal Revazishvili),Jekko,Jungle,EUW,Jekko,9313,moyen,grandmaster,2003,Ex Verdant,2026-11-11,2026-11-11
+Electricshoe,electricshoe,Support,EUW,electricshoe,SUPP,moyen,grandmaster,1994,,2026-11-11,2026-11-11
+Shredder,Shredder,Support,EUW,Shredder,mio韩服,moyen,grandmaster,1991,Macko Esports,2026-11-11,2026-11-11
+Joeyscags,joeyscags,Support,EUW,joeyscags,Life,moyen,grandmaster,1990,Kawaii Kiwis,2026-11-11,2026-11-11
+Ruinez,ruinez,Jungle,EUW,Ruinez,k1ng,moyen,grandmaster,1990,cheese chunk invade,2026-11-11,2026-11-11
+AxeL,AxeL,Bot,EUW,SSO Axel,MMM2,faible,grandmaster,1980,,2026-11-11,2026-11-11
+Sinmivak,Sinmivak,Top,EUW,Sinmivak,777,moyen,grandmaster,1979,LODIS (Polish Team),2026-11-11,2026-11-11
+Wuis,Wuis,Support,EUW,Wuiš,Iris,moyen,grandmaster,1957,reGOLD eSport,2026-11-11,2026-11-11
+NooB (Léo Pitrey),NooB,Top,EUW,noob team,2020,faible,grandmaster,1956,Lausanne-Sport Esports,2026-11-11,2026-11-11
+Qualzy,qualzy,Jungle,EUW,qualzy,001,moyen,grandmaster,1946,Latvia (National Team),2026-11-11,2026-11-11
+Petersen,Petersen,Bot,EUW,404 Petersén,Adc,fort,grandmaster,1945,404 Multigaming e.V.,2026-11-11,2026-11-11
+Bicas,bicas,Jungle,EUW,bicas no chat,EUW,faible,grandmaster,1944,DMG Esports,2026-11-11,2026-11-11
+Nireo,Nireo,Top,EUW,Nireo,1408,moyen,grandmaster,1942,Ancient Ones,2026-11-11,2026-11-11
+VeRu,VeRu,Mid,EUW,VeRu,CIR,moyen,grandmaster,1938,Lupus Esports,2026-11-11,2026-11-11
+Barry (Oscar Girardot),Barry,Support,EUW,Barry Lyndon,EUW,faible,grandmaster,1935,Zephyr Esport,2026-11-11,2026-11-11
+Vizicsacsi,Vizicsacsi,Top,EUW,EWI Vizicsacsi,TOP,fort,grandmaster,1934,E WIE EINFACH E-SPORTS,2026-11-11,2026-11-11
+Ceasarna,Ceasarna,Jungle,EUW,Ceasarna,EUW,moyen,grandmaster,1932,OnlyWinByFF,2026-11-11,2026-11-11
+Looki,Looki,Bot,EUW,Looki,KCB,moyen,grandmaster,1931,Karmine Corp Blue,2026-11-11,2026-11-11
+Baro,Baro,Top,EUW,GERÇEK BARO BABA,BABA,faible,grandmaster,1929,Meavedron Benelux,2026-11-11,2026-11-11
+Blank (Michael Seto),Blank,Top,EUW,Ｂｌａｎｋ,21312,faible,grandmaster,1929,Gravity (2024 North American Team),2026-11-11,2026-11-11
+TURBOSPEEDSTER,TURBOSPEEDSTER,Mid,EUW,TURBOSPEEDSTER,EUW,moyen,grandmaster,1928,Neko Elite,2026-11-11,2026-11-11
+Hollow (Alexander Bachmann),Hollow,Coach,EUW,Hooded Hollow,Rengo,faible,grandmaster,1926,Mental Rush,2026-11-11,2026-11-11
+Minemaciek,minemaciek,Support,EUW,minemaciek,EUW,moyen,grandmaster,1923,,2026-11-11,2026-11-11
+Rotthue,Rotthue,Mid,EUW,Rotthue,EUW,moyen,grandmaster,1919,Tung Sahur Mid,2026-11-11,2026-11-11
+Septico1,Septico1,Top,EUW,septico1,EUW,moyen,grandmaster,1914,john pork,2026-11-11,2026-11-11
+Henning,Henning,Support,EUW,Henning,119,moyen,grandmaster,1914,Fortress Esports,2026-11-11,2026-11-11
+Law (Anas Nadime),Law,Mid,EUW,Law,zeld,moyen,grandmaster,1911,Team VDS,2026-11-11,2026-11-11
+Quicksie,Quicksie,Mid,EUW,Quicksie,EUW,moyen,grandmaster,1904,Unsealed Spellbook (Danish Team),2026-11-11,2026-11-11
+Tsugara,Tsugara,Mid,EUW,Tsugara,EUW18,moyen,grandmaster,1904,Mind Blue eSports,2026-11-11,2026-11-11
+Bala (Áron Balogh),Bala,Top,EUW,bala,HUN,moyen,grandmaster,1903,Lenovo Legion Honvéd,2026-11-11,2026-11-11
+Elijah (Elias Alexandrakis),Elijah,Top,EUW,elijah,5786,moyen,grandmaster,1899,Lundqvist Lightside,2026-11-11,2026-11-11
+Kiki (Killian Gauchey),Kiki,Jungle,EUW,Kiki,MATES,moyen,grandmaster,1897,DKMCM,2026-11-11,2026-11-11
+Foxie,Foxie,Mid,EUW,Foxie,003,moyen,grandmaster,1894,Nameless (Benelux Team),2026-11-11,2026-11-11
+Goliah,Goliah,Jungle,EUW,Goliah is Dead,Bye,faible,grandmaster,1887,Team Aqua ASD,2026-11-11,2026-11-11
+Addicted,Addicted,Mid,EUW,addicted,9 9,faible,grandmaster,1886,Gados Sem Limites E-Sports,2026-11-11,2026-11-11
+Doss,Doss,Support,EUW,DONALD DOSS,Doss,faible,grandmaster,1882,Kaufland Hangry Knights,2026-11-11,2026-11-11
+F1VTY,F1VTY,Jungle,EUW,F1VTY,EUW52,moyen,grandmaster,1880,New Era Team,2026-11-11,2026-11-11
+Pump (Omar Noorzaai),pump,Mid,EUW,pump the menace,1070,faible,grandmaster,1879,,2026-11-11,2026-11-11
+Thomas,Thomas,Support,EUW,Thomas Jalbi,XD3,faible,grandmaster,1871,TLN Pirates,2026-11-11,2026-11-11
+Improver,Improver,Mid,EUW,improver mqawd,2998,faible,grandmaster,1870,Void Walkers,2026-11-11,2026-11-11
+Jun (Yoon Se-jun),Jun,Support,EUW,Mun Hyeon jun,3060,faible,grandmaster,1870,GIANTX,2026-11-11,2026-11-11
+Carlsen,Carlsen,Top,EUW,Magnus Carlsen,PIUL,faible,grandmaster,1869,Galions,2026-11-11,2026-11-11
+Smoke (Claudio Avallone),Smoke,Coach,EUW,Smoke,TELLY,moyen,grandmaster,1869,Epitomy Esports,2026-11-11,2026-11-11
+Redsoft,Redsoft,Jungle,EUW,Redsoft,JGL,moyen,grandmaster,1868,Inari Esports (British Team),2026-11-11,2026-11-11
+Venour,Venour,Top,EUW,Venour,EUW,moyen,grandmaster,1862,Kaufland Hangry Knights,2026-11-11,2026-11-11
+IAll,IAll,Bot,EUW,IAll,KR20,moyen,grandmaster,1861,ZeroZone Gaming,2026-11-11,2026-11-11
+Ive,Ive,Mid,EUW,Ive lost it,adc,faible,grandmaster,1858,Eterna,2026-11-11,2026-11-11
+SirVicta,SirVicta,Top,EUW,SirVicta,EUW,moyen,grandmaster,1857,FlameHard,2026-11-11,2026-11-11
+Slix,Slix,Mid,EUW,Slix,EUW3,moyen,grandmaster,1855,Les Ravagés,2026-11-11,2026-11-11
+Twendddy,Twendddy,Top,EUW,Twendddy,SION,moyen,grandmaster,1855,reGOLD eSport,2026-11-11,2026-11-11
+Raider,Raider,Top,EUW,brigand raider,LISA,faible,grandmaster,1853,CGN Esports,2026-11-11,2026-11-11
+Kehvo,kehvo,Bot,EUW,Kehvo,EUW,moyen,grandmaster,1851,Arctic Pandas,2026-11-11,2026-11-11
+Koni,Koni,Mid,EUW,Koni,Liebe,moyen,grandmaster,1848,Babos Gaming Academy,2026-11-11,2026-11-11
+Moxokx,Moxokx,Coach,EUW,moxokx,EUW,moyen,grandmaster,1847,Garden Gaming,2026-11-11,2026-11-11
+Miella,Miella,Bot,EUW,MRS Miella,meow,fort,grandmaster,1844,Mental Rush,2026-11-11,2026-11-11
+Kachanava,Kachanava,Mid,EUW,BGT Kachanava,2623,faible,grandmaster,1837,lacrosse123's party,2026-11-11,2026-11-11
+Freazy,Freazy,Mid,EUW,Freazy,666,moyen,grandmaster,1837,Kinder ratio,2026-11-11,2026-11-11
+Magic (Faris Almazroouei),Magic,Mid,EUW,Magic,9282,moyen,grandmaster,1836,Mystic Gaming (Emirati Team),2026-11-11,2026-11-11
+Kingsblade,Kingsblade,Top,EUW,KWK Kingsblade,KWK,fort,grandmaster,1835,Kawaii Kiwis,2026-11-11,2026-11-11
+Budall,budall,Support,EUW,budall,EUW,moyen,grandmaster,1834,,2026-11-11,2026-11-11
+KozziR,KozziR,Mid,EUW,KozziR,XIII,moyen,grandmaster,1830,ZeroZone Gaming,2026-11-11,2026-11-11
+SwiT,SwiT,Top,EUW,SwiT,ZEUS,moyen,grandmaster,1828,Ex Verdant,2026-11-11,2026-11-11
+Edru,edru,Bot,EUW,edru,asdf,moyen,grandmaster,1825,,2026-11-11,2026-11-11
+Ambush,Ambush,Jungle,EUW,Ambush Dictator,Mbapp,faible,grandmaster,1825,ALMO Players,2026-11-11,2026-11-11
+Gwen (Gwen Coussot),Gwen,Bot,EUW,BAD KDA GWEN,snip,faible,grandmaster,1769,Karmine Corp Blue Stars,2026-11-11,2026-11-11
+Avalanche (Valdemar Cumberland),Avalanche,Jungle,EUW,Avalanche,FADØL,moyen,grandmaster,1768,The ParadOx Invaders,2026-11-11,2026-11-11
+Memento,Memento,Coach,EUNE,memento mori,echo,faible,challenger,3120,G2 Esports,2026-11-11,2026-11-11
+Random,Random,Mid,EUNE,mute all random,EUNE,faible,challenger,2825,Savero123's party,2026-11-11,2026-11-11
+Adam (Adam Maanane),Adam,Top,EUNE,Adam,RANK1,moyen,challenger,2314,ZYB Esport,2026-11-11,2026-11-11
+Lucho (Lachezar Pavlov),Lucho,Jungle,EUNE,Lucho,Iv9,moyen,challenger,2297,Team Draxo5,2026-11-11,2026-11-11
+Mis (Michał Kopacz),Mis,Bot,EUNE,Miś,OSRS,moyen,challenger,2214,YAZDA,2026-11-11,2026-11-11
+Toomaszek,Toomaszek,Jungle,EUNE,Toomaszek,EAST,moyen,challenger,2167,TOMEK I PRZYJACIELE,2026-11-11,2026-11-11
+Blue (Giorgos Iakovidis),Blue,Mid,EUNE,Blue,KR339,moyen,challenger,2105,Gamespace Genesis,2026-11-11,2026-11-11
+SQCRISTIAAN,SQCRISTIAAN,Mid,EUNE,SQ CRISTIAAN,adwo,moyen,challenger,2100,john pork,2026-11-11,2026-11-11
+Highway,Highway,Support,EUNE,highway,zuzia,moyen,challenger,2021,Dziady cz.67,2026-11-11,2026-11-11
+Adam (Adam Maanane),Adam,Top,EUNE,nonchalant adam,kret,faible,challenger,2012,ZYB Esport,2026-11-11,2026-11-11
+Hype (Byeon Jeong-hyeon),Hype,Bot,EUNE,hype me up adi,999,faible,challenger,1933,Team Heretics,2026-11-11,2026-11-11
+Blink,Blink,Bot,EUNE,I dont blink v2,blink,faible,grandmaster,1807,Oxygen Gaming,2026-11-11,2026-11-11
+Shadow (Abderrahmen Smati),Shadow,Top,EUNE,Shadow Marker,EUNE,faible,grandmaster,1795,Olympique Mnihla,2026-11-11,2026-11-11
+Dragon (María Zarate),Dragon,Mid,EUNE,Walking Dragon,EUNE,faible,grandmaster,1738,Barcząca Esports Babylon,2026-11-11,2026-11-11
+Nameless (French Player),Nameless,Jungle,EUNE,NAMELESS GOD,MABE,faible,grandmaster,1719,Cicadas Gaming,2026-11-11,2026-11-11
+Seal (Fabian de Lint),Seal,Support,EUNE,seal,plush,moyen,grandmaster,1713,Frites Esports Club,2026-11-11,2026-11-11
+Hunter (Marcel Gałek),Hunter,Jungle,EUNE,Elo Hunter,GRIND,faible,grandmaster,1697,Adam West Corp,2026-11-11,2026-11-11
+Necromartin,Necromartin,Top,EUNE,Necromartin,Necro,moyen,grandmaster,1679,Defeat the baby,2026-11-11,2026-11-11
+BaBaYaGa,BaBaYaGa,Support,EUNE,BABA YAGA,rank1,moyen,grandmaster,1673,Vortex Reborn,2026-11-11,2026-11-11
+Jordan (Giorgos Iordanidis),Jordan,Support,EUNE,Jordan Barrett,MODEL,faible,grandmaster,1653,HatTrick Gaming,2026-11-11,2026-11-11
+Rabbit (Jakub Šimůnek),Rabbit,Coach,EUNE,rabbit a,PEIA,faible,grandmaster,1602,HERDYNŮV LANGUSTA TÝM,2026-11-11,2026-11-11
+BANKAI (Flávio Neves),BANKAI,Mid,EUNE,bankai le riven,SOUL,faible,grandmaster,1580,Chaos Team,2026-11-11,2026-11-11
+,,,EUNE,Leon,6387,ambigu,grandmaster,1578,,2026-11-11,2026-11-11
+Wall (Luca Milioli),Wall,Mid,EUNE,Wall hop,RIVEN,faible,grandmaster,1564,Cuck Command Center,2026-11-11,2026-11-11
+Acrozo,Acrozo,Support,EUNE,Acrozo,ana,moyen,grandmaster,1560,Costeleeeeeeee's party,2026-11-11,2026-11-11
+Demon (Zakaria Nagbi),Demon,Coach,EUNE,SIDELANE DEMON,12345,faible,grandmaster,1560,Team VDS,2026-11-11,2026-11-11
+Yung,Yung,Jungle,EUNE,Yung Alx,EUNE,faible,grandmaster,1559,ESport Shadow Samurai,2026-11-11,2026-11-11
+EUNE,EUNE,Bot,EUNE,eune mafia boss,daddy,faible,grandmaster,1533,Alpha Impact,2026-11-11,2026-11-11
+Mikel (Michal Steiner),Mikel,Mid,EUNE,MIKEL OFF YASUO,dog,faible,grandmaster,1531,Rugby Club Havířov,2026-11-11,2026-11-11
+Frozen (Ismail Bastoun),Frozen,Support,EUNE,MALA VITA FROZEN,2v8,faible,grandmaster,1519,One More Esports,2026-11-11,2026-11-11
+White (Aslan Panglose),White,Jungle,EUNE,white man,adc,faible,grandmaster,1517,Unicorns of Love Sexy Edition,2026-11-11,2026-11-11
+EnsU,EnsU,Support,EUNE,EnsU,IONIA,moyen,grandmaster,1515,Mid age crisis,2026-11-11,2026-11-11
+Kite (Petr Maroušek),Kite,Coach,EUNE,Kite Machine V1,EUNE,faible,grandmaster,1493,BRUTE,2026-11-11,2026-11-11
+Fede,Fede,Bot,EUNE,Gandalf Den Fede,EUNE,faible,grandmaster,1487,Myth Esports,2026-11-11,2026-11-11
+EUNE,EUNE,Bot,EUNE,eune acc do baga,Doge,faible,grandmaster,1476,Alpha Impact,2026-11-11,2026-11-11
+EviI (Abdullah Alturki),EviI,Bot,EUNE,Pure EviI,EUNE,faible,grandmaster,1447,Nuclear Zone Glory,2026-11-11,2026-11-11
+Shadow (Abderrahmen Smati),Shadow,Top,EUNE,Hai bă Shadow bă,Udyr,faible,grandmaster,1446,Olympique Mnihla,2026-11-11,2026-11-11
+Insanity,Insanity,Mid,EUNE,Insanity,ΕUNE,faible,grandmaster,1436,Conviction,2026-11-11,2026-11-11
+,,,EUNE,Speedy Ronaldes,LOCO,ambigu,grandmaster,1428,,2026-11-11,2026-11-11
+Ego (William Cronin),Ego,Top,EUNE,EGO,十GOD十,faible,grandmaster,1403,Converse University,2026-11-11,2026-11-11
+Dark (Aitor Paredes),Dark,Support,EUNE,The Dark Heavens,Truth,faible,grandmaster,1400,Valkiria's Valhalla,2026-11-11,2026-11-11
+Ruby (Lee Sol-min),Ruby,Mid,EUNE,Ruby,ISR,moyen,grandmaster,1387,Partizan Sangal,2026-11-11,2026-11-11
+Yuki (Lovro Jukić),Yuki,Bot,EUNE,Yuki,柔らかい,moyen,grandmaster,1373,The Secret Club,2026-11-11,2026-11-11
+Feed,Feed,Coach,EUNE,Need for feed,Feed,faible,grandmaster,1370,GMBLERS Esports,2026-11-11,2026-11-11
+Colamax,Colamax,Coach,EUNE,Dositej Colamax,EUNE,faible,grandmaster,1366,Serbia (National Team),2026-11-11,2026-11-11
+Sad (Ibrahim El Sayed),Sad,Top,EUNE,Sad and Adored,Loved,faible,grandmaster,1358,Unpaid Interns,2026-11-11,2026-11-11
+Uciu,uciu,Jungle,EUNE,uciu,uciu,moyen,grandmaster,1358,,2026-11-11,2026-11-11
+Tolzdi,Tolzdi,Support,EUNE,Tolzdi,LOVV,moyen,grandmaster,1352,YAZDAAAAAA,2026-11-11,2026-11-11
+Dark (Aitor Paredes),Dark,Support,EUNE,dark horse,eune1,faible,grandmaster,1351,Valkiria's Valhalla,2026-11-11,2026-11-11
+Micro (Richard Mendl),Micro,Coach,EUNE,Mîcro,EUNE,moyen,grandmaster,1350,STOPERCENTNÁ KAMILOVA TUTOFKA,2026-11-11,2026-11-11
+Obey,Obey,Manager,EUNE,obey,oli,moyen,grandmaster,1342,Finanční portfolio,2026-11-11,2026-11-11
+Zuko (Emil Pettersson),Zuko,Support,EUNE,zuko,nic,moyen,grandmaster,1331,The Final Tribe,2026-11-11,2026-11-11
+Freestyle,Freestyle,Coach,EUNE,Freestyle,WARCP,moyen,grandmaster,1326,Vulpine Esports,2026-11-11,2026-11-11
+Mega (Ernesto Reyes),Mega,Support,EUNE,MEGÃ ROLLO KEBAB,EUNE,faible,grandmaster,1311,UCAM University Esports,2026-11-11,2026-11-11
+Aegis (Gabriel Lemos),Aegis,Jungle,EUNE,aegis,szn16,faible,grandmaster,1309,RED Canids,2026-11-11,2026-11-11
+JoJo (Gabriel Dzelme),JoJo,Support,EUNE,jojo,Lux,faible,grandmaster,1262,FURIA,2026-11-11,2026-11-11
+Fear (Maan Arshad),Fear,Mid,EUNE,Fear,eth,moyen,grandmaster,1248,Al-Ula Club,2026-11-11,2026-11-11
+Kaka (Kacper Bukowski),Kaka,Mid,TR,kaka kafa calimi,meto,faible,challenger,2210,Zauee's party,2026-11-11,2026-11-11
+Loki (Lee Sang-min),Loki,Mid,TR,Loki,0651,faible,challenger,2066,Cloud9,2026-11-11,2026-11-11
+Legend (Riazwaan Mir),Legend,Top,TR,imagine a legend,00100,faible,challenger,1900,Rich Gang UK,2026-11-11,2026-11-11
+Eloha,Eloha,Top,TR,Eloha,111,moyen,challenger,1670,Balta Esports,2026-11-11,2026-11-11
+Alex (Alexandre Afonso),Alex,Mid,TR,Alex Mercer,1v9,faible,challenger,1509,Circus Kittens,2026-11-11,2026-11-11
+Puddin,Puddin,Bot,TR,Puddin,1412,faible,challenger,1414,1TAP Dino Red,2026-11-11,2026-11-11
+Insane (Taieb Kraiem),Însane,Support,TR,The İnsâne,King,faible,challenger,1412,Lokmays Circus Esports,2026-11-11,2026-11-11
+Dream (Julien Jasses),Dream,Bot,TR,cuddle in dream,1704,faible,challenger,1328,Galions Sharks,2026-11-11,2026-11-11
+Prime (Olivier Payet),Prime,Support,TR,prime bursaspor,xxx,faible,challenger,1321,Karmine Corp Blue,2026-11-11,2026-11-11
+113,113,Jungle,TR,113 tr acc,113,faible,grandmaster,1285,PCIFIC Esports,2026-11-11,2026-11-11
+Maed,maed,Top,TR,maed,357,moyen,grandmaster,1246,,2026-11-11,2026-11-11
+Hollow (Alexander Bachmann),Hollow,Coach,TR,Hollow Bodies,btf,faible,grandmaster,1238,Mental Rush,2026-11-11,2026-11-11
+Dragon (María Zarate),Dragon,Mid,TR,dragon lore,9669,faible,grandmaster,1228,Barcząca Esports Babylon,2026-11-11,2026-11-11
+Meto,meto,Jungle,TR,meto,JGJG,moyen,grandmaster,1176,,2026-11-11,2026-11-11
+Feitan,Feitan,Support,TR,feitan,0711,faible,grandmaster,1145,The Hamsters,2026-11-11,2026-11-11
+Adam (Adam Maanane),Adam,Top,TR,Ruh Adam,000,faible,grandmaster,1137,ZYB Esport,2026-11-11,2026-11-11
+,,,TR,Black D Nika,XXXXX,ambigu,grandmaster,1060,,2026-11-11,2026-11-11
+Luna (Luna Sánchez),Luna,Mid,TR,Luna,Miwi,faible,grandmaster,996,Five Leaf Clover,2026-11-11,2026-11-11
+Dark (Aitor Paredes),Dark,Support,TR,Dark Magician,19035,faible,grandmaster,988,Valkiria's Valhalla,2026-11-11,2026-11-11
+Sanity,Sanity,Support,TR,love hope sanity,333,faible,grandmaster,987,Team Insidious,2026-11-11,2026-11-11
+Shadow (Abderrahmen Smati),Shadow,Top,TR,Shadow Fanboy,shadw,faible,grandmaster,985,Olympique Mnihla,2026-11-11,2026-11-11
+Black (Esteban Lobos),Black,Bot,TR,Black Mamba,CH405,faible,grandmaster,979,Rich Gang Sweden,2026-11-11,2026-11-11
+Hunter (Marcel Gałek),Hunter,Jungle,TR,Zargana Hunter,0002,faible,grandmaster,973,Adam West Corp,2026-11-11,2026-11-11
+Time (Tiago Almeida),Time,Jungle,TR,adventure time,1397,faible,grandmaster,946,GIANTX iTero,2026-11-11,2026-11-11
+Sinner,Sinner,Bot,TR,angel sinner,4 3,faible,grandmaster,929,Levelers,2026-11-11,2026-11-11
+Karina,Karina,Jungle,TR,winter karina,wnrna,faible,grandmaster,903,Mental Rush,2026-11-11,2026-11-11
+Sinner,Sinner,Bot,TR,sinner,909,moyen,grandmaster,900,Levelers,2026-11-11,2026-11-11
+Wuju,Wuju,Coach,TR,wuju,KING,moyen,grandmaster,890,DIA Ozarox Esports,2026-11-11,2026-11-11
+Grimm (André Fernando),Grimm,Analyst,TR,Grimm,Shen,faible,grandmaster,870,Smoke Tram,2026-11-11,2026-11-11
+Sana,Sana,Jungle,TR,o zaman sana bye,busra,faible,grandmaster,853,Kanji Esports KURO,2026-11-11,2026-11-11
+Karina,Karina,Jungle,TR,karina,mert,moyen,grandmaster,848,Mental Rush,2026-11-11,2026-11-11
+Random,Random,Mid,TR,random kid,3333,faible,grandmaster,823,Savero123's party,2026-11-11,2026-11-11
+Viper (Park Do-hyeon),Viper,Bot,TR,viper,maybe,faible,grandmaster,60,Bilibili Gaming,2026-11-11,2026-11-11
+Legolas,Legolas,Bot,ME,Legolas,567,moyen,challenger,1802,Barça eSports,2026-11-11,2026-11-11
+Silence,Silence,Jungle,ME,Silence,KSA,moyen,challenger,1238,Panelão LHC,2026-11-11,2026-11-11
+Rising,Rising,Jungle,ME,Rising,vayne,moyen,challenger,950,Elysion Esports,2026-11-11,2026-11-11
+,,,ME,nero,heca,ambigu,challenger,903,,2026-11-11,2026-11-11
+Mood (Máté Pintér),Mood,Support,ME,Mood,974,moyen,grandmaster,832,lowelomentescsapat,2026-11-11,2026-11-11
+Shadow (Abderrahmen Smati),Shadow,Top,ME,Lord Shadow,Fated,faible,grandmaster,799,Olympique Mnihla,2026-11-11,2026-11-11
+Rust,Rust,Bot,ME,Morgan Rust,Rust,faible,grandmaster,698,Mystic Gaming (Emirati Team),2026-11-11,2026-11-11
+Hunt (Albert Jahn),Hunt,Mid,ME,The Hunt,Faith,faible,grandmaster,681,Bulldog Esports,2026-11-11,2026-11-11
+Master (Ghassan Al-Battashi),Master,Mid,ME,B0t Lane Master,6969,faible,grandmaster,642,Oman (National Team),2026-11-11,2026-11-11
+Boda,Boda,Top,ME,Boda Clash,rank1,faible,grandmaster,543,JSK Esports,2026-11-11,2026-11-11
+Khalid (Khalid Waleed Albalushi),khalid,Mid,ME,Khalid,lll,moyen,grandmaster,524,Oman (National Team),2026-11-11,2026-11-11
+Blue (Giorgos Iakovidis),Blue,Mid,ME,Blue AD,1234,faible,grandmaster,493,Gamespace Genesis,2026-11-11,2026-11-11
+Void (Mark Legrand),Void,Bot,ME,Void Waker,999,faible,grandmaster,492,FUSE,2026-11-11,2026-11-11
+PhyMini,PhyMini,Mid,NA,PhyMini,NA1,moyen,challenger,3524,Milk Esports Whole Milk,2026-11-11,2026-11-11
+Davemon,Davemon,Mid,NA,Davemon,NA1,moyen,challenger,3472,Team Dantes,2026-11-11,2026-11-11
+Zven,Zven,Bot,NA,Zven,S16XD,moyen,challenger,3448,TSM,2026-11-11,2026-11-11
+Isles,Isles,Support,NA,Isles,000,moyen,challenger,3020,LYON (2024 American Team),2026-11-11,2026-11-11
+Loki (Lee Sang-min),Loki,Mid,NA,C9 Loki,kr3,fort,challenger,3004,Cloud9,2026-11-11,2026-11-11
+Niles (Aiden Tidwell),Niles,Coach,NA,MU Niles,365,fort,challenger,2850,Maryville University,2026-11-11,2026-11-11
+Yuuji,Yuuji,Jungle,NA,Yuuji,247,moyen,challenger,2732,Maryville University,2026-11-11,2026-11-11
+Good Boi,Good Boi,Bot,NA,Good Boi,twtv,moyen,challenger,2716,DeathMark E-Sports,2026-11-11,2026-11-11
+Ronin (Diego Soto),Ronin,Mid,NA,Ronin,MK1,faible,challenger,2652,Seven Dark Academy,2026-11-11,2026-11-11
+Philip (Philip Zeng),Philip,Top,NA,Philip,pleb,moyen,challenger,2623,Blue Otter,2026-11-11,2026-11-11
+Duoking1,Duoking1,Support,NA,duoking1,2r1s7,moyen,challenger,2610,Team of Subs,2026-11-11,2026-11-11
+DARKWINGS,DARKWINGS,Mid,NA,DARKWINGS,NA3,moyen,challenger,2590,Sentinels,2026-11-11,2026-11-11
+Fiji,Fiji,Top,NA,Fiji,Zone,moyen,challenger,2585,CCG Esports,2026-11-11,2026-11-11
+Spica,Spica,Support,NA,Spica,001,moyen,challenger,2560,NRG,2026-11-11,2026-11-11
+Ablazeolive,Ablazeolive,Mid,NA,Ablazeolive,NA1,moyen,challenger,2481,Cupid Esports,2026-11-11,2026-11-11
+Toothbooth,Toothbooth,Mid,NA,Toothbooth,NA1,moyen,challenger,2453,Team Samsara,2026-11-11,2026-11-11
+Cupic,Cupic,Mid,NA,Cupic,Senna,moyen,challenger,2450,Grub Lovers,2026-11-11,2026-11-11
+Aliplane,Aliplane,Bot,NA,Aliplane,F15YO,faible,challenger,2432,mCon esports,2026-11-11,2026-11-11
+Eclipse (Kim Min-jun),Eclipse,Bot,NA,Eclipse,0422,faible,challenger,2424,T1 Esports Academy,2026-11-11,2026-11-11
+Will (William Cummins),Will,Jungle,NA,Will,NA12,moyen,challenger,2420,University of Mississippi,2026-11-11,2026-11-11
+Enthralled,Enthralled,Bot,NA,ENTHRALLED,GWAPO,moyen,challenger,2400,hehe (North American Team),2026-11-11,2026-11-11
+Kituruken,Kituruken,Jungle,NA,kituruken,1717,faible,challenger,2337,Zerolag Esports,2026-11-11,2026-11-11
+Strompest,Strompest,Mid,NA,Strompest,TTKAE,moyen,challenger,2328,University of California Irvine,2026-11-11,2026-11-11
+Zelt,Zelt,Mid,NA,Zelt,NA2,moyen,challenger,2324,Colombia (National Team),2026-11-11,2026-11-11
+Redemption (Jason Zhi),Redemption,Support,NA,REDEMPTION,lmao,moyen,challenger,2314,Dorado Gaming,2026-11-11,2026-11-11
+Doublelift,Doublelift,Streamer,NA,Doublelift,NA01,moyen,challenger,2311,Team SquishyMuffinz,2026-11-11,2026-11-11
+Drututt,Drututt,Top,NA,Drututt,USA,faible,challenger,2248,Team Lo Ratones,2026-11-11,2026-11-11
+Music (Sean Wishko),Music,Jungle,NA,Music,jgl,moyen,challenger,2229,Cupid Esports,2026-11-11,2026-11-11
+Eliass,Eliass,Mid,NA,Eliass,NA1,moyen,challenger,2220,Guangdong Flying Tigers,2026-11-11,2026-11-11
+Ckreborn,ckreborn,Mid,NA,lft ckreborn,pris,faible,challenger,2143,,2026-11-11,2026-11-11
+InoriB,InoriB,Bot,NA,InoriB,2005,moyen,challenger,2121,Cupid Esports,2026-11-11,2026-11-11
+Retrozing,Retrozing,Mid,NA,Retrozing,Floyt,moyen,challenger,2102,University of Mississippi,2026-11-11,2026-11-11
+Tomo,Tomo,Bot,NA,Tomo,0999,moyen,challenger,2096,Winthrop University,2026-11-11,2026-11-11
+Humzh,Humzh,Bot,NA,humzh,boshy,moyen,challenger,2096,Team JoJoThaMoFo,2026-11-11,2026-11-11
+Daption,Daption,Bot,NA,Daption,TwTv,moyen,challenger,2086,Contingent Esports,2026-11-11,2026-11-11
+Colton,colton,Jungle,NA,COLTON,000,moyen,challenger,2073,,2026-11-11,2026-11-11
+Hiromiaya,Hiromiaya,Bot,NA,Hiromiaya,Pratt,faible,challenger,2068,Shark Bite Legacy,2026-11-11,2026-11-11
+SnKarma,snKarma,Mid,NA,snKarma,BOMBA,faible,challenger,2066,,2026-11-11,2026-11-11
+Likable,Likable,Mid,NA,Likable,NA1,moyen,challenger,2052,Chuds,2026-11-11,2026-11-11
+Horder,Horder,Top,NA,Horder,Chris,moyen,challenger,2041,Cupid Esports,2026-11-11,2026-11-11
+Yuu13,yuu13,Jungle,NA,Yuu13,137,moyen,challenger,2025,Sussy Six,2026-11-11,2026-11-11
+Munchy,Munchy,Jungle,NA,Munchy Punchy,YAYYY,faible,challenger,2025,Blue Otter,2026-11-11,2026-11-11
+Cody Sun,Cody Sun,Bot,NA,Cody Sun,Goku,moyen,challenger,2020,Conviction,2026-11-11,2026-11-11
+Ahj,Ahj,Mid,NA,Ahj,Tiff,moyen,challenger,2010,Galaxy Gaming (American Team),2026-11-11,2026-11-11
+Sora (Rafa Antúnez),Sora,Mid,NA,Sora,CAD,faible,challenger,2007,VPU,2026-11-11,2026-11-11
+Swordblue,Swordblue,Support,NA,Swordblue,1345,moyen,challenger,1993,Make-A-Wish,2026-11-11,2026-11-11
+Roamer,Roamer,Mid,NA,Roamer,CWs,faible,challenger,1987,HANJIN BRION,2026-11-11,2026-11-11
+Veiga,Veiga,Jungle,NA,Veiga,PRATT,moyen,challenger,1983,NCG Esports,2026-11-11,2026-11-11
+Berik,Berik,Top,NA,Berik,haru,moyen,challenger,1982,Winthrop University,2026-11-11,2026-11-11
+Virtuosa,Virtuosa,Support,NA,Virtuosa,arkni,moyen,challenger,1976,Blue Otter Europe,2026-11-11,2026-11-11
+Bubba,Bubba,Support,NA,bubba,iris,faible,challenger,1975,TITANS,2026-11-11,2026-11-11
+Maple (Huang Yi-Tang),Maple,Mid,NA,Maple,Mid,faible,grandmaster,1961,Team Baron (MSI 2026),2026-11-11,2026-11-11
+Cozy,Cozy,Top,NA,Cozy,0122,moyen,grandmaster,1960,No Org (2026 North American Team),2026-11-11,2026-11-11
+Pobelter,Pobelter,Streamer,NA,Pobelter,NA1,moyen,grandmaster,1909,Counter Logic Gaming,2026-11-11,2026-11-11
+Concept,Concept,Top,NA,concept of x,NA1,faible,grandmaster,1905,For Fun Player,2026-11-11,2026-11-11
+Keii,Keii,Top,NA,MU Keii,MUWIN,faible,grandmaster,1835,Zeu5 Esports,2026-11-11,2026-11-11
+Jimmykoi,jimmykoi,Mid,NA,jimmykoi,one,moyen,grandmaster,1823,,2026-11-11,2026-11-11
+Prince (American Player),Prince,Jungle,NA,Prince,NepaI,moyen,grandmaster,1793,International Love,2026-11-11,2026-11-11
+Foj,foj,Top,NA,COACH FOJ,TLA,faible,grandmaster,1786,,2026-11-11,2026-11-11
+Shimmer (Kaan Tomak),Shimmer,Jungle,NA,Shimmer,NA1,moyen,grandmaster,1766,Chad Li,2026-11-11,2026-11-11
+Detention,Detention,Mid,NA,Detention,DDR,moyen,grandmaster,1752,Team schizo,2026-11-11,2026-11-11
+Z Score,Z Score,Support,NA,zscore,2200,moyen,grandmaster,1722,Team Evictix,2026-11-11,2026-11-11
+Obstinatus,Obstinatus,Support,NA,OBSTINATUS,222,moyen,grandmaster,1701,Maryville University,2026-11-11,2026-11-11
+,,,NA,Blue,13545,ambigu,grandmaster,1699,,2026-11-11,2026-11-11
+Drop (Matheus Herdy),Drop,Bot,NA,Drop,916,moyen,grandmaster,1692,Pratt Community College,2026-11-11,2026-11-11
+OvO,OvO,Support,NA,OvO,FGH,faible,grandmaster,1677,Xi Lai Gaming,2026-11-11,2026-11-11
+Charmander,Charmander,Mid,NA,Charmander,MKOI,faible,grandmaster,1669,Smoke Tram Ascension,2026-11-11,2026-11-11
+Alan,Alan,Mid,NA,Alan,000,faible,grandmaster,1668,Lille Esport,2026-11-11,2026-11-11
+Lost (Lawrence Hui),Lost,Bot,NA,YEAH WE LOST,GEEG,faible,grandmaster,1668,New Zealand (National Team),2026-11-11,2026-11-11
+Yoshi (Aria Donnelly),Yoshi,Bot,NA,Yoshi,Dyson,moyen,grandmaster,1664,Miau,2026-11-11,2026-11-11
+Heretic (Nicolas van Dolder),Heretic,Bot,NA,Heretic,win,moyen,grandmaster,1651,Team Samsara,2026-11-11,2026-11-11
+Violet (Violet Stinson),Violet,Jungle,NA,Violet,FLYR,moyen,grandmaster,1636,FlyQuest RED,2026-11-11,2026-11-11
+Reppy,Reppy,Mid,NA,Reppy,nyami,moyen,grandmaster,1620,Lotus (North American Team),2026-11-11,2026-11-11
+Verticality,Verticality,Bot,NA,verticality,Vert,moyen,grandmaster,1599,K9,2026-11-11,2026-11-11
+Rovex,Rovex,Support,NA,rovex,AX3,moyen,grandmaster,1571,,2026-11-11,2026-11-11
+Tora (Hoàng Bảo Duy),Tora,Support,NA,Tora,dora,faible,grandmaster,1566,Fish Market,2026-11-11,2026-11-11
+Titan (Nicholas O'Shea),Titan,Mid,NA,Titan Dweevil,00000,faible,grandmaster,1555,Scaling IRL,2026-11-11,2026-11-11
+Mystiques,Mystiques,Support,NA,Mystiques,333,moyen,grandmaster,1535,International Love,2026-11-11,2026-11-11
+Yumichi,yumichi,Bot,NA,yumichi,FLYR,moyen,grandmaster,1519,,2026-11-11,2026-11-11
+Karina,Karina,Jungle,NA,Karina,1663,faible,grandmaster,1512,Mental Rush,2026-11-11,2026-11-11
+Grimm (André Fernando),Grimm,Analyst,NA,Grìmm,NA1,faible,grandmaster,1497,Smoke Tram,2026-11-11,2026-11-11
+Foxy (Ricardo Ríos),Foxy,Streamer,NA,Foxy,Roxy,moyen,grandmaster,1492,Venezuela (National Team),2026-11-11,2026-11-11
+Subaru,Subaru,Mid,NA,Natsuki Subaru,yyy,faible,grandmaster,1492,DUCKIE GETTERS,2026-11-11,2026-11-11
+QUENTIN,QUENTIN,Support,NA,quentin,dawg,faible,grandmaster,1483,Lausanne-Sport Esports,2026-11-11,2026-11-11
+Evanlai,Evanlai,Jungle,NA,hunting evanlai,brye,faible,grandmaster,1479,Shanghai Pins,2026-11-11,2026-11-11
+Nukez,Nukez,Support,NA,Nukez,Pixel,moyen,grandmaster,1473,Rollin They Hatin,2026-11-11,2026-11-11
+Bigfatlp,bigfatlp,Mid,NA,bigfatlp,locks,moyen,grandmaster,1468,Team Stixxay,2026-11-11,2026-11-11
+Enen,Enen,Bot,NA,Enen,NA123,moyen,grandmaster,1466,University of Minnesota Twin Cities,2026-11-11,2026-11-11
+Untitled,Untitled,Bot,NA,untitled,blax,faible,grandmaster,1465,Team Pollution,2026-11-11,2026-11-11
+Rapid (Donnie Stauffer),Rapid,Jungle,NA,Rapid,1230,moyen,grandmaster,1452,Komodo (North American Team),2026-11-11,2026-11-11
+Topablo,Topablo,Top,NA,Topablo,2003,moyen,grandmaster,1446,St. Clair College,2026-11-11,2026-11-11
+Roughbeanz,Roughbeanz,Mid,NA,roughbeanz,smile,moyen,grandmaster,1434,Keiser University,2026-11-11,2026-11-11
+Kites,kites,Bot,NA,kites,rocks,moyen,grandmaster,1429,,2026-11-11,2026-11-11
+Barry (Oscar Girardot),Barry,Support,NA,Barry,GAP,faible,grandmaster,1427,Zephyr Esport,2026-11-11,2026-11-11
+Divine (Alex Corona),Divine,Mid,NA,divine,5829,faible,grandmaster,1420,Sticchi Di Navarrone,2026-11-11,2026-11-11
+Will (William Cummins),Will,Jungle,NA,I WILL NEVER FF,FIGHT,faible,grandmaster,1419,University of Mississippi,2026-11-11,2026-11-11
+Ice (Gerardo Arroyo),Ice,Mid,NA,ice birb,NA2,faible,grandmaster,1402,DCT eSports,2026-11-11,2026-11-11
+Time (Tiago Almeida),Time,Jungle,NA,Time,33333,faible,grandmaster,1396,GIANTX iTero,2026-11-11,2026-11-11
+Holy krp,holy krp,Mid,NA,holykrp ismyhero,BOROS,faible,grandmaster,1390,,2026-11-11,2026-11-11
+Seal (Fabian de Lint),Seal,Support,NA,seal,9055,faible,grandmaster,1385,Frites Esports Club,2026-11-11,2026-11-11
+Guppy,Guppy,Bot,NA,guppy,TWO,faible,grandmaster,1356,SNOOZE Esports,2026-11-11,2026-11-11
+Feng (Jose Ricalday),Feng,Jungle,NA,Shun Feng Lang,story,faible,grandmaster,1347,Trolls Inc Academy,2026-11-11,2026-11-11
+Crikx,Crikx,Support,LAN,Crikx,LM1,moyen,challenger,3090,NCG Esports,2026-11-11,2026-11-11
+Skyy,Skyy,Mid,LAN,Skyy,2719,moyen,challenger,2840,Fuego,2026-11-11,2026-11-11
+Ryo,Ryo,Jungle,LAN,ryo,ナタリア,faible,challenger,2707,VARREL YOUTH,2026-11-11,2026-11-11
+Migaja,Migaja,Mid,LAN,Migaja,Diff,moyen,challenger,2700,Fire Roses,2026-11-11,2026-11-11
+Blind Walker,Blind Walker,Jungle,LAN,Blind Walker,Lizz,moyen,challenger,2268,Guatemala (National Team),2026-11-11,2026-11-11
+Foxy (Ricardo Ríos),Foxy,Streamer,LAN,Foxy,LAN,moyen,challenger,2260,Venezuela (National Team),2026-11-11,2026-11-11
+KASE,KASE,Jungle,LAN,Kase Snow,LAN,faible,challenger,2053,LYON Academy,2026-11-11,2026-11-11
+Link,Link,Mid,LAN,Link,エリック,moyen,challenger,2014,Team Stixxay,2026-11-11,2026-11-11
+Jauny,Jauny,Top,LAN,Jauny,506,moyen,challenger,2012,Fuego,2026-11-11,2026-11-11
+BotAure,BotAure,Support,LAN,BotAure,UwUr,moyen,challenger,1993,Fire Roses,2026-11-11,2026-11-11
+Eru,Eru,Support,LAN,Eru,Nami,faible,challenger,1952,Bastu Five,2026-11-11,2026-11-11
+Nuclex,Nuclex,Mid,LAN,Nuclex,どˇºˇづ,moyen,challenger,1937,Ecuador (National Team),2026-11-11,2026-11-11
+Goku,Goku,Mid,LAN,GOKU SSJ4,BONK,faible,challenger,1869,International Love,2026-11-11,2026-11-11
+,,,LAN,Alex in the sky,bruna,ambigu,challenger,1844,,2026-11-11,2026-11-11
+Kael (Kim Jin-hong),Kael,Support,LAN,Kael,K27K,faible,challenger,1841,Anyone's Legend,2026-11-11,2026-11-11
+Destru,Destru,Mid,LAN,Déstrü,LAN,faible,challenger,1838,Navarra In Game,2026-11-11,2026-11-11
+Grell,Grell,Jungle,LAN,Grell,Lol,moyen,grandmaster,1792,Fuego,2026-11-11,2026-11-11
+HAKA,HAKA,Top,LAN,Haka スライ,Maki,faible,grandmaster,1776,Trolls Future,2026-11-11,2026-11-11
+Relax (Sebastian Huapaya),Relax,Support,LAN,Relax,zzz,moyen,grandmaster,1690,Aural Esports,2026-11-11,2026-11-11
+Naerbedo,Naerbedo,Bot,LAN,Naerbedo,1410,moyen,grandmaster,1679,Fire Roses,2026-11-11,2026-11-11
+Ryu,Ryu,Coach,LAN,ryu,astro,faible,grandmaster,1644,Gen.G,2026-11-11,2026-11-11
+,,,LAN,Candy,Kirby,ambigu,grandmaster,1603,,2026-11-11,2026-11-11
+Lucy (Hyun Soo-hoon),Lucy,Bot,LAN,Lucy,oWo,faible,grandmaster,1555,Nongshim Esports Academy,2026-11-11,2026-11-11
+Vampire,Vampire,Support,LAN,Vampire,Lnzks,faible,grandmaster,1509,JD Gaming,2026-11-11,2026-11-11
+Ratth,Ratth,Bot,LAN,ratth,クリス,moyen,grandmaster,1492,Honduras (National Team),2026-11-11,2026-11-11
+Sven (Sven Olejnikow),Sven,Top,LAN,Sven,SLY,faible,grandmaster,1469,VfB eSports,2026-11-11,2026-11-11
+Daycrow,Daycrow,Bot,LAN,Daycrow,LOZSS,moyen,grandmaster,1446,Dominican Republic (National Team),2026-11-11,2026-11-11
+Devost,Devost,Top,LAN,Devost,LAN1,faible,grandmaster,1444,Leviatan,2026-11-11,2026-11-11
+,,,LAN,Érk,gone,ambigu,grandmaster,1439,,2026-11-11,2026-11-11
+Ego (William Cronin),Ego,Top,LAN,EGO,EG2,moyen,grandmaster,1418,Converse University,2026-11-11,2026-11-11
+,,,LAN,Shankš,Pau,ambigu,grandmaster,1402,,2026-11-11,2026-11-11
+Ego (William Cronin),Ego,Top,LAN,Ego,KING1,moyen,grandmaster,1380,Converse University,2026-11-11,2026-11-11
+Ron,Ron,Top,LAN,Ron Jamaica,10Lks,faible,grandmaster,1335,,2026-11-11,2026-11-11
+Grimm (André Fernando),Grimm,Analyst,LAN,Grimm,Dp5,faible,grandmaster,1316,Smoke Tram,2026-11-11,2026-11-11
+KASE,KASE,Jungle,LAN,Kase Afk,Stepz,faible,grandmaster,1297,LYON Academy,2026-11-11,2026-11-11
+Xavi,Xavi,Support,LAN,Xavi,X793,faible,grandmaster,1280,LODIS (Polish Team),2026-11-11,2026-11-11
+Delight (Lingyu Zhang),Delight,Support,LAN,White Delight,4186,faible,grandmaster,1274,Ohio State University,2026-11-11,2026-11-11
+Frosty (José Eduardo),frosty,Support,LAN,Frosty,YKZ,faible,grandmaster,1260,RED Canids,2026-11-11,2026-11-11
+Javy,Javy,Coach,LAN,ＪＡＶＹ,787,faible,grandmaster,1253,Guinea Pink,2026-11-11,2026-11-11
+Ren,Ren,Coach,LAN,Ren,Mari,faible,grandmaster,1238,9Gaming,2026-11-11,2026-11-11
+Cosmïc (Charlotte Tranquillin),Cosmïc,Bot,LAN,Cosmic,HDLR,faible,grandmaster,1231,Vitality Rising Bees,2026-11-11,2026-11-11
+Obli,Obli,Bot,LAN,Obli,Chell,faible,grandmaster,1098,Omerix Esport,2026-11-11,2026-11-11
+Kina (Maurício Alberti),Kina,Mid,BR,Kina,00021,moyen,challenger,3184,Cusprills,2026-11-11,2026-11-11
+UZent,uZent,Support,BR,uzent,fifi,moyen,challenger,2753,,2026-11-11,2026-11-11
+Bipi,bipi,Bot,BR,bipi,again,moyen,challenger,2740,,2026-11-11,2026-11-11
+Zay,zay,Support,BR,zay,feefa,moyen,challenger,2730,Ei Nerd Esports,2026-11-11,2026-11-11
+Guigs,Guigs,Support,BR,guigs,00000,moyen,challenger,2728,KaBuM! Ilha das Lendas,2026-11-11,2026-11-11
+Netuno,Netuno,Bot,BR,Netuno,1202,moyen,challenger,2718,INTZ,2026-11-11,2026-11-11
+Fuuu,Fuuu,Mid,BR,RED Fuuu,akemi,fort,challenger,2654,RED Canids,2026-11-11,2026-11-11
+Juny (Choi Jae-hoon),Juny,Jungle,BR,juny,misa,faible,challenger,2617,Gen.G,2026-11-11,2026-11-11
+Maximo,Maximo,Support,BR,Máximo Cozzetti,tea,faible,challenger,2588,Eternal Flame (Chilean Team),2026-11-11,2026-11-11
+Konseki,konseki,Support,BR,konseki,knsk,moyen,challenger,2562,SKTenis,2026-11-11,2026-11-11
+Drakehero,Drakehero,Jungle,BR,Drakehero,BR07,moyen,challenger,2514,Ei Nerd Esports,2026-11-11,2026-11-11
+Zynts,zynts,Top,BR,zynts,0207,moyen,challenger,2486,,2026-11-11,2026-11-11
+Yupps,Yupps,Top,BR,Yupps,有福的,moyen,challenger,2426,KaBuM! Ilha das Lendas,2026-11-11,2026-11-11
+Sinatra,Sinatra,Jungle,BR,LOUD Sinatra,myway,fort,challenger,2405,LOUD,2026-11-11,2026-11-11
+Vinite,Vinite,Jungle,BR,Vinite,6240,moyen,challenger,2401,Clã NKZ VÓRAX,2026-11-11,2026-11-11
+Sant,Sant,Bot,BR,sant,0803,moyen,challenger,2347,EmBRAZA! Esports,2026-11-11,2026-11-11
+Nihil,Nihil,Top,BR,Nihil,Avê,moyen,challenger,2263,Smoke Tram,2026-11-11,2026-11-11
+Naul,Naul,Coach,BR,naul,001,faible,challenger,2258,GAM Esports,2026-11-11,2026-11-11
+KIM (Kim Jeong-soo),KIM,Coach,BR,kim,kira,faible,challenger,2203,Weibo Gaming,2026-11-11,2026-11-11
+Levi,Levi,Streamer,BR,Levi,zin,faible,challenger,2156,Team Dragon (MSI 2026),2026-11-11,2026-11-11
+Saber (Song Dai-Lin),Saber,Mid,BR,saber,flaw,faible,challenger,2112,Ultra Prime,2026-11-11,2026-11-11
+Indra (Gustavo Santos),Indra,Top,BR,Indra,thank,moyen,challenger,2105,Sphere Esports,2026-11-11,2026-11-11
+Luvvee,Luvvee,Bot,BR,Luvvee,Viper,moyen,challenger,2103,Sphere Esports,2026-11-11,2026-11-11
+Ceo,ceo,Bot,BR,Ceo,2027,moyen,grandmaster,2175,,2026-11-11,2026-11-11
+Kick (João Rosas),Kick,Coach,BR,Kick Lord Semi,Br3,faible,grandmaster,2092,RED Academy,2026-11-11,2026-11-11
+Elkinho,Elkinho,Support,BR,ELKINHO YODISTA,FON,faible,grandmaster,2083,Marere Invokers,2026-11-11,2026-11-11
+Ari (Ariel Pintos),Ari,Analyst,BR,little ari,ily,faible,grandmaster,2071,Zeu5 Esports,2026-11-11,2026-11-11
+Peyz,Peyz,Bot,BR,peyz,br9,faible,grandmaster,2020,T1,2026-11-11,2026-11-11
+JunJia,JunJia,Jungle,BR,JunJia,123,faible,grandmaster,1980,JD Gaming,2026-11-11,2026-11-11
+Knight (Zhuo Ding),Knight,Mid,BR,Knight,0363,faible,grandmaster,1946,Bilibili Gaming,2026-11-11,2026-11-11
+Sabaneti,Sabaneti,Coach,BR,Sabaneti,jg1,moyen,grandmaster,1899,Los Gagacticos,2026-11-11,2026-11-11
+Andyse,Andyse,Mid,BR,ANDYSE REFORMED,Barou,faible,grandmaster,1893,Marere e-Sports,2026-11-11,2026-11-11
+Kadu,kadu,Support,BR,kadú,MAX,moyen,grandmaster,1862,Kuma e-Sports,2026-11-11,2026-11-11
+Shiku,Shiku,Support,BR,LEV Shiku,DBESS,fort,grandmaster,1857,Leviatan,2026-11-11,2026-11-11
+Duduhh,Duduhh,Bot,BR,Duduhh,愛憎の影,moyen,grandmaster,1816,LØS,2026-11-11,2026-11-11
+Saifer,Saifer,Mid,BR,Saifer,KING,moyen,grandmaster,1815,Docta Esports,2026-11-11,2026-11-11
+Bwipo,Bwipo,Top,BR,EST Bwipo,1810,fort,grandmaster,1811,Estral Esports,2026-11-11,2026-11-11
+Doni,Doni,Mid,BR,ZEN Doni,LAS1,fort,grandmaster,1797,ZEN Esports (Argentinian Team),2026-11-11,2026-11-11
+Azul,Azul,Support,BR,Azul Turquesa,77777,faible,grandmaster,1792,SharkBite Furious Gaming White,2026-11-11,2026-11-11
+Zoen (Enzo Ganino),Zoen,Top,BR,Pain ZOEN,123,fort,grandmaster,1786,paiN Gaming Academy,2026-11-11,2026-11-11
+Kasai,Kasai,Jungle,BR,Kasai,Cami,moyen,grandmaster,1762,Clã NKZ Revengers,2026-11-11,2026-11-11
+Lunar (Amro Ajbaa),Lunar,Mid,BR,Lunar,lov u,faible,grandmaster,1751,Nuclear Zone Glory,2026-11-11,2026-11-11
+Matsasu,Matsasu,Bot,BR,Matsasu,inat,moyen,grandmaster,1726,SharkBite Furious Gaming White,2026-11-11,2026-11-11
+Ego (William Cronin),Ego,Top,BR,Ego,Ozuka,faible,grandmaster,1687,Converse University,2026-11-11,2026-11-11
+Koga,Koga,Top,BR,Koga,000,faible,grandmaster,1678,Atruvia Münster Esports,2026-11-11,2026-11-11
+Hoben,Hoben,Top,BR,Hoben,lolo,moyen,grandmaster,1676,Clã NKZ Vórtex,2026-11-11,2026-11-11
+Joker (Cho Jae-eup),Joker,Coach,BR,Joker,Carta,faible,grandmaster,1661,Kiwoom DRX,2026-11-11,2026-11-11
+Tay,Tay,Streamer,BR,Tay,Бia,moyen,grandmaster,1640,Ilha das Lendas,2026-11-11,2026-11-11
+Klyer,Klyer,Mid,BR,klyer,zzz,moyen,grandmaster,1638,Seven Dark,2026-11-11,2026-11-11
+Azu (Robert Jarcu),Azu,Bot,BR,azu,4562,faible,grandmaster,1637,2 Massive,2026-11-11,2026-11-11
+Sant,Sant,Bot,BR,sant,who,moyen,grandmaster,1636,EmBRAZA! Esports,2026-11-11,2026-11-11
+KhaN (Stuar Romero),khaN,Support,BR,Khan,237,faible,grandmaster,1615,,2026-11-11,2026-11-11
+Will (William Cummins),Will,Jungle,BR,will,229,faible,grandmaster,1605,University of Mississippi,2026-11-11,2026-11-11
+UKyo,UKyo,Support,BR,Ukyo,0606B,faible,grandmaster,1601,,2026-11-11,2026-11-11
+Chico (Hibiki Yamane),chico,Support,BR,chico,zzzzz,faible,grandmaster,1595,,2026-11-11,2026-11-11
+Itoshi,Itoshi,Support,BR,Itoshi LANEKING,sae,faible,grandmaster,1586,Clã NKZ VÓRAX,2026-11-11,2026-11-11
+Hammer (Sebastian Muñoz),Hammer,Top,BR,HammeR,BR3,moyen,grandmaster,1568,Docta Esports Club,2026-11-11,2026-11-11
+Addicted,Addicted,Mid,BR,Addicted,blue,moyen,grandmaster,1561,Gados Sem Limites E-Sports,2026-11-11,2026-11-11
+França,França,Support,BR,frança,menok,moyen,grandmaster,1535,Alvora Gaming,2026-11-11,2026-11-11
+Luna (Luna Sánchez),Luna,Mid,BR,Luna,velha,faible,grandmaster,1535,Five Leaf Clover,2026-11-11,2026-11-11
+Hope (Wang Jie),Hope,Bot,BR,Hope,NF7,faible,grandmaster,1532,Anyone's Legend,2026-11-11,2026-11-11
+Silence (Rafael Vital),Silence,Support,BR,Silence,CN1,moyen,grandmaster,1517,Totta E-Sports,2026-11-11,2026-11-11
+KhaN (Stuar Romero),khaN,Support,BR,Khan,BRA,faible,grandmaster,1517,,2026-11-11,2026-11-11
+Fiji,Fiji,Top,BR,fiji,11111,faible,grandmaster,1503,CCG Esports,2026-11-11,2026-11-11
+Gwenix,Gwenix,Support,BR,gwenix,hoopa,moyen,grandmaster,1492,,2026-11-11,2026-11-11
+Azakana (Albert Oliveira),Azakana,Mid,BR,azakana,sylas,moyen,grandmaster,1489,StrongSide GG,2026-11-11,2026-11-11
+Rabelo,Rabelo,Bot,BR,rabelo apenas,011,faible,grandmaster,1479,LOUD,2026-11-11,2026-11-11
+Vinite,Vinite,Jungle,BR,Vinite,Myth,moyen,grandmaster,1465,Clã NKZ VÓRAX,2026-11-11,2026-11-11
+Jisoo (Cristopher Silva),Jisoo,Mid,BR,jisoo,topo,moyen,grandmaster,1465,Work Hard,2026-11-11,2026-11-11
+Kami (Gabriel Bohm Santos),Kami,Streamer,BR,Kami,BR1,moyen,grandmaster,1464,PaiN Legends,2026-11-11,2026-11-11
+,,,BR,ace,high,ambigu,grandmaster,1459,,2026-11-11,2026-11-11
+Unlucky (Samuel Pereira),Unlucky,Mid,BR,Unlucky,darko,moyen,grandmaster,1454,Totta E-Sports,2026-11-11,2026-11-11
+Blacky,Blacky,Mid,BR,blacky,xzy,moyen,grandmaster,1427,RMD Gaming,2026-11-11,2026-11-11
+Blood (Caterina Domitilla Dorigo),Blood,Manager,BR,Blood,Road,faible,grandmaster,1412,EKO Esports,2026-11-11,2026-11-11
+Leao,Leao,Jungle,BR,Leão,PQK,faible,grandmaster,1409,Zerolag Esports,2026-11-11,2026-11-11
+Kiefer,Kiefer,Mid,LAS,Kiefer,LASS,moyen,challenger,2587,The New Kings,2026-11-11,2026-11-11
+,,,LAS,KICK neadz,rilu,ambigu,challenger,2083,,2026-11-11,2026-11-11
+Nostalgia,Nostalgia,Bot,LAS,nostalgia,anna,faible,challenger,1938,Tan'i eSports,2026-11-11,2026-11-11
+Pollo,Pollo,Bot,LAS,pollo,VM2D0,faible,challenger,1748,West Point Esports Academy,2026-11-11,2026-11-11
+Kick (João Rosas),Kick,Coach,LAS,KICK 1Frqn,1904,faible,challenger,1748,RED Academy,2026-11-11,2026-11-11
+,,,LAS,Dahlia,SADHH,ambigu,challenger,1591,,2026-11-11,2026-11-11
+Wonder,Wonder,Bot,LAS,wonder,lass1,moyen,challenger,1552,UDEC Esports,2026-11-11,2026-11-11
+Shini,Shini,Jungle,LAS,shini,noone,moyen,challenger,1448,FURIA,2026-11-11,2026-11-11
+,,,LAS,KICK Manolito,Prime,ambigu,challenger,1436,,2026-11-11,2026-11-11
+Cow (Martin Contreras),Cow,Jungle,LAS,cow,bored,moyen,challenger,1405,Seven Dark,2026-11-11,2026-11-11
+Giankios,Giankios,Top,LAS,GianKios xo,7x7x,faible,challenger,1405,Seven Dark,2026-11-11,2026-11-11
+Upset,Upset,Bot,LAS,Upset,llas7,faible,challenger,1386,Fnatic,2026-11-11,2026-11-11
+TomnaM,TomnaM,Bot,LAS,ZEN TomnaM,LAS1,faible,challenger,1375,9z Globant,2026-11-11,2026-11-11
+Lolo,lolo,Mid,LAS,LOLO D NOTORIOUS,n 1,faible,challenger,1362,,2026-11-11,2026-11-11
+Natasha,Natasha,Bot,LAS,Natasha,LILY,moyen,challenger,1350,Onnei Esports,2026-11-11,2026-11-11
+,,,LAS,White,ßuchi,ambigu,grandmaster,1381,,2026-11-11,2026-11-11
+Hazard,Hazard,Top,LAS,hazard de londor,7919,faible,grandmaster,1320,Born Violent Gaming,2026-11-11,2026-11-11
+Honda,Honda,Support,LAS,HONDA,k24,faible,grandmaster,1275,Vitality Rising Bees,2026-11-11,2026-11-11
+Galileo,Galileo,Support,LAS,Galileo Galiolei,YGS,faible,grandmaster,1232,Zeu5 Esports,2026-11-11,2026-11-11
+PawN,PawN,Coach,LAS,PawN,LAS1,faible,grandmaster,1196,Team Samsung Telecom,2026-11-11,2026-11-11
+Xamexx,Xamexx,Support,LAS,INS Xamexx,LAS,fort,grandmaster,1181,Instinct Gaming,2026-11-11,2026-11-11
+Kick (João Rosas),Kick,Coach,LAS,Kick klaizok,KLA,faible,grandmaster,1155,RED Academy,2026-11-11,2026-11-11
+Wilson (William Benoit),Wilson,Jungle,LAS,wilson,turbo,faible,grandmaster,1121,Winthrop University,2026-11-11,2026-11-11
+Stab,Stab,Jungle,LAS,Stab,Dodge,faible,grandmaster,1107,Confrérie Secrète de l’Ombre,2026-11-11,2026-11-11
+Jotape,Jotape,Support,LAS,jotape,Bot,moyen,grandmaster,1098,,2026-11-11,2026-11-11
+ReigN (Felipe Canto),ReigN,Coach,LAS,Reign,Pray,moyen,grandmaster,1089,Volticons,2026-11-11,2026-11-11
+1Haru,1Haru,Jungle,LAS,1Haru,0703,moyen,grandmaster,1047,HellGuardians Esports,2026-11-11,2026-11-11
+Xavi,Xavi,Support,LAS,xavi,0704,faible,grandmaster,1011,LODIS (Polish Team),2026-11-11,2026-11-11
+Wilson (William Benoit),Wilson,Jungle,LAS,Wilson,Nya,faible,grandmaster,1005,Winthrop University,2026-11-11,2026-11-11
+Yuki (Igor Kamiya),Yuki,Support,LAS,Yuki,shhh,moyen,grandmaster,999,,2026-11-11,2026-11-11
+Demon (Zakaria Nagbi),Demon,Coach,LAS,demon,hand,faible,grandmaster,985,Team VDS,2026-11-11,2026-11-11
+Dante (Carlos Januário),Dante,Support,LAS,Dante Ramirez,RAMOS,faible,grandmaster,980,Juventus Gaming White,2026-11-11,2026-11-11
+Morgan,Morgan,Top,LAS,Morgan,Sini,faible,grandmaster,958,Team Liquid,2026-11-11,2026-11-11
+Archer (Lee Keun-hee),Archer,Bot,LAS,Archer,belen,faible,grandmaster,957,CITA Kaizen,2026-11-11,2026-11-11
+LosT (João Rodrigues),LosT,Mid,LAS,lost from light,00033,faible,grandmaster,955,M7 Orange,2026-11-11,2026-11-11
+Cosmïc (Charlotte Tranquillin),Cosmïc,Bot,LAS,cosmic,02390,faible,grandmaster,943,Vitality Rising Bees,2026-11-11,2026-11-11
+Avril,Avril,Bot,LAS,Avril,UwU,faible,grandmaster,932,Five Leaf Clover,2026-11-11,2026-11-11
+Bolt (Ding Hong),Bolt,Bot,LAS,bolt,9459,faible,grandmaster,914,Top Esports Challenger,2026-11-11,2026-11-11
+Relax (Sebastian Huapaya),Relax,Support,LAS,Relax,6x7vn,faible,grandmaster,907,Aural Esports,2026-11-11,2026-11-11
+Guts (Yan Feng-Ying),Guts,Top,LAS,Guts,ベルセルク,faible,grandmaster,898,LGD Gaming Young Team,2026-11-11,2026-11-11
+Pasha,Pasha,Support,LAS,Pasha,Flan,moyen,grandmaster,893,HellGuardians Esports,2026-11-11,2026-11-11
+Kingpo54,kingpo54,Support,TW,kingpo54,1407,moyen,challenger,2132,,2026-11-11,2026-11-11
+Sorrymbggff,Sorrymbggff,Top,TW,Sorrymbggff,7777,moyen,challenger,1655,Shih Hsin Meow Meow,2026-11-11,2026-11-11
+Bruce (Bruce Scott),Bruce,Support,TW,Bruce TwT,777,faible,challenger,1392,FENNEL,2026-11-11,2026-11-11
+Yen (Fadi Behnam),Yen,Bot,TW,Yen,0227,faible,challenger,1354,Lausanne-Sport Esports,2026-11-11,2026-11-11
+1ssue,1ssue,Bot,TW,1ssue,0926,moyen,challenger,1268,沒有意義,2026-11-11,2026-11-11
+Blue (Trần Thạch Giang),Blue,Support,TW,Blue,vuv,moyen,challenger,1248,29Gaming,2026-11-11,2026-11-11
+Chan (Jang Chan-ho),Chan,Top,TW,chan,0125,faible,challenger,1167,Partizan Sangal,2026-11-11,2026-11-11
+Cheng9,Cheng9,Bot,TW,Cheng9,1103,moyen,grandmaster,1041,Sponge Gaming,2026-11-11,2026-11-11
+Teddy,Teddy,Bot,TW,Teddy,6707,faible,grandmaster,1029,HANJIN BRION,2026-11-11,2026-11-11
+MnM (Wong Ka Chun),MnM,Bot,TW,MnM,0919,moyen,grandmaster,855,Frank Esports,2026-11-11,2026-11-11
+Lucky (Luca Santos),Lucky,Support,TW,Lucky,小朋友,faible,grandmaster,749,Babos Gaming,2026-11-11,2026-11-11
+Yuyu,Yuyu,Coach,TW,YuYu,3251,faible,grandmaster,720,SharkBite Furious Gaming White,2026-11-11,2026-11-11
+Shift,Shift,Jungle,TW,Shift,GM60,faible,grandmaster,677,Joblife,2026-11-11,2026-11-11
+JackeyLove,JackeyLove,Bot,TW,JackeyLove,傑克愛,faible,grandmaster,659,Top Esports,2026-11-11,2026-11-11
+Blue (Trần Thạch Giang),Blue,Support,TW,Same blue,1013,faible,grandmaster,627,29Gaming,2026-11-11,2026-11-11
+Dust (Koh Kai Jie),Dust,Top,TW,Dust,0111,moyen,grandmaster,595,Essences,2026-11-11,2026-11-11
+Emo,Emo,Mid,TW,Dont Emo,016,faible,grandmaster,567,1TAP Dino Blue,2026-11-11,2026-11-11
+,,,TW,yuki,ゆう7,ambigu,grandmaster,531,,2026-11-11,2026-11-11
+Uncle (Diêu Hoàng Tú),Uncle,Support,TW,Uncle Majaja,6805,faible,grandmaster,526,1Tap Esports,2026-11-11,2026-11-11
+SCP,SCP,Jungle,VN,SCP 002,2005,faible,challenger,3341,Sống Bằng Tình Yêu,2026-11-11,2026-11-11
+Viper (Park Do-hyeon),Viper,Bot,VN,BLG Viper,char,moyen,challenger,3107,Bilibili Gaming,2026-11-11,2026-11-11
+Azul,Azul,Support,VN,Azul,1m88,faible,challenger,2302,SharkBite Furious Gaming White,2026-11-11,2026-11-11
+Cconezz,Cconezz,Mid,VN,Cconezz,1604,moyen,challenger,2173,QUỶ ĐỎ,2026-11-11,2026-11-11
+Kitty (Athena Jiang),Kitty,Streamer,VN,Linaa x kitty,Ellie,faible,challenger,2155,Team 4.5 braincells,2026-11-11,2026-11-11
+Angel (Xiang Tao),Angel,Mid,VN,Angel,Cupic,faible,challenger,2009,JD Gaming,2026-11-11,2026-11-11
+Endless (Xu Hao),Endless,Coach,VN,Endless Love,0301,faible,challenger,1937,SillySilly Gaming,2026-11-11,2026-11-11
+Hanli (Tsai Jian-Cheng),Hanli,Support,VN,Han Li,韩立04,moyen,challenger,1885,Equinox Core,2026-11-11,2026-11-11
+TiSaD,TiSaD,Top,VN,TiSaD,TiSaD,moyen,challenger,1820,Ngựa Hí Esports,2026-11-11,2026-11-11
+666 (Kiều Minh Huy),666,Jungle,VN,뇌 녹 사 666,300,faible,challenger,1799,9Gaming,2026-11-11,2026-11-11
+Azul,Azul,Support,VN,Azul,Ultra,faible,challenger,1776,SharkBite Furious Gaming White,2026-11-11,2026-11-11
+Charlington,Charlington,Bot,VN,9G Charlington,1610,fort,challenger,1742,9Gaming,2026-11-11,2026-11-11
+Peyz,Peyz,Bot,VN,T1 Peyz,1609,moyen,challenger,1740,T1,2026-11-11,2026-11-11
+Kitty (Athena Jiang),Kitty,Streamer,VN,Simonz x kitty,172,faible,challenger,1725,Team 4.5 braincells,2026-11-11,2026-11-11
+Pun,Pun,Top,VN,hok pun hok zui,999,faible,grandmaster,1678,Team Secret Whales,2026-11-11,2026-11-11
+Sniper1,Sniper1,Streamer,VN,Sniper1,viper,moyen,grandmaster,1672,Sponge Gaming,2026-11-11,2026-11-11
+Dino (Jhang Cheng-Ci),Dino,Support,VN,Dino,1325,moyen,grandmaster,1667,Sponge Gaming,2026-11-11,2026-11-11
+Auguste,Auguste,Mid,VN,Auguste,0208,moyen,grandmaster,1664,1Tap Esports,2026-11-11,2026-11-11
+,,,VN,heart,uia,ambigu,grandmaster,1618,,2026-11-11,2026-11-11
+Ouzi,Ouzi,Bot,VN,Ouzi x Miu,113,faible,grandmaster,1561,Ngựa Hí Esports,2026-11-11,2026-11-11
+Rest,Rest,Top,VN,need some rest,0301,faible,grandmaster,1541,CTBC Flying Oyster,2026-11-11,2026-11-11
+Son,Son,Coach,VN,sơn ơi cứu bảo,vn2,faible,grandmaster,1486,FENNEL,2026-11-11,2026-11-11
+Unchained,Unchained,Mid,VN,unchained,tommy,faible,grandmaster,1380,Team GiG,2026-11-11,2026-11-11
+Pun,Pun,Top,VN,toi pun vi ai,vn2,faible,grandmaster,1358,Team Secret Whales,2026-11-11,2026-11-11
+Blue (Trần Thạch Giang),Blue,Support,VN,Blue,blg1,moyen,grandmaster,1352,29Gaming,2026-11-11,2026-11-11
+Tora (Hoàng Bảo Duy),Tora,Support,VN,Tora Đà Nẵng,sang,faible,grandmaster,1352,Fish Market,2026-11-11,2026-11-11
+Bin (Chen Ze-Bin),Bin,Top,VN,bin,07894,faible,grandmaster,1285,Bilibili Gaming,2026-11-11,2026-11-11
+Zephyr (Hwang Hyeok-su),Zephyr,Jungle,VN,Zephyr,OPO,faible,grandmaster,1269,BNK FEARX Youth,2026-11-11,2026-11-11
+Vit (Lê Hoài An),Vit,Bot,VN,Vịt Vô Tri,Ngan,faible,grandmaster,1227,SN CyberCore Esports,2026-11-11,2026-11-11
+Aqua (Rafael Hernandez),Aqua,Coach,VN,AQua,KNS3,faible,grandmaster,1227,Polar Squad Esports,2026-11-11,2026-11-11
+Emi,Emi,Coach,VN,Emi,Twi,faible,grandmaster,1193,Dignitas,2026-11-11,2026-11-11
+Thien,Thien,Top,VN,Thiên Đao,Pyke,faible,grandmaster,1160,The Chum Bucket,2026-11-11,2026-11-11
+Jerry (Nguyễn Tiến Duy),Jerry,Mid,VN,Jerry Cutee,1811,faible,grandmaster,1152,Humming Bird,2026-11-11,2026-11-11
+Kitty (Athena Jiang),Kitty,Streamer,VN,Doja Kitty,thuyn,faible,grandmaster,1147,Team 4.5 braincells,2026-11-11,2026-11-11
+Roger (Fu Po-Yu),Roger,Mid,VN,roger is cooking,2005,faible,grandmaster,1064,Shih Hsin Meow Meow,2026-11-11,2026-11-11
+Enty,Enty,Streamer,JP,Enty,ENTP1,moyen,challenger,2014,Laurel Regalia,2026-11-11,2026-11-11
+Ankochan,ankochan,Jungle,JP,Ankochan,20y,moyen,challenger,2013,Rising Gaming,2026-11-11,2026-11-11
+Loki (Lee Sang-min),Loki,Mid,JP,Loki,2010y,faible,challenger,1879,Cloud9,2026-11-11,2026-11-11
+Chovy,Chovy,Mid,JP,chovy,kami,faible,challenger,1649,Gen.G,2026-11-11,2026-11-11
+Recap,Recap,Mid,JP,Recap,125,moyen,challenger,1632,Camellia Crown,2026-11-11,2026-11-11
+NaiNa,NaiNa,Bot,JP,NaiNa,4422,moyen,challenger,1566,L Guide Gaming,2026-11-11,2026-11-11
+Kina (Maurício Alberti),Kina,Mid,JP,Kina,き な,faible,challenger,1557,Cusprills,2026-11-11,2026-11-11
+Aspire (Jin Bu),aspire,Mid,JP,aspire,JINBU,faible,challenger,1553,,2026-11-11,2026-11-11
+Canyon,Canyon,Jungle,JP,GEN Canyon,FALL,moyen,grandmaster,1308,Gen.G,2026-11-11,2026-11-11
+Ezman,ezman,Support,JP,ezman,JP1,moyen,grandmaster,1135,,2026-11-11,2026-11-11
+Hetel,Hetel,Support,JP,hetel,JP1,moyen,grandmaster,1042,Camellia Crown,2026-11-11,2026-11-11

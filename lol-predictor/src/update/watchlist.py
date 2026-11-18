@@ -18,11 +18,12 @@ from pathlib import Path
 
 from src.ingest.load_oracle import ROOT, load_config
 from src.models.high_confidence import CONF_GAME  # seuil "haute confiance" (cf. backtest)
-from src.update.elo import (RELIABLE_ACC, calibrate, compute_elo, resolve_league,
+from src.update.bet_universe import is_bettable, universe
+from src.update.elo import (RELIABLE_ACC, calibrate, compute_elo, competition_code, resolve_league,
                             series_prob, win_prob)
 
 OUT_PATH = ROOT.parent / "WATCHLIST.md"
-PARIS_OFFSET = dt.timedelta(hours=2)  # CEST (été). Affichage seulement.
+from src.update.paris import now_paris, to_paris  # noqa: E402
 MIN_GAMES_CONF = 15                   # en dessous : cold-start, peu fiable
 # Mots "bruit" ignorés pour le matching de noms (Gen.G Esports = Gen.G, etc.)
 STOP_WORDS = {"esports", "esport", "gaming", "club", "team", "the", "pro"}
@@ -56,7 +57,9 @@ def norm_core(s: str) -> str:
 
 # Tokens qui DISTINGUENT une équipe secondaire d'une principale : on interdit le match
 # flou entre les deux (ex. "X Academy" ≠ "X", "Bilibili Gaming Junior" ≠ "Bilibili Gaming").
-DISTINCT_TOKENS = {"academy", "junior", "youth", "jr", "dev", "challengers", "prospects", "b"}
+DISTINCT_TOKENS = {"academy", "junior", "youth", "jr", "dev", "challengers", "prospects", "b",
+                   "blue", "stars", "nord", "hel", "pride", "tq", "fenix", "avarosa", "rising",
+                   "nxt", "next", "talents", "trainee", "academia", "female", "women", "gc"}
 
 
 def core_tokens(s: str) -> set[str]:
@@ -92,6 +95,81 @@ def fuzzy_match(toks: set[str], team_tokens: dict[str, set[str]]) -> str | None:
         elif key == best_key:
             tie = True
     return best if (best is not None and not tie) else None
+
+
+# Noms des books / de Polymarket qui ne se déduisent pas du nom Oracle (clé = nom normalisé).
+# Sans eux, ces équipes étaient confondues avec une autre : « Los Heretics » (l'académie, en
+# LES) avec Team Heretics, « LOS » (LØS, CBLOL) avec Los Ratones.
+ALIASES = {"losheretics": "Team Heretics Academy", "los": "LØS"}
+
+
+def alias_of(name: str, known) -> str | None:
+    """Équipe connue désignée par un alias déclaré, sinon None."""
+    target = ALIASES.get(norm(name))
+    return target if target in known else None
+
+
+def same_team(x: str, y: str) -> bool:
+    """Deux écritures de la MÊME équipe ? Tokens cœur identiques, ou inclus l'un dans l'autre
+    (sponsor en plus) sans que la différence désigne une équipe secondaire.
+    Un seul mot en commun ne suffit pas : « T1 Academy » n'est pas « T1 », « Eintracht
+    Spandau » n'est pas « Eintracht Frankfurt »."""
+    tx, ty = core_tokens(x), core_tokens(y)
+    if not tx or not ty:
+        return False
+    if tx == ty:
+        return True
+    inter = tx & ty
+    if inter != tx and inter != ty:
+        return False
+    return not ((tx ^ ty) & DISTINCT_TOKENS)
+
+
+def orient(a: str, b: str, x: str, y: str) -> bool | None:
+    """(x, y) est-il le match (a, b) ? True = même ordre, False = ordre inversé,
+    None = autre match, ou impossible à dire (les deux sens conviennent)."""
+    straight = same_team(a, x) and same_team(b, y)
+    flipped = same_team(a, y) and same_team(b, x)
+    if straight == flipped:
+        return None
+    return straight
+
+
+def orient_loose(a: str, b: str, x: str, y: str) -> bool | None:
+    """Comme `orient`, mais accepte en second recours un simple mot commun de chaque côté
+    (les books abrègent et habillent les noms), à condition qu'UN SEUL sens convienne et
+    qu'aucune équipe secondaire ne soit en jeu. Deux équipes qui partagent un mot
+    (« Karmine Corp Blue » / « Ici Japon Corp ») ne donnent donc jamais un ordre au hasard."""
+    strict = orient(a, b, x, y)
+    if strict is not None:
+        return strict
+
+    def loose(p: str, q: str) -> bool:
+        tp, tq = core_tokens(p), core_tokens(q)
+        return bool(tp & tq) and not ((tp ^ tq) & DISTINCT_TOKENS)
+
+    straight = loose(a, x) and loose(b, y)
+    flipped = loose(a, y) and loose(b, x)
+    if straight == flipped:
+        return None
+    return straight
+
+
+def plausible(team: str, exact: bool, other: str, other_exact: bool, comp: str | None,
+              home: dict) -> bool:
+    """Une équipe reconnue « à peu près » (nom incomplet ou avec sponsor) est-elle crédible
+    dans ce match ? « Los Heretics » (LES) ressemble à Team Heretics (LEC), « G2 HEL » à G2 :
+    on ne garde l'équipe que si la compétition est bien SA ligue (ou un événement
+    international), ou, compétition inconnue, si l'adversaire reconnu sans doute possible
+    vient de la même ligue."""
+    if exact:
+        return True
+    from src.update.elo import EVENT_LEAGUES
+    if comp in EVENT_LEAGUES:
+        return True
+    if comp:
+        return home.get(team) == comp
+    return other_exact and home.get(other) == home.get(team)
 
 
 MANUAL_PATH = ROOT / "data" / "manual_matches.yaml"
@@ -160,7 +238,7 @@ def _wins_needed(bestof) -> int:
 
 def _fmt_paris(datetime_utc: str) -> str:
     try:
-        d = dt.datetime.strptime(datetime_utc, "%Y-%m-%d %H:%M:%S") + PARIS_OFFSET
+        d = to_paris(dt.datetime.strptime(datetime_utc, "%Y-%m-%d %H:%M:%S"))
         return d.strftime("%a %d/%m %H:%M")
     except (TypeError, ValueError):
         return str(datetime_utc)
@@ -169,7 +247,7 @@ def _fmt_paris(datetime_utc: str) -> str:
 def _paris_date(datetime_utc: str) -> str:
     """Date locale Paris (YYYY-MM-DD) du match, pour filtrer 'les matchs du jour'."""
     try:
-        d = dt.datetime.strptime(datetime_utc, "%Y-%m-%d %H:%M:%S") + PARIS_OFFSET
+        d = to_paris(dt.datetime.strptime(datetime_utc, "%Y-%m-%d %H:%M:%S"))
         return d.strftime("%Y-%m-%d")
     except (TypeError, ValueError):
         return ""
@@ -184,6 +262,15 @@ def _is_passed(datetime_utc: str, now_utc: dt.datetime) -> bool:
         return False
 
 
+def mark_started(rows: list[dict]) -> list[dict]:
+    """Recalcule « passé » à l'instant présent. Les pages gardent le calendrier en cache
+    15 à 30 minutes : sans ça, un match commencé depuis 20 minutes reste affiché « à venir »
+    avec son pick et sa cote mini."""
+    now = dt.datetime.now(dt.timezone.utc)
+    return [{**r, "passed": r.get("passed", False) or _is_passed(r.get("datetime", ""), now)}
+            for r in rows]
+
+
 def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list[dict]]:
     """Calcul pur (sans écriture fichier) : renvoie (covered, uncovered).
 
@@ -192,22 +279,27 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
     """
     cfg = cfg or load_config()
     state = compute_elo(cfg)
-    elo, n, league = state["elo"], state["n"], state["league"]
+    elo, n, league, home = state["elo"], state["n"], state["league"], state["home"]
     reliability, shrink, global_rel = state["reliability"], state["shrink"], state["global_rel"]
+    bet_leagues, bet_events = universe(cfg)
     idx_full = {norm(t): t for t in elo}
     idx_core = {norm_core(t): t for t in elo}  # peut écraser des collisions, acceptable
     team_tokens = {t: core_tokens(t) for t in elo}  # pour le matching tolérant aux sponsors
 
-    def match(name: str) -> str | None:
-        hit = idx_full.get(norm(name)) or idx_core.get(norm_core(name))
-        return hit or fuzzy_match(core_tokens(name), team_tokens)
+    def match(name: str) -> tuple[str | None, bool]:
+        """(équipe, reconnue sans doute possible ?)"""
+        hit = (alias_of(name, elo) or idx_full.get(norm(name))
+               or idx_core.get(norm_core(name)))
+        if hit:
+            return hit, True
+        return fuzzy_match(core_tokens(name), team_tokens), False
 
     def context(m: dict, a: str, b: str) -> tuple[float, float, str]:
         """Fiabilité + shrink + code ligue du match (pour calibrer la proba/le ⭐)."""
         code = (resolve_league(m.get("overview") or "", reliability)
                 or resolve_league(m.get("tournament") or "", reliability))
-        if code is None:  # fallback : ligue commune, sinon la plus chaotique des deux
-            cand = [c for c in (league.get(a), league.get(b)) if c in reliability]
+        if code is None:  # fallback : ligue d'origine commune, sinon la plus chaotique des deux
+            cand = [c for c in (home.get(a), home.get(b)) if c in reliability]
             code = min(cand, key=lambda c: reliability[c]) if cand else None
         rel = reliability.get(code, global_rel)
         shr = shrink.get(code, 1.0)
@@ -220,9 +312,13 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
     uncovered: list[dict] = []
     seen: set = set()
     for m in matches:
-        a = match(m["team1"])
-        b = match(m["team2"])
-        if not a or not b:
+        a, exact_a = match(m["team1"])
+        b, exact_b = match(m["team2"])
+        comp = (competition_code(m.get("overview") or "")
+                or competition_code(m.get("tournament") or ""))
+        if (not a or not b or a == b
+                or not plausible(a, exact_a, b, exact_b, comp, home)
+                or not plausible(b, exact_b, a, exact_a, comp, home)):
             uncovered.append(m)
             continue
         key = (frozenset((a, b)), (m.get("datetime") or "")[:10])
@@ -237,10 +333,19 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
         conf = min(n[a], n[b]) >= MIN_GAMES_CONF
         reliable = rel >= RELIABLE_ACC
         pf_game = max(p_game, 1 - p_game)            # confiance du favori PAR GAME (calibrée)
-        xleague = league.get(a) != league.get(b)
+        # cross-ligue = ligues d'ORIGINE différentes (pas la dernière compétition jouée :
+        # après les Worlds, G2 « venait des WLDs » et Vitality « de la DCGI »)
+        xleague = home.get(a) != home.get(b)
+        # Pariable : on peut y miser ~100 € sans bouger le prix (cf. src.update.bet_universe).
+        # La compétition est reconnue à son NOM, même sans calibration : un match d'EMEA
+        # Masters entre deux équipes de LFL n'est pas pariable.
+        bettable = is_bettable(comp or code, home.get(a), home.get(b),
+                               leagues=bet_leagues, events=bet_events)
         # 🎯 Pick HAUTE CONFIANCE (~83 % hist.) : ligue fiable + favori ≥70 %/game,
-        # data suffisante, pas de cross-ligue (cf. src.models.high_confidence).
-        high_conf = reliable and conf and not xleague and pf_game >= CONF_GAME
+        # data suffisante, pas de cross-ligue (cf. src.models.high_confidence), pariable.
+        pf_raw = max(p_game_raw, 1 - p_game_raw)
+        high_conf = (bettable and reliable and conf and not xleague
+                     and pf_game >= CONF_GAME and pf_raw >= CONF_GAME)
         covered.append({
             "when": _fmt_paris(m["datetime"]),
             "datetime": m["datetime"],
@@ -254,8 +359,9 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
             "conf": conf,
             "rel": rel, "reliable": reliable, "league_code": code,
             "p_game": p_game, "pf_game": pf_game,
-            "strong": (p_series >= 0.62 or p_series <= 0.38) and conf and reliable,
+            "strong": (p_series >= 0.62 or p_series <= 0.38) and conf and reliable and bettable,
             "high_conf": high_conf,
+            "bettable": bettable,
             "league_a": league.get(a, "?"), "league_b": league.get(b, "?"),
             "xleague": xleague,  # Elo peu comparable (cf. KCB/PCIFIC)
             "tournament": m.get("tournament") or m.get("overview"),
@@ -278,7 +384,7 @@ def generate(days: int = 7, cfg: dict | None = None) -> dict:
 
 
 def _write_markdown(covered: list[dict], uncovered: list[dict], days: int) -> None:
-    now = dt.datetime.now() + PARIS_OFFSET
+    now = now_paris()
     lines = [
         "# Watchlist pré-match (auto)",
         "",

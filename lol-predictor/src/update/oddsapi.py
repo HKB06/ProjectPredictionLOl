@@ -23,9 +23,11 @@ from pathlib import Path
 import requests
 
 from src.ingest.load_oracle import ROOT, load_config
-from src.update.elo import (RELIABLE_ACC, calibrate, compute_elo, resolve_league,
+from src.update.elo import (RELIABLE_ACC, calibrate, compute_elo, competition_code, resolve_league,
                             series_prob, win_prob)
-from src.update.watchlist import MIN_GAMES_CONF, core_tokens, fuzzy_match, norm, norm_core
+from src.update.bet_universe import is_bettable, universe
+from src.update.watchlist import (MIN_GAMES_CONF, core_tokens, fuzzy_match, norm, norm_core,
+                                  alias_of, orient_loose, plausible)
 
 BASE = "https://api.odds-api.io/v3"
 OUT_PATH = ROOT.parent / "WATCHLIST_ODDSAPI.md"
@@ -58,7 +60,7 @@ BOOKMAKERS = tuple(b.strip() for b in
                    if b.strip())
 EDGE_MIN = 0.04
 TIMEOUT = 40
-PARIS_OFFSET = dt.timedelta(hours=2)  # CEST (affichage)
+from src.update.paris import now_paris, to_paris  # noqa: E402
 
 
 # --------------------------------------------------------------------------- clé
@@ -193,17 +195,49 @@ def event_odds(key: str, event_id, books=BOOKMAKERS) -> dict | None:
     return _parse_markets(od)
 
 
+MAX_MAP_LINE = 4.5        # au-delà, une ligne « Totals » compte des kills, pas des maps
+
+
+def _map_lines(totals: dict) -> list[float]:
+    return [h for rows in totals.values() for (h, _o, _u) in rows if h <= MAX_MAP_LINE]
+
+
 def _guess_wins(totals: dict) -> int:
-    """Estime le nombre de maps à gagner via le hdp des Totals (sinon BO3)."""
-    hdps = [h for rows in totals.values() for (h, _o, _u) in rows]
-    if hdps:
-        mx = max(hdps)
-        if mx >= 4:
-            return 3   # BO5
-        if mx >= 2:
-            return 2   # BO3
-        return 1       # BO1
-    return 2           # défaut : BO3 (régulière régionale)
+    """Nombre de maps à gagner d'après les lignes « nombre de maps » (2,5 = BO3 ; 3,5 ou
+    4,5 = BO5). Sans ligne de maps on ne sait pas : BO3 par défaut, à faire confirmer par le
+    calendrier (`_calendar_bo`) car un BO1 n'a jamais de ligne de maps."""
+    hdps = _map_lines(totals)
+    if hdps and max(hdps) >= 3:
+        return 3
+    return 2
+
+
+def _calendar_bo(days: int) -> dict:
+    """{paire d'équipes: [(jour, BO)]} d'après le calendrier officiel (lolesports + saisie
+    manuelle) : la seule source sûre du format, BO1 compris."""
+    from src.update.watchlist import build_rows
+    out: dict = {}
+    try:
+        covered, _ = build_rows(days)
+    except Exception:  # noqa: BLE001 - calendrier indisponible : on fera sans
+        return out
+    for r in covered:
+        try:
+            out.setdefault(frozenset((r["team1"], r["team2"])), []).append(
+                (dt.date.fromisoformat(str(r["datetime"])[:10]), int(r["bestof"])))
+        except (TypeError, ValueError, KeyError):
+            continue
+    return out
+
+
+def _official_bo(cal: dict, a: str, b: str, iso: str) -> int | None:
+    try:
+        day = dt.date.fromisoformat(str(iso)[:10])
+    except ValueError:
+        return None
+    near = [(abs((d - day).days), bo) for d, bo in cal.get(frozenset((a, b)), [])]
+    near = [x for x in near if x[0] <= 1]
+    return min(near)[1] if near else None
 
 
 # ------------------------------------------------------------------- modèle Elo
@@ -212,7 +246,8 @@ class Scorer:
 
     def __init__(self, cfg: dict | None = None):
         st = compute_elo(cfg or load_config())
-        self.elo, self.n, self.league = st["elo"], st["n"], st["league"]
+        self.elo, self.n, self.league, self.home = st["elo"], st["n"], st["league"], st["home"]
+        self.bet_leagues, self.bet_events = universe(cfg)
         self.reliability, self.shrink, self.global_rel = (
             st["reliability"], st["shrink"], st["global_rel"])
         self._idx_full = {norm(t): t for t in self.elo}
@@ -220,13 +255,31 @@ class Scorer:
         self._ttok = {t: core_tokens(t) for t in self.elo}
 
     def match(self, name: str) -> str | None:
-        return (self._idx_full.get(norm(name)) or self._idx_core.get(norm_core(name))
-                or fuzzy_match(core_tokens(name), self._ttok))
+        return self._match(name)[0]
+
+    def _match(self, name: str) -> tuple[str | None, bool]:
+        hit = (alias_of(name, self.elo) or self._idx_full.get(norm(name))
+               or self._idx_core.get(norm_core(name)))
+        if hit:
+            return hit, True
+        return fuzzy_match(core_tokens(name), self._ttok), False
+
+    def pair(self, home: str, away: str, league_name: str = "") -> tuple[str | None, str | None]:
+        """Les deux équipes d'un match book, ou (None, None) si l'une n'est reconnue qu'à peu
+        près et n'est pas crédible dans cette compétition (« Los Heretics » en LES n'est pas
+        Team Heretics)."""
+        (a, ea), (b, eb) = self._match(home), self._match(away)
+        comp = competition_code(league_name)
+        if (not a or not b or a == b
+                or not plausible(a, ea, b, eb, comp, self.home)
+                or not plausible(b, eb, a, ea, comp, self.home)):
+            return None, None
+        return a, b
 
     def score(self, a: str, b: str, wins_needed: int, league_name: str = "") -> dict:
         code = resolve_league(league_name, self.reliability)
         if code is None:
-            cand = [c for c in (self.league.get(a), self.league.get(b)) if c in self.reliability]
+            cand = [c for c in (self.home.get(a), self.home.get(b)) if c in self.reliability]
             code = min(cand, key=lambda c: self.reliability[c]) if cand else None
         rel = self.reliability.get(code, self.global_rel)
         shr = self.shrink.get(code, 1.0)
@@ -238,7 +291,10 @@ class Scorer:
             "rel": rel, "reliable": rel >= RELIABLE_ACC,
             "league_code": code or "?",
             "conf": min(self.n[a], self.n[b]) >= MIN_GAMES_CONF,
-            "xleague": self.league.get(a) != self.league.get(b),
+            "xleague": self.home.get(a) != self.home.get(b),
+            "bettable": is_bettable(competition_code(league_name) or code,
+                                    self.home.get(a), self.home.get(b),
+                                    leagues=self.bet_leagues, events=self.bet_events),
             "elo1": self.elo[a], "elo2": self.elo[b],
             "n1": self.n[a], "n2": self.n[b],
         }
@@ -247,7 +303,7 @@ class Scorer:
 # ----------------------------------------------------------------------- scan
 def _iso_to_paris(iso: str) -> str:
     try:
-        d = dt.datetime.strptime(iso, "%Y-%m-%dT%H:%M:%SZ") + PARIS_OFFSET
+        d = to_paris(dt.datetime.strptime(iso, "%Y-%m-%dT%H:%M:%SZ"))
         return d.strftime("%a %d/%m %H:%M")
     except (TypeError, ValueError):
         return str(iso)
@@ -260,6 +316,7 @@ def scan(days: int = 14, key: str | None = None, scorer: Scorer | None = None) -
         raise RuntimeError("Clé odds-api.io absente (ODDS_API_KEY ou fichier oddsapi.key).")
     ensure_bookmakers(key)
     scorer = scorer or Scorer()
+    cal = _calendar_bo(days)
     rows: list[dict] = []
     for ev in lol_events(key, days=days):
         if ev.get("status") == "live":   # pré-match only : cote live vs proba pré-match = faux
@@ -268,14 +325,16 @@ def scan(days: int = 14, key: str | None = None, scorer: Scorer | None = None) -
         if not od or (od["best_home"] is None and od["best_away"] is None):
             continue
         home, away = ev.get("home", ""), ev.get("away", "")
-        a, b = scorer.match(home), scorer.match(away)
-        wins = _guess_wins(od["totals"])
+        a, b = scorer.pair(home, away, _league_name(ev))
+        bo = _official_bo(cal, a, b, ev.get("date", "")) if a and b else None
+        bo_known = bo is not None or bool(_map_lines(od["totals"]))
+        wins = (bo + 1) // 2 if bo else _guess_wins(od["totals"])
         row = {
             "id": ev["id"], "datetime": ev.get("date", ""),
             "when": _iso_to_paris(ev.get("date", "")),
             "league": _league_name(ev).replace("League of Legends - ", ""),
             "home": home, "away": away, "status": ev.get("status"),
-            "bestof": wins * 2 - 1, "wins_needed": wins,
+            "bestof": wins * 2 - 1, "wins_needed": wins, "bestof_known": bo_known,
             "ml": od["ml"], "totals": od["totals"], "markets": od["markets"],
             "best_home": od["best_home"], "best_away": od["best_away"],
             "urls": od["urls"], "resolved": bool(a and b),
@@ -297,9 +356,16 @@ def scan(days: int = 14, key: str | None = None, scorer: Scorer | None = None) -
                 row.update({"value_team": b, "value_side": "away", "edge": ea,
                             "our_p": sc["p2"], "best_odd": od["best_away"],
                             "mkt_p": (1 / od["best_away"]) if od["best_away"] else None})
-            row["trust"] = bool(sc["reliable"] and sc["conf"] and not sc["xleague"])
+            row["trust"] = bool(sc["reliable"] and sc["conf"] and not sc["xleague"]
+                                and sc["bettable"])
             row["has_value"] = row["edge"] is not None and row["edge"] > 0
             row["actionable"] = row["edge"] >= EDGE_MIN and row["trust"]
+            if not bo_known and row["actionable"]:
+                # Format inconnu : la value doit tenir AUSSI si c'est un BO1 (un favori à
+                # 65 %/game vaut 72 % en BO3 ; pris pour un BO3 à tort, un BO1 affichait
+                # 7 points de value qui n'existaient pas).
+                p_bo1 = sc["p_game"] if row["value_side"] == "home" else 1 - sc["p_game"]
+                row["actionable"] = (p_bo1 - 1 / row["best_odd"]) >= EDGE_MIN
         else:
             row.update({"team1": home, "team2": away, "value_team": None,
                         "edge": None, "trust": False, "has_value": False,
@@ -311,9 +377,7 @@ def scan(days: int = 14, key: str | None = None, scorer: Scorer | None = None) -
 
 # ------------------------------------------------------------------- live (page 3)
 def _same_match(name_a: str, name_b: str, ha: str, hb: str) -> bool:
-    sa, sb = core_tokens(name_a), core_tokens(name_b)
-    ta, tb = core_tokens(ha), core_tokens(hb)
-    return bool((sa & ta and sb & tb) or (sa & tb and sb & ta))
+    return orient_loose(name_a, name_b, ha, hb) is not None
 
 
 def live_series(team_a: str, team_b: str, key: str | None = None,
@@ -341,7 +405,7 @@ def live_series(team_a: str, team_b: str, key: str | None = None,
     od = event_odds(key, ev["id"], books)
     sc = ev.get("scores") or {}
     home_maps, away_maps = int(sc.get("home") or 0), int(sc.get("away") or 0)
-    a_is_home = bool(core_tokens(team_a) & core_tokens(ev.get("home", "")))
+    a_is_home = bool(orient_loose(team_a, team_b, ev.get("home", ""), ev.get("away", "")))
     ml = od["ml"] if od else {}
     odd_home = max((v[0] for v in ml.values()), default=None)
     odd_away = max((v[1] for v in ml.values()), default=None)
@@ -366,7 +430,7 @@ def _pct(x) -> str:
 
 
 def _write_markdown(rows: list[dict]) -> None:
-    now = dt.datetime.now() + PARIS_OFFSET
+    now = now_paris()
     actionable = [r for r in rows if r.get("actionable")]
     lines = [
         "# Watchlist BOOK (odds-api.io)",

@@ -612,6 +612,40 @@ BO5 par ligue = échantillon 2026 trop petit (seules LIT/LPL ont n≥15 à 2-0) 
 **Next** : afficher ces base rates (par état + ligue) dans `pages/3_Serie_en_cours.py` à côté
 de la cote live -> **flag value auto** (toute la plomberie live odds-api.io existe déjà).
 
+## 2026-11-10 — MODÈLE SPÉCIALISÉ PAR LIGUE / COMPÉTITION / BO : REJETÉ (mesuré)
+
+**Question** : le v2 gagne-t-il si chaque ligue, chaque compétition (régulière / playoffs /
+événement) et chaque format (BO1/BO3/BO5) a ses propres réglages ?
+**Outil** : `src/research/specialize.py` (walk-forward 14 j, 2024 → 08/11/2026, équipes ≥15 g ;
+réglages choisis sur 2025, verdict 2026). Modèle séparé par case écarté d'office : trop peu
+de data (ex. LCK BO5 2026 = 34 séries). Testé à la place :
+- **Spécialisé** : v2 commun + corrections freinées par ligue, compétition et BO (biais côté
+  bleu + poids propres de 7 signaux clés), 3 forces de frein.
+- **Boosting** (arbres, ligue/compétition/BO en catégories) : croise tout seul.
+- **Couche série apprise** par BO (+ ligue × BO, compétition × BO) à la place de la conversion
+  game → série (games indépendantes).
+
+**Résultat (gain de log-loss x1000 face au v2 actuel, IC 90 %)** :
+| | Games 2025 | Games 2026 | Séries 2026 |
+|---|---|---|---|
+| Spécialisé, frein fort | −0,5 [−1,8 ; +0,8] | +0,1 [−1,4 ; +1,7] | +0,7 [−2,8 ; +3,7] |
+| Spécialisé, frein moyen | −1,5 | −1,1 | −1,7 |
+| Spécialisé, frein faible | −5,0 | −3,8 | −7,0 |
+| Boosting | −9,7 | −4,4 | −9,1 |
+| Couche série apprise (sur actuel) | — | — | −0,0 [−3,2 ; +3,8] |
+Réussite séries 2026 : actuel 69,7 % — aucune variante ne fait mieux de façon prouvée.
+
+**Lecture** : plus on laisse chaque case s'écarter, PIRE c'est → les différences propres à
+chaque case sont surtout du bruit. Les vraies particularités (niveau de prévisibilité par
+ligue) sont déjà captées par la calibration par ligue du v2 et l'Elo. La conversion
+game → série est déjà juste (la couche apprise n'apporte rien). Le boosting, même sur 30 000
+games, fait moins bien que la régression.
+**Conséquence** : les particularités ligue / compétition / BO servent à CHOISIR où parier
+(page Plan de jeu, stats par BO et famille), pas à changer les poids du modèle. Le levier de
+précision restant = l'INFORMATION (rosters, remplaçants, soloQ), pas la forme du modèle.
+**Ne pas rouvrir** : modèle par ligue/BO/compétition, boosting sur les mêmes signaux, couche
+série apprise.
+
 ## Prochaine étape (à reprendre demain)
 1. **PRIORITÉ : anciennes cotes régionales** (l'utilisateur peut en fournir : LJL/TCL/LFL/PRM,
    format date,team1,team2,score,odd1,odd2) -> backtest valeur sur régionales = savoir si les

@@ -504,6 +504,8 @@ def _past_table(days: int, conf: float, stake: float, needed: float) -> None:
     if past.empty:
         st.info("Aucune série exploitable sur cette fenêtre.")
         return
+    from src.models.picks_roi import restake
+    past = restake(past, stake)        # le P/L stocké suppose 10 € : on l'aligne sur la mise
 
     real = pd.to_numeric(past["odds"], errors="coerce")
     n_real = int(real.notna().sum())

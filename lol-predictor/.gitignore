@@ -30,6 +30,22 @@ data/.odds_quota.json
 data/.odds_discovery.json
 data/.odds_seed.json
 
+# Collecte automatique (src.update.refresh_all) : état, verrous, fichiers en cours d'écriture
+data/refresh_status.json
+data/.refresh_*.lock
+data/**/*.tmp
+# Identifiants Riot des comptes soloQ : liés à la clé API, inutiles ailleurs
+data/external/soloq/.puuids_*.json
+# Moteur précalculé du site (src.v2.precompute) : propre à chaque machine
+data/cache/
+
 # ... mais l'archive des cotes de clôture, elle, DOIT être versionnée : l'app
 # déployée ne peut pas la reconstruire (100 req/h, et pas de clé côté Cloud).
 !data/odds_history.csv
+
+# Historique soloQ des pros (src.ingest.soloq_history) : plusieurs centaines de Mo, au-delà
+# de la limite de GitHub ; le serveur le reconstruit. Caches du classement : locaux.
+data/external/soloq/history/
+data/external/soloq/.ladder_names_*.json
+# Script de déploiement personnel (adresse du serveur)
+deploy_ligues_pariables.sh

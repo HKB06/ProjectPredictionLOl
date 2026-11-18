@@ -246,6 +246,56 @@ def pct(x: float) -> str:
 
 
 # ------------------------------------------------------------------------ page
+def v2_live_panel(blue: str, red: str, bc: dict, rc: dict) -> None:
+    """Nouveau modèle : proba du côté bleu sur CETTE game, avant puis après la draft."""
+    try:
+        from src.ui.engine import load_engine
+        eng = load_engine()
+        pred = eng["predictor"]
+        champs = sorted({c for _, c in eng["states"]["draft"].pc_g})
+    except Exception:                      # moteur pas encore recalculé avec le bloc draft
+        return
+    if not hasattr(pred, "draft_game"):
+        return
+    with st.expander("🧬 Nouveau modèle — pari en direct (avant / après la draft)", expanded=True):
+        b1, b2 = st.columns(2)
+        bans_b = b1.multiselect("Bans 🔵", champs, max_selections=5, key="bans_blue")
+        bans_r = b2.multiselect("Bans 🔴", champs, max_selections=5, key="bans_red")
+        pb = {k: v for k, v in bc.items() if v}
+        pr = {k: v for k, v in rc.items() if v}
+        r = pred.draft_game(blue, red, pb, pr, bans_b, bans_r)
+        before, after = r["before"], r["after"]
+        n = len(pb) + len(pr)
+        c1, c2, c3 = st.columns(3)
+        c1.metric(f"🔵 {blue} — avant la draft", pct(before))
+        if n:
+            c2.metric(f"🔵 {blue} — avec la draft", pct(after),
+                      delta=f"{(after - before) * 100:+.1f} pts")
+            c3.metric("Cote minimale 🔵 / 🔴", f"{1 / max(after, 1e-6):.2f} / "
+                                              f"{1 / max(1 - after, 1e-6):.2f}")
+        else:
+            c2.metric(f"🔵 {blue} — avec la draft", "—")
+            c3.metric("Cote minimale 🔵 / 🔴", "—")
+        if 0 < n < 10:
+            st.warning(f"{n}/10 champions saisis : la proba « avec la draft » n'est fiable "
+                       "qu'une fois les 10 picks posés.")
+        if n:
+            contrib = r["contrib"]
+            top = float(contrib.abs().max()) or 1.0
+            st.dataframe(pd.DataFrame({
+                "Signal de draft": contrib.index,
+                "Avantage pour": [f"🔵 {blue}" if v >= 0 else f"🔴 {red}" for v in contrib],
+                "Poids": contrib.abs().to_numpy()}), hide_index=True, width="stretch",
+                column_config={"Poids": st.column_config.ProgressColumn(
+                    format="%.2f", min_value=0, max_value=top)})
+        st.caption(
+            "Proba de CETTE game, côté bleu compris, par le nouveau modèle (les joueurs sont "
+            "ceux du dernier cinq aligné). Mesuré sur 4 saisons : connaître la draft fait "
+            "passer la réussite de 65,0 % à 65,8 % des games. Ce n'est PAS encore comparé "
+            "au prix Polymarket en direct : à utiliser entre la fin de la draft et le début "
+            "de la game, en vérifiant que le prix n'a pas déjà bougé.")
+
+
 def main() -> None:
     mp = get_predictor()
     _handle_table_click()                      # avant tout rendu
@@ -283,6 +333,7 @@ def main() -> None:
     bc, rc = picked_champs("blue"), picked_champs("red")
     live = mp.predict_match(blue_team, red_team, bc, rc, is_playoffs=int(is_playoffs))
     scoreboard(blue_team, red_team, live["winner"]["blue"])
+    v2_live_panel(blue_team, red_team, bc, rc)
 
     # --------------------------------------------- picks + liste cliquable
     tgt = current_target()

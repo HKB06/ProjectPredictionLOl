@@ -22,6 +22,46 @@ def load_config(path: str | Path | None = None) -> dict:
         return yaml.safe_load(f)
 
 
+def season_files(cfg: dict, history: bool = True) -> list[tuple[int, Path]]:
+    """(saison, fichier) à rejouer, de la plus ancienne à la saison en cours.
+
+    Les saisons passées (`data.history_years`) servent à ne pas repartir de zéro en
+    janvier : notes des joueurs et des équipes, pools, expérience, entraînement du
+    modèle. Elles sont facultatives : un fichier absent est simplement ignoré.
+    """
+    current = ROOT / cfg["data"]["oracle_csv"]
+    year = int(cfg["scope"].get("year") or 0)
+    out = []
+    for y in sorted(set(cfg["data"].get("history_years") or [])) if history else []:
+        p = current.with_name(f"{y}_LoL_esports_match_data_from_OraclesElixir.csv")
+        if y < year and p != current and p.exists():
+            out.append((int(y), p))
+    return out + [(year, current)]
+
+
+def read_seasons(cfg: dict, usecols: set[str] | None = None,
+                 dtype: dict | None = None, history: bool = True) -> pd.DataFrame:
+    """Lit les CSV de `season_files` bout à bout, avec une colonne `season`.
+
+    Lecture frugale : seules les colonnes `usecols` sont gardées en mémoire.
+    """
+    frames = []
+    for year, path in season_files(cfg, history):
+        df = pd.read_csv(path, low_memory=False, dtype=dtype,
+                         usecols=(lambda c: c.strip() in usecols) if usecols else None)
+        df.columns = [c.strip() for c in df.columns]
+        df["season"] = year
+        frames.append(df)
+    if len(frames) == 1:
+        return frames[0]
+    df = pd.concat(frames, ignore_index=True)
+    if "gameid" in df.columns:
+        # Une game présente dans deux fichiers ne doit être rejouée qu'une fois.
+        last = df.groupby("gameid")["season"].transform("max")
+        df = df[(df["season"] == last) | df["gameid"].isna()].reset_index(drop=True)
+    return df
+
+
 def load_oracle(cfg: dict) -> pd.DataFrame:
     """Charge le CSV Oracle's Elixir et applique les filtres de périmètre."""
     csv_path = ROOT / cfg["data"]["oracle_csv"]

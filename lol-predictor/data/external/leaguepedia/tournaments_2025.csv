@@ -1,0 +1,831 @@
+Name,OverviewPage,League,Region,Country,EventType,DateStart,Date,TournamentLevel,IsPlayoffs,IsQualifier,Split
+2025 Central American Games,2025 Central American Games,Central American Games,Americas,,,2025-10-25,2025-10-26,Secondary,1.0,0.0,
+2025 Cross Regional,2025 Cross Regional,Cross Regional,Asia,,,2025-04-07,2025-04-08,Showmatch,1.0,0.0,
+2025 Puyuan Esports Festival,2025 Puyuan Esports Festival,Puyuan Esports Festival,International,China,,2025-12-27,2025-12-27,Secondary,0.0,0.0,
+2025 SLL Summer,2025 SLL Summer,SOOP LoL League,Korea,South Korea,,2025-07-13,2025-07-18,Secondary,0.0,0.0,
+2025 SLL Winter,2025 SLL Winter,SOOP LoL League,Korea,South Korea,,2025-12-15,2025-12-24,Secondary,0.0,0.0,
+2025 T1 Red Bull PC Bang TAKE OVER,2025 T1 Red Bull PC Bang TAKE OVER,=Red Bull PC Bang TAKE OVER,Korea,South Korea,Showmatch,2025-12-27,2025-12-27,Showmatch,0.0,0.0,
+2025 Unicef LCK Package,2025 Unicef LCK Package,,Korea,South Korea,Offline,2025-04-21,2025-04-21,Showmatch,0.0,0.0,
+4 Nations 2025 Spring,4 Nations/2025 Season/Spring Split,4 Nations,EMEA,United Kingdom,Online,2025-04-14,2025-05-12,Secondary,0.0,0.0,
+4 Nations 2025 Spring Playoffs,4 Nations/2025 Season/Spring Playoffs,4 Nations,EMEA,United Kingdom,Online/Offline,2025-05-19,2025-06-21,Secondary,1.0,0.0,
+4 Nations 2025 Summer,4 Nations/2025 Season/Summer Split,4 Nations,EMEA,United Kingdom,Online,2025-07-14,2025-08-11,Secondary,0.0,0.0,
+4 Nations 2025 Summer Playoffs,4 Nations/2025 Season/Summer Playoffs,4 Nations,EMEA,United Kingdom,Online/Offline,2025-08-18,2025-09-20,Secondary,1.0,0.0,
+4 Nations 2025 Winter,4 Nations/2025 Season/Winter Split,4 Nations,EMEA,United Kingdom,Online,2025-01-20,2025-02-17,Secondary,0.0,0.0,
+4 Nations 2025 Winter Playoffs,4 Nations/2025 Season/Winter Playoffs,4 Nations,EMEA,United Kingdom,Online/Offline,2025-02-24,2025-03-22,Secondary,1.0,0.0,
+A1 eSports Legends Cup 2025,A1 eSports Legends Cup/2025 Season,A1 eSports League Austria Season 2,EMEA,Austria,Online,2025-06-02,2025-07-05,Secondary,1.0,0.0,
+A1 eSports Legends Cup 2025 Qualifier,A1 eSports Legends Cup/2025 Season/Qualifier,A1 eSports League Austria Season 2,EMEA,Austria,Online,2025-05-24,2025-05-25,Secondary,0.0,1.0,
+A1 Gaming League 2025 Main Event,A1 Gaming League/2025 Season,A1 Gaming League,EMEA,Bulgaria,,2025-12-06,2025-12-07,Secondary,0.0,0.0,
+Áhugamannadeildin 2025,Áhugamannadeildin 2025,Áhugamannadeildin,EMEA,Iceland,Online,2025-06-01,2025-06-20,Secondary,0.0,0.0,
+Alior Bank Rift Legends 2025 Spring Promotion,Rift Legends/2025 Season/Spring Promotion,Rift Legends,EMEA,Poland,Online,2025-03-13,2025-03-16,Secondary,0.0,1.0,Spring
+Alior Bank Rift Legends 2025 Spring Promotion Open Qualifier 1,Rift Legends/2025 Season/Spring Promotion/Open Qualifiers/Qualifier 1,Rift Legends,EMEA,Poland,Online,2025-03-06,2025-03-06,Secondary,0.0,1.0,
+Alior Bank Rift Legends 2025 Spring Promotion Open Qualifier 2,Rift Legends/2025 Season/Spring Promotion/Open Qualifiers/Qualifier 2,Rift Legends,EMEA,Poland,Online,2025-03-11,2025-03-11,Secondary,0.0,1.0,
+Alior Bank Rift Legends 2025 Summer Promotion,Rift Legends/2025 Season/Summer Promotion,Rift Legends,EMEA,Poland,Online,2025-05-27,2025-05-30,Secondary,0.0,1.0,Spring
+Alior Bank Rift Legends 2025 Summer Promotion Open Qualifier 1,Rift Legends/2025 Season/Summer Promotion/Open Qualifiers/Qualifier 1,Rift Legends,EMEA,Poland,Online,2025-05-20,2025-05-20,Secondary,0.0,1.0,
+Alior Bank Rift Legends 2025 Summer Promotion Open Qualifier 2,Rift Legends/2025 Season/Summer Promotion/Open Qualifiers/Qualifier 2,Rift Legends,EMEA,Poland,Online,2025-05-22,2025-05-22,Secondary,0.0,1.0,
+Almost Pro Frost Clash Qualifier 1,Almost Pro/Frost Clash/Qualifiers/Qualifier 1,Almost Pro,EMEA,Poland,Online,2025-11-06,2025-11-06,Secondary,0.0,1.0,
+Almost Pro Frost Clash Qualifier 2,Almost Pro/Frost Clash/Qualifiers/Qualifier 2,Almost Pro,EMEA,Poland,Online,2025-11-07,2025-11-07,Secondary,0.0,1.0,
+Almost Pro Frost Clash Qualifier 3,Almost Pro/Frost Clash/Qualifiers/Qualifier 3,Almost Pro,EMEA,Poland,Online,2025-11-08,2025-11-08,Secondary,0.0,1.0,
+Almost Pro Legends 2025 Spring Closed Qualifier,Almost Pro Legends/2025 Season/Spring Promotion,Almost Pro Legends,EMEA,Poland,Online,2025-04-01,2025-04-04,Secondary,0.0,1.0,
+Almost Pro Legends 2025 Spring Group Stage,Almost Pro Legends/2025 Season/Spring Group Stage,Almost Pro Legends,EMEA,Poland,Online,2025-04-10,2025-05-05,Secondary,0.0,0.0,
+Almost Pro Legends 2025 Spring Open Qualifier 1,Almost Pro Legends/2025 Season/Spring Promotion/Open Qualifiers/Qualifier 1,Almost Pro Legends,EMEA,Poland,Online,2025-03-29,2025-03-29,Secondary,0.0,1.0,
+Almost Pro Legends 2025 Spring Open Qualifier 2,Almost Pro Legends/2025 Season/Spring Promotion/Open Qualifiers/Qualifier 2,Almost Pro Legends,EMEA,Poland,Online,2025-03-30,2025-03-30,Secondary,0.0,1.0,
+Almost Pro Legends 2025 Spring Playoffs,Almost Pro Legends/2025 Season/Spring Playoffs,Almost Pro Legends,EMEA,Poland,Online,2025-05-09,2025-05-13,Secondary,1.0,0.0,
+Almost Pro Legends 2025 Summer Closed Qualifier,Almost Pro Legends/2025 Season/Summer Promotion,Almost Pro Legends,EMEA,Poland,Online,2025-07-11,2025-07-13,Secondary,0.0,1.0,
+Almost Pro Legends 2025 Summer Group Stage,Almost Pro Legends/2025 Season/Summer Group Stage,Almost Pro Legends,EMEA,Poland,Online,2025-07-19,2025-08-08,Secondary,0.0,0.0,
+Almost Pro Legends 2025 Summer Open Qualifier 1,Almost Pro Legends/2025 Season/Summer Promotion/Open Qualifiers/Qualifier 1,Almost Pro Legends,EMEA,Poland,Online,2025-07-07,2025-07-07,Secondary,0.0,1.0,
+Almost Pro Legends 2025 Summer Open Qualifier 2,Almost Pro Legends/2025 Season/Summer Promotion/Open Qualifiers/Qualifier 2,Almost Pro Legends,EMEA,Poland,Online,2025-07-08,2025-07-08,Secondary,0.0,1.0,
+Almost Pro Legends 2025 Summer Playoffs,Almost Pro Legends/2025 Season/Summer Playoffs,Almost Pro Legends,EMEA,Poland,Online (Quarterfinals &amp; Semifinals)&lt;br&gt;Offline (Finals),2025-08-14,2025-09-06,Secondary,1.0,0.0,
+Almost Pro Legends 2025 Winter Group Stage,Almost Pro Legends/2025 Season/Winter Group Stage,Almost Pro Legends,EMEA,Poland,Online,2025-02-06,2025-02-21,Secondary,0.0,0.0,
+Almost Pro Legends 2025 Winter Open Qualifier 1,Almost Pro Legends/2025 Season/Winter Promotion/Open Qualifiers/Qualifier 1,Almost Pro Legends,EMEA,Poland,Online,2025-01-27,2025-01-27,Secondary,0.0,1.0,
+Almost Pro Legends 2025 Winter Open Qualifier 2,Almost Pro Legends/2025 Season/Winter Promotion/Open Qualifiers/Qualifier 2,Almost Pro Legends,EMEA,Poland,Online,2025-01-28,2025-01-28,Secondary,0.0,1.0,
+Almost Pro Legends 2025 Winter Playoffs,Almost Pro Legends/2025 Season/Winter Playoffs,Almost Pro Legends,EMEA,Poland,Online,2025-03-03,2025-03-07,Secondary,1.0,0.0,
+Arab International Tournament,Arab International Tournament,Arab International Tournament,EMEA,United Arab Emirates,,2025-04-04,2025-04-11,,,,
+Arabian League 2025 Promotion,Arabian League/2025 Season/Promotion,Arabian League,EMEA,Arab League,Online,2024-09-09,2024-09-14,Secondary,0.0,1.0,
+Arabian League 2025 Spring,Arabian League/2025 Season/Spring Split,Arabian League,EMEA,Arab League,Online,2025-04-09,2025-05-09,Secondary,0.0,0.0,Spring
+Arabian League 2025 Spring Playoffs,Arabian League/2025 Season/Spring Playoffs,Arabian League,EMEA,Arab League,Online,2025-05-14,2025-05-23,Secondary,1.0,0.0,Spring
+Arabian League 2025 Summer,Arabian League/2025 Season/Summer Split,Arabian League,EMEA,Arab League,Online/Offline,2025-07-14,2025-08-19,Secondary,0.0,0.0,Summer
+Arabian League 2025 Summer Promotion,Arabian League/2025 Season/Summer Promotion,Arabian League,EMEA,Arab League,Online,2025-05-27,2025-05-30,Secondary,0.0,1.0,Summer
+Arabian League 2025 Winter,Arabian League/2025 Season/Winter Split,Arabian League,EMEA,Arab League,Online,2025-02-14,2025-02-21,Secondary,0.0,0.0,Winter
+Arabian League 2025 Winter Playoffs,Arabian League/2025 Season/Winter Playoffs,Arabian League,EMEA,Arab League,Online,2025-02-25,2025-03-07,Secondary,1.0,0.0,Winter
+ARAM: Hoa Linh Kỳ Phùng,ARAM: Hoa Linh Kỳ Phùng,Vietnam National ARAM League,Asia Pacific,Vietnam,Offline,2025-07-19,2025-07-20,,1.0,0.0,
+Argentina Game Show 2025,Argentina Game Show 2025,Argentina Game Show,Americas,Argentina,,2025-10-12,2025-10-12,Showmatch,0.0,0.0,
+Asia Masters 2025 Finals,2025 Asia Masters/Finals,Asia Masters,International,,,2025-10-06,2025-10-13,Secondary,0.0,0.0,
+Asia Masters 2025 Swiss 1,2025 Asia Masters/Swiss 1,Asia Masters,International,,,2025-03-05,2025-03-22,Secondary,0.0,0.0,
+Asia Masters 2025 Swiss 2,2025 Asia Masters/Swiss 2,Asia Masters,International,,,2025-06-22,2025-07-18,Secondary,0.0,0.0,
+Asia Masters 2025 Tiebreaker,2025 Asia Masters/Points/Tiebreaker Matches,Asia Masters,International,,,2025-10-01,2025-10-01,Secondary,0.0,1.0,
+Balela Showmatch,Balela Showmatch,League of Legends Championship of The Americas South,Americas,Brazil,,2025-06-02,2025-06-02,Showmatch,0.0,0.0,
+Baron Kupa I,Baron Kupa/2025 Season/Season I,Baron Kupa,EMEA,Hungary,Online,2024-12-04,2024-12-14,Secondary,1.0,0.0,
+Baron Kupa I Qualifier 1,Baron Kupa/2025 Season/Season I/Qualifier 1,Baron Kupa,EMEA,Hungary,Online,2024-11-30,2024-11-30,Secondary,0.0,1.0,
+Baron Kupa I Qualifier 2,Baron Kupa/2025 Season/Season I/Qualifier 2,Baron Kupa,EMEA,Hungary,Online,2024-12-01,2024-12-01,Secondary,0.0,1.0,
+Baron Kupa II,Baron Kupa/2025 Season/Season II,Baron Kupa,EMEA,Hungary,Online,2025-04-08,2025-04-26,Secondary,1.0,0.0,
+Baron Kupa II Qualifier 1,Baron Kupa/2025 Season/Season II/Qualifier 1,Baron Kupa,EMEA,Hungary,Online,2025-03-22,2025-03-22,Secondary,0.0,1.0,
+Baron Kupa II Qualifier 2,Baron Kupa/2025 Season/Season II/Qualifier 2,Baron Kupa,EMEA,Hungary,Online,2025-03-23,2025-03-23,Secondary,0.0,1.0,
+Baron Kupa III,Baron Kupa/2025 Season/Season III,Baron Kupa,EMEA,Hungary,Online,2025-07-15,2025-08-02,Secondary,1.0,0.0,
+Baron Kupa III Qualifier 1,Baron Kupa/2025 Season/Season III/Qualifier 1,Baron Kupa,EMEA,Hungary,Online,2025-07-05,2025-07-05,Secondary,0.0,1.0,
+Baron Kupa III Qualifier 2,Baron Kupa/2025 Season/Season III/Qualifier 2,Baron Kupa,EMEA,Hungary,Online,2025-07-06,2025-07-06,Secondary,0.0,1.0,
+BaseStack Cup,BaseStack Cup,BaseStack,EMEA,Poland,Offline,2025-06-20,2025-06-20,Secondary,0.0,0.0,
+BaseStack Cup Qualifier,BaseStack Cup/Qualifier,BaseStack,EMEA,Poland,Online,2025-05-21,2025-05-21,Secondary,0.0,1.0,
+BCL 2025 Summer,Bulgarian Challengers League/2025 Season/Summer,Bulgarian Challengers League,EMEA,Bulgaria,Online,2025-08-04,2025-08-08,Secondary,1.0,0.0,
+BCL 2025 Summer Qualifier 1,Bulgarian Challengers League/2025 Season/Summer/Qualifier 1,Bulgarian Challengers League,EMEA,Bulgaria,Online,2025-08-02,2025-08-02,Secondary,0.0,1.0,
+BCL 2025 Summer Qualifier 2,Bulgarian Challengers League/2025 Season/Summer/Qualifier 2,Bulgarian Challengers League,EMEA,Bulgaria,Online,2025-08-03,2025-08-03,Secondary,0.0,1.0,
+Benelux Ascend Series 2025 Spring,Benelux Ascend Series/2025 Season/Spring Split,Benelux Ascend Series,EMEA,Belgium,Online,2025-04-23,2025-05-07,Secondary,0.0,0.0,Spring
+Benelux Ascend Series 2025 Spring Closed Qualifier 1,Benelux Ascend Series/2025 Season/Spring Qualifiers/Qualifier 1,Benelux Ascend Series,EMEA,Belgium,Online,2025-03-29,2025-03-30,Secondary,0.0,1.0,
+Benelux Ascend Series 2025 Spring Closed Qualifier 2,Benelux Ascend Series/2025 Season/Spring Qualifiers/Qualifier 2,Benelux Ascend Series,EMEA,Belgium,Online,2025-04-12,2025-04-13,Secondary,0.0,1.0,
+Benelux Ascend Series 2025 Spring Open Qualifier 1,Benelux Ascend Series/2025 Season/Spring Qualifiers/Qualifier 1/Open Qualifier,Benelux Ascend Series,EMEA,Belgium,Online,2025-03-15,2025-03-16,Secondary,0.0,1.0,
+Benelux Ascend Series 2025 Spring Open Qualifier 2,Benelux Ascend Series/2025 Season/Spring Qualifiers/Qualifier 2/Open Qualifier,Benelux Ascend Series,EMEA,Belgium,Online,2025-04-05,2025-04-06,Secondary,0.0,1.0,
+Benelux Ascend Series 2025 Spring Playoffs,Benelux Ascend Series/2025 Season/Spring Playoffs,Benelux Ascend Series,EMEA,Belgium,Online/Offline,2025-05-11,2025-06-01,Secondary,1.0,0.0,Spring
+Benelux Ascend Series 2025 Summer,Benelux Ascend Series/2025 Season/Summer Split,Benelux Ascend Series,EMEA,Belgium,Online,2025-08-20,2025-09-10,Secondary,0.0,0.0,Summer
+Benelux Ascend Series 2025 Summer Closed Qualifier 1,Benelux Ascend Series/2025 Season/Summer Qualifiers/Qualifier 1,Benelux Ascend Series,EMEA,Belgium,Online,2025-07-19,2025-07-20,Secondary,0.0,1.0,
+Benelux Ascend Series 2025 Summer Closed Qualifier 2,Benelux Ascend Series/2025 Season/Summer Qualifiers/Qualifier 2,Benelux Ascend Series,EMEA,Belgium,Online,2025-08-09,2025-08-10,Secondary,0.0,1.0,
+Benelux Ascend Series 2025 Summer Open Qualifier 1,Benelux Ascend Series/2025 Season/Summer Qualifiers/Qualifier 1/Open Qualifier,Benelux Ascend Series,EMEA,Belgium,Online,2025-07-12,2025-07-12,Secondary,0.0,1.0,
+Benelux Ascend Series 2025 Summer Open Qualifier 2,Benelux Ascend Series/2025 Season/Summer Qualifiers/Qualifier 2/Open Qualifier,Benelux Ascend Series,EMEA,Belgium,Online,2025-08-02,2025-08-02,Secondary,0.0,1.0,
+Benelux Ascend Series 2025 Summer Playoffs,Benelux Ascend Series/2025 Season/Summer Playoffs,Benelux Ascend Series,EMEA,Belgium,Online/Offline,2025-09-17,2025-09-26,Secondary,1.0,0.0,Summer
+BetBoom Noxus League 2025,BetBoom Noxus League 2025,BetBoom Noxus League,EMEA,Commonwealth of Independent States,Online,2025-04-25,2025-04-27,Secondary,1.0,0.0,
+Bitwa o Most 2025 Summer,Bitwa o Most/2025 Season,Bitwa o Most,EMEA,Poland,Online,2025-07-12,2025-07-13,Secondary,0.0,0.0,
+Bitwa o Most 2025 Summer Community Cup 1,Bitwa o Most/2025 Season/Community Cups/Community Cup 1,Bitwa o Most,EMEA,Poland,Online,2025-07-05,2025-07-05,Secondary,0.0,0.0,
+Bitwa o Most 2025 Summer Community Cup 2,Bitwa o Most/2025 Season/Community Cups/Community Cup 2,Bitwa o Most,EMEA,Poland,Online,2025-07-06,2025-07-06,Secondary,0.0,0.0,
+Blooming Talents League 2025 Spring,Blooming Talents League/2025 Season/Spring Split,Blooming Talents League,EMEA,Italy,Online,2025-05-04,2025-05-21,Secondary,0.0,0.0,Spring
+Blooming Talents League 2025 Spring Playoffs,Blooming Talents League/2025 Season/Spring Playoffs,Blooming Talents League,EMEA,Italy,Online,2025-05-27,2025-06-10,Secondary,1.0,0.0,Spring
+Blooming Talents League 2025 Spring Relegations,Blooming Talents League/2025 Season/Spring Relegations,Blooming Talents League,EMEA,Italy,Online,2025-06-20,2025-06-22,Secondary,0.0,0.0,
+Blooming Talents League 2025 Summer,Blooming Talents League/2025 Season/Summer Split,Blooming Talents League,EMEA,Italy,Online,2025-07-02,2025-07-16,Secondary,0.0,0.0,Summer
+Blooming Talents League 2025 Summer Playoffs,Blooming Talents League/2025 Season/Summer Playoffs,Blooming Talents League,EMEA,Italy,Online,2025-07-22,2025-08-05,Secondary,1.0,0.0,Summer
+Blooming Talents League 2025 Winter,Blooming Talents League/2025 Season/Winter Split,Blooming Talents League,EMEA,Italy,Online,2025-01-28,2025-03-11,Secondary,0.0,0.0,Winter
+Blossom Flash Season 1,Blossom Flash/Season 1,Blossom League,Americas,Mexico,Online,2025-09-06,2025-09-07,Secondary,0.0,0.0,
+Blossom League Season 11,Blossom League/Season 11,Blossom League,Americas,Mexico,Online,2025-06-21,2025-08-24,Secondary,0.0,0.0,
+Blossom League Season 12,Blossom League/Season 12,Blossom League,Americas,Mexico,Online,2025-09-27,2025-12-16,Secondary,0.0,0.0,
+Brasil Prime Games League 2025 Split 1,Brasil Prime Games League/2025 Season/Split 1,Brasil Prime Games League,Americas,Brazil,Online,2025-05-31,2025-06-22,Secondary,0.0,0.0,Split 1
+Brasil Prime Games League 2025 Split 1 Playoffs,Brasil Prime Games League/2025 Season/Split 1 Playoffs,Brasil Prime Games League,Americas,Brazil,Online,2025-06-28,2025-08-03,Secondary,1.0,0.0,Split 1
+Breeze of Glory 2025,Breeze of Glory 2025,Breeze of Glory,EMEA,Italy,Online/Offline,2025-11-06,2025-11-30,Secondary,1.0,0.0,
+Bulgarian Challengers League 2025 Spring,Bulgarian Challengers League/2025 Season/Spring,Bulgarian Challengers League,EMEA,Bulgaria,Online,2025-04-24,2025-05-03,Secondary,1.0,0.0,
+Bulgarian Challengers League 2025 Spring Qualifier 1,Bulgarian Challengers League/2025 Season/Spring/Qualifier 1,Bulgarian Challengers League,EMEA,Bulgaria,Online,2025-04-12,2025-04-12,Secondary,0.0,1.0,
+Bulgarian Challengers League 2025 Spring Qualifier 2,Bulgarian Challengers League/2025 Season/Spring/Qualifier 2,Bulgarian Challengers League,EMEA,Bulgaria,Online,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+Bulgarian Challengers League 2025 Winter,Bulgarian Challengers League/2025 Season/Winter,Bulgarian Challengers League,EMEA,Bulgaria,Online,2025-02-11,2025-02-16,Secondary,1.0,0.0,
+Bulgarian Challengers League 2025 Winter Qualifier 1,Bulgarian Challengers League/2025 Season/Winter/Qualifier 1,Bulgarian Challengers League,EMEA,Bulgaria,Online,2025-02-08,2025-02-08,Secondary,0.0,1.0,
+Bulgarian Challengers League 2025 Winter Qualifier 2,Bulgarian Challengers League/2025 Season/Winter/Qualifier 2,Bulgarian Challengers League,EMEA,Bulgaria,Online,2025-02-09,2025-02-09,Secondary,0.0,1.0,
+Café Cuties Cup 2.0,Café Cuties Cup 2.0,Café Cuties Cup,EMEA,Europe,Online,2025-05-01,2025-05-12,Secondary,1.0,0.0,
+CBGE Campus Play,CBGE Campus Play,Conferederação Brasileira de Games e E-Sports,Americas,Brazil,Offline,2025-06-22,2025-06-22,Qualifier,1.0,0.0,
+CBGE Campus Play Offline Qualifier,CBGE Campus Play/Offline Qualifier,Conferederação Brasileira de Games e E-Sports,Americas,Brazil,Offline,2025-06-20,2025-06-20,Qualifier,0.0,1.0,
+CBGE Campus Play Online Qualifier,CBGE Campus Play/Online Qualifier,Conferederação Brasileira de Games e E-Sports,Americas,Brazil,Online,2025-06-08,2025-06-08,Qualifier,0.0,1.0,
+CD 2025 Showmatch,Circuito Desafiante/2025 Season/Showmatch,Circuito Desafiante,Americas,Brazil,Online,2025-03-17,2025-03-17,Showmatch,0.0,0.0,
+CD 2025 Split 1,Circuito Desafiante/2025 Season/Split 1,Circuito Desafiante,Americas,Brazil,Online,2025-03-17,2025-05-14,Secondary,0.0,0.0,Split 1
+CD 2025 Split 1 Closed Qualifier,Circuito Desafiante/2025 Season/Split 1 Qualifier,Circuito Desafiante,Americas,Brazil,Online,2025-02-03,2025-02-06,Secondary,0.0,1.0,
+CD 2025 Split 1 Open Qualifier 1,Circuito Desafiante/2025 Season/Split 1 Qualifier/Open Qualifier 1,Circuito Desafiante,Americas,Brazil,Online,2025-01-19,2025-01-20,Secondary,0.0,1.0,
+CD 2025 Split 1 Open Qualifier 2,Circuito Desafiante/2025 Season/Split 1 Qualifier/Open Qualifier 2,Circuito Desafiante,Americas,Brazil,Online,2025-01-27,2025-01-28,Secondary,0.0,1.0,
+CD 2025 Split 1 Playoffs,Circuito Desafiante/2025 Season/Split 1 Playoffs,Circuito Desafiante,Americas,Brazil,Online,2025-05-19,2025-06-09,Secondary,1.0,0.0,Split 1
+CD 2025 Split 2,Circuito Desafiante/2025 Season/Split 2,Circuito Desafiante,Americas,Brazil,Online,2025-07-21,2025-08-12,Secondary,0.0,0.0,Split 2
+CD 2025 Split 2 Open Qualifier,Circuito Desafiante/2025 Season/Split 2 Promotion/Open Qualifier,Circuito Desafiante,Americas,Brazil,Online,2025-05-21,2025-05-30,Secondary,0.0,1.0,
+CD 2025 Split 2 Playoffs,Circuito Desafiante/2025 Season/Split 2 Playoffs,Circuito Desafiante,Americas,Brazil,Online,2025-08-18,2025-09-12,Secondary,1.0,0.0,Split 2
+CD 2025 Split 2 Promotion,Circuito Desafiante/2025 Season/Split 2 Promotion,Circuito Desafiante,Americas,Brazil,Online,2025-06-16,2025-06-20,Secondary,0.0,1.0,
+CineLeague 2025,CineLeague 2025,CineLeague,EMEA,Germany,Online/Offline,2025-09-26,2025-10-25,Secondary,0.0,0.0,
+Circuito Tormenta 2025 Lucca Comics and Games,Circuito Tormenta Italy 2025/Lucca Comics and Games,Lucca Comics and Games 2025,EMEA,Italy,Online/Offline,2025-10-07,2025-10-31,Secondary,1.0,0.0,
+Circuito Tormenta 2025 Milan Games Week,Circuito Tormenta 2025 Milan Games Week,Milan Games Week 2025,EMEA,Italy,Online/Offline,2025-11-17,2025-11-30,Secondary,1.0,0.0,
+Circuito Tormenta 2025 Naples Comicon Cup,Circuito Tormenta 2025 Naples Comicon Cup,Milan Games Week 2025,EMEA,Italy,Online/Offline,2025-04-17,2025-05-02,Secondary,1.0,0.0,
+Circuito Tormenta 24-25,Circuito Tormenta 2025,Circuito Tormenta,EMEA,Spain,Online/Offline,2025-06-14,2025-07-16,Secondary,1.0,0.0,
+CLOL 2025 Championship,College League of Legends/2025 Season/Championship,College League of Legends,Americas,United States,Online/Offline,2025-04-19,2025-05-31,Secondary,1.0,0.0,
+Coca-Cola STAGE:0 eSPORTS High-School Championship 2025,Coca-Cola STAGE:0 eSPORTS High-School Championship 2025,STAGE:0 eSPORTS High-School Championship,Asia Pacific,Japan,Online/Offline,2025-06-08,2025-08-15,Showmatch,1.0,0.0,
+Comic Con Baltics 2025,Comic Con Baltics 2025,Comic Con Baltics,EMEA,Lithuania,Online/Offline,2025-05-07,2025-05-24,Secondary,1.0,0.0,
+Copa Aliança 2024 Groups,Copa Aliança 2024/Groups,Copa Aliança,Brazil,Brazil,Online,2024-10-05,2024-10-13,Secondary,0.0,0.0,
+Copa Aliança 2025 Groups,Copa Aliança 2025/Groups,Copa Aliança,Americas,Brazil,Online,2025-07-19,2025-08-02,Secondary,0.0,0.0,
+Copa Aliança 2025 Playoffs,Copa Aliança 2025/Playoffs,Copa Aliança,Americas,Brazil,Online,2025-08-16,2025-08-30,Secondary,1.0,0.0,
+Copa Aliança Finals 2025,Copa Aliança 2025,Copa Aliança,Americas,Brazil,Offline,2025-10-04,2025-10-04,Secondary,1.0,0.0,
+Copa das Lendas 5th Edition,Copa das Lendas 5th Edition,Copa das Lendas,Americas,Brazil,Online,2024-08-17,2024-08-31,Secondary,0.0,0.0,
+Copa das Lendas 6th Edition,Copa das Lendas 6th Edition,Copa das Lendas,Americas,Brazil,Online,2025-10-18,2025-10-26,Secondary,0.0,0.0,
+Copa Naciones 2025,Copa Naciones 2025,Copa Naciones,Latin America,,Online,2025-11-17,2025-12-14,Showmatch,0.0,0.0,
+CPE 2025,CPE 2025,circuito pessoense de e-sports,Americas,Brazil,Offline,2025-10-25,2025-11-02,Secondary,0.0,0.0,
+Create Your ArrMY Season 0 Group Stage,Create Your ArrMY/Season 0 Group Stage,Create Your ArrMY,EMEA,Poland,Online,2025-04-09,2025-05-04,Secondary,0.0,0.0,
+Create Your ArrMY Season 0 Last Chance Qualifier,Create Your ArrMY/Season 0 Open Qualifiers/Last Chance Qualifier,Create Your ArrMY,EMEA,Poland,Online,2025-04-07,2025-04-07,Secondary,0.0,1.0,
+Create Your ArrMY Season 0 Open Qualifier 1,Create Your ArrMY/Season 0 Open Qualifiers/Qualifier 1,Create Your ArrMY,EMEA,Poland,Online,2025-04-04,2025-04-04,Secondary,0.0,1.0,
+Create Your ArrMY Season 0 Open Qualifier 2,Create Your ArrMY/Season 0 Open Qualifiers/Qualifier 2,Create Your ArrMY,EMEA,Poland,Online,2025-04-05,2025-04-05,Secondary,0.0,1.0,
+Create Your ArrMY Season 0 Open Qualifier 3,Create Your ArrMY/Season 0 Open Qualifiers/Qualifier 3,Create Your ArrMY,EMEA,Poland,Online,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+Create Your ArrMY Season 0 Playoffs,Create Your ArrMY/Season 0 Playoffs,Create Your ArrMY,EMEA,Poland,Online (Quarterfinals)&lt;br&gt;Offline (Semifinals &amp; Finals),2025-05-10,2025-05-17,Secondary,1.0,0.0,
+Create Your ArrMY Season 1 Group Stage,Create Your ArrMY/Season 1 Group Stage,Create Your ArrMY,EMEA,Poland,Online,2025-07-31,2025-08-21,Secondary,0.0,0.0,
+Create Your ArrMY Season 1 Open Qualifier 1,Create Your ArrMY/Season 1 Open Qualifiers/Qualifier 1,Create Your ArrMY,EMEA,Poland,Online,2025-07-19,2025-07-19,Secondary,0.0,1.0,
+Create Your ArrMY Season 1 Open Qualifier 2,Create Your ArrMY/Season 1 Open Qualifiers/Qualifier 2,Create Your ArrMY,EMEA,Poland,Online,2025-07-20,2025-07-20,Secondary,0.0,1.0,
+Create Your ArrMY Season 1 Open Qualifier 3,Create Your ArrMY/Season 1 Open Qualifiers/Qualifier 3,Create Your ArrMY,EMEA,Poland,Online,2025-07-27,2025-07-27,Secondary,0.0,1.0,
+Create Your ArrMY Season 1 Open Qualifier 4,Create Your ArrMY/Season 1 Open Qualifiers/Qualifier 4,Create Your ArrMY,EMEA,Poland,Online,2025-07-28,2025-07-28,Secondary,0.0,1.0,
+Create Your ArrMY Season 1 Playoffs,Create Your ArrMY/Season 1 Playoffs,Create Your ArrMY,EMEA,Poland,"Online (Round of 12, Quarterfinals, Finals)&lt;br&gt;Offline (Semifinals)",2025-08-27,2025-09-10,Secondary,1.0,0.0,
+CT x LEC,CT x LEC,CT x LEC,EMEA,Spain,Online,2025-07-11,2025-07-12,Secondary,1.0,0.0,
+Demacia Cup 2025,Demacia Cup 2025,Demacia Cup,China,China,Online/Offline,2025-12-15,2026-01-03,Primary,0.0,0.0,Season
+Digital Crusade: Proving Grounds 2025 Spring Qualifier,Digital Crusade: Proving Grounds/2025 Season/Spring,Digital Crusade: Proving Grounds,EMEA,Romania,Online,2025-04-29,2025-04-29,Secondary,1.0,0.0,
+Digital Crusade: Proving Grounds 2025 Summer Qualifier,Digital Crusade: Proving Grounds/2025 Season/Summer,Digital Crusade: Proving Grounds,EMEA,Romania,Online,2025-08-06,2025-08-07,Secondary,1.0,0.0,
+Digital Crusade: Proving Grounds 2025 Winter,Digital Crusade: Proving Grounds/2025 Season/Winter,Digital Crusade: Proving Grounds,EMEA,Romania,Online,2025-02-09,2025-02-09,Secondary,1.0,0.0,
+Digital Crusade: Proving Grounds 2025 Winter Qualifier 1,Digital Crusade: Proving Grounds/2025 Season/Winter/Qualifier 1,Digital Crusade: Proving Grounds,EMEA,Romania,Online,2025-02-04,2025-02-05,Secondary,0.0,1.0,
+Digital Crusade: Proving Grounds 2025 Winter Qualifier 2,Digital Crusade: Proving Grounds/2025 Season/Winter/Qualifier 2,Digital Crusade: Proving Grounds,EMEA,Romania,Online,2025-02-08,2025-02-08,Secondary,0.0,1.0,
+Dino League Master 2025,Dino League Master 2025,Dino Cup,Asia Pacific,Vietnam,,2025-11-23,2025-11-23,Secondary,0.0,0.0,
+DreamHack Stockholm 2025,DreamHack Stockholm 2025,DreamHack,EMEA,Sweden,Offline,2025-11-29,2025-11-29,Secondary,0.0,0.0,
+EBL 2025 Season Finals,Esports Balkan League/2025 Season/Season Finals,Esports Balkan League,EMEA,Serbia,Online,2025-09-02,2025-09-05,Secondary,1.0,0.0,Finals
+EBL 2025 Spring,Esports Balkan League/2025 Season/Spring Split,Esports Balkan League,EMEA,Serbia,Online,2025-04-09,2025-04-25,Secondary,0.0,0.0,Spring
+EBL 2025 Spring Playoffs,Esports Balkan League/2025 Season/Spring Playoffs,Esports Balkan League,EMEA,Serbia,Online,2025-05-07,2025-05-29,Secondary,1.0,0.0,Spring
+EBL 2025 Summer,Esports Balkan League/2025 Season/Summer Split,Esports Balkan League,EMEA,Serbia,Online,2025-07-23,2025-08-07,Secondary,0.0,0.0,Summer
+EBL 2025 Summer Playoffs,Esports Balkan League/2025 Season/Summer Playoffs,Esports Balkan League,EMEA,Serbia,Online,2025-08-11,2025-08-24,Secondary,1.0,0.0,Summer
+EBL 2025 Winter,Esports Balkan League/2025 Season/Winter Split,Esports Balkan League,EMEA,Serbia,Online,2025-02-05,2025-02-13,Secondary,0.0,0.0,Winter
+EBL 2025 Winter Playoffs,Esports Balkan League/2025 Season/Winter Playoffs,Esports Balkan League,EMEA,Serbia,Online,2025-02-19,2025-03-09,Secondary,1.0,0.0,Winter
+Echoes of the Rift 2025,Echoes of the Rift 2025,Echoes of the Rift,EMEA,France,Offline,2025-05-24,2025-05-25,Secondary,1.0,0.0,
+EDU ESPORTS Uczelnie 2024-2025 Main Group Stage,EDU ESPORTS Uczelnie/2024-2025 Season/Main/Group Stage,EDU ESPORTS Uczelnie,EMEA,Poland,Online,2024-11-25,2025-01-22,Secondary,0.0,0.0,
+EDU ESPORTS Uczelnie 2024-2025 Main Masters Stage,EDU ESPORTS Uczelnie/2024-2025 Season/Main/Masters Stage,EDU ESPORTS Uczelnie,EMEA,Poland,Online,2025-02-24,2025-04-05,Secondary,0.0,0.0,
+EDU ESPORTS Uczelnie 2024-2025 Main Playoffs,EDU ESPORTS Uczelnie/2024-2025 Season/Main/Playoffs,EDU ESPORTS Uczelnie,EMEA,Poland,Online (Round 1 - Round 4)&lt;br&gt;Offline (Grand Final),2025-04-08,2025-06-15,Secondary,1.0,0.0,
+Elite Series 2025 Promotion,Elite Series/2025 Season/Promotion,Elite Series: League of Legends,EMEA,Belgium,Online,2024-09-03,2024-09-12,Secondary,0.0,1.0,
+ElmiilloR Invitational Cup,ElmiilloR Invitational Cup,ElmiilloR Invitational Cup,EMEA,Spain,Online,2025-09-11,2025-09-24,Secondary,0.0,0.0,
+EM 2025 Spring,EMEA Masters/2025 Season/Spring,EMEA Masters,EMEA,,Online,2025-06-03,2025-06-21,Secondary,0.0,0.0,Spring
+EM 2025 Summer LCQ,EMEA Masters/2025 Season/Summer LCQ,EMEA Masters,EMEA,,Online,2025-09-23,2025-09-25,Secondary,0.0,1.0,Summer
+EM 2025 Summer Main Event,EMEA Masters/2025 Season/Summer Main Event,EMEA Masters,EMEA,,Online/Offline,2025-09-29,2025-11-02,Secondary,0.0,0.0,Summer
+EM 2025 Winter,EMEA Masters/2025 Season/Winter,EMEA Masters,EMEA,,Online,2025-03-17,2025-03-23,Secondary,0.0,0.0,Winter
+Empoliga Major A 2025 Split 1,Empoliga/Major A/2025 Season/Split 1 Major,Empoliga,Americas,Brazil,Online,2025-02-27,2025-03-15,Secondary,1.0,0.0,Split 1
+Empoliga Major A 2025 Split 2,Empoliga/Major A/2025 Season/Split 2 Major,Empoliga,Americas,Brazil,Online,2025-05-15,2025-07-06,Secondary,1.0,0.0,Split 2
+Empoliga Major B 2025 Split 1,Empoliga/Major B/2025 Season/Split 1 Major,Empoliga,Americas,Brazil,Online,2025-02-27,2025-03-14,Secondary,1.0,0.0,Split 1
+Empoliga Major B 2025 Split 2,Empoliga/Major B/2025 Season/Split 2 Major,Empoliga,Americas,Brazil,Online,2025-05-15,2025-06-27,Secondary,1.0,0.0,Split 2
+Empoliga Major C 2025 Split 1,Empoliga/Major C/2025 Season/Split 1 Major,Empoliga,Americas,Brazil,Online,2025-02-27,2025-03-13,Secondary,1.0,0.0,Split 1
+Empoliga Major C 2025 Split 2,Empoliga/Major C/2025 Season/Split 2 Major,Empoliga,Americas,Brazil,Online,2025-05-15,2025-06-20,Secondary,1.0,0.0,Split 2
+Empoliga Major Cup 2025 Split 1,Empoliga/2025 Season/Split 1 Cup,Empoliga,Americas,Brazil,Online,2025-03-20,2025-04-13,Secondary,0.0,0.0,Split 1
+Empoliga Major D 2025 Split 2,Empoliga/Major D/2025 Season/Split 2 Major,Empoliga,Americas,Brazil,Online,2025-05-15,2025-06-25,Secondary,1.0,0.0,Split 2
+Empoliga Major Qualifiers 2025 Split 1,Empoliga/2025 Season/Split 1 Qualifiers,Empoliga,Americas,Brazil,Online,2025-02-13,2025-02-22,Qualifier,0.0,1.0,Split 1
+Empoliga Major Qualifiers 2025 Split 2,Empoliga/2025 Season/Split 2 Qualifiers,Empoliga,Americas,Brazil,Online,2025-04-24,2025-05-13,Secondary,0.0,1.0,Split 2
+ePlayer Super Series 2025,EPlayer Super Series 2025,ePlayer,EMEA,Russia,Online,2025-08-14,2025-08-31,Secondary,1.0,0.0,
+Equal Esports Cup 2025 Group Stage,Equal Esports Cup 2025/Group Stage,Equal Esports Cup,EMEA,Germany,Online,2025-07-01,2025-07-10,Secondary,0.0,0.0,
+Equal Esports Cup 2025 Open Qualifier,Equal Esports Cup 2025/Open Qualifier,Equal Esports Cup,EMEA,Germany,Online,2025-05-17,2025-05-18,Secondary,0.0,1.0,
+Equal Esports Cup 2025 Playoffs,Equal Esports Cup 2025/Playoffs,Equal Esports Cup,EMEA,Germany,Online/Offline,2025-07-22,2025-08-23,Secondary,1.0,0.0,
+Esports Championships Asia 2025,2025 Esports Championships Asia,Esports Championships Asia,Asia,Vietnam,Offline,2025-11-20,2025-11-22,Secondary,0.0,0.0,
+Esports Series Madrid 2025 Split 1,Esports Series Madrid 2025/Split 1,Esports Series Madrid,EMEA,Spain,Offline,2025-06-01,2025-06-14,Secondary,1.0,0.0,
+Esports Series Madrid 2025 Split 1 Tournament 1,Esports Series Madrid 2025/Split 1/Tournament 1,Esports Series Madrid,EMEA,Spain,Online,2025-02-16,2025-02-16,Secondary,1.0,0.0,
+Esports Series Madrid 2025 Split 1 Tournament 2,Esports Series Madrid 2025/Split 1/Tournament 2,Esports Series Madrid,EMEA,Spain,Offline,2025-03-15,2025-03-15,Secondary,1.0,0.0,
+Esports Series Madrid 2025 Split 1 Tournament 3,Esports Series Madrid 2025/Split 1/Tournament 3,Esports Series Madrid,EMEA,Spain,Online,2025-04-13,2025-04-13,Secondary,1.0,0.0,
+Esports Series Madrid 2025 Split 1 Tournament 4,Esports Series Madrid 2025/Split 1/Tournament 4,Esports Series Madrid,EMEA,Spain,Offline,2025-05-10,2025-05-10,Secondary,1.0,0.0,
+Esports Series Madrid 2025 Split 2,Esports Series Madrid 2025/Split 2,Esports Series Madrid,EMEA,Spain,Online/Offline,2025-11-23,2025-11-29,Secondary,1.0,0.0,
+Esports Series Madrid 2025 Split 2 Tournament 1,Esports Series Madrid 2025/Split 2/Tournament 1,Esports Series Madrid,EMEA,Spain,Offline,2025-09-20,2025-09-20,Secondary,1.0,0.0,
+Esports Series Madrid 2025 Split 2 Tournament 2,Esports Series Madrid 2025/Split 2/Tournament 2,Esports Series Madrid,EMEA,Spain,Offline,2025-10-04,2025-10-04,Secondary,1.0,0.0,
+Esports Series Madrid 2025 Split 2 Tournament 3,Esports Series Madrid 2025/Split 2/Tournament 3,Esports Series Madrid,EMEA,Spain,Online,2025-10-12,2025-10-12,Secondary,1.0,0.0,
+Esports Series Madrid 2025 Split 2 Tournament 4,Esports Series Madrid 2025/Split 2/Tournament 4,Esports Series Madrid,EMEA,Spain,Online,2025-11-02,2025-11-02,Secondary,1.0,0.0,
+Esports Series Madrid 24-25 2,Esports Series Madrid 24-25 2,Esports Series Madrid,EMEA,Spain,Online/Offline,2025-05-25,2025-06-07,Secondary,1.0,0.0,
+Esports Series Madrid 24-25 2 Online Tournament,Esports Series Madrid 24-25 2/Online Tournament,Esports Series Madrid,EMEA,Spain,Online,2025-06-07,2025-06-08,Secondary,1.0,0.0,
+Esports Series Madrid 24-25 2 Qualifier 1,Esports Series Madrid 24-25 2/Qualifier 1,Esports Series Madrid,EMEA,Spain,Online,2025-05-23,2025-05-23,Secondary,0.0,1.0,
+Esports Series Madrid 24-25 2 Qualifier 2,Esports Series Madrid 24-25 2/Qualifier 2,Esports Series Madrid,EMEA,Spain,Online,2025-05-24,2025-05-24,Secondary,0.0,1.0,
+Esports World Cup 2025,Esports World Cup 2025,Esports World Cup,International,Saudi Arabia,Offline,2025-07-16,2025-07-20,Primary,1.0,0.0,
+European Pro Series Season 2,European Pro Series/Season 2,European Pro Series,EMEA,Europe,Online,2025-01-05,2025-01-16,Secondary,0.0,0.0,
+European Pro Series Season 3,European Pro Series/Season 3,European Pro Series,EMEA,Europe,Online,2025-02-28,2025-03-16,Secondary,0.0,0.0,
+ExitLag Champs 2025 Tournament 1,Exitlag Champs/2025 Season/Tournament 1,Exitlag,Americas,Brazil,Online,2025-05-01,2025-05-01,Tertiary,0.0,0.0,
+ExitLag Champs 2025 Tournament 2,Exitlag Champs/2025 Season/Tournament 2,Exitlag,Americas,Brazil,Online,2025-05-03,2025-05-03,Tertiary,0.0,0.0,
+ExitLag Champs 2025 Tournament 3,Exitlag Champs/2025 Season/Tournament 3,Exitlag,Americas,Brazil,Online,2025-05-04,2025-05-05,Tertiary,0.0,0.0,
+ExitLag ChampZ 2025,ExitLag ChampZ/2025 Season/Main Event,Exitlag,Brazil,Brazil,Online,2025-12-09,2025-12-11,Secondary,1.0,0.0,
+ExitLag ChampZ 2025 Open Qualifier 1,ExitLag ChampZ/2025 Season/Open Qualifier 1,Exitlag,Brazil,Brazil,Online,2025-12-06,2025-12-06,Qualifier,0.0,1.0,
+ExitLag ChampZ 2025 Open Qualifier 2,ExitLag ChampZ/2025 Season/Open Qualifier 2,Exitlag,Brazil,Brazil,Online,2025-12-07,2025-12-07,Qualifier,0.0,1.0,
+Extregames 24-25,Extregames 24-25,Extregames,EMEA,Spain,Online/Offline,2025-02-23,2025-03-15,Secondary,1.0,0.0,
+Extregames 24-25 Online Tournament,Extregames 24-25/Online Tournament,Extregames,EMEA,Spain,Online,2025-03-22,2025-03-23,Secondary,1.0,0.0,
+Extregames 24-25 Qualifier 1,Extregames 24-25/Qualifier 1,Extregames,EMEA,Spain,Online,2025-02-21,2025-02-21,Secondary,0.0,1.0,
+Extregames 24-25 Qualifier 2,Extregames 24-25/Qualifier 2,Extregames,EMEA,Spain,Online,2025-02-22,2025-02-22,Secondary,0.0,1.0,
+FER FINALS 2025,FER FINALS 2025,FER FINALS,EMEA,Switzerland,Offline,2025-11-01,2025-11-02,Secondary,1.0,0.0,
+Finnhouse Cup 2025,Finnhouse Cup 2025,Finnhouse Cup,EMEA,Finland,Online,2025-07-07,2025-09-15,Secondary,1.0,0.0,
+First Stand 2025,2025 First Stand,First Stand,International,South Korea,Offline,2025-03-10,2025-03-16,Primary,0.0,0.0,
+Föreningskampen,Föreningskampen,Föreningskampen,EMEA,Sweden,Online,2025-11-11,2025-12-28,Secondary,1.0,0.0,
+FPL 2025 Spring,Finnish Pro League/2025 Season/Spring Split,Finnish Pro League,EMEA,Finland,Online,2025-04-23,2025-04-28,Secondary,0.0,0.0,
+FPL 2025 Spring Playoffs,Finnish Pro League/2025 Season/Spring Playoffs,Finnish Pro League,EMEA,Finland,Online,2025-05-04,2025-05-10,Secondary,1.0,0.0,
+FPL 2025 Summer,Finnish Pro League/2025 Season/Summer Split,Finnish Pro League,EMEA,Finland,Online,2025-07-10,2025-08-24,Secondary,0.0,0.0,
+FPL 2025 Summer Playoffs,Finnish Pro League/2025 Season/Summer Playoffs,Finnish Pro League,EMEA,Finland,Online,2025-08-28,2025-09-21,Secondary,1.0,0.0,
+FPL 2025 Winter,Finnish Pro League/2025 Season/Winter Split,Finnish Pro League,EMEA,Finland,Online,2025-01-16,2025-03-02,Secondary,0.0,0.0,
+FPL 2025 Winter Playoffs,Finnish Pro League/2025 Season/Winter Playoffs,Finnish Pro League,EMEA,Finland,Online,2025-03-06,2025-03-30,Secondary,1.0,0.0,
+Frag-o-Matic 26.1: Tropical Paradise,Frag-o-Matic 26.1,Frag-o-Matic,EMEA,Belgium,Offline,2025-09-05,2025-09-07,Secondary,1.0,0.0,
+GAMEON Revival 2025,GAMEON Revival 2025,GAMEON Revival,EMEA,Turkey,Online/Offline,2025-11-15,2025-12-14,Secondary,0.0,0.0,
+Gfest 2025 Main Event,Gfest/2025 Season,Gfest,EMEA,Bulgaria,,2025-09-20,2025-09-20,Secondary,1.0,0.0,
+Gfest 2025 Qualifier,Gfest/2025 Season/Qualifier,Gfest,EMEA,Bulgaria,,2025-08-30,2025-08-30,Secondary,0.0,1.0,
+GG VASARA,GG VASARA,GG VASARA,EMEA,Lithuania,Offline,2025-08-31,2025-08-31,Secondary,1.0,0.0,
+Glitched x SOL Summer25 LAN,Glitched x SOL Summer25 LAN,Glitched x SOL,EMEA,Sweden,Offline,2025-06-14,2025-06-14,Secondary,1.0,0.0,
+GLL 2025 Promotion,Greek Legends League/2025 Season/Promotion,Greek Legends League,EMEA,Greece,,2024-07-24,2024-07-30,Secondary,0.0,1.0,
+Good Game-ligaen 2025 Autumn,Good Game-ligaen/2025 Season/Autumn Split,Good Game-ligaen,EMEA,Norway,,2025-08-17,2025-09-10,Secondary,0.0,0.0,
+Good Game-ligaen 2025 Autumn Playoffs,Good Game-ligaen/2025 Season/Autumn Playoffs,Good Game-ligaen,EMEA,Norway,,2025-09-13,2025-09-14,Secondary,1.0,0.0,
+Good Game-ligaen 2025 Spring,Good Game-ligaen/2025 Season/Spring Split,Good Game-ligaen,EMEA,Norway,,2025-03-30,2025-05-18,Secondary,0.0,0.0,
+Good Game-ligaen 2025 Spring Playoffs,Good Game-ligaen/2025 Season/Spring Playoffs,Good Game-ligaen,EMEA,Norway,,2025-05-29,2025-06-07,Secondary,1.0,0.0,
+Good Game-ligaen 2025 Winter,Good Game-ligaen/2025 Season/Winter Split,Good Game-ligaen,EMEA,Norway,,2025-01-26,2025-03-20,Secondary,0.0,0.0,
+Granada Gaming 24-25,Granada Gaming 24-25,Granada Gaming,EMEA,Spain,Offline,2025-04-26,2025-04-27,Secondary,1.0,0.0,
+Granada Gaming 24-25 Premium Cup,Granada Gaming 24-25 Premium Cup,Granada Gaming,EMEA,Spain,Online,2025-04-13,2025-04-13,Secondary,1.0,0.0,
+Granada Gaming 24-25 Premium Cup Qualifier 1,Granada Gaming 24-25 Premium Cup/Qualifier 1,Granada Gaming,EMEA,Spain,Online,2025-04-11,2025-04-11,Secondary,0.0,1.0,
+Granada Gaming 24-25 Premium Cup Qualifier 2,Granada Gaming 24-25 Premium Cup/Qualifier 2,Granada Gaming,EMEA,Spain,Online,2025-04-12,2025-04-12,Secondary,0.0,1.0,
+GSL Cup 2025,GSL Cup 2025,Gados Sem Limites Cup,Americas,Brazil,Online,2025-07-21,2025-08-31,Secondary,0.0,0.0,
+Gyeonggi International Esports Festival 2025,Gyeonggi International Esports Festival 2025,Gyeonggi International Esports Festival,International,South Korea,,2025-12-06,2025-12-06,Secondary,0.0,0.0,
+HCC 2025 Spring,Hellenic Challengers Cup/2025 Season/Spring Split,Hellenic Challengers Cup,EMEA,Greece,,2025-04-11,2025-05-09,Secondary,0.0,0.0,Spring
+HCC 2025 Summer Super Cup,Hellenic Challengers Cup/2025 Season/Summer Super Cup,Hellenic Challengers Cup,EMEA,Greece,,2025-07-17,2025-07-28,Secondary,0.0,0.0,Summer
+HCC 2025 Winter,Hellenic Challengers Cup/2025 Season/Winter Split,Hellenic Challengers Cup,EMEA,Greece,,2025-02-01,2025-02-16,Secondary,0.0,0.0,Winter
+HCC 2025 Winter Tournament 1,Hellenic Challengers Cup/2025 Season/Winter Split/Tournament 1,Hellenic Challengers Cup,EMEA,Greece,,2025-02-01,2025-02-02,Secondary,1.0,0.0,Winter
+HCC 2025 Winter Tournament 2,Hellenic Challengers Cup/2025 Season/Winter Split/Tournament 2,Hellenic Challengers Cup,EMEA,Greece,,2025-02-08,2025-02-09,Secondary,1.0,0.0,Winter
+HCC 2025 Winter Tournament 3,Hellenic Challengers Cup/2025 Season/Winter Split/Tournament 3,Hellenic Challengers Cup,EMEA,Greece,,2025-02-15,2025-02-16,Secondary,1.0,0.0,Winter
+Hextech Series 24-25 Split 1 Period 1,Hextech Series 1st Division/2025 Season/Split 1 Period 1,Hextech Series 1st Division,EMEA,Spain,Online,2024-10-10,2024-11-10,Secondary,0.0,0.0,
+Hextech Series 24-25 Split 1 Period 2,Hextech Series 1st Division/2025 Season/Split 1 Period 2,Hextech Series 1st Division,EMEA,Spain,Online,2024-11-14,2024-12-11,Secondary,0.0,0.0,
+Hextech Series 24-25 Split 2 Period 1,Hextech Series 1st Division/2025 Season/Split 2 Period 1,Hextech Series 1st Division,EMEA,Spain,Online,2025-02-09,2025-03-10,Secondary,0.0,0.0,
+Hextech Series 24-25 Split 2 Period 2,Hextech Series 1st Division/2025 Season/Split 2 Period 2,Hextech Series 1st Division,EMEA,Spain,Online,2025-03-23,2025-04-20,Secondary,0.0,0.0,
+Hextech Series 24-25 Split 3 Period 1,Hextech Series 1st Division/2025 Season/Split 3 Period 1,Hextech Series 1st Division,EMEA,Spain,Online,2025-05-18,2025-06-12,Secondary,0.0,0.0,
+Hextech Series 2nd Division 24-25 Split 1 Period 1,Hextech Series 2nd Division/2025 Season/Split 1 Period 1,Hextech Series,EMEA,Spain,Online,2024-10-13,2024-11-10,Secondary,0.0,0.0,
+Hextech Series 2nd Division 24-25 Split 1 Period 2,Hextech Series 2nd Division/2025 Season/Split 1 Period 2,Hextech Series,EMEA,Spain,Online,2024-11-17,2024-12-21,Secondary,0.0,0.0,
+Hextech Series 2nd Division 24-25 Split 2 Period 1,Hextech Series 2nd Division/2025 Season/Split 2 Period 1,Hextech Series,EMEA,Spain,Online,2025-02-08,2025-03-09,Secondary,0.0,0.0,
+Hextech Series 2nd Division 24-25 Split 2 Period 2,Hextech Series 2nd Division/2025 Season/Split 2 Period 2,Hextech Series 2nd Division,EMEA,Spain,Online,2025-03-23,2025-04-20,Secondary,0.0,0.0,
+Hextech Series 2nd Division 24-25 Split 3 Period 1,Hextech Series 2nd Division/2025 Season/Split 3 Period 1,Hextech Series,EMEA,Spain,Online,2025-05-18,2025-06-15,Secondary,0.0,0.0,
+Hitpoint 2nd Div Challengers 2025 Spring,Hitpoint 2nd Division Challengers/2025 Season/Spring Split,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-04-02,2025-05-21,Secondary,0.0,0.0,Spring
+Hitpoint 2nd Div Challengers 2025 Spring Closed Qualifier,Hitpoint 2nd Division Challengers/2025 Season/Spring Qualifiers/Closed Qualifier,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-03-08,2025-03-09,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Spring Open Qualifier 1,Hitpoint 2nd Division Challengers/2025 Season/Spring Qualifiers/Open Qualifier 1,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-02-15,2025-02-15,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Spring Open Qualifier 2,Hitpoint 2nd Division Challengers/2025 Season/Spring Qualifiers/Open Qualifier 2,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-02-22,2025-02-22,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Spring Open Qualifier 3,Hitpoint 2nd Division Challengers/2025 Season/Spring Qualifiers/Open Qualifier 3,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-03-01,2025-03-01,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Spring Open Qualifier 4,Hitpoint 2nd Division Challengers/2025 Season/Spring Qualifiers/Open Qualifier 4,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-03-04,2025-03-04,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Spring Playoffs,Hitpoint 2nd Division Challengers/2025 Season/Spring Playoffs,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-05-24,2025-06-15,Secondary,1.0,0.0,Spring
+Hitpoint 2nd Div Challengers 2025 Spring Relegations,Hitpoint 2nd Division Challengers/2025 Season/Spring Qualifiers,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-03-12,2025-03-24,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Summer,Hitpoint 2nd Division Challengers/2025 Season/Summer Split,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-07-23,2025-08-22,Secondary,0.0,0.0,Summer
+Hitpoint 2nd Div Challengers 2025 Summer Closed Qualifier,Hitpoint 2nd Division Challengers/2025 Season/Summer Qualifiers/Closed Qualifier,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-07-05,2025-07-06,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Summer Open Qualifier 1,Hitpoint 2nd Division Challengers/2025 Season/Summer Qualifiers/Open Qualifier 1,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-06-18,2025-06-18,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Summer Open Qualifier 2,Hitpoint 2nd Division Challengers/2025 Season/Summer Qualifiers/Open Qualifier 2,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-06-21,2025-06-21,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Summer Open Qualifier 3,Hitpoint 2nd Division Challengers/2025 Season/Summer Qualifiers/Open Qualifier 3,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-06-28,2025-06-28,Secondary,0.0,1.0,
+Hitpoint 2nd Div Challengers 2025 Summer Playoffs,Hitpoint 2nd Division Challengers/2025 Season/Summer Playoffs,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-09-10,2025-09-21,Secondary,1.0,0.0,Summer
+Hitpoint 2nd Div Challengers 2025 Summer Relegations,Hitpoint 2nd Division Challengers/2025 Season/Summer Qualifiers,Hitpoint Challengers,EMEA,Czech Republic,Online,2025-07-10,2025-07-15,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Spring,Hitpoint 3rd Division/2025 Season/Spring Split,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-04-19,2025-05-24,Secondary,0.0,0.0,Spring
+Hitpoint 3rd Div 2025 Spring Closed Qualifier,Hitpoint 3rd Division/2025 Season/Spring Qualifiers,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-04-12,2025-04-13,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Spring Open Qualifier 1,Hitpoint 3rd Division/2025 Season/Spring Qualifiers/Open Qualifier 1,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-03-22,2025-03-22,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Spring Open Qualifier 2,Hitpoint 3rd Division/2025 Season/Spring Qualifiers/Open Qualifier 2,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-03-29,2025-03-29,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Spring Open Qualifier 3,Hitpoint 3rd Division/2025 Season/Spring Qualifiers/Open Qualifier 3,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-04-01,2025-04-01,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Spring Open Qualifier 4,Hitpoint 3rd Division/2025 Season/Spring Qualifiers/Open Qualifier 4,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-04-05,2025-04-05,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Spring Playoffs,Hitpoint 3rd Division/2025 Season/Spring Playoffs,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-05-31,2025-06-22,Secondary,1.0,0.0,Spring
+Hitpoint 3rd Div 2025 Summer,Hitpoint 3rd Division/2025 Season/Summer Split,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-08-18,2025-09-27,Secondary,0.0,0.0,Summer
+Hitpoint 3rd Div 2025 Summer Closed Qualifier,Hitpoint 3rd Division/2025 Season/Summer Qualifiers,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-08-09,2025-08-10,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Summer Open Qualifier 1,Hitpoint 3rd Division/2025 Season/Summer Qualifiers/Open Qualifier 1,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-07-13,2025-07-13,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Summer Open Qualifier 2,Hitpoint 3rd Division/2025 Season/Summer Qualifiers/Open Qualifier 2,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-07-19,2025-07-19,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Summer Open Qualifier 3,Hitpoint 3rd Division/2025 Season/Summer Qualifiers/Open Qualifier 3,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-07-26,2025-07-26,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Summer Open Qualifier 4,Hitpoint 3rd Division/2025 Season/Summer Qualifiers/Open Qualifier 4,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-08-02,2025-08-02,Secondary,0.0,1.0,
+Hitpoint 3rd Div 2025 Summer Playoffs,Hitpoint 3rd Division/2025 Season/Summer Playoffs,Hitpoint Masters 3rd Division,EMEA,Czech Republic,Online,2025-09-29,2025-10-18,Secondary,1.0,0.0,Summer
+Hitpoint Masters 2025 Promotion,Hitpoint Masters/2025 Season/Promotion,Hitpoint Masters,EMEA,Czech Republic,,2024-07-24,2024-07-30,Secondary,0.0,1.0,
+Hitpoint Masters 2025 Spring,Hitpoint Masters/2025 Season/Spring Split,Hitpoint Masters,EMEA,Czech Republic,,2025-04-08,2025-05-09,Secondary,0.0,0.0,Spring
+Hitpoint Masters 2025 Spring Playoffs,Hitpoint Masters/2025 Season/Spring Playoffs,Hitpoint Masters,EMEA,Czech Republic,Online,2025-05-13,2025-05-30,Secondary,1.0,0.0,Spring
+Hitpoint Masters 2025 Summer,Hitpoint Masters/2025 Season/Summer Split,Hitpoint Masters,EMEA,Czech Republic,,2025-07-19,2025-08-12,Secondary,0.0,0.0,Summer
+Hitpoint Masters 2025 Summer Playoffs,Hitpoint Masters/2025 Season/Summer Playoffs,Hitpoint Masters,EMEA,Czech Republic,Online,2025-08-16,2025-08-30,Secondary,1.0,0.0,Summer
+Hitpoint Winter 2025 Closed Qualifier,Hitpoint Winter/2025 Season/Qualifiers,Hitpoint Winter,EMEA,Czech Republic,Online,2025-01-18,2025-01-19,Secondary,0.0,1.0,
+Hitpoint Winter 2025 Main Event,Hitpoint Winter/2025 Season/Main Event,Hitpoint Winter,EMEA,Czech Republic,Online,2025-02-08,2025-03-09,Secondary,0.0,0.0,
+Hitpoint Winter 2025 Open Qualifier 1,Hitpoint Winter/2025 Season/Qualifiers/Open Qualifier 1,Hitpoint Winter,EMEA,Czech Republic,Online,2025-01-04,2025-01-04,Secondary,0.0,1.0,
+Hitpoint Winter 2025 Open Qualifier 2,Hitpoint Winter/2025 Season/Qualifiers/Open Qualifier 2,Hitpoint Winter,EMEA,Czech Republic,Online,2025-01-09,2025-01-09,Secondary,0.0,1.0,
+Hitpoint Winter 2025 Open Qualifier 3,Hitpoint Winter/2025 Season/Qualifiers/Open Qualifier 3,Hitpoint Winter,EMEA,Czech Republic,Online,2025-01-11,2025-01-11,Secondary,0.0,1.0,
+Hitpoint Winter 2025 Open Qualifier 4,Hitpoint Winter/2025 Season/Qualifiers/Open Qualifier 4,Hitpoint Winter,EMEA,Czech Republic,Online,2025-01-13,2025-01-13,Secondary,0.0,1.0,
+Hitpoint Winter 2025 Play-In,Hitpoint Winter/2025 Season/Play-In,Hitpoint Winter,EMEA,Czech Republic,Online,2025-01-23,2025-02-05,Secondary,0.0,1.0,
+HLL 2025 Season Finals,Hellenic Legends League/2025 Season/Season Finals,Hellenic Legends League,EMEA,Greece,,2025-08-28,2025-09-14,Secondary,1.0,0.0,Summer
+HLL 2025 Spring,Hellenic Legends League/2025 Season/Spring Split,Hellenic Legends League,EMEA,Greece,,2025-04-01,2025-05-07,Secondary,0.0,0.0,Spring
+HLL 2025 Spring Playoffs,Hellenic Legends League/2025 Season/Spring Playoffs,Hellenic Legends League,EMEA,Greece,,2025-05-14,2025-06-01,Secondary,1.0,0.0,Spring
+HLL 2025 Spring Promotion,Hellenic Legends League/2025 Season/Spring Promotion,Hellenic Legends League,EMEA,Greece,,2025-02-24,2025-02-25,Secondary,0.0,1.0,Winter
+HLL 2025 Summer Promotion,Hellenic Legends League/2025 Season/Summer Promotion,Hellenic Legends League,EMEA,Greece,,2025-06-28,2025-06-28,Secondary,0.0,1.0,Summer
+HLL 2025 Summer Super Cup,Hellenic Legends League/2025 Season/Summer Super Cup,Hellenic Legends League,EMEA,Greece,,2025-07-15,2025-07-27,Secondary,1.0,0.0,Summer
+HLL 2025 Winter,Hellenic Legends League/2025 Season/Winter Split,Hellenic Legends League,EMEA,Greece,,2025-01-21,2025-02-14,Secondary,0.0,0.0,Winter
+HLL 2025 Winter Playoffs,Hellenic Legends League/2025 Season/Winter Playoffs,Hellenic Legends League,EMEA,Greece,,2025-02-19,2025-03-02,Secondary,1.0,0.0,Winter
+HRingurinn 2025,HRingurinn 2025,HRingurinn,EMEA,Iceland,Offline,2025-08-08,2025-08-10,Secondary,0.0,0.0,
+Hub Serpro Challenge,Hub Serpro Challenge,Hub Serpro,Americas,Brazil,Online,2025-06-05,2025-06-13,Secondary,0.0,0.0,
+Iberian Cup 2025,Iberian Cup 2025,Iberian Cup,EMEA,Spain,Online/Offline,2025-11-04,2025-11-22,Secondary,0.0,0.0,
+Icelandic Esports League 2025 Autumn,Icelandic Esports League/2025 Season/Autumn Split,Icelandic Esports League,EMEA,Iceland,,2025-09-03,2025-10-08,Secondary,0.0,0.0,
+Icelandic Esports League 2025 Autumn Playoffs,Icelandic Esports League/2025 Season/Autumn Playoffs,Icelandic Esports League,EMEA,Iceland,,2025-10-15,2025-11-15,Secondary,1.0,0.0,
+IDL Kings Lendas Season 1,IDL Kings Lendas,Kings Lendas,Americas,Brazil,,2025-06-28,2025-08-31,Secondary,0.0,0.0,
+IDL Kings Lendas Season 2,IDL Kings Lendas Season 2,Kings Lendas,Americas,Brazil,,2025-09-13,2025-09-28,Secondary,0.0,0.0,
+IDL Kings Lendas Season 3,IDL Kings Lendas Season 3,Kings Lendas,Americas,Brazil,,2025-10-11,2025-11-23,Secondary,0.0,0.0,
+IDL Showmatch - A Vingança do Oreia,IDL Showmatch - A Vingança do Oreia,Showmatch das Ilhas,Americas,Brazil,,2025-05-09,2025-05-09,Showmatch,0.0,0.0,
+IDL Showmatch - IDL x CATZ,IDL Showmatch - IDL x CATZ,Showmatch das Ilhas,Americas,Brazil,,2025-05-16,2025-05-16,Showmatch,0.0,0.0,
+IDL Showmatch - IDL x CATZ Rematch,IDL Showmatch - IDL x CATZ/Showmatch 2,Showmatch das Ilhas,Americas,Brazil,,2025-05-23,2025-05-23,Showmatch,0.0,0.0,
+IDL Showmatch - IDL x CATZ The Final Game,IDL Showmatch - IDL x CATZ/Showmatch 3,Showmatch das Ilhas,Americas,Brazil,,2025-06-22,2025-06-22,Showmatch,0.0,0.0,
+IDL Showmatch - IDL x FOFO,IDL Showmatch - IDL x FOFO,Showmatch das Ilhas,Americas,Brazil,,2025-06-15,2025-06-15,Showmatch,0.0,0.0,
+IDL Showmatch - IDL x IDC,Showmatch das Ilhas,Showmatch das Ilhas,Americas,Brazil,,2025-02-08,2025-02-08,Showmatch,0.0,0.0,
+IDL Showmatch - IDL x JKG,IDL Showmatch - IDL x JKG,Showmatch das Ilhas,Americas,Brazil,,2025-06-08,2025-06-08,Showmatch,0.0,0.0,
+IDL Showmatch - Ilha das Lendas x Veios,IDL Showmatch - The Old Boys,Showmatch das Ilhas,Americas,Brazil,,2025-05-02,2025-05-02,Showmatch,0.0,0.0,
+Infinity Winter,Infinity Winter,Infinity Winter,EMEA,Czech Republic,Online/Offline,2025-11-06,2025-12-20,Secondary,0.0,0.0,
+Invokers Tournament,Invokers Tournament,Invokers,Americas,Brazil,Online,2025-06-26,2025-06-29,Secondary,0.0,0.0,
+Jurassic League 2025,Jurassic League 2025,jurassic league,Americas,Brazil,Online,2025-11-03,2025-12-14,Secondary,0.0,0.0,
+KeG Championship 2025,2025 KeG Championship,KeG Championship,Korea,South Korea,Online,2025-08-16,2025-08-17,Secondary,1.0,0.0,
+KeSPA Cup 2024,2024 LoL KeSPA Cup,KeSPA Cup,Korea,South Korea,,2024-11-30,2024-12-08,Primary,0.0,0.0,
+Keysie Streamers Invitational VI,Keysie Streamers Invitational Season 6,Keysie Streamers Invitational,EMEA,Russia,,2025-07-22,2025-08-03,,,,
+La Faille 2025,La Faille 2025,La Faille,EMEA,France,Online/Offline,2025-08-23,2025-10-25,Secondary,1.0,0.0,
+LASA 2025 Group Stage,LASA/2025 Season/Group Stage,Legends Ascend South Asia,Asia Pacific,,,2025-06-13,2025-07-20,Secondary,0.0,0.0,Season
+LASA 2025 Playoffs,LASA/2025 Season/Playoffs,Legends Ascend South Asia,Asia Pacific,,,2025-07-25,2025-08-03,Secondary,1.0,0.0,Season
+LASA 2025 Qualifier 1,LASA/2025 Season/Qualifier/Q1,Legends Ascend South Asia,Asia Pacific,,,2025-05-04,2025-05-11,Secondary,0.0,1.0,Season
+LASA 2025 Qualifier 2,LASA/2025 Season/Qualifier/Q2,Legends Ascend South Asia,Asia Pacific,,,2025-05-18,2025-05-25,Secondary,0.0,1.0,Season
+LASA 2025 Qualifier 3,LASA/2025 Season/Qualifier/Q3,Legends Ascend South Asia,Asia Pacific,,,2025-06-01,2025-06-08,Secondary,0.0,1.0,Season
+LBEU 2025 Split 1,LigaGG/LBEU/2025 Season/Split 1,Liga Brasileira de Esports Universitário,Americas,Brazil,Online,2025-05-10,2025-07-15,Secondary,0.0,0.0,Split 1
+LBEU 2025 Split 1 Playoffs,LigaGG/LBEU/2025 Season/Split 1 Playoffs,Liga Brasileira de Esports Universitário,Americas,Brazil,Online,2025-07-19,2025-08-09,Secondary,0.0,0.0,Split 1
+LBEU 2025 Split 2,LigaGG/LBEU/2025 Season/Split 2,Liga Brasileira de Esports Universitário,Americas,Brazil,Online,2025-09-10,2025-10-28,Secondary,0.0,0.0,Split 2
+LBEU 2025 Split 2 Playoffs,LigaGG/LBEU/2025 Season/Split 2 Playoffs,Liga Brasileira de Esports Universitário,Americas,Brazil,Online,2025-11-01,2025-11-30,Secondary,0.0,0.0,Split 2
+LCD 2025 Spring,League Championship Denmark/2025 Season/Spring Split,League Championship Denmark,EMEA,Denmark,Online,2025-04-14,2025-06-10,Secondary,0.0,0.0,
+LCD 2025 Spring Playoffs,League Championship Denmark/2025 Season/Spring Playoffs,League Championship Denmark,EMEA,Denmark,Online,2025-06-15,2025-06-21,Secondary,1.0,0.0,
+LCD 2025 Summer,League Championship Denmark/2025 Season/Summer Split,League Championship Denmark,EMEA,Denmark,Online,2025-07-14,2025-09-11,Secondary,0.0,0.0,
+LCD 2025 Summer Playoffs,League Championship Denmark/2025 Season/Summer Playoffs,League Championship Denmark,EMEA,Denmark,Online,2025-09-20,2025-09-21,Secondary,1.0,0.0,
+LCD 2025 Winter,League Championship Denmark/2025 Season/Winter Split,League Championship Denmark,EMEA,Denmark,Online,2025-01-06,2025-03-03,Secondary,0.0,0.0,
+LCD 2025 Winter Playoffs,League Championship Denmark/2025 Season/Winter Playoffs,League Championship Denmark,EMEA,Denmark,Online,2025-03-22,2025-03-22,Secondary,1.0,0.0,
+LCJ 2025 Split 1,LCJ 2025 Split 1,League of Legends Challenger Tournament Japan,Asia Pacific,Japan,,2025-01-05,2025-01-05,Secondary,0.0,0.0,
+LCK 2025 Road to MSI,LCK/2025 Season/Road to MSI,LoL Champions Korea,Korea,South Korea,,2025-06-07,2025-06-15,Primary,1.0,0.0,Rounds 1-2
+LCK 2025 Rounds 1-2,LCK/2025 Season/Rounds 1-2,LoL Champions Korea,Korea,South Korea,,2025-04-02,2025-06-04,Primary,0.0,0.0,Rounds 1-2
+LCK 2025 Rounds 3-5,LCK/2025 Season/Rounds 3-5,LoL Champions Korea,Korea,South Korea,,2025-07-23,2025-08-31,Primary,0.0,0.0,Rounds 3-5
+LCK 2025 Season Opening,LCK 2025 Season Opening,,Korea,South Korea,Offline,2025-01-10,2025-01-10,Primary,0.0,0.0,
+LCK 2025 Season Play-In,LCK/2025 Season/Season Play-In,LoL Champions Korea,Korea,South Korea,,2025-09-03,2025-09-07,Primary,1.0,0.0,Rounds 3-5
+LCK 2025 Season Playoffs,LCK/2025 Season/Season Playoffs,LoL Champions Korea,Korea,South Korea,,2025-09-10,2025-09-28,Primary,1.0,0.0,Rounds 3-5
+LCK AS 2025 1st Championship,LCK Academy Series/2025 Season/1st Championship,LCK Academy Series,Korea,South Korea,Online,2025-03-29,2025-05-11,Secondary,0.0,0.0,Champ 1
+LCK AS 2025 1st Championship Playoffs,LCK Academy Series/2025 Season/1st Championship Playoffs,LCK Academy Series,Korea,South Korea,Offline,2025-05-17,2025-05-25,Secondary,1.0,0.0,Champ 1
+LCK AS 2025 2nd Championship,LCK Academy Series/2025 Season/2nd Championship,LCK Academy Series,Korea,South Korea,Online,2025-09-20,2025-11-02,Secondary,0.0,0.0,Champ 2
+LCK AS 2025 2nd Championship Playoffs,LCK Academy Series/2025 Season/2nd Championship Playoffs,LCK Academy Series,Korea,South Korea,Offline,2025-11-08,2025-11-16,Secondary,1.0,0.0,Champ 2
+LCK AS 2025 August,LCK Academy Series/2025 Season/August,LCK Academy Series,Korea,South Korea,Online,2025-08-24,2025-08-31,Secondary,0.0,0.0,
+LCK AS 2025 February,LCK Academy Series/2025 Season/February,LCK Academy Series,Korea,South Korea,Online,2025-02-09,2025-02-16,Secondary,0.0,0.0,
+LCK AS 2025 June,LCK Academy Series/2025 Season/June,LCK Academy Series,Korea,South Korea,Online,2025-06-29,2025-07-06,Secondary,0.0,0.0,
+LCK AS 2025 March,LCK Academy Series/2025 Season/March,LCK Academy Series,Korea,South Korea,Online,2025-03-02,2025-03-09,Secondary,0.0,0.0,
+LCK CL 2025 Kickoff,LCK CL/2025 Season/Kickoff,LCK Challengers League,Korea,South Korea,Online,2025-01-13,2025-02-27,Secondary,0.0,0.0,Kickoff
+LCK CL 2025 Rounds 1-2,LCK CL/2025 Season/Rounds 1-2,LCK Challengers League,Korea,South Korea,Online,2025-03-31,2025-05-30,Secondary,0.0,0.0,Rounds 1-2
+LCK CL 2025 Rounds 3-5,LCK CL/2025 Season/Rounds 3-5,LCK Challengers League,Korea,South Korea,Online,2025-07-21,2025-08-29,Secondary,0.0,0.0,Rounds 3-5
+LCK CL 2025 Season Play-In,LCK CL/2025 Season/Season Play-In,LCK Challengers League,Korea,South Korea,Online,2025-09-01,2025-09-08,Secondary,1.0,0.0,Rounds 3-5
+LCK CL 2025 Season Playoffs,LCK CL/2025 Season/Season Playoffs,LCK Challengers League,Korea,South Korea,Online,2025-09-15,2025-09-30,Secondary,1.0,0.0,Rounds 3-5
+LCK Cup 2025,LCK/2025 Season/Cup,LoL Champions Korea,Korea,South Korea,,2025-01-15,2025-02-23,Primary,0.0,0.0,Cup
+LCP 2025 Finals Weekend Showmatch,LCP/2025 Season/Season Finals Playoffs/Showmatch,League of Legends Championship Pacific,Asia Pacific,Vietnam,,2025-09-20,2025-09-21,Showmatch,0.0,0.0,
+LCP 2025 Mid Season,LCP/2025 Season/Mid Season,League of Legends Championship Pacific,Asia Pacific,Taiwan,,2025-04-19,2025-05-25,Primary,0.0,0.0,Split 2
+LCP 2025 Mid Season Qualifying Series,LCP/2025 Season/Mid Season Qualifying Series,League of Legends Championship Pacific,Asia Pacific,Taiwan,,2025-05-30,2025-06-08,Primary,1.0,0.0,Split 2
+LCP 2025 Season Finals,LCP/2025 Season/Season Finals,League of Legends Championship Pacific,Asia Pacific,Taiwan,,2025-07-26,2025-08-24,Primary,0.0,0.0,Split 3
+LCP 2025 Season Finals Playoffs,LCP/2025 Season/Season Finals Playoffs,League of Legends Championship Pacific,Asia Pacific,,,2025-09-05,2025-09-21,Primary,1.0,0.0,Split 3
+LCP 2025 Season Kickoff,LCP/2025 Season/Season Kickoff,League of Legends Championship Pacific,Asia Pacific,Taiwan,,2025-01-17,2025-02-16,Primary,0.0,0.0,Split 1
+LCP 2025 Season Kickoff Qualifying Series,LCP/2025 Season/Season Kickoff Qualifying Series,League of Legends Championship Pacific,Asia Pacific,Taiwan,,2025-02-18,2025-02-23,Primary,1.0,0.0,Split 1
+LCP OPQ 2025,LCP OPQ/2025 Season/Main Event,LCP Oceanic Promotion Qualifier,Asia Pacific,Australasia,,2025-08-15,2025-08-31,Secondary,0.0,0.0,
+LCP Wildcard 2025 Group Stage,LCP Wildcard/2025 Season/Group Stage,LCP Wildcard League,Asia Pacific,Southeast Asia,,2025-08-28,2025-08-29,Secondary,0.0,0.0,
+LCP Wildcard 2025 Playoffs,LCP Wildcard/2025 Season/Playoffs,LCP Wildcard League,Asia Pacific,Southeast Asia,,2025-08-30,2025-08-31,Secondary,1.0,0.0,
+LDL 2025 Split 1,LDL/2025 Season/Split 1,LoL Development League,China,China,Offline,2025-01-13,2025-02-25,Secondary,0.0,0.0,Split 1
+LDL 2025 Split 1 Cup,LDL/2025 Season/Split 1 Cup,LoL Development League,China,China,Offline,2025-04-03,2025-04-14,Secondary,0.0,0.0,Split 1
+LDL 2025 Split 2 Round 1,LDL/2025 Season/Split 2 Round 1,LoL Development League,China,China,Offline,2025-04-22,2025-05-25,Secondary,0.0,0.0,Split 2 Round 1
+LDL 2025 Split 2 Round 2,LDL/2025 Season/Split 2 Round 2,LoL Development League,China,China,Offline,2025-05-29,2025-06-14,Secondary,0.0,0.0,Split 2 Round 2
+LDL 2025 Split 3,LDL/2025 Season/Split 3,LoL Development League,China,China,Offline,2025-08-02,2025-09-02,Secondary,0.0,0.0,Split 3
+LDL 2025 Split 3 Cup,LDL/2025 Season/Split 3 Cup,LoL Development League,China,China,Offline,2025-09-07,2025-09-24,Secondary,0.0,0.0,Split 3
+League of Legends Asia Invitational 2025,2025 League of Legends Asia Invitational,League of Legends Asia Invitational,International,,,2025-10-06,2025-10-12,Secondary,0.0,0.0,
+League of Legends NEMOH CUP supported by GigaCrysta,League of Legends NEMOH CUP supported by GigaCrysta,League of Legends NEMOH CUP supported by GigaCrysta,Asia Pacific,Japan,Online,2025-08-18,2025-08-19,Secondary,0.0,0.0,
+League of Legends Nusantara Cup 2025,LNC/2025 Season,League of Legends Nusantara Cup,Asia Pacific,Indonesia,,2025-07-06,2025-07-27,Secondary,0.0,0.0,
+League of Legends TITANS CUP 2025,LTC/2025 Season,League of Legends TITANS CUP,Asia Pacific,Malaysia and Singapore,,2025-08-02,2025-08-10,Secondary,0.0,0.0,
+League The k4sen 1st,League The k4sen 1st,League The k4sen,Asia Pacific,Japan,Online/Offline,2025-06-25,2025-08-27,Showmatch,0.0,0.0,
+League The k4sen 2nd,League The k4sen 2nd,League The k4sen,Asia Pacific,Japan,Online/Offline,2025-09-17,2025-12-23,Showmatch,0.0,0.0,
+LEC 2025 Spring,LEC/2025 Season/Spring Season,LoL EMEA Championship,EMEA,Germany,Offline,2025-03-29,2025-05-13,Primary,0.0,0.0,Spring
+LEC 2025 Spring Playoffs,LEC/2025 Season/Spring Playoffs,LoL EMEA Championship,EMEA,Germany,Offline,2025-05-24,2025-06-08,Primary,1.0,0.0,Spring
+LEC 2025 Summer,LEC/2025 Season/Summer Season,LoL EMEA Championship,EMEA,Germany,Offline,2025-08-02,2025-08-26,Primary,0.0,0.0,Summer
+LEC 2025 Summer Playoffs,LEC/2025 Season/Summer Playoffs,LoL EMEA Championship,EMEA,,Offline,2025-09-05,2025-09-28,Primary,1.0,0.0,Summer
+LEC 2025 Winter,LEC/2025 Season/Winter Season,LoL EMEA Championship,EMEA,Germany,Offline,2025-01-18,2025-02-03,Primary,0.0,0.0,Winter
+LEC 2025 Winter Playoffs,LEC/2025 Season/Winter Playoffs,LoL EMEA Championship,EMEA,Germany,Offline,2025-02-15,2025-03-02,Primary,1.0,0.0,Winter
+LEC Fan Clash,LEC Fan Clash,LEC Fan Clash,EMEA,Europe,Online,2025-08-02,2025-08-03,Secondary,1.0,0.0,
+LEC VIP Türkiye Qualifier,LEC VIP Türkiye Qualifier,LEC VIP Türkiye Qualifier,EMEA,Turkey,Online,2025-07-11,2025-07-13,Secondary,0.0,1.0,
+Legend Cup Season 3 China,Legend Cup/Season 3/China,Legend Cup,China,China,Online,2025-04-10,2025-05-11,Secondary,0.0,0.0,
+Legend Cup Season 3 Finals,Legend Cup/Season 3/Finals,Legend Cup,International,China,Offline,2025-05-17,2025-05-17,Secondary,0.0,0.0,
+Legend Cup Season 3 Korea,Legend Cup/Season 3/Korea,Legend Cup,Korea,South Korea,Online,2025-04-07,2025-05-11,Secondary,0.0,0.0,
+Legends Premier League Season 1,Legends Premier League/Season 1,Legends Premier League,EMEA,Europe,Online,2025-09-20,2025-09-23,Secondary,0.0,0.0,
+Legends Premier League Season 2,Legends Premier League/Season 2,Legends Premier League,EMEA,Europe,Online,2025-11-15,2025-12-07,Secondary,0.0,0.0,
+Legends Premier League Season 2 Closed Qualifier,Legends Premier League/Season 2/Closed Qualifier,Legends Premier League,EMEA,Europe,Online,2025-11-08,2025-11-09,Secondary,0.0,1.0,
+LFL 2025 Flash In Groups,LFL/2025 Season/Flash In Groups,La Ligue Française,EMEA,France,Online/Offline,2025-01-22,2025-01-31,Secondary,0.0,0.0,Flash In
+LFL 2025 Flash In Playoffs,LFL/2025 Season/Flash In Playoffs,La Ligue Française,EMEA,France,Online/Offline,2025-02-19,2025-02-27,Secondary,1.0,0.0,Flash In
+LFL 2025 Flash In Swiss,LFL/2025 Season/Flash In Swiss,La Ligue Française,EMEA,France,Online/Offline,2025-02-05,2025-02-14,Secondary,0.0,0.0,Flash In
+LFL 2025 Promotion,LFL/2025 Season/Promotion,La Ligue Française,EMEA,France,Online,2024-09-04,2024-09-06,Secondary,0.0,1.0,
+LFL 2025 Spring,LFL/2025 Season/Spring Split,La Ligue Française,EMEA,France,Online/Offline,2025-04-09,2025-04-26,Secondary,0.0,0.0,Spring
+LFL 2025 Spring Playoffs,LFL/2025 Season/Spring Playoffs,La Ligue Française,EMEA,France,Online/Offline,2025-05-14,2025-05-29,Secondary,1.0,0.0,Spring
+LFL 2025 Spring Swiss,LFL/2025 Season/Spring Swiss,La Ligue Française,EMEA,France,Online/Offline,2025-04-30,2025-05-09,Secondary,0.0,0.0,Spring
+LFL 2025 Summer,LFL/2025 Season/Summer Split,La Ligue Française,EMEA,France,Online/Offline,2025-07-23,2025-08-29,Secondary,0.0,0.0,Summer
+LFL 2025 Summer Playoffs,LFL/2025 Season/Summer Playoffs,La Ligue Française,EMEA,France,Online/Offline,2025-09-02,2025-09-12,Secondary,1.0,0.0,Summer
+LFL Division 2 2025 Promotion,LFL Division 2/2025 Season/Promotion,La Ligue Française Division 2,EMEA,France,Online/Offline,2024-09-11,2024-09-13,Secondary,0.0,1.0,
+LFL Division 2 2025 Spring,LFL Division 2/2025 Season/Spring Split,La Ligue Française Division 2,EMEA,France,Online,2025-04-12,2025-05-25,Secondary,0.0,0.0,Spring
+LFL Division 2 2025 Spring Playoffs,LFL Division 2/2025 Season/Spring Playoffs,La Ligue Française Division 2,EMEA,France,Online,2025-05-31,2025-06-08,Secondary,1.0,0.0,Spring
+LFL Division 2 2025 Summer,LFL Division 2/2025 Season/Summer Split,La Ligue Française Division 2,EMEA,France,Online,2025-07-19,2025-08-31,Secondary,0.0,0.0,Summer
+LFL Division 2 2025 Summer Playoffs,LFL Division 2/2025 Season/Summer Playoffs,La Ligue Française Division 2,EMEA,France,Online,2025-09-06,2025-09-14,Secondary,1.0,0.0,Summer
+LFL Division 2 2025 Winter,LFL Division 2/2025 Season/Winter Split,La Ligue Française Division 2,EMEA,France,Online,2025-01-11,2025-02-23,Secondary,0.0,0.0,Winter
+LFL Division 2 2025 Winter Playoffs,LFL Division 2/2025 Season/Winter Playoffs,La Ligue Française Division 2,EMEA,France,Online,2025-03-01,2025-03-09,Secondary,1.0,0.0,Winter
+LGC 2025 Rising Group Stage,LoL Game Changers/2025 Season/Group Stage,League of Legends Game Changers,EMEA,Europe,Online,2025-09-13,2025-10-04,Secondary,0.0,0.0,Rising
+LGC 2025 Rising Open Qualifier,LoL Game Changers/2025 Season/Open Qualifier,League of Legends Game Changers,EMEA,Europe,Online,2025-08-30,2025-08-31,Secondary,0.0,1.0,Rising
+LGC 2025 Rising Playoffs,LoL Game Changers/2025 Season/Playoffs,League of Legends Game Changers,EMEA,France,Online/Offline,2025-10-13,2025-10-31,Secondary,1.0,0.0,Rising
+Liga del Paraná 2025,Liga del Paraná 2025,Liga del Paraná,Americas,Argentina,,2025-08-01,2025-09-14,Secondary,0.0,0.0,
+Liga Galactica Série A 2025 Split 1,Liga Galactica/Série A/2025 Season/Split 1,Liga Galactica,Americas,Brazil,Online,2025-04-04,2025-05-09,Secondary,0.0,0.0,Split 1
+Liga Galactica Série A 2025 Split 1 Playoffs,Liga Galactica/Série A/2025 Season/Split 1 Playoffs,Liga Galactica,Americas,Brazil,Online,2025-05-13,2025-06-15,Secondary,1.0,0.0,Split 1
+Liga Galactica Série A 2025 Split 2,Liga Galactica/Série A/2025 Season/Split 2,Liga Galactica,Americas,Brazil,Online,2025-09-25,2025-11-12,Secondary,0.0,0.0,Split 2
+Liga Galactica Série A 2025 Split 2 Playoffs,Liga Galactica/Série A/2025 Season/Split 2 Playoffs,Liga Galactica,Brazil,Brazil,Online,2025-11-20,2025-12-14,Secondary,1.0,0.0,Split 2
+Liga Galactica Série B 2025 Split 2,Liga Galactica/Série B/2025 Season/Split 2,Liga Galactica,Americas,Brazil,Online,2025-09-25,2025-11-27,Secondary,0.0,0.0,Split 2
+Liga Galactica Série B 2025 Split 2 Playoffs,Liga Galactica/Série B/2025 Season/Split 2 Playoffs,Liga Galactica,Brazil,Brazil,Online,2025-12-05,2025-12-14,Secondary,1.0,0.0,Split 2
+Liga Galactica Série S 2025 Split 2,Liga Galactica/Série S/2025 Season/Split 2,Liga Galactica,Americas,Brazil,Online,2025-09-25,2025-10-26,Secondary,0.0,0.0,Split 2
+Liga Galactica Série S 2025 Split 2 Playoffs,Liga Galactica/Série S/2025 Season/Split 2 Playoffs,Liga Galactica,Americas,Brazil,Online,2025-10-30,2025-12-13,Secondary,1.0,0.0,Split 2
+Liga Nexo 24-25 Split 1,Liga Nexo/2025 Season/Split 1,Liga Nexo,EMEA,Spain,Online,2024-10-14,2024-11-15,Secondary,0.0,0.0,Split 1
+Liga Nexo 24-25 Split 1 Playoffs,Liga Nexo/2025 Season/Split 1 Playoffs,Liga Nexo,EMEA,Spain,Online,2024-11-21,2024-11-28,Secondary,1.0,0.0,Split 1
+Liga Nexo 24-25 Split 1 Relegations,Liga Nexo/2025 Season/Split 1 Relegations,Liga Nexo,EMEA,Spain,Online,2024-11-27,2024-12-20,Secondary,0.0,1.0,Split 1
+Liga Nexo 24-25 Split 2,Liga Nexo/2025 Season/Split 2,Liga Nexo,EMEA,Spain,Online,2025-02-03,2025-03-31,Secondary,0.0,0.0,Split 2
+Liga Nexo 24-25 Split 2 Playoffs,Liga Nexo/2025 Season/Split 2 Playoffs,Liga Nexo,EMEA,Spain,Online,2025-04-07,2025-04-21,Secondary,1.0,0.0,Split 2
+Liga Nexo 24-25 Split 2 Relegations,Liga Nexo/2025 Season/Split 2 Relegations,Liga Nexo,EMEA,Spain,Online,2025-04-10,2025-05-06,Secondary,0.0,1.0,Split 2
+Liga Nexo 24-25 Split 3,Liga Nexo/2025 Season/Split 3,Liga Nexo,EMEA,Spain,Online,2025-05-12,2025-06-06,Secondary,0.0,0.0,Split 3
+Liga Nexo 24-25 Split 3 Playoffs,Liga Nexo/2025 Season/Split 3 Playoffs,Liga Nexo,EMEA,Spain,Online,2025-06-09,2025-06-12,Secondary,1.0,0.0,Split 3
+Liga Nexo 24-25 Split 3 Relegations,Liga Nexo/2025 Season/Split 3 Relegations,Liga Nexo,EMEA,Spain,Online,2025-06-22,2025-06-26,Secondary,0.0,1.0,Split 3
+Liga Republika 2025,LR/2025 Season/Main Event,Liga Republika,Asia Pacific,Philippines,,2025-07-10,2025-07-27,Secondary,0.0,0.0,
+Liga Republika 2025 Qualifier Stage Group A,LR/2025 Season/Qualifier Stage/Group A,Liga Republika,Asia Pacific,Philippines,,2025-07-04,2025-07-04,Secondary,0.0,1.0,
+Liga Republika 2025 Qualifier Stage Group B,LR/2025 Season/Qualifier Stage/Group B,Liga Republika,Asia Pacific,Philippines,,2025-07-05,2025-07-05,Secondary,0.0,1.0,
+Liga Republika 2025 Qualifier Stage Group C,LR/2025 Season/Qualifier Stage/Group C,Liga Republika,Asia Pacific,Philippines,,2025-07-06,2025-07-06,Secondary,0.0,1.0,
+Liga Republika 2025 Qualifier Stage Group D,LR/2025 Season/Qualifier Stage/Group D,Liga Republika,Asia Pacific,Philippines,,2025-07-07,2025-07-07,Secondary,0.0,1.0,
+LigaGG CELOL 2025 Open Qualifier,LigaGG/CELOL Qualifier/2025 Season/Open Qualifier,CELOL,Americas,Brazil,Online,2025-06-23,2025-07-15,Qualifier,0.0,1.0,
+LigaGG CELOL A 2025 Split 1,LigaGG/CELOL Série A/2025 Season/Split 1,CELOL,Americas,Brazil,Online,2025-04-05,2025-05-18,Secondary,0.0,0.0,Split 1
+LigaGG CELOL A 2025 Split 1 Playoffs,LigaGG/CELOL Série A/2025 Season/Split 1 Playoffs,CELOL,Americas,Brazil,Online,2025-06-07,2025-07-12,Secondary,0.0,0.0,Split 1
+LigaGG CELOL A 2025 Split 2,LigaGG/CELOL Série A/2025 Season/Split 2,CELOL,Americas,Brazil,Online,2025-08-16,2025-09-23,Secondary,0.0,0.0,Split 2
+LigaGG CELOL A 2025 Split 2 Playoffs,LigaGG/CELOL Série A/2025 Season/Split 2 Playoffs,CELOL,Americas,Brazil,Online,2025-09-27,2025-11-01,Secondary,0.0,0.0,Split 2
+LigaGG CELOL B 2025 Split 1,LigaGG/CELOL Série B/2025 Season/Split 1,CELOL,Americas,Brazil,Online,2025-01-11,2025-02-16,Secondary,0.0,0.0,Split 1
+LigaGG CELOL B 2025 Split 1 Playoffs,LigaGG/CELOL Série B/2025 Season/Split 1 Playoffs,CELOL,Americas,Brazil,Online,2025-02-22,2025-03-29,Secondary,1.0,0.0,Split 1
+LigaGG CELOL B 2025 Split 2,LigaGG/CELOL Série B/2025 Season/Split 2,CELOL,Americas,Brazil,Online,2025-07-26,2025-08-28,Secondary,0.0,0.0,Split 2
+LigaGG CELOL B 2025 Split 2 Playoffs,LigaGG/CELOL Série B/2025 Season/Split 2 Playoffs,CELOL,Americas,Brazil,Online,2025-08-30,2025-09-27,Secondary,1.0,0.0,Split 2
+LigaGG CELOL C 2025 Split 1,LigaGG/CELOL Série C/2025 Season/Split 1,CELOL,Americas,Brazil,Online,2025-01-11,2025-02-04,Secondary,0.0,0.0,Split 1
+LigaGG CELOL C 2025 Split 1 Playoffs,LigaGG/CELOL Série C/2025 Season/Split 1 Playoffs,CELOL,Americas,Brazil,Online,2025-02-15,2025-03-22,Secondary,0.0,0.0,Split 1
+LigaGG CELOL C 2025 Split 2,LigaGG/CELOL Série C/2025 Season/Split 2,CELOL,Americas,Brazil,Online,2025-05-10,2025-06-23,Secondary,0.0,0.0,Split 2
+LigaGG CELOL C 2025 Split 2 Playoffs,LigaGG/CELOL Série C/2025 Season/Split 2 Playoffs,CELOL,Americas,Brazil,Online,2025-06-28,2025-07-26,Secondary,0.0,0.0,Split 2
+LigaGG Copa do Barão 2025,LigaGG/2025 Season/Copa do Barão,CELOL,Americas,Brazil,Online,2025-11-02,2025-11-29,Secondary,0.0,0.0,
+LigaGG Torneio do Grompe 2025 Split 1,LigaGG/Torneio do Grompe/2025 Season/Split 1,CELOL,Americas,Brazil,Online,2024-12-03,2025-04-09,Secondary,0.0,1.0,Split 1
+LigaGG Torneio do Grompe 2025 Split 2,LigaGG/Torneio do Grompe/2025 Season/Split 2,CELOL,Americas,Brazil,Online,2025-06-03,2025-10-28,Secondary,0.0,1.0,Split 2
+LIT 2025 Promotion,LIT/2025 Season/Promotion,LIT,EMEA,Italy,Online,2024-07-30,2024-08-02,Secondary,0.0,1.0,
+LIT 2025 Spring,LIT/2025 Season/Spring Split,LIT,EMEA,Italy,Online,2025-04-03,2025-04-11,Secondary,0.0,0.0,Spring
+LIT 2025 Spring Playoffs,LIT/2025 Season/Spring Playoffs,LIT,EMEA,Italy,Online,2025-04-16,2025-05-23,Secondary,1.0,0.0,Spring
+LIT 2025 Summer,LIT/2025 Season/Summer Split,LIT,EMEA,Italy,Online,2025-07-14,2025-07-25,Secondary,0.0,0.0,Summer
+LIT 2025 Summer Playoffs,LIT/2025 Season/Summer Playoffs,LIT,EMEA,Italy,Online,2025-07-30,2025-09-14,Secondary,1.0,0.0,Summer
+LIT 2025 Winter,LIT/2025 Season/Winter Split,LIT,EMEA,Italy,Online,2025-01-22,2025-03-09,Secondary,0.0,0.0,Winter
+LJL 2025 Finals,LJL/2025 Season/Finals,LoL Japan League,Asia Pacific,Japan,Online,2025-07-19,2025-09-15,Secondary,1.0,0.0,
+LJL 2025 Forge,LJL/2025 Season/Forge,LoL Japan League,Asia Pacific,Japan,Online,2025-01-30,2025-03-09,Secondary,0.0,0.0,Forge
+LJL 2025 Forge Qualifier,LJL/2025 Season/Forge Qualifier,LoL Japan League,Asia Pacific,Japan,Online,2025-01-25,2025-01-26,Secondary,0.0,1.0,
+LJL 2025 Ignite,LJL/2025 Season/Ignite,LoL Japan League,Asia Pacific,Japan,Online,2025-05-21,2025-06-21,Secondary,0.0,0.0,Ignite
+LJL 2025 Ignite Qualifier,LJL/2025 Season/Ignite Qualifier,LoL Japan League,Asia Pacific,Japan,Online,2025-05-10,2025-05-18,Secondary,0.0,1.0,
+LJL 2025 Storm,LJL/2025 Season/Storm,LoL Japan League,Asia Pacific,Japan,Online,2025-04-04,2025-05-06,Secondary,0.0,0.0,Storm
+LJL 2025 Storm Qualifier,LJL/2025 Season/Storm Qualifier,LoL Japan League,Asia Pacific,Japan,Online,2025-03-22,2025-03-30,Secondary,0.0,1.0,
+LoL Caster &amp; Host Championship 2025,League of Legends Caster &amp; Host Championship 2025,League of Legends Caster &amp; Host Championship,China,China,Online/Offline(Playoffs),2025-11-11,2025-11-22,Secondary,0.0,0.0,
+LPL 2025 Grand Finals,LPL/2025 Season/Grand Finals,Tencent LoL Pro League,China,China,Offline,2025-08-30,2025-09-21,Primary,1.0,0.0,Split 3
+LPL 2025 Regional Finals,LPL/2025 Season/Regional Finals,World Championship,China,China,Offline,2025-09-25,2025-09-27,Primary,0.0,1.0,
+LPL 2025 Split 1,LPL/2025 Season/Split 1,Tencent LoL Pro League,China,China,Offline,2025-01-12,2025-02-16,Primary,0.0,0.0,Split 1
+LPL 2025 Split 1 Playoffs,LPL/2025 Season/Split 1 Playoffs,Tencent LoL Pro League,China,China,Offline,2025-02-22,2025-03-01,Primary,1.0,0.0,Split 1
+LPL 2025 Split 2,LPL/2025 Season/Split 2,Tencent LoL Pro League,China,China,Offline,2025-04-05,2025-05-22,Primary,0.0,0.0,Split 2
+LPL 2025 Split 2 Placements,LPL/2025 Season/Split 2 Placements,Tencent LoL Pro League,China,China,Offline,2025-03-22,2025-03-31,Primary,0.0,0.0,Split 2 Placements
+LPL 2025 Split 2 Playoffs,LPL/2025 Season/Split 2 Playoffs,Tencent LoL Pro League,China,China,Offline,2025-05-24,2025-06-14,Primary,1.0,0.0,Split 2
+LPL 2025 Split 3,LPL/2025 Season/Split 3,Tencent LoL Pro League,China,China,Offline,2025-07-19,2025-08-28,Primary,0.0,0.0,Split 3
+LPLOL 2025 Promotion,LPLOL/2025 Season/Promotion,Liga Portuguesa,EMEA,Portugal,Online,2024-09-05,2024-09-13,Secondary,0.0,1.0,
+LPLOL 2025 Spring,LPLOL/2025 Season/Spring Split,Liga Portuguesa,EMEA,Portugal,Online,2025-04-17,2025-05-13,Secondary,0.0,0.0,Spring
+LPLOL 2025 Spring Play-In,LPLOL/2025 Season/Spring Play-In,Liga Portuguesa,EMEA,Portugal,Online,2025-04-11,2025-04-11,Secondary,0.0,1.0,Spring
+LPLOL 2025 Spring Play-In Qualifier,LPLOL/2025 Season/Spring Play-In/Open Qualifier,Liga Portuguesa,EMEA,Portugal,Online,2025-04-05,2025-04-06,Secondary,0.0,1.0,
+LPLOL 2025 Spring Playoffs,LPLOL/2025 Season/Spring Playoffs,Liga Portuguesa,EMEA,Portugal,Online,2025-05-15,2025-05-23,Secondary,1.0,0.0,Spring
+LPLOL 2025 Summer,LPLOL/2025 Season/Summer Split,Liga Portuguesa,EMEA,Portugal,Online,2025-08-06,2025-09-12,Secondary,0.0,0.0,Summer
+LPLOL 2025 Summer Play-In,LPLOL/2025 Season/Summer Play-In,Liga Portuguesa,EMEA,Portugal,Online,,,Secondary,0.0,1.0,Summer
+LPLOL 2025 Summer Play-In Qualifier,LPLOL/2025 Season/Summer Play-In/Open Qualifier,Liga Portuguesa,EMEA,Portugal,Online,2025-07-19,2025-07-20,Secondary,0.0,1.0,
+LPLOL 2025 Winter,LPLOL/2025 Season/Winter Split,Liga Portuguesa,EMEA,Portugal,Online,2025-02-11,2025-03-08,Secondary,0.0,0.0,Winter
+LPLOL 2025 Winter Qualifier,LPLOL/2025 Season/Winter Qualifier,Liga Portuguesa,EMEA,Portugal,Online,2025-01-25,2025-01-26,Secondary,0.0,1.0,
+LRN 2025 Promotion,Liga Regional Norte/2024 Season/2025 Promotion,Liga Regional Norte,Latin America,,Online,2024-06-04,2024-06-04,Secondary,0.0,1.0,
+LRN 2025 Split 1,Liga Regional Norte/2025 Season/Split 1,Liga Regional Norte,Americas,,Online,2025-03-24,2025-05-04,Secondary,0.0,0.0,Split 1
+LRN 2025 Split 1 Open Qualifier,Liga Regional Norte/2025 Season/Split 1 Qualifier,Liga Regional Norte,Americas,,Online,2025-02-22,2025-03-08,Secondary,0.0,1.0,
+LRN 2025 Split 1 Playoffs,Liga Regional Norte/2025 Season/Split 1 Playoffs,Liga Regional Norte,Americas,,Online,2025-05-12,2025-06-03,Secondary,1.0,0.0,Split 1
+LRN 2025 Split 2,Liga Regional Norte/2025 Season/Split 2,Liga Regional Norte,Americas,,Online,2025-07-13,2025-08-04,Secondary,0.0,0.0,Split 2
+LRN 2025 Split 2 Open Qualifier,Liga Regional Norte/2025 Season/Split 2 Promotion/Open Qualifier,Liga Regional Norte,Americas,,Online,2025-05-17,2025-05-31,Secondary,0.0,1.0,
+LRN 2025 Split 2 Playoffs,Liga Regional Norte/2025 Season/Split 2 Playoffs,Liga Regional Norte,Americas,,Online,2025-08-10,2025-09-08,Secondary,1.0,0.0,Split 2
+LRN 2025 Split 2 Promotion,Liga Regional Norte/2025 Season/Split 2 Promotion,Liga Regional Norte,Americas,,Online,2025-06-09,2025-06-12,Secondary,0.0,1.0,Split 2
+LRS 2025 Promotion,Liga Regional Sur/2024 Season/2025 Promotion,Liga Regional Sur,Latin America,,Online,2024-06-05,2024-06-05,Secondary,0.0,1.0,
+LRS 2025 Split 1,Liga Regional Sur/2025 Season/Split 1,Liga Regional Sur,Americas,,Online,2025-03-23,2025-05-05,Secondary,0.0,0.0,Split 1
+LRS 2025 Split 1 Open Qualifier,Liga Regional Sur/2025 Season/Split 1 Qualifier,Liga Regional Sur,Americas,,Online,2025-02-22,2025-03-02,Secondary,0.0,1.0,1
+LRS 2025 Split 1 Playoffs,Liga Regional Sur/2025 Season/Split 1 Playoffs,Liga Regional Sur,Americas,,Online,2025-05-13,2025-06-04,Secondary,1.0,0.0,Split 1
+LRS 2025 Split 2,Liga Regional Sur/2025 Season/Split 2,Liga Regional Sur,Americas,,Online,2025-07-15,2025-08-05,Secondary,0.0,0.0,Split 2
+LRS 2025 Split 2 Open Qualifier,Liga Regional Sur/2025 Season/Split 2 Promotion/Open Qualifier,Liga Regional Sur,Americas,,Online,2025-05-17,2025-05-31,Secondary,0.0,1.0,1
+LRS 2025 Split 2 Playoffs,Liga Regional Sur/2025 Season/Split 2 Playoffs,Liga Regional Sur,Americas,,Online,2025-08-12,2025-09-10,Secondary,1.0,0.0,Split 2
+LRS 2025 Split 2 Promotion,Liga Regional Sur/2025 Season/Split 2 Promotion,Liga Regional Sur,Americas,,Online,2025-06-16,2025-06-18,Secondary,0.0,1.0,Split 2
+LTA 2025 Championship,LTA/2025 Season/Regional Championship,League of Legends Championship of The Americas,Americas,United States,,2025-09-13,2025-09-28,Primary,1.0,0.0,
+LTA 2025 Split 1 Playoffs,LTA/2025 Season/Split 1 Playoffs,League of Legends Championship of The Americas,Americas,Brazil,,2025-02-15,2025-02-23,Primary,1.0,0.0,
+LTA North 2025 Split 1,LTA North/2025 Season/Split 1,League of Legends Championship of The Americas North,Americas,United States,,2025-01-25,2025-02-09,Primary,0.0,0.0,Split 1
+LTA North 2025 Split 2,LTA North/2025 Season/Split 2,League of Legends Championship of The Americas North,Americas,United States,,2025-04-05,2025-05-18,Primary,0.0,0.0,Split 2
+LTA North 2025 Split 2 Playoffs,LTA North/2025 Season/Split 2 Playoffs,League of Legends Championship of The Americas North,Americas,United States,,2025-05-24,2025-06-15,Primary,1.0,0.0,Split 2
+LTA North 2025 Split 3,LTA North/2025 Season/Split 3,League of Legends Championship of The Americas North,Americas,United States,,2025-07-26,2025-09-07,Primary,0.0,0.0,Split 3
+LTA North 2025 Welcome to Noxus Showmatch,LTA North/2025 Season/Showmatch,League of Legends Championship of The Americas North,Americas,United States,,2025-01-18,2025-01-18,Showmatch,0.0,0.0,
+LTA South 2025 Split 1,LTA South/2025 Season/Split 1,League of Legends Championship of The Americas South,Americas,Brazil,,2025-01-25,2025-02-09,Primary,0.0,0.0,Split 1
+LTA South 2025 Split 2,LTA South/2025 Season/Split 2,League of Legends Championship of The Americas South,Americas,Brazil,,2025-04-05,2025-05-18,Primary,0.0,0.0,Split 2
+LTA South 2025 Split 2 Playoffs,LTA South/2025 Season/Split 2 Playoffs,League of Legends Championship of The Americas South,Americas,Brazil,,2025-05-24,2025-06-15,Primary,1.0,0.0,Split 2
+LTA South 2025 Split 3,LTA South/2025 Season/Split 3,League of Legends Championship of The Americas South,Americas,Brazil,,2025-07-26,2025-09-07,Primary,0.0,0.0,Split 3
+LTA South 2025 Welcome to Noxus Showmatch,LTA South/2025 Season/Showmatch,League of Legends Championship of The Americas South,Americas,Brazil,,2025-01-18,2025-01-18,Showmatch,0.0,0.0,
+LTS 2025 Spring,LTS/2025 Season/Spring Season,League of Legends Thailand Series,Asia Pacific,Thailand,,2025-05-06,2025-05-29,Secondary,0.0,0.0,Spring
+LTS 2025 Spring Open Qualifier,LTS/2025 Season/Spring Qualifier,League of Legends Thailand Series,Asia Pacific,Thailand,,2025-04-06,2025-04-12,Secondary,0.0,1.0,Spring
+LTS 2025 Spring Playoffs,LTS/2025 Season/Spring Playoffs,League of Legends Thailand Series,Asia Pacific,Thailand,,2025-06-02,2025-06-15,Secondary,1.0,0.0,Spring
+LTS 2025 Summer,LTS/2025 Season/Summer Season,League of Legends Thailand Series,Asia Pacific,Thailand,,2025-07-16,2025-08-08,Secondary,0.0,,Summer
+LTS 2025 Summer Open Qualifier,LTS/2025 Season/Summer Promotion/Open Qualifier,League of Legends Thailand Series,Asia Pacific,Thailand,,2025-06-13,2025-06-16,Secondary,0.0,1.0,Spring
+LTS 2025 Summer Playoffs,LTS/2025 Season/Summer Playoffs,League of Legends Thailand Series,Asia Pacific,Thailand,,2025-08-11,2025-08-18,Secondary,1.0,0.0,Summer
+LTS 2025 Summer Promotion,LTS/2025 Season/Summer Promotion,League of Legends Thailand Series,Asia Pacific,Thailand,,2025-06-19,2025-06-20,Secondary,0.0,1.0,Summer
+LVK Choque de Regiones 2025 Closing Season,Liga Valkyria/Choque de Regiones 2025/Closing Season,Liga Valkyria,Americas,Argentina,Offline,2025-10-12,2025-10-12,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Closing Season LAN Qualifiers 1,Liga Valkyria/Choque de Regiones 2025/Closing Season/North Qualifiers/Qualifier 1,Liga Valkyria,Americas,Mexico,Online,2025-09-23,2025-09-26,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Closing Season LAN Qualifiers 2,Liga Valkyria/Choque de Regiones 2025/Closing Season/North Qualifiers/Qualifier 2,Liga Valkyria,Americas,Mexico,Online,2025-09-30,2025-10-02,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Closing Season LAN Regional Finals,Liga Valkyria/Choque de Regiones 2025/Closing Season/North Qualifiers,Liga Valkyria,Americas,Mexico,Online,2025-10-03,2025-10-03,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Closing Season LAS Qualifiers 1,Liga Valkyria/Choque de Regiones 2025/Closing Season/South Qualifiers/Qualifier 1,Liga Valkyria,Americas,Argentina,Online,2025-09-23,2025-09-26,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Closing Season LAS Qualifiers 2,Liga Valkyria/Choque de Regiones 2025/Closing Season/South Qualifiers/Qualifier 2,Liga Valkyria,Americas,Argentina,Online,2025-09-29,2025-10-02,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Closing Season LAS Regional Finals,Liga Valkyria/Choque de Regiones 2025/Closing Season/South Qualifiers,Liga Valkyria,Americas,South America,Online,2025-10-03,2025-10-03,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Opening Season,Liga Valkyria/Choque de Regiones 2025/Opening Season,Liga Valkyria,Americas,Mexico,Offline,2025-09-20,2025-09-20,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Opening Season LAN Qualifiers 1,Liga Valkyria/Choque de Regiones 2025/Opening Season/North Qualifiers/Qualifier 1,Liga Valkyria,Americas,Mexico,Online,2025-07-23,2025-07-25,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Opening Season LAN Qualifiers 2,Liga Valkyria/Choque de Regiones 2025/Opening Season/North Qualifiers/Qualifier 2,Liga Valkyria,Americas,Mexico,Online,2025-08-05,2025-08-08,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Opening Season LAN Regional Finals,Liga Valkyria/Choque de Regiones 2025/Opening Season/North Qualifiers,Liga Valkyria,Americas,Mexico,Online,2025-08-29,2025-08-29,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Opening Season LAS Qualifiers 1,Liga Valkyria/Choque de Regiones 2025/Opening Season/South Qualifiers/Qualifier 1,Liga Valkyria,Americas,Argentina,Online,2025-07-21,2025-07-24,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Opening Season LAS Qualifiers 2,Liga Valkyria/Choque de Regiones 2025/Opening Season/South Qualifiers/Qualifier 2,Liga Valkyria,Americas,Argentina,Online,2025-08-12,2025-08-15,Secondary,0.0,0.0,
+LVK Choque de Regiones 2025 Opening Season LAS Regional Finals,Liga Valkyria/Choque de Regiones 2025/Opening Season/South Qualifiers,Liga Valkyria,Americas,South America,Online,2025-08-26,2025-08-26,Secondary,0.0,0.0,
+LVP SL 2025 Promotion,Superliga Domino's/2025 Season/Promotion,LVP SuperLiga,EMEA,Spain,Online,2024-09-03,2024-09-10,Secondary,0.0,1.0,
+LVP SL 2nd Division 2025 Promotion,LVP SuperLiga 2nd Division/2025 Season/Promotion,LVP SuperLiga 2nd Division,EMEA,Spain,,2024-09-04,2024-09-12,Secondary,0.0,1.0,
+MENA Regional Championship 2025,MENA Regional Championship 2025,MENA Regional Championship,EMEA,Arab League,,2025-10-20,2025-11-08,Secondary,0.0,0.0,
+MENA Regional Championship 2025: Algeria,MENA Regional Championship 2025/Qualifiers,MENA Regional Championship,EMEA,Algeria,,2025-09-14,2025-09-14,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Bahrain,MENA Regional Championship 2025/Qualifiers/Bahrain,MENA Regional Championship,EMEA,Bahrain,Online,2025-09-17,2025-09-17,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Egypt,MENA Regional Championship 2025/Qualifiers/Egypt,MENA Regional Championship,EMEA,Egypt,Online,2025-10-12,2025-10-18,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Iran,MENA Regional Championship 2025/Qualifiers/Iran,MENA Regional Championship,EMEA,Iran,Online,2025-09-04,2025-09-04,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Iraq,MENA Regional Championship 2025/Qualifiers/Iraq,MENA Regional Championship,EMEA,Iraq,Online,2025-09-27,2025-09-27,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Jordan,MENA Regional Championship 2025/Qualifiers/Jordan,MENA Regional Championship,EMEA,Jordan,Online,2025-09-22,2025-09-22,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Kuwait,MENA Regional Championship 2025/Qualifiers/Kuwait,MENA Regional Championship,EMEA,Kuwait,Online,2025-09-20,2025-09-20,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Lebanon,MENA Regional Championship 2025/Qualifiers/Lebanon,MENA Regional Championship,EMEA,Lebanon,Online,2025-09-21,2025-09-23,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Libya,MENA Regional Championship 2025/Qualifiers/Libya,MENA Regional Championship,EMEA,Libya,Online,2025-08-07,2025-08-07,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Morocco,MENA Regional Championship 2025/Qualifiers/Morocco,MENA Regional Championship,EMEA,Morocco,Online,2025-09-30,2025-10-04,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Oman,MENA Regional Championship 2025/Qualifiers/Oman,MENA Regional Championship,EMEA,Oman,Online,2025-08-01,2025-08-01,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Pakistan,MENA Regional Championship 2025/Qualifiers/Pakistan,MENA Regional Championship,Asia Pacific,Pakistan,Online,2025-08-17,2025-08-17,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Palestine,MENA Regional Championship 2025/Qualifiers/Palestine,MENA Regional Championship,EMEA,Palestine,Online,2025-09-23,2025-09-23,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Qatar,MENA Regional Championship 2025/Qualifiers/Qatar,MENA Regional Championship,EMEA,Qatar,Online,2025-09-18,2025-09-18,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Saudi Arabia,MENA Regional Championship 2025/Qualifiers/Saudi Arabia,MENA Regional Championship,EMEA,Saudi Arabia,Online,2025-09-25,2025-09-29,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Syria,MENA Regional Championship 2025/Qualifiers/Syria,MENA Regional Championship,EMEA,Syria,Online,2025-08-27,2025-08-27,Secondary,0.0,1.0,
+MENA Regional Championship 2025: Tunisia,MENA Regional Championship 2025/Qualifiers/Tunisia,MENA Regional Championship,EMEA,Tunisia,Online,2025-09-19,2025-09-23,Secondary,0.0,1.0,
+MENA Regional Championship 2025: UAE,MENA Regional Championship 2025/Qualifiers/United Arab Emirates,MENA Regional Championship,EMEA,United Arab Emirates,Online,2025-09-15,2025-09-15,Secondary,0.0,1.0,
+MSI 2025,2025 Mid-Season Invitational,Mid-Season Invitational,International,Canada,Offline,2025-06-27,2025-07-12,Primary,0.0,0.0,
+Mystic League 2025 Main Event,Mystic League A/2025 Season/Main Event,Mystic League,Americas,South America,Online,2025-11-10,2025-12-15,Secondary,0.0,0.0,
+Mystic League 2025 Qualifier,Mystic League A/2025 Season/Qualifier,Mystic League,Americas,South America,Online,2025-10-07,2025-11-05,Secondary,0.0,1.0,
+NACL 2025 Split 1,North American Challengers League/2025 Season/Split 1,North American Challengers League,Americas,United States,Online,2025-03-26,2025-05-09,Secondary,0.0,0.0,Split 1
+NACL 2025 Split 1 Playoffs,North American Challengers League/2025 Season/Split 1 Playoffs,North American Challengers League,Americas,United States,Online,2025-05-15,2025-06-06,Secondary,1.0,0.0,Split 1
+NACL 2025 Split 1 Qualifier,North American Challengers League/2025 Season/Split 1 Qualifier,North American Challengers League,Americas,,Online,2025-03-01,2025-03-16,Secondary,0.0,1.0,Split 1
+NACL 2025 Split 2,North American Challengers League/2025 Season/Split 2,North American Challengers League,Americas,United States,Online,2025-07-17,2025-08-08,Secondary,0.0,0.0,Split 2
+NACL 2025 Split 2 Open Qualifier,North American Challengers League/2025 Season/Split 2 Promotion/Open Qualifier,North American Challengers League,Americas,,Online,2025-05-17,2025-06-01,Secondary,0.0,1.0,
+NACL 2025 Split 2 Playoffs,North American Challengers League/2025 Season/Split 2 Playoffs,North American Challengers League,Americas,United States,Online,2025-08-14,2025-09-12,Secondary,1.0,0.0,Split 2
+NACL 2025 Split 2 Promotion,North American Challengers League/2025 Season/Split 2 Promotion,North American Challengers League,Americas,,Online,2025-06-19,2025-06-22,Secondary,0.0,1.0,
+NACL 2025 Spring Promotion,North American Challengers League/2024 Season/2025 Spring Promotion,North American Challengers League,North America,United States,Online,2024-09-02,2024-09-07,Secondary,0.0,1.0,
+NAO 2025 Spring,Nexus Adria Open/2025 Season/Spring,Nexus Adria Open,EMEA,Croatia,Online,2025-04-22,2025-04-26,Secondary,1.0,0.0,
+NAO 2025 Spring Qualifier 1,Nexus Adria Open/2025 Season/Spring/Qualifier 1,Nexus Adria Open,EMEA,Croatia,Online,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+NAO 2025 Spring Qualifier 2,Nexus Adria Open/2025 Season/Spring/Qualifier 2,Nexus Adria Open,EMEA,Croatia,Online,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+NAO 2025 Summer,Nexus Adria Open/2025 Season/Summer,Nexus Adria Open,EMEA,Croatia,Online,2025-07-07,2025-07-11,Secondary,1.0,0.0,
+NAO 2025 Summer Qualifier 1,Nexus Adria Open/2025 Season/Summer/Qualifier 1,Nexus Adria Open,EMEA,Croatia,Online,2025-07-05,2025-07-05,Secondary,0.0,1.0,
+NAO 2025 Summer Qualifier 2,Nexus Adria Open/2025 Season/Summer/Qualifier 2,Nexus Adria Open,EMEA,Croatia,Online,2025-07-06,2025-07-06,Secondary,0.0,1.0,
+NASEF JAPAN All High School Esports Tournament 3rd,NASEF JAPAN All high school esports Tournament 3rd,National High School Esports Championship,Japan,Japan,Online / Offline,2025-09-20,2025-12-13,,0.0,0.0,
+NECC 2025,College League of Legends/2025 Season/National Esports Collegiate Conference/Regular Season,NECC,North America,United States,Online,2025-01-25,2025-03-08,Secondary,0.0,0.0,
+NECC 2025 Playoffs,College League of Legends/2025 Season/National Esports Collegiate Conference/Playoffs,NECC,North America,United States,Online,2025-03-08,2025-04-12,Secondary,1.0,0.0,
+NES Season 1,Norwegian Esports Series/2025 Season/Season 1,Norwegian Esports Series,EMEA,Norway,Online,2025-03-03,2025-04-28,Secondary,0.0,0.0,
+NES Season 1 Playoffs,Norwegian Esports Series/2025 Season/Season 1 Playoffs,Norwegian Esports Series,EMEA,Norway,Online,2025-05-05,2025-05-25,Secondary,1.0,0.0,
+NES Season 2,Norwegian Esports Series/2025 Season/Season 2,Norwegian Esports Series,EMEA,Norway,Online,2025-09-08,2025-10-28,Secondary,0.0,0.0,
+NES Season 2 Playoffs,Norwegian Esports Series/2025 Season/Season 2 Playoffs,Norwegian Esports Series,EMEA,Norway,Online,2025-11-10,2025-11-16,Secondary,1.0,0.0,
+Nexus Adria Open 2025 Winter,Nexus Adria Open/2025 Season/Winter,Nexus Adria Open,EMEA,Croatia,Online,2025-02-10,2025-02-14,Secondary,1.0,0.0,
+Nexus Adria Open 2025 Winter Qualifier 1,Nexus Adria Open/2025 Season/Winter/Qualifier 1,Nexus Adria Open,EMEA,Croatia,Online,2025-02-03,2025-02-03,Secondary,0.0,1.0,
+Nexus Adria Open 2025 Winter Qualifier 2,Nexus Adria Open/2025 Season/Winter/Qualifier 2,Nexus Adria Open,EMEA,Croatia,Online,2025-02-08,2025-02-08,Secondary,0.0,1.0,
+Nexus Tour 2025 Etape 2,Nexus Tour 2025/Etape 2,Nexus Tour,EMEA,France,Online,2025-05-17,2025-05-18,Secondary,1.0,0.0,
+Nexus Tour 2025 Etape 3,Nexus Tour 2025/Etape 3,Nexus Tour,EMEA,France,Online,2025-06-14,2025-06-15,Secondary,1.0,0.0,
+Nexus Tour 2025 Etape 4,Nexus Tour 2025/Etape 4,Nexus Tour,EMEA,France,Online,2025-07-19,2025-07-20,Secondary,1.0,0.0,
+Nexus Tour 2025 Etape 5,Nexus Tour 2025/Etape 5,Nexus Tour,EMEA,France,Online,2025-08-09,2025-08-10,Secondary,1.0,0.0,
+Nexus Tour 2025 Etape 6,Nexus Tour 2025/Etape 6,Nexus Tour,EMEA,France,Online,2025-09-06,2025-09-07,Secondary,1.0,0.0,
+Nexus Tour 2025 Playoffs,Nexus Tour 2025/Playoffs,Nexus Tour,EMEA,France,Online,2025-09-12,2025-09-14,Secondary,1.0,0.0,
+NLC 2025 Last Chance Qualifier,NLC/2025 Season/Last Chance Qualifier,Northern League of Legends Championship,EMEA,,Online,2024-10-16,2024-11-18,Secondary,0.0,1.0,
+NLC 2025 Promotion,NLC/2025 Season/Promotion,Northern League of Legends Championship,EMEA,,Online,2024-09-09,2024-09-16,Secondary,0.0,1.0,
+NLC 2025 Spring Playoffs,NLC/2025 Season/Spring Playoffs,Northern League of Legends Championship,EMEA,,Online,2025-04-16,2025-06-01,Secondary,1.0,0.0,Spring
+NLC 2025 Spring Seeding,NLC/2025 Season/Spring Seeding,Northern League of Legends Championship,EMEA,,Online,2025-04-02,2025-04-11,Secondary,0.0,0.0,Spring
+NLC 2025 Summer Playoffs,NLC/2025 Season/Summer Playoffs,Northern League of Legends Championship,EMEA,,Online,2025-07-30,2025-08-30,Secondary,1.0,0.0,Summer
+NLC 2025 Summer Seeding,NLC/2025 Season/Summer Seeding,Northern League of Legends Championship,EMEA,,Online,2025-07-15,2025-07-24,Secondary,0.0,0.0,Summer
+NLC 2025 Winter Playoffs,NLC/2025 Season/Winter Playoffs,Northern League of Legends Championship,EMEA,,Online,2025-01-29,2025-03-02,Secondary,1.0,0.0,Winter
+NLC 2025 Winter Seeding,NLC/2025 Season/Winter Seeding,Northern League of Legends Championship,EMEA,,Online,2025-01-15,2025-01-24,Secondary,0.0,0.0,Winter
+NLC RPS 2025,NLC/2025 Season/RPS,Northern League of Legends Championship,EMEA,,Online,2025-09-23,2025-10-05,Secondary,0.0,1.0,
+NNO Cup Season 3,NNO Cup/Season 3,NNO Prime,EMEA,Germany,Online,2025-07-15,2025-07-26,Secondary,0.0,0.0,
+Northern Nexus Showdown,Northern Nexus Showdown,Northern Nexus Showdown,EMEA,,Online,2025-07-05,2025-07-06,Secondary,1.0,0.0,
+Nova Series 2025 Prélude Playoffs,Nova Series/2025 Season/Playoffs,Nova Series,EMEA,France,Online/Offline,2025-11-23,2025-12-05,Secondary,1.0,0.0,Prélude
+Nova Series 2025 Prélude Qualifier 1,Nova Series/2025 Season/Play-In/Qualifier 1,Nova Series,EMEA,France,Online,2025-11-08,2025-11-09,Secondary,0.0,1.0,Prélude
+Nova Series 2025 Prélude Qualifier 2,Nova Series/2025 Season/Play-In/Qualifier 2,Nova Series,EMEA,France,Online,2025-11-15,2025-11-16,Secondary,0.0,1.0,Prélude
+Noxus Open Cup 2025,Noxus Open Cup 2025,Noxus Open Cup,EMEA,Russia,Online,2025-04-18,2025-04-20,Secondary,1.0,0.0,
+Noxus Open Cup 2025 Closed Qualifier,Noxus Open Cup 2025/Closed Qualifier,Noxus Open Cup,EMEA,Russia,Online,2025-04-12,2025-04-13,Secondary,0.0,1.0,
+NT 2025 Etape 2 Open Qualifiers,Nexus Tour 2025/Etape 2/Open Qualifiers,Nexus Tour,EMEA,France,Online,2025-05-10,2025-05-11,Secondary,0.0,1.0,
+NT 2025 Etape 3 Open Qualifiers,Nexus Tour 2025/Etape 3/Open Qualifiers,Nexus Tour,EMEA,France,Online,2025-06-07,2025-06-08,Secondary,0.0,1.0,
+NT 2025 Etape 4 Open Qualifiers,Nexus Tour 2025/Etape 4/Open Qualifiers,Nexus Tour,EMEA,France,Online,2025-07-12,2025-07-13,Secondary,0.0,1.0,
+NT 2025 Etape 5 Open Qualifiers,Nexus Tour 2025/Etape 5/Open Qualifiers,Nexus Tour,EMEA,France,Online,2025-08-02,2025-08-03,Secondary,0.0,1.0,
+NT 2025 Etape 6 Open Qualifiers,Nexus Tour 2025/Etape 6/Open Qualifiers,Nexus Tour,EMEA,France,Online,2025-08-30,2025-08-31,Secondary,0.0,1.0,
+NT 2025 Gamers Assembly,Nexus Tour 2025/Gamers Assembly 2025,Nexus Tour and Gamers Assembly,EMEA,France,Offline,2025-04-20,2025-04-21,Secondary,0.0,0.0,
+NT 2025 Gamers Assembly Elite Bracket,Nexus Tour 2025/Gamers Assembly 2025/Other Brackets,Nexus Tour and Gamers Assembly,EMEA,France,Offline,2025-04-20,2025-04-21,Secondary,0.0,0.0,
+NT 2025 Gamers Assembly Swiss Round,Nexus Tour 2025/Gamers Assembly 2025/Swiss Round,Nexus Tour,EMEA,France,Offline,2025-04-19,2025-04-19,Secondary,0.0,1.0,
+Odyssey Cup 2025,Odyssey Cup 2025,Odyssey Cup,Americas,Brazil,,2025-09-19,2025-09-20,Secondary,0.0,0.0,
+PCS 2025 Split 1,PCS/2025 Season/Split 1,Pacific Championship Series,Asia Pacific,,Online,2025-02-10,2025-03-03,Secondary,0.0,0.0,Split 1
+PCS 2025 Split 1 Playoffs,PCS/2025 Season/Split 1 Playoffs,Pacific Championship Series,Asia Pacific,,Online,2025-03-10,2025-03-26,Secondary,1.0,0.0,Split 1
+PCS 2025 Split 2,PCS/2025 Season/Split 2,Pacific Championship Series,Asia Pacific,,Online,2025-04-07,2025-06-04,Secondary,0.0,0.0,Split 2
+PCS 2025 Split 2 Playoffs,PCS/2025 Season/Split 2 Playoffs,Pacific Championship Series,Asia Pacific,,Online,2025-06-09,2025-06-18,Secondary,1.0,0.0,Split 2
+PCS 2025 Split 2 Promotion,PCS/2025 Season/Split 2 Promotion,Pacific Championship Series,Asia Pacific,,Online,2025-03-17,2025-03-19,Secondary,0.0,1.0,
+PCS 2025 Split 3,PCS/2025 Season/Split 3,Pacific Championship Series,Asia Pacific,,Online,2025-07-21,2025-08-20,Secondary,0.0,0.0,Split 3
+PCS 2025 Split 3 Playoffs,PCS/2025 Season/Split 3 Playoffs,Pacific Championship Series,Asia Pacific,,Online,2025-08-25,2025-08-31,Secondary,1.0,0.0,Split 3
+Play Marbella Generation Cup 24-25,Play Marbella Generation Cup 24-25,Play Marbella Generation Cup,EMEA,Spain,Online/Offline,2025-05-11,2025-05-18,Secondary,1.0,0.0,
+Play Marbella Generation Cup 24-25 Online Tournament,Play Marbella Generation Cup 24-25/Online Tournament,Play Marbella Generation Cup,EMEA,Spain,Online,2025-05-17,2025-05-18,Secondary,1.0,0.0,
+Play Marbella Generation Cup 24-25 Qualifier 1,Play Marbella Generation Cup 24-25/Qualifier 1,Play Marbella Generation Cup,EMEA,Spain,Online,2025-05-09,2025-05-09,Secondary,0.0,1.0,
+Play Marbella Generation Cup 24-25 Qualifier 2,Play Marbella Generation Cup 24-25/Qualifier 2,Play Marbella Generation Cup,EMEA,Spain,Online,2025-05-10,2025-05-10,Secondary,0.0,1.0,
+POP Esports Masters Season 6,POP Esports Masters/Season 6,POP Esports Masters,EMEA,Luxembourg,Online,2025-02-04,2025-06-07,Secondary,1.0,0.0,
+Predator League 2026 Philippines,Predator League 2026/National Tournament/Philippines,Predator League,Asia Pacific,Philippines,,2025-10-04,2025-11-16,Secondary,0.0,0.0,
+Predator League 2026 Philippines Q1,Predator League 2026/National Tournament/Philippines/Qualifier 1,Predator League,Asia Pacific,Philippines,,2025-09-19,2025-09-19,Secondary,0.0,1.0,
+Predator League 2026 Philippines Q2,Predator League 2026/National Tournament/Philippines/Qualifier 2,Predator League,Asia Pacific,Philippines,,2025-09-20,2025-09-20,Secondary,0.0,1.0,
+Predator League 2026 Philippines Q3,Predator League 2026/National Tournament/Philippines/Qualifier 3,Predator League,Asia Pacific,Philippines,,2025-09-21,2025-09-21,Secondary,0.0,1.0,
+PRM 1st Division 2025 Promotion,Prime League 1st Division/2025 Season/Promotion,Prime League Pro Division,EMEA,Germany,Online,2024-09-03,2024-09-07,Secondary,0.0,1.0,
+PRM 1st Division 2025 Season Finals,Prime League 1st Division/2025 Season/Season Finals,Prime League Pro Division,EMEA,Germany,,2025-08-12,2025-08-24,Secondary,1.0,0.0,Finals
+PRM 1st Division 2025 Season Finals LCQ,Prime League 1st Division/2025 Season/Season Finals/Last Chance Qualifier,Prime League Pro Division,EMEA,Germany,,2025-08-11,2025-08-11,Secondary,1.0,0.0,Finals
+PRM 1st Division 2025 Spring,Prime League 1st Division/2025 Season/Spring Split,Prime League Pro Division,EMEA,Germany,,2025-03-25,2025-05-14,Secondary,0.0,0.0,Spring
+PRM 1st Division 2025 Spring Playoffs,Prime League 1st Division/2025 Season/Spring Playoffs,Prime League Pro Division,EMEA,Germany,,2025-05-20,2025-05-30,Secondary,1.0,0.0,Spring
+PRM 1st Division 2025 Summer,Prime League 1st Division/2025 Season/Summer Split,Prime League Pro Division,EMEA,Germany,,2025-07-15,2025-08-06,Secondary,0.0,0.0,Summer
+PRM 1st Division 2025 Winter,Prime League 1st Division/2025 Season/Winter Split,Prime League Pro Division,EMEA,Germany,,2025-01-21,2025-02-19,Secondary,0.0,0.0,Winter
+PRM 1st Division 2025 Winter Playoffs,Prime League 1st Division/2025 Season/Winter Playoffs,Prime League Pro Division,EMEA,Germany,,2025-02-25,2025-03-08,Secondary,1.0,0.0,Winter
+PRM 2nd Division 2025 Promotion,Prime League 2nd Division/2025 Season/Promotion,Prime League 1st Division,EMEA,Germany,Online,2024-09-02,2024-09-11,Secondary,0.0,1.0,
+PRM 2nd Division 2025 Season Finals,Prime League 2nd Division/2025 Season/Season Finals,Prime League 1st Division,EMEA,Germany,Online,2025-08-02,2025-08-20,Secondary,1.0,0.0,Finals
+PRM 2nd Division 2025 Spring,Prime League 2nd Division/2025 Season/Spring Split,Prime League 1st Division,EMEA,Germany,Online,2025-01-30,2025-02-27,Secondary,0.0,0.0,Spring
+PRM 2nd Division 2025 Spring Playoffs,Prime League 2nd Division/2025 Season/Spring Playoffs,Prime League 1st Division,EMEA,Germany,Online,2025-03-13,2025-04-10,Secondary,1.0,0.0,Spring
+PRM 2nd Division 2025 Spring Relegation,Prime League 2nd Division/2025 Season/Spring Relegation,Prime League 1st Division,EMEA,Germany,Online,2025-04-05,2025-04-13,Secondary,0.0,1.0,Spring
+PRM 2nd Division 2025 Summer,Prime League 2nd Division/2025 Season/Summer Split,Prime League 1st Division,EMEA,Germany,Online,2025-06-23,2025-07-03,Secondary,0.0,0.0,Summer
+PRM 2nd Division 2025 Summer Playoffs,Prime League 2nd Division/2025 Season/Summer Playoffs,Prime League 1st Division,EMEA,Germany,Online,2025-07-07,2025-07-25,Secondary,1.0,0.0,Summer
+PRM 2nd Division 2025 Summer Relegation,Prime League 2nd Division/2025 Season/Summer Relegation,Prime League 1st Division,EMEA,Germany,Online,2025-08-02,2025-08-10,Secondary,0.0,1.0,Summer
+PRM 3rd Division 24-25 Spring,Prime League 3rd Division/2025 Season/Spring Split,Prime League 2nd Division,EMEA,Germany,Online,2025-01-30,2025-03-30,Secondary,0.0,0.0,
+PRM 3rd Division 24-25 Spring Promotion,Prime League 3rd Division/2025 Season/Spring Promotion,Prime League 2nd Division,EMEA,Germany,Online,2024-12-07,2024-12-27,Secondary,0.0,1.0,
+PRM 3rd Division 24-25 Spring Relegation,Prime League 3rd Division/2025 Season/Spring Relegation,Prime League 2nd Division,EMEA,Germany,Online,2025-04-05,2025-04-12,Secondary,0.0,1.0,
+PRM 3rd Division 24-25 Summer,Prime League 3rd Division/2025 Season/Summer Split,Prime League 2nd Division,EMEA,Germany,Online,2025-06-01,2025-07-27,Secondary,0.0,0.0,
+PRM 3rd Division 24-25 Summer Relegation,Prime League 3rd Division/2025 Season/Summer Relegation,Prime League 2nd Division,EMEA,Germany,Online,2025-08-02,2025-08-09,Secondary,0.0,1.0,
+PRM 3rd Division 24-25 Winter Playoffs,Prime League 3rd Division/2025 Season/Winter Playoffs,Prime League 2nd Division,EMEA,Germany,Online,2024-12-07,2025-01-04,Secondary,1.0,0.0,
+PRM 3rd Division 24-25 Winter Promotion,Prime League 3rd Division/2025 Season/Winter Promotion,Prime League 2nd Division,EMEA,Germany,Online,2024-08-17,2024-08-19,Secondary,0.0,1.0,
+PRM 3rd Division 24-25 Winter Split,Prime League 3rd Division/2025 Season/Winter Split,Prime League 2nd Division,EMEA,Germany,Online,2024-10-20,2024-12-01,Secondary,0.0,0.0,
+PRM Pokal 2025,Prime Pokal 2025,Prime Pokal,EMEA,Germany,Online,2025-04-04,2025-08-30,Secondary,0.0,0.0,
+PRM Pokal 2025 Qualifier,Prime Pokal 2025/Qualifier,Prime Pokal,EMEA,Germany,Online,2025-02-10,2025-03-17,Secondary,0.0,0.0,
+PROTOTYPE: LAUNCH,PROTOTYPE: LAUNCH,STUDIO PROTOTYPE,EMEA,Spain,Online,2025-09-05,2025-09-07,Secondary,1.0,0.0,
+Radiant Dawn Invitational 2025,Radiant Dawn Invitational 2025,Radiant Dawn Invitational,EMEA,Germany,,2025-05-24,2025-05-25,Secondary,0.0,0.0,
+Radiant Dawn Invitational 2025 Open Qualifier,Radiant Dawn Invitational 2025/Open Qualifier,Radiant Dawn Invitational,EMEA,Germany,,2025-05-17,2025-05-18,Secondary,0.0,1.0,
+Red Bull Gaming Garden: Clash of its Own,Red Bull Gaming Garden: Clash of its Own,Clash of its Own,EMEA,Germany,Offline,2025-11-28,2025-11-28,Secondary,1.0,0.0,
+Red Bull Gaming Garden: Clash of its Own Qualifier 1,Red Bull Gaming Garden: Clash of its Own/Qualifier 1,Clash of its Own,EMEA,Germany,Online,2025-11-07,2025-11-08,Secondary,0.0,1.0,
+Red Bull Gaming Garden: Clash of its Own Qualifier 2,Red Bull Gaming Garden: Clash of its Own/Qualifier 2,Clash of its Own,EMEA,Germany,Online,2025-11-14,2025-11-15,Secondary,0.0,1.0,
+Red Bull League of Its Own 2025,2025 Red Bull League of Its Own,Red Bull League of Its Own,International,Germany,Offline,2025-11-29,2025-11-29,Showmatch,0.0,0.0,
+Red Bull Team 5,Red Bull Team 5,Red Bull Team 5,EMEA,Spain,Online/Offline,2025-06-09,2025-06-19,Secondary,1.0,0.0,
+Rift Legends 2025 Spring,Rift Legends/2025 Season/Spring Split,Rift Legends,EMEA,Poland,Online,2025-04-08,2025-05-08,Secondary,0.0,0.0,Spring
+Rift Legends 2025 Spring Playoffs,Rift Legends/2025 Season/Spring Playoffs,Rift Legends,EMEA,Poland,"Online (Round 1 Losers' Bracket Match)&lt;br&gt;Offline (Round 1 Winners' Bracket Match, Semifinals, &amp; Finals)",2025-05-15,2025-05-18,Secondary,1.0,0.0,Spring
+Rift Legends 2025 Summer,Rift Legends/2025 Season/Summer Split,Rift Legends,EMEA,Poland,Online,2025-07-22,2025-08-24,Secondary,0.0,0.0,Summer
+Rift Legends 2025 Summer Playoffs,Rift Legends/2025 Season/Summer Playoffs,Rift Legends,EMEA,Poland,Offline,2025-09-05,2025-09-07,Secondary,1.0,0.0,Summer
+Rift Legends 2025 Winter,Rift Legends/2025 Season/Winter Split,Rift Legends,EMEA,Poland,Online,2025-01-28,2025-02-27,Secondary,0.0,0.0,Winter
+Rift Legends 2025 Winter Closed Qualifier,Rift Legends/2025 Season/Winter Promotion,Rift Legends,EMEA,Poland,Online,2025-01-11,2025-01-12,Secondary,0.0,1.0,
+Rift Legends 2025 Winter Last Chance Qualifier,Rift Legends/2025 Season/Winter Promotion/Last Chance Qualifier,Rift Legends,EMEA,Poland,Online,2025-01-08,2025-01-08,Secondary,0.0,1.0,
+Rift Legends 2025 Winter Open Qualifier 1,Rift Legends/2025 Season/Winter Promotion/Open Qualifiers/Qualifier 1,Rift Legends,EMEA,Poland,Online,2025-01-06,2025-01-06,Secondary,0.0,1.0,
+Rift Legends 2025 Winter Open Qualifier 2,Rift Legends/2025 Season/Winter Promotion/Open Qualifiers/Qualifier 2,Rift Legends,EMEA,Poland,Online,2025-01-07,2025-01-07,Secondary,0.0,1.0,Winter
+Rift Legends 2025 Winter Playoffs,Rift Legends/2025 Season/Winter Playoffs,Rift Legends,EMEA,Poland,Online (Round 1 and Semifinals)&lt;br&gt;Offline (Finals),2025-03-01,2025-03-09,Secondary,1.0,0.0,Winter
+RIFT SUMMIT 2025,RIFT SUMMIT 2025,RIFT SUMMIT,EMEA,Czech Republic,Online/Offline,2025-10-27,2025-11-30,Secondary,0.0,0.0,
+Road Of Legends 2025 Season Finals,TransIP Road Of Legends/2025 Season/Season Finals,TransIP Road Of Legends,EMEA,Netherlands,Online,2025-09-02,2025-09-13,Secondary,1.0,0.0,Summer
+Road Of Legends 2025 Spring,TransIP Road Of Legends/2025 Season/Spring Split,TransIP Road Of Legends,EMEA,Netherlands,Online,2025-03-25,2025-05-08,Secondary,0.0,0.0,Spring
+Road Of Legends 2025 Spring Playoffs,TransIP Road Of Legends/2025 Season/Spring Playoffs,TransIP Road Of Legends,EMEA,Netherlands,Online,2025-05-13,2025-05-24,Secondary,1.0,0.0,Spring
+Road Of Legends 2025 Summer,TransIP Road Of Legends/2025 Season/Summer Split,TransIP Road Of Legends,EMEA,Netherlands,Online,2025-07-15,2025-08-28,Secondary,0.0,0.0,Summer
+Road Of Legends 2025 Summer Promotion,TransIP Road Of Legends/2025 Season/Summer Promotion,TransIP Road Of Legends,EMEA,Netherlands,Online,2025-05-29,2025-06-15,Secondary,0.0,1.0,
+Road Of Legends 2025 Winter,TransIP Road Of Legends/2025 Season/Winter Split,TransIP Road Of Legends,EMEA,Netherlands,Online,2025-02-11,2025-03-06,Secondary,0.0,0.0,Winter
+Road to Arabian League 2025 EUW Final Stage 1,Road to Arabian League/2025 Season/EUW/Season 1,Road to Arabian League,EMEA,Arab League,Online,2025-05-03,2025-05-18,Secondary,0.0,1.0,Winter
+Road to Arabian League 2025 EUW Final Stage 2,Road to Arabian League/2025 Season/EUW/Season 2,Road to Arabian League,EMEA,Arab League,Online,2025-08-21,2025-08-27,Secondary,0.0,1.0,Summer
+Road to Arabian League 2025 EUW Qualifier 1,Road to Arabian League/2025 Season/EUW/Qualifier 1,Road to Arabian League,EMEA,Arab League,Online,2025-02-15,2025-02-28,Secondary,0.0,1.0,Winter
+Road to Arabian League 2025 EUW Qualifier 2,Road to Arabian League/2025 Season/EUW/Qualifier 2,Road to Arabian League,EMEA,Arab League,Online,2025-04-05,2025-04-12,Secondary,0.0,1.0,Winter
+Road to Arabian League 2025 EUW Wild Card,Road to Arabian League/2025 Season/EUW/Wild Card,Road to Arabian League,EMEA,Arab League,Online,2025-04-26,2025-04-30,Secondary,0.0,1.0,
+Road to Arabian League 2025 ME Final Stage 1,Road to Arabian League/2025 Season/MENA/Season 1,Road to Arabian League,EMEA,Arab League,Online,2025-05-17,2025-05-17,Secondary,0.0,1.0,Winter
+Road to Arabian League 2025 ME Final Stage 2,Road to Arabian League/2025 Season/MENA/Season 2,Road to Arabian League,EMEA,Arab League,Online,2025-08-21,2025-08-27,Secondary,0.0,1.0,Summer
+Road to Arabian League 2025 ME Last Chance Qualifier,Road to Arabian League/2025 Season/MENA/Last Chance Qualifier,Road to Arabian League,EMEA,Arab League,Online,2025-05-03,2025-05-05,Secondary,0.0,1.0,Winter
+Road to Arabian League 2025 ME Qualifier 1,Road to Arabian League/2025 Season/MENA/Qualifier 1,Road to Arabian League,EMEA,Arab League,Online,2025-02-22,2025-02-23,Secondary,0.0,1.0,Winter
+Road to LEC Finals,Road to LEC Finals,Road to LEC Finals,EMEA,Germany,Online,2025-07-12,2025-07-12,Secondary,1.0,0.0,
+RTV 2025 Spring: Campus,Road to VCS/2025 Spring/Campus,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-01-24,2025-01-25,Secondary,0.0,0.0,
+RTV 2025 Spring: Hoàng Luân Tournament,Road to VCS/2025 Spring/Hoàng Luân Tournament,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-02-04,2025-02-14,Secondary,0.0,0.0,
+RTV 2025 Spring: Vikings Hanoi,Road to VCS/2025 Spring/Vikings Hanoi,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-02-15,2025-02-15,Secondary,0.0,0.0,
+RTV 2025 Spring: Vikings Ho Chi Minh,Road to VCS/2025 Spring/Vikings Ho Chi Minh,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-02-15,2025-02-15,Secondary,0.0,0.0,
+RTV 2025 Summer: Danang Esports Campus,Road to VCS/2025 Summer/Offline Finals/Campus/Danang Student Community,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+RTV 2025 Summer: Dino Vườn Lài,Road to VCS/2025 Summer/Offline Finals/Cyber/Dino Vườn Lài,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+RTV 2025 Summer: Discord Cup Week 1,Road to VCS/2025 Summer/Online Finals/Discord Cup/Week 1,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-03-30,2025-03-31,Secondary,0.0,1.0,
+RTV 2025 Summer: Discord Cup Week 2,Road to VCS/2025 Summer/Online Finals/Discord Cup/Week 2,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+RTV 2025 Summer: Discord Cup Week 3,Road to VCS/2025 Summer/Online Finals/Discord Cup/Week 3,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: Discord Cup Week 4,Road to VCS/2025 Summer/Online Finals/Discord Cup/Week 4,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-16,2025-04-17,Secondary,0.0,1.0,
+RTV 2025 Summer: DK Gaming,Road to VCS/2025 Summer/Offline Finals/Cyber/DK Gaming,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: Gaming Gang,Road to VCS/2025 Summer/Offline Finals/Cyber/Gaming Gang,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: Gaming X Nguyễn Trãi,Road to VCS/2025 Summer/Offline Finals/Cyber/Gaming X Nguyễn Trãi,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+RTV 2025 Summer: HCMUTE,Road to VCS/2025 Summer/Offline Finals/Campus/Ho Chi Minh City University of Technology and Education,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+RTV 2025 Summer: HD Gaming,Road to VCS/2025 Summer/Offline Finals/Cyber/HD Center,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+RTV 2025 Summer: HUCE,Road to VCS/2025 Summer/Offline Finals/Campus/Hanoi University of Civil Engineering,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: HUTECH,Road to VCS/2025 Summer/Offline Finals/Campus/Ho Chi Minh City University of Technology,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: New Funzone Club,Road to VCS/2025 Summer/Offline Finals/Cyber/New Funzone Club,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+RTV 2025 Summer: NTTU,Road to VCS/2025 Summer/Offline Finals/Campus/Nguyễn Tất Thành University,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: Offline Finals,Road to VCS/2025 Summer/Offline Finals,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-19,2025-04-27,Secondary,0.0,0.0,
+RTV 2025 Summer: Online Finals,Road to VCS/2025 Summer/Online Finals,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-18,2025-04-26,Secondary,0.0,0.0,
+RTV 2025 Summer: Thanos Esports Center,Road to VCS/2025 Summer/Offline Finals/Cyber/Thanos Esports Center,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-06,2025-04-06,Secondary,0.0,1.0,
+RTV 2025 Summer: The Esports Stadium,Road to VCS/2025 Summer/Offline Finals/Cyber/The Esports Stadium,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: UEF,Road to VCS/2025 Summer/Offline Finals/Campus/Ho Chi Minh City University of Economics and Finance,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: Unicorn Cyber,Road to VCS/2025 Summer/Offline Finals/Cyber/Unicorn Cyber,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-14,Secondary,0.0,1.0,
+RTV 2025 Summer: UTT,Road to VCS/2025 Summer/Offline Finals/Campus/University Of Transport Technology,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: Venus Esports Stadium,Road to VCS/2025 Summer/Offline Finals/Cyber/Venus Esports Stadium,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-13,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: Vikings,Road to VCS/2025 Summer/Offline Finals/Cyber/Vikings,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-12,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: VNUA,Road to VCS/2025 Summer/Offline Finals/Campus/Vietnam National University of Agriculture,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-12,2025-04-13,Secondary,0.0,1.0,
+RTV 2025 Summer: VPS Pro League,Road to VCS/2025 Summer/Online Finals/KOL &amp; Partner/Optimus VPS Pro League,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-08,2025-04-13,Secondary,0.0,1.0,
+Saudi eLeagues 2025 Championship,Saudi eLeagues/2025 Season/Championship,Saudi eLeagues,EMEA,Saudi Arabia,Offline,2025-11-14,2025-11-15,Secondary,1.0,0.0,Championship
+Saudi eLeagues 2025 Season 1 Online Major,Saudi eLeagues/2025 Season/Season 1,Saudi eLeagues,EMEA,Saudi Arabia,Online,2025-04-04,2025-04-08,Secondary,1.0,0.0,Season 1
+Saudi eLeagues 2025 Season 1 Open Qualifiers,Saudi eLeagues/2025 Season/Season 1/Open Qualifiers,Saudi eLeagues,EMEA,Saudi Arabia,Online,2025-03-25,2025-03-28,Secondary,0.0,1.0,Season 1
+Saudi eLeagues 2025 Season 2 Online Major,Saudi eLeagues/2025 Season/Season 2,Saudi eLeagues,EMEA,Saudi Arabia,Online,2025-08-06,2025-08-10,Secondary,1.0,0.0,Season 2
+Saudi eLeagues 2025 Season 2 Open Qualifiers,Saudi eLeagues/2025 Season/Season 2/Open Qualifiers,Saudi eLeagues,EMEA,Saudi Arabia,Online,2025-07-26,2025-07-30,Secondary,0.0,1.0,Season 2
+SCV Season 1,SCV Season 1,,Asia Pacific,Vietnam,,2025-12-26,2025-12-28,Secondary,0.0,0.0,
+Showmatch Hoa Linh Kỳ Ngộ,Showmatch Hoa Linh Kỳ Ngộ,VNG Games,Asia Pacific,Vietnam,,2025-06-13,2025-06-13,,,,
+Sky Masters Season 1,Sky Masters/Season 1,Sky Masters,EMEA,Europe,Online,2025-05-01,2025-05-03,Secondary,0.0,0.0,
+Sky Masters Season 2,Sky Masters/Season 2,Sky Masters,EMEA,Europe,Online,2025-06-15,2025-06-18,Secondary,0.0,0.0,
+Sky Masters Season 3,Sky Masters/Season 3,Sky Masters,EMEA,Europe,Online,2025-07-01,2025-08-03,Secondary,0.0,0.0,
+Sky Masters Season 3 Closed Qualifier 1,Sky Masters/Season 3/Closed Qualifiers/Qualifier 1,Sky Masters,EMEA,Europe,Online,2025-06-21,2025-06-21,Secondary,0.0,1.0,
+Sky Masters Season 3 Closed Qualifier 2,Sky Masters/Season 3/Closed Qualifiers/Qualifier 2,Sky Masters,EMEA,Europe,Online,2025-06-23,2025-06-23,Secondary,0.0,1.0,
+SL 2025 Final Four,Superliga Domino's/2025 Season/Final Four,LVP SuperLiga,EMEA,Spain,Offline,2025-08-30,2025-08-31,Secondary,1.0,0.0,Final Four
+SL 2025 Spring Playoffs,Superliga Domino's/2025 Season/Spring Playoffs,LVP SuperLiga,EMEA,Spain,Online,2025-05-15,2025-05-30,Secondary,1.0,0.0,Spring
+SL 2025 Spring Split,Superliga Domino's/2025 Season/Spring Split,LVP SuperLiga,EMEA,Spain,Online,2025-04-08,2025-04-24,Secondary,0.0,0.0,Spring
+SL 2025 Spring Swiss,Superliga Domino's/2025 Season/Spring Swiss,LVP SuperLiga,EMEA,Spain,Online,2025-04-30,2025-05-14,Secondary,0.0,0.0,Spring
+SL 2025 Summer Playoffs,Superliga Domino's/2025 Season/Summer Playoffs,LVP SuperLiga,EMEA,Spain,Online,2025-08-14,2025-08-23,Secondary,1.0,0.0,Summer
+SL 2025 Summer Split,Superliga Domino's/2025 Season/Summer Split,LVP SuperLiga,EMEA,Spain,Online,2025-07-15,2025-07-31,Secondary,0.0,0.0,Summer
+SL 2025 Summer Swiss,Superliga Domino's/2025 Season/Summer Swiss,LVP SuperLiga,EMEA,Spain,Online,2025-08-05,2025-08-12,Secondary,0.0,0.0,Summer
+SL 2025 Winter Playoffs,Superliga Domino's/2025 Season/Winter Playoffs,LVP SuperLiga,EMEA,Spain,Online,2025-02-20,2025-03-06,Secondary,1.0,0.0,Winter
+SL 2025 Winter Split,Superliga Domino's/2025 Season/Winter Split,LVP SuperLiga,EMEA,Spain,Online,2025-01-14,2025-01-30,Secondary,0.0,0.0,Winter
+SL 2025 Winter Swiss,Superliga Domino's/2025 Season/Winter Swiss,LVP SuperLiga,EMEA,Spain,Online,2025-02-06,2025-02-18,Secondary,0.0,0.0,Winter
+Spring ShowDown 24-25,Spring ShowDown 24-25,Spring ShowDown,EMEA,Spain,Online,2025-06-01,2025-06-01,Secondary,1.0,0.0,
+Spring ShowDown 24-25 Qualifier 1,Spring ShowDown 24-25/Qualifier 1,Spring ShowDown,EMEA,Spain,Online,2025-05-30,2025-05-30,Secondary,0.0,1.0,
+Spring ShowDown 24-25 Qualifier 2,Spring ShowDown 24-25/Qualifier 2,Spring ShowDown,EMEA,Spain,Online,2025-05-31,2025-05-31,Secondary,0.0,1.0,
+Streamers Clash Season 2,Streamers Clash/Season 2,Streamers Clash,EMEA,Czech Republic,Online,2025-02-04,2025-02-22,Secondary,0.0,0.0,
+Streamers Clash Season 3,Streamers Clash/Season 3,Streamers Clash,EMEA,Czech Republic,Online,2025-11-14,2025-12-13,Secondary,0.0,0.0,
+Střet vyvolávačů 2025,Střet vyvolávačů 2025,Střet vyvolávačů,EMEA,Czech Republic,Online/Offline,2025-10-23,2025-11-09,Secondary,1.0,0.0,
+Svenska Onlineligan 2025 Autumn,Svenska Onlineligan/2025 Season/Autumn Split,Svenska Onlineligan,EMEA,Sweden,Online,2025-08-03,2025-09-14,Secondary,0.0,0.0,
+Svenska Onlineligan 2025 Autumn Playoffs,Svenska Onlineligan/2025 Season/Autumn Playoffs,Svenska Onlineligan,EMEA,Sweden,Online/Offline,2025-09-21,2025-10-19,Secondary,1.0,0.0,
+Svenska Onlineligan 2025 Spring,Svenska Onlineligan/2025 Season/Spring Split,Svenska Onlineligan,EMEA,Sweden,Online,2025-02-09,2025-04-06,Secondary,0.0,0.0,
+Svenska Onlineligan 2025 Spring Playoffs,Svenska Onlineligan/2025 Season/Spring Playoffs,Svenska Onlineligan,EMEA,Sweden,Online/Offline,2025-04-17,2025-05-25,Secondary,1.0,0.0,
+SwitzerLAN 2025,SwitzerLAN 2025,SwitzerLAN,EMEA,Switzerland,Offline,2025-10-02,2025-10-05,Secondary,1.0,0.0,
+T1 Home Ground 2025,T1 Home Ground 2025,T1 Home Ground,Korea,South Korea,,2025-07-25,2025-07-27,Secondary,0.0,0.0,
+TCL 2025 Promotion,TCL/2025 Season/Promotion,Turkish Championship League,EMEA,Turkey,Online,2024-09-02,2024-09-08,Secondary,0.0,1.0,
+TCL 2025 Spring,TCL/2025 Season/Spring Split,Turkish Championship League,EMEA,Turkey,Online,2025-03-27,2025-05-09,Secondary,0.0,0.0,Spring
+TCL 2025 Spring Playoffs,TCL/2025 Season/Spring Playoffs,Turkish Championship League,EMEA,Turkey,Online,2025-05-14,2025-05-30,Secondary,1.0,0.0,Spring
+TCL 2025 Summer,TCL/2025 Season/Summer Split,Turkish Championship League,EMEA,Turkey,Online,2025-07-17,2025-08-27,Secondary,0.0,0.0,Summer
+TCL 2025 Summer Playoffs,TCL/2025 Season/Summer Playoffs,Turkish Championship League,EMEA,Turkey,Online/Offline,2025-08-30,2025-09-12,Secondary,1.0,0.0,Summer
+TCL 2025 Summer Promotion,TCL/2025 Season/Summer Promotion,Turkish Championship League,EMEA,Turkey,Online,2025-07-01,2025-07-04,Secondary,0.0,1.0,Summer
+TCL 2025 Winter,TCL/2025 Season/Winter Split,Turkish Championship League,EMEA,Turkey,Online,2025-01-23,2025-02-27,Secondary,0.0,0.0,Winter
+TCL 2025 Winter Playoffs,TCL/2025 Season/Winter Playoffs,Turkish Championship League,EMEA,Turkey,Online,2025-03-03,2025-03-09,Secondary,1.0,0.0,Winter
+TCL Division 2 2025 Promotion,TCL Division 2/2025 Season/Promotion,TCL Division 2,EMEA,Turkey,Online,2024-09-04,2024-09-04,Secondary,0.0,1.0,
+TEC Community Clash,TEC Community Clash,TEC Community Clash,Asia Pacific,,,2025-01-11,2025-01-19,,,,
+TEC Community Clash Qualifier,TEC Community Clash/Qualifier,TEC Community Clash,Asia Pacific,,,2025-01-07,2025-01-09,,,1.0,
+TEC Season 4,TEC/Season 4,T-esports Championship,EMEA,Europe,"Online (Swiss Stage, Quarterfinals, Semifinals)&lt;br&gt;Offline (Finals)",2025-10-09,2025-11-16,Secondary,0.0,0.0,
+TEC Season 4 Qualifier 1,TEC/Season 4/Qualifiers/Qualifier 1,T-esports Championship,EMEA,Europe,Online,2025-09-08,2025-09-08,Secondary,0.0,1.0,
+TEC Season 4 Qualifier 2,TEC/Season 4/Qualifiers/Qualifier 2,T-esports Championship,EMEA,Europe,Online,2025-09-13,2025-09-13,Secondary,0.0,1.0,
+TEC Season 4 Qualifier 3,TEC/Season 4/Qualifiers/Qualifier 3,T-esports Championship,EMEA,Europe,Online,2025-09-15,2025-09-15,Secondary,0.0,1.0,
+TEC Season 4 Qualifier 4,TEC/Season 4/Qualifiers/Qualifier 4,T-esports Championship,EMEA,Europe,Online,2025-09-20,2025-09-20,Secondary,0.0,1.0,
+The Major Six 2025 Kaohsiung Open Qualifiers,The Major Six 2025/Kaohsiung Open Qualifiers,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2025-08-04,2025-08-11,Secondary,0.0,0.0,
+The Major Six 2025 New Taipei City Open Qualifiers,The Major Six 2025/New Taipei City Open Qualifiers,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2025-07-15,2025-07-23,Secondary,0.0,0.0,
+The Major Six 2025 Taichung Open Qualifiers,The Major Six 2025/Taichung Open Qualifiers,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2025-07-28,2025-08-02,Secondary,0.0,0.0,
+The Major Six 2025 Tainan Open Qualifiers,The Major Six 2025/Tainan Open Qualifiers,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2025-08-01,2025-08-05,Secondary,0.0,0.0,
+The Major Six 2025 Taipei Open Qualifiers,The Major Six 2025/Taipei Open Qualifiers,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2025-07-13,2025-07-27,Secondary,0.0,0.0,
+The Major Six 2025 Taoyuan Open Qualifiers,The Major Six 2025/Taoyuan Open Qualifiers,Taiwan Legend Championship,Asia Pacific,Taiwan,Offline,2025-07-19,2025-07-23,Secondary,0.0,0.0,
+The Oceanic Resurrection 2025,The Oceanic Resurrection 2025,The Oceanic Resurrection,Asia Pacific,Australia,Online,2025-12-05,2025-12-21,Secondary,0.0,0.0,
+TipiLAN 2025,TipiLAN 2025,TipiLAN,EMEA,Estonia,Offline,2025-11-24,2025-11-25,Secondary,1.0,0.0,
+Toledo Matsuri 24-25,Toledo Matsuri 24-25,Toledo Matsuri,EMEA,Spain,Online/Offline,2025-03-09,2025-04-05,Secondary,1.0,0.0,
+Toledo Matsuri 24-25 Online Tournament,Toledo Matsuri 24-25/Online Tournament,Toledo Matsuri,EMEA,Spain,Online,2025-04-05,2025-04-06,Secondary,1.0,0.0,
+Toledo Matsuri 24-25 Qualifier 1,Toledo Matsuri 24-25/Qualifier 1,Toledo Matsuri,EMEA,Spain,Online,2025-03-07,2025-03-07,Secondary,0.0,1.0,
+Toledo Matsuri 24-25 Qualifier 2,Toledo Matsuri 24-25/Qualifier 2,Toledo Matsuri,EMEA,Spain,Online,2025-03-08,2025-03-08,Secondary,0.0,1.0,
+TRIFORC3 TOURNAMENT 24-25,TRIFORC3 TOURNAMENT 24-25,TRIFORC3 TOURNAMENT,EMEA,Spain,Online,2025-02-02,2025-02-09,Secondary,1.0,0.0,
+TRIFORC3 TOURNAMENT 24-25 Qualifier 1,TRIFORC3 TOURNAMENT 24-25/Qualifier 1,TRIFORC3 TOURNAMENT,EMEA,Spain,Online,2025-01-31,2025-01-31,Secondary,0.0,1.0,
+TRIFORC3 TOURNAMENT 24-25 Qualifier 2,TRIFORC3 TOURNAMENT 24-25/Qualifier 2,TRIFORC3 TOURNAMENT,EMEA,Spain,Online,2025-02-01,2025-02-01,Secondary,0.0,1.0,
+Trufas Circuit LAN 2025 Main Event,Trufas Circuit LAN/2025 Season/Main Event,Somos Trufas,Americas,South America,Online,2025-09-21,2025-09-28,Secondary,0.0,0.0,
+Trufas Circuit LAN 2025 Qualifier 1,Trufas Circuit LAN/2025 Season/Regular Season/Qualifier 1,Somos Trufas,Americas,South America,Online,2025-09-10,2025-09-10,Secondary,0.0,0.0,
+Trufas Circuit LAN 2025 Qualifier 2,Trufas Circuit LAN/2025 Season/Regular Season/Qualifier 2,Somos Trufas,Americas,South America,Online,2025-09-12,2025-09-12,Secondary,0.0,0.0,
+Trufas Circuit LAN 2025 Qualifier 3,Trufas Circuit LAN/2025 Season/Regular Season/Qualifier 3,Somos Trufas,Americas,South America,Online,2025-09-14,2025-09-14,Secondary,0.0,0.0,
+Trufas Circuit LAN 2025 Qualifier 4,Trufas Circuit LAN/2025 Season/Regular Season/Qualifier 4,Somos Trufas,Americas,South America,Online,2025-09-17,2025-09-17,Secondary,0.0,0.0,
+Trufas Circuit LAN 2025 Qualifier 5,Trufas Circuit LAN/2025 Season/Regular Season/Qualifier 5,Somos Trufas,Americas,South America,Online,2025-09-19,2025-09-19,Secondary,0.0,0.0,
+Tunisian Super League 2025,Tunisian Super League/2025 Season,Tunisian Super League,EMEA,Tunisia,Online/Offline,2025-11-22,2025-12-25,Secondary,0.0,0.0,
+U19 Esports Championship 2025,U19 Esports Championship 2025,U19 Esports Championship,Asia Pacific,Japan,Offline/Online,2025-11-29,2025-12-21,Secondary,0.0,0.0,
+UCLAN 4,UCLAN 4,UCLan,EMEA,Belgium,Offline,2025-10-24,2025-10-26,Secondary,1.0,0.0,
+UEM 2025,University Esports Masters 2025,University Esports Masters,EMEA,Europe,Online,2025-05-17,2025-06-07,Secondary,1.0,0.0,
+Ukrainian Glory League 2025 Spring,Ukrainian Glory League/2025 Season/Spring Season,Ukrainian Glory League,EMEA,Ukraine,Online,2025-05-03,2025-05-11,Secondary,1.0,0.0,
+Ukrainian Glory League 2025 Spring Qualifier 1,Ukrainian Glory League/2025 Season/Spring Qualifiers/Qualifier 1,Ukrainian Glory League,EMEA,Ukraine,Online,2025-04-12,2025-04-13,Secondary,0.0,1.0,
+Ukrainian Glory League 2025 Spring Qualifier 2,Ukrainian Glory League/2025 Season/Spring Qualifiers/Qualifier 2,Ukrainian Glory League,EMEA,Ukraine,Online,2025-04-19,2025-04-20,Secondary,0.0,1.0,
+Ukrainian Glory League 2025 Spring Qualifier 3,Ukrainian Glory League/2025 Season/Spring Qualifiers/Qualifier 3,Ukrainian Glory League,EMEA,Ukraine,Online,2025-04-26,2025-04-27,Secondary,0.0,1.0,
+Ukrainian Glory League 2025 Summer,Ukrainian Glory League/2025 Season/Summer Season,Ukrainian Glory League,EMEA,Ukraine,Online,2025-08-23,2025-08-31,Secondary,1.0,0.0,
+Ukrainian Glory League 2025 Summer Qualifier 1,Ukrainian Glory League/2025 Season/Summer Qualifiers/Qualifier 1,Ukrainian Glory League,EMEA,Ukraine,Online,2025-08-02,2025-08-03,Secondary,0.0,1.0,
+Ukrainian Glory League 2025 Summer Qualifier 2,Ukrainian Glory League/2025 Season/Summer Qualifiers/Qualifier 2,Ukrainian Glory League,EMEA,Ukraine,Online,2025-08-09,2025-08-10,Secondary,0.0,1.0,
+Ukrainian Glory League 2025 Summer Qualifier 3,Ukrainian Glory League/2025 Season/Summer Qualifiers/Qualifier 3,Ukrainian Glory League,EMEA,Ukraine,Online,2025-08-16,2025-08-17,Secondary,0.0,1.0,
+Ukrainian Glory League 2025 Winter,Ukrainian Glory League/2025 Season/Winter Season,Ukrainian Glory League,EMEA,Ukraine,Online,2025-02-15,2025-02-23,Secondary,1.0,0.0,
+Ukrainian Glory League 2025 Winter Qualifier 1,Ukrainian Glory League/2025 Season/Winter Qualifiers/Qualifier 1,Ukrainian Glory League,EMEA,Ukraine,Online,2025-01-25,2025-01-26,Secondary,0.0,1.0,
+Ukrainian Glory League 2025 Winter Qualifier 2,Ukrainian Glory League/2025 Season/Winter Qualifiers/Qualifier 2,Ukrainian Glory League,EMEA,Ukraine,Online,2025-02-01,2025-02-02,Secondary,0.0,1.0,
+Ukrainian Glory League 2025 Winter Qualifier 3,Ukrainian Glory League/2025 Season/Winter Qualifiers/Qualifier 3,Ukrainian Glory League,EMEA,Ukraine,Online,2025-02-08,2025-02-09,Secondary,0.0,1.0,
+Ultraliga 2025 Promotion,Ultraliga/2024 Season/2025 Promotion,Ultraliga,EMEA,Poland,Online,2024-09-10,2024-09-18,Secondary,0.0,1.0,
+VCS 2025 Finals,VCS/2025 Season/Finals,Vietnam Championship Series,Asia Pacific,Vietnam,Offline,2025-07-18,2025-07-20,Secondary,1.0,0.0,Finals
+VCS 2025 Spring,VCS/2025 Season/Spring Season,Vietnam Championship Series,Asia Pacific,Vietnam,Offline,2025-02-28,2025-03-30,Secondary,0.0,0.0,Spring
+VCS 2025 Summer,VCS/2025 Season/Summer Season,Vietnam Championship Series,Asia Pacific,Vietnam,Offline,2025-05-27,2025-06-22,Secondary,0.0,0.0,Summer
+VCS 2025 Summer Qualifier,VCS/2025 Season/Summer Qualifier,Vietnam Championship Series,Asia Pacific,Vietnam,Offline,2025-05-08,2025-05-11,Secondary,0.0,1.0,Summer
+VIP LEC Madrid Experience,VIP LEC Madrid Experience,VIP LEC Madrid Experience,EMEA,France,Online,2025-07-19,2025-07-20,Secondary,1.0,0.0,
+VIRESA Challenge Cup 2025,Road to VCS/2025 Summer/VIRESA Challenge Cup,Road to Vietnam Championship Series,Asia Pacific,Vietnam,,2025-04-26,2025-05-04,Secondary,0.0,0.0,
+VPBank Presents 2025,VPBank Presents 2025,VPBank,Asia Pacific,Vietnam,,2025-12-20,2025-12-21,Showmatch,0.0,0.0,
+VSPO! SHOWDOWN 1st,VSPO! SHOWDOWN 1st,VSPO! SHOWDOWN,Asia Pacific,Japan,Offline,2025-03-23,2025-03-23,Showmatch,1.0,0.0,
+Whiteers Cup Season 8 Group Stage,Whiteers Cup/Season 8/Group Stage,Whiteers Cup,EMEA,Poland,Online,2025-02-07,2025-02-16,Secondary,0.0,0.0,
+Whiteers Cup Season 8 Last Chance Stage,Whiteers Cup/Season 8/Last Chance Stage,Whiteers Cup,EMEA,Poland,Online,2025-02-21,2025-02-23,Secondary,0.0,0.0,
+Whiteers Cup Season 8 Playoffs,Whiteers Cup/Season 8/Playoffs,Whiteers Cup,EMEA,Poland,Online,2025-02-27,2025-03-08,Secondary,1.0,0.0,
+Whiteers Cup Season 8 Qualifier 1,Whiteers Cup/Season 8/Qualifiers/Qualifier 1,Whiteers Cup,EMEA,Poland,Online,2025-01-24,2025-01-24,Secondary,0.0,1.0,
+Whiteers Cup Season 8 Qualifier 2,Whiteers Cup/Season 8/Qualifiers/Qualifier 2,Whiteers Cup,EMEA,Poland,Online,2025-01-25,2025-01-25,Secondary,0.0,1.0,
+Whiteers Cup Season 8 Qualifier 3,Whiteers Cup/Season 8/Qualifiers/Qualifier 3,Whiteers Cup,EMEA,Poland,Online,2025-01-26,2025-01-26,Secondary,0.0,1.0,
+Worlds 2025 Main Event,2025 Season World Championship/Main Event,World Championship,International,China,Offline,2025-10-15,2025-11-09,Primary,0.0,0.0,
+Worlds 2025 Play-In,2025 Season World Championship/Play-In,World Championship,International,China,Offline,2025-10-14,2025-10-14,Primary,0.0,1.0,

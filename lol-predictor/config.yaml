@@ -10,6 +10,11 @@ data:
   # ID Google Drive du CSV 2026 (stable, MAJ quotidienne par Oracle's Elixir).
   # Utilisé par src/update/download_data.py pour rafraîchir la data automatiquement.
   oracle_drive_id: "1hnpbrUpBMS1TZI7IovfpKeZfWJH1Aptm"
+  # Saisons passées rejouées avant la saison en cours par le modèle v2 (notes des
+  # joueurs, pools, expérience, entraînement). Fichiers attendus dans data/raw, même
+  # nom que ci-dessus avec l'année ; une saison absente est ignorée sans erreur.
+  # Récupération : python -m src.update.download_data --seasons 2023 2024 2025
+  history_years: [2023, 2024, 2025]
 
 scope:
   # Multi-ligues (volume) : pro majeures + regionales etablies 2026. On entraine sur tout
@@ -18,6 +23,23 @@ scope:
   leagues: [LCK, LPL, LEC, LCS, LJL, LCP, LAS, LFL, PRM, TCL, HLL, EBL]
   year: 2026
   date_min: "2026-01-01"
+
+betting:
+  # Ligues où l'on peut miser ~100 € par match sans faire bouger le prix. Mesuré sur
+  # Polymarket 2026 (src.update.bet_universe) : volume médian >= 50 k$, >= 20 k$ pour 3 matchs
+  # sur 4, >= 70 % des séries cotées. Recalculer : python -m src.update.bet_universe
+  leagues: [LCK, LPL, LEC, LCS, LCKC, LCP, CBLOL, LFL, PRM, CD, LES]
+  # Événements entre ces équipes (même critère ; First Stand ajouté : volume non relevé
+  # par Polymarket mais mêmes équipes que le MSI).
+  events: [WLDs, MSI, FST, EWC, KeSPA Cup, DCup, DCGI, WSCI]
+  # Périmètre d'apprentissage de l'Elo (picks 🎯/⭐, rejeu des paris, Plan de jeu) :
+  #   bettable = ces ligues seules. Testé (11/11/2026, walk-forward, games 2026 des ligues
+  #   pariables) : log-loss 0.6523 vs 0.6536 toutes ligues ; avec les saisons 2023-2025
+  #   0.6531 vs 0.6601 (IC95 de l'écart [-0.011, -0.003]). Les ligues mineures faussaient
+  #   les comparaisons entre régions.
+  #   all = toutes les ligues du CSV. Le modèle v2 (joueurs) reste sur toutes les ligues
+  #   tant qu'il n'a pas été testé sur ce périmètre.
+  elo_scope: bettable
 
 features:
   recent_form_windows: [10]   # Forme récente : 10 derniers (last 5 trop bruité)

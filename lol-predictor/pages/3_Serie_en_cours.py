@@ -17,6 +17,7 @@ import pandas as pd
 import streamlit as st
 
 from src.ingest.load_oracle import ROOT, load_config
+from src.update.bet_universe import is_bettable
 from src.update.elo import RELIABLE_ACC, calibrate, compute_elo, win_prob
 
 st.set_page_config(page_title="LoL — Série en cours", page_icon="🔄", layout="wide")
@@ -33,7 +34,7 @@ NO_FADE_ODD = 1.20  # règle ferme du journal : jamais fader un favori plus cour
 def elo_state():
     state = compute_elo(load_config())
     return (state["elo"], state["n"], state["league"],
-            state["reliability"], state["shrink"], state["global_rel"])
+            state["reliability"], state["shrink"], state["global_rel"], state["home"])
 
 
 @st.cache_data(ttl=120, show_spinner="Recherche du match live (odds-api.io)…")
@@ -118,7 +119,7 @@ def main() -> None:
         "ligue 🌪️ = value franche uniquement."
     )
 
-    elo, n, league, reliability, shrink, global_rel = elo_state()
+    elo, n, league, reliability, shrink, global_rel, home = elo_state()
     teams = sorted(elo)
 
     c = st.columns([3, 3, 1.6, 1.2, 1.2])
@@ -142,7 +143,7 @@ def main() -> None:
     code = min(cand, key=lambda c_: reliability[c_]) if cand else None
     rel = reliability.get(code, global_rel)
     shr = shrink.get(code, 1.0)
-    xleague = lg_a != lg_b
+    xleague = home.get(a) != home.get(b)       # ligues d'origine, pas le dernier tournoi joué
     reliable = rel >= RELIABLE_ACC
 
     p_raw = win_prob(elo[a], elo[b])
@@ -168,6 +169,9 @@ def main() -> None:
                 help="accuracy historique du modèle dans cette ligue")
 
     warn = []
+    if not is_bettable(code, home.get(a), home.get(b)):
+        warn.append(f"🚫 **Hors ligues pariables** ({home.get(a, '?')} / {home.get(b, '?')}) : "
+                    "marché trop petit pour miser ~100 € sans bouger le prix.")
     if not reliable:
         warn.append(f"🌪️ **{code} chaotique** ({rel*100:.0f}%) : nos probas y valent peu — value franche only.")
     if xleague:
@@ -199,14 +203,16 @@ def main() -> None:
             if info is None:
                 cL[1].info("Aucun match live/à venir trouvé chez les books pour ces 2 équipes.")
             else:
-                wn = info["wins_needed"]
+                # le format vient du choix fait plus haut (BO3/BO5) : celui deviné d'après
+                # les cotes se trompait (un BO5 à 2-0 pris pour un BO3 « terminé »)
+                wn = 3 if bo == "BO5" else 2
                 wa_l, wb_l = int(info["wa"]), int(info["wb"])
                 oa_l, ob_l = info.get("odd_a"), info.get("odd_b")
                 done = wa_l >= wn or wb_l >= wn
                 p_live = (1.0 if wa_l >= wn else 0.0) if done else \
                     race(round(p_game, 4), wn - wa_l, wn - wb_l)
                 m = st.columns(4)
-                m[0].metric("Format détecté", f"BO{wn * 2 - 1}")
+                m[0].metric("Format (choisi)", f"BO{wn * 2 - 1}")
                 m[1].metric(f"Score {a.split()[0]}-{b.split()[0]}", f"{wa_l}-{wb_l}")
                 m[2].metric(f"P({a}) série", f"{p_live*100:.0f}%")
                 m[3].metric("Statut", str(info.get("status") or "—"))

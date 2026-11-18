@@ -34,7 +34,7 @@ import requests
 
 from src.ingest.load_oracle import ROOT
 from src.update.oddsapi import BASE, BOOKMAKERS, load_key, load_setting
-from src.update.watchlist import DISTINCT_TOKENS, core_tokens
+from src.update.watchlist import DISTINCT_TOKENS, core_tokens, orient_loose
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -509,15 +509,13 @@ def lookup(cache: pd.DataFrame, team1: str, team2: str, date: str,
     tol = pd.Timedelta(days=tol_days)
     near = ok[(dates >= d - tol) & (dates <= d + tol)]
 
-    t1, t2 = core_tokens(team1), core_tokens(team2)
     for r in near.itertuples():
-        h, a = core_tokens(str(r.home)), core_tokens(str(r.away))
-        if (t1 & h and t2 & a):
-            side = "home" if pick == team1 else "away"
-        elif (t1 & a and t2 & h):
-            side = "away" if pick == team1 else "home"
-        else:
+        # sens du match chez le book ; None = autre match, ou les deux équipes partagent un
+        # mot et l'ordre ne peut pas être établi (on écarte plutôt que de tirer au sort)
+        straight = orient_loose(team1, team2, str(r.home), str(r.away))
+        if straight is None:
             continue
+        side = ("home" if pick == team1 else "away") if straight else                ("away" if pick == team1 else "home")
         try:
             h_odd, a_odd = float(r.odd_home), float(r.odd_away)
         except (TypeError, ValueError):

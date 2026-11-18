@@ -9,11 +9,11 @@ cotes de clôture réelles, walk-forward) avec garde-fous anti-surapprentissage 
   - le socle du projet reste inchangé en amont : ligues fiables (accuracy ≥62 %)
     et ≥15 games de données par équipe.
 
-La découverte centrale : le levier de rentabilité n'est PAS la confiance du
-modèle, c'est le PRIX. Les favoris très sûrs (p ≥ 0,75) vivent à cote courte,
-notre zone morte ; les picks à p 0,65-0,80 vivent à cote 1,3-1,8, là où les books
-sont paresseux sur les ligues régionales. Un pari se décide À LA COTE, jamais au
-prono seul.
+⚠️ Correction du 17/11/2026 : ces trois profils avaient été retenus sur un bilan dont
+les séries étaient mal reconstituées (formats et résultats faux sur une série sur cinq,
+ligues « fiables » choisies en connaissant la période testée). Remesurés proprement, aucun
+n'est rentable de façon prouvée. La page affiche maintenant le chiffre du jour, son
+intervalle de confiance et un verdict calculé — plus aucun rendement écrit en dur.
 """
 from __future__ import annotations
 
@@ -73,24 +73,23 @@ def _mask_satellite(d: pd.DataFrame) -> pd.Series:
 
 
 PROFILES = {
-    "🏗️ Socle volume — ~315 paris/an": {
+    "🏗️ Socle volume": {
         "mask": _mask_socle,
         "rule": "Proba série ≥ 65 % · ligues fiables · hors événements internationaux · "
                 "BO1 joué UNIQUEMENT si cote ≥ 1.35 · BO3/BO5 à toute cote.",
-        "why": "Le profil « 200+ matchs/an au meilleur ROI » : le volume vient des BO3/BO5 "
-               "réguliers, et la règle BO1 asymétrique coupe le poison mesuré (BO1 courts).",
+        "why": "Le volume vient des BO3/BO5 réguliers ; les BO1 ne sont joués qu'à cote "
+               "longue.",
     },
-    "🎯 Cœur rentable — ~146 paris/an": {
+    "🎯 Cœur (cote ≥ 1,25)": {
         "mask": _mask_coeur,
         "rule": "Proba série ≥ 65 % · hors événements · cote ≥ 1.25 (tous formats).",
-        "why": "Le plancher de prix fait le travail : on ne joue plus aucun favori court. "
-               "Moitié moins de paris, ROI environ doublé.",
+        "why": "Un plancher de prix : plus aucun favori court.",
     },
-    "💎 Satellite value — ~72 paris/an": {
+    "💎 Satellite value": {
         "mask": _mask_satellite,
         "rule": "Proba série ≥ 65 % · hors événements · value (cote > cote mini) · cote ≥ 1.35.",
-        "why": "La crème : désaccords favorables avec le book sur des matchs serrés de "
-               "ligues régionales (LFL/PRM en tête). Peu de paris, gros ROI mesuré.",
+        "why": "Les désaccords avec le book sur des matchs serrés. Très peu de paris : le "
+               "chiffre bouge beaucoup d'un mois à l'autre.",
     },
 }
 
@@ -109,10 +108,16 @@ def _stats(sub: pd.DataFrame) -> dict | None:
 def main() -> None:
     st.title("🧭 Plan de jeu — sur quoi se concentrer, aux bons prix")
     st.caption(
-        "Trois profils emboîtés, mesurés sur 300 j de **cotes de clôture réelles** en "
-        "walk-forward et retenus seulement s'ils sont **rentables sur les deux moitiés** "
-        "de la fenêtre. Règle d'or transverse : un pari se décide **à la cote**, pas au "
-        "prono — sans cote affichée, on attend le prix."
+        "Trois profils emboîtés, mesurés sur 300 j de **cotes de clôture réelles** (GG.bet, "
+        "1xbet) en walk-forward. Un profil n'est « prouvé » que si son rendement est positif "
+        "sur les deux moitiés de la fenêtre ET que son intervalle de confiance ne touche pas "
+        "zéro. Règle transverse : un pari se décide **à la cote**, pas au prono."
+    )
+    st.warning(
+        "**Remesuré le 17/11/2026 après correction du bilan** (séries reconstituées à partir "
+        "de toutes leurs games, ligues fiables jugées sans connaître la suite) : **aucun des "
+        "trois profils n'est rentable de façon prouvée.** Les rendements annoncés avant "
+        "(+6 %, +14 %, +27 %) venaient d'un bilan faux sur une série sur cinq."
     )
 
     pool = load_pool()
@@ -146,6 +151,19 @@ def main() -> None:
                 f"{s1['roi']*100:+.0f}% / {s2['roi']*100:+.0f}%" if s1 and s2 else "—",
                 help="ROI sur la 1re et la 2e moitié de la fenêtre : les deux doivent "
                      "être positifs pour qu'une règle soit retenue.")
+    r = (sel["profit"] / sel["stake"]).to_numpy()
+    rng = np.random.default_rng(0)
+    lo, hi = np.percentile([r[rng.integers(0, len(r), len(r))].mean() for _ in range(2000)],
+                           [2.5, 97.5])
+    stable = bool(s1 and s2 and s1["roi"] > 0 and s2["roi"] > 0)
+    ci = f"intervalle de confiance à 95 % : {lo*100:+.1f} % à {hi*100:+.1f} %"
+    if lo > 0 and stable:
+        st.success(f"✅ Profil prouvé rentable sur cette fenêtre ({ci}).")
+    elif hi < 0:
+        st.error(f"❌ Profil perdant ({ci}).")
+    else:
+        st.warning(f"⚠️ Rentabilité non prouvée ({ci}"
+                   + ("" if stable else " ; une des deux moitiés est négative") + ").")
 
     # Courbe de P/L cumulé (ordre chronologique)
     curve = sel.sort_values("date")
@@ -199,12 +217,12 @@ def main() -> None:
     if today.empty:
         st.caption("Aucun pick sur les 3 prochains jours.")
     else:
-        from src.update.elo import series_prob
         rows = []
         for r in today.itertuples():
             bo = int(r.bestof) if r.bestof == r.bestof else 1
-            p_game = float(r.our_proba)
-            p_serie = series_prob(p_game, (bo + 1) // 2)
+            # `our_proba` est déjà la proba de gagner la SÉRIE (picks_roi.candidates) : la
+            # reconvertir en BO3/BO5 la gonflait (0,78 affiché 0,88) et baissait la cote mini.
+            p_serie = float(r.our_proba)
             odds = float(r.odds) if r.odds == r.odds else float("nan")
             fam = family_of(str(r.league), None)
             checks = {
@@ -243,23 +261,21 @@ def main() -> None:
 
     # ------------------------------------------------------------- honnêteté
     st.divider()
-    st.markdown("### 🧪 Lecture d'ingénieur — pourquoi y croire, et jusqu'où")
+    st.markdown("### 🧪 Ce qu'on sait, et ce qu'on ne sait pas")
     st.markdown(
-        "- **Pourquoi ces règles et pas d'autres :** grille restreinte à 5 paramètres "
-        "motivés par des résultats antérieurs (sélectivité de juin, piège des cotes "
-        "courtes d'octobre), validation par stabilité temporelle. Les règles instables "
-        "ont été jetées même quand leur ROI global était meilleur.\n"
-        "- **La découverte contre-intuitive :** monter le seuil de confiance à 75 % "
-        "DÉGRADE le ROI (+1,3 %, instable). Haute confiance = cote courte = zone où le "
-        "book est plus fort que nous. Notre argent se fait à p 65-80 % et cote 1,3-1,8 "
-        "dans les régionales (LFL, PRM…), pas sur les gros favoris.\n"
-        "- **Incertitude :** ±2 écarts-types ≈ ±6 pts de ROI sur le socle (n=259), "
-        "±11 pts sur le cœur (n=120), ±21 pts sur le satellite (n=59). Les signes sont "
-        "solides, les grandeurs sont des ordres de grandeur.\n"
-        "- **Base de mesure :** cotes de CLÔTURE. En prenant les lignes plus tôt et en "
-        "comparant 2-3 books, on gagne typiquement 2-5 pts de mieux.\n"
-        "- **Discipline :** mise fixe, jamais de rattrapage, et le plan s'applique à la "
-        "cote — un pick sans prix n'est pas un pari."
+        "- **Ces règles ont été choisies sur un bilan erroné.** Elles sont gardées pour "
+        "suivre leur rendement réel, pas parce qu'elles sont validées.\n"
+        "- **Ce qui a été corrigé le 17/11/2026 :** une série est reconstituée à partir de "
+        "toutes ses games (avant, une game moins nette disparaissait et un 2-3 devenait un "
+        "« BO1 gagné ») ; le pick est celui d'avant la game 1 ; une ligue n'est « fiable » "
+        "que sur ce qu'on savait avant le match ; les cotes des deux équipes ne peuvent "
+        "plus être inversées.\n"
+        "- **Peu de paris, donc beaucoup d'incertitude :** l'intervalle de confiance "
+        "affiché plus haut est le chiffre à regarder, pas le rendement seul.\n"
+        "- **Base de mesure :** cotes de CLÔTURE de bookmakers qui limitent les comptes "
+        "gagnants. Sur Polymarket, nos modèles ne battent pas le prix.\n"
+        "- **Discipline :** mise fixe, jamais de rattrapage — un pick sans prix n'est pas "
+        "un pari."
     )
 
 
