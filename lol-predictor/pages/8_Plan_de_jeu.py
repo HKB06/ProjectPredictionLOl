@@ -114,10 +114,13 @@ def main() -> None:
         "zéro. Règle transverse : un pari se décide **à la cote**, pas au prono."
     )
     st.warning(
-        "**Remesuré le 17/11/2026 après correction du bilan** (séries reconstituées à partir "
-        "de toutes leurs games, ligues fiables jugées sans connaître la suite) : **aucun des "
-        "trois profils n'est rentable de façon prouvée.** Les rendements annoncés avant "
-        "(+6 %, +14 %, +27 %) venaient d'un bilan faux sur une série sur cinq."
+        "**Depuis le 18/11/2026, les picks viennent du nouveau modèle** (joueurs, face-à-face, "
+        "objectifs, soloQ). Les rendements sont recalculés à chaque affichage. À lire avec "
+        "trois réserves : seules les séries d'avril à septembre ont une cote archivée, et ce "
+        "sont surtout celles que l'ancien modèle avait repérées ; ce sont des cotes de clôture "
+        "de bookmakers qui limitent les comptes gagnants ; au prix Polymarket, les mêmes picks "
+        "sont à l'équilibre (−1,0 %). **Aucun profil n'est une preuve tant qu'il compte moins "
+        "de 100 paris.**"
     )
 
     pool = load_pool()
@@ -157,8 +160,12 @@ def main() -> None:
                            [2.5, 97.5])
     stable = bool(s1 and s2 and s1["roi"] > 0 and s2["roi"] > 0)
     ci = f"intervalle de confiance à 95 % : {lo*100:+.1f} % à {hi*100:+.1f} %"
-    if lo > 0 and stable:
+    if lo > 0 and stable and len(r) >= 100:
         st.success(f"✅ Profil prouvé rentable sur cette fenêtre ({ci}).")
+    elif lo > 0 and stable:
+        st.warning(f"⚠️ Positif sur cette fenêtre ({ci}), mais {len(r)} paris seulement : trop "
+                   "peu pour une preuve (il en faut au moins 100). Deux ou trois grosses cotes "
+                   "gagnées suffisent à faire ce chiffre.")
     elif hi < 0:
         st.error(f"❌ Profil perdant ({ci}).")
     else:

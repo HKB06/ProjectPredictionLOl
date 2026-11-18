@@ -142,10 +142,35 @@ def _read() -> dict | None:
         return None
 
 
+_mem: dict = {}
+
+
+def _cached() -> dict | None:
+    """Le moteur du disque, gardé en mémoire tant que le fichier ne change pas (une seule
+    copie par processus : le site, les picks et les bilans le partagent)."""
+    try:
+        key = CACHE.stat().st_mtime
+    except OSError:
+        return None
+    if _mem.get("key") != key:
+        eng = _read()
+        if eng is None:
+            return None
+        _mem.clear()
+        _mem.update(key=key, eng=eng)
+    return _mem["eng"]
+
+
+def peek() -> dict | None:
+    """Le dernier moteur calculé, même en retard, SANS jamais lancer de calcul (None s'il
+    n'y en a pas). Pour les picks : mieux vaut le modèle d'hier que dix minutes d'attente."""
+    return _cached()
+
+
 def get() -> dict:
     """Le moteur pour le site : relu si possible, calculé sinon (cf. règles en tête)."""
     if _usable():
-        eng = _read()
+        eng = _cached()
         if eng is not None:
             return eng
     return build()

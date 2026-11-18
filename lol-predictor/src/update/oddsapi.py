@@ -218,7 +218,7 @@ def _calendar_bo(days: int) -> dict:
     from src.update.watchlist import build_rows
     out: dict = {}
     try:
-        covered, _ = build_rows(days)
+        covered, _ = build_rows(days, predictor=None)      # le format suffit : pas de moteur
     except Exception:  # noqa: BLE001 - calendrier indisponible : on fera sans
         return out
     for r in covered:

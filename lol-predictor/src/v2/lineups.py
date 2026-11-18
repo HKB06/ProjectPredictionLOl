@@ -55,7 +55,8 @@ def build_index(df: pd.DataFrame, cfg: dict | None = None) -> dict:
 
     page_pid: dict[str, str] = {}
     team_lp: dict[str, set] = defaultdict(set)
-    years = [int(y) for y in sorted(df["date"].dt.year.unique()) if lp.available(int(y))]
+    # deux dernières saisons : un joueur absent depuis plus longtemps est traité en inconnu
+    years = [int(y) for y in sorted(df["date"].dt.year.unique()) if lp.available(int(y))][-2:]
     for y in years:
         part = df[df["date"].dt.year == y].sort_values("date")
         link = link_games(part, y).dropna(subset=["page"])

@@ -351,6 +351,40 @@ def summary(ledger: pd.DataFrame) -> dict:
 MIN_REL_GAMES = 40                        # games passées d'une ligue avant de la juger « fiable »
 
 
+def _v2_records(cfg: dict) -> pd.DataFrame | None:
+    """Les mêmes enregistrements que `_season_records`, mais du NOUVEAU modèle (moteur
+    précalculé) : une ligne par game des compétitions pariables de la saison, proba hors
+    échantillon (walk-forward) ramenée sans l'avantage du côté bleu — comme le pick d'avant
+    match, qui ne connaît pas les côtés. `reliable` = pas de cross-ligue : c'est le seul
+    filtre de ligue du 🎯 nouveau modèle. None si le moteur n'est pas sur le disque."""
+    import numpy as np
+
+    from src.update.bet_universe import universe
+    from src.update.elo import compute_elo
+    from src.v2 import precompute
+
+    eng = precompute.peek()
+    if not eng or "blue_edge" not in eng["games"]:
+        return None
+    g = eng["games"]
+    leagues, events = universe(cfg)
+    g = g[~g["rodage"] & g["league"].isin(leagues | events)].sort_values("date")
+    pn = g["p_new"].clip(1e-6, 1 - 1e-6)
+    p = 1 / (1 + np.exp(-(np.log(pn / (1 - pn)) - g["blue_edge"])))
+    home = compute_elo(cfg)["home"]
+    rec = pd.DataFrame({
+        "date": g["date"].to_numpy(), "league": g["league"].to_numpy(),
+        "blue": g["blue"].to_numpy(), "red": g["red"].to_numpy(), "p": p.to_numpy(),
+        "yb": (g["winner"] == g["blue"]).astype(int).to_numpy(), "nmin": g["nmin"].to_numpy(),
+        "series": g["series_id"].to_numpy()})
+    rec["favori"] = rec["blue"].where(rec["p"] >= 0.5, rec["red"])
+    rec["proba_fav"] = rec["p"].where(rec["p"] >= 0.5, 1 - rec["p"])
+    rec["vainqueur"] = rec["blue"].where(rec["yb"] == 1, rec["red"])
+    rec["correct"] = rec["favori"] == rec["vainqueur"]
+    rec["reliable"] = [home.get(a) == home.get(b) for a, b in zip(rec["blue"], rec["red"])]
+    return rec.reset_index(drop=True)
+
+
 def _season_records(cfg: dict) -> pd.DataFrame:
     """Rejeu walk-forward de la saison, enrichi de deux colonnes sans regard vers l'avenir :
 
@@ -364,6 +398,10 @@ def _season_records(cfg: dict) -> pd.DataFrame:
     from src.models.eval_models import BURN_IN, production_records
     from src.update.elo import RELIABLE_ACC, series_ids
 
+    if (cfg.get("betting") or {}).get("picks_model", "v2") == "v2":
+        rec = _v2_records(cfg)                 # nouveau modèle, si le moteur est disponible
+        if rec is not None and len(rec):
+            return rec
     rec = production_records(cfg)
     rec = rec[rec["nmin"] >= BURN_IN].sort_values("date").reset_index(drop=True)
     ok = rec["correct"].astype(float)

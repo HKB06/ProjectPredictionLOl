@@ -67,8 +67,8 @@ class DraftState:
         self.pc_g: Counter = Counter()               # (joueur, champion) -> games
         self.pc_w: Counter = Counter()
         self.pool: dict[str, set] = defaultdict(set)
-        self.pair: dict[tuple, list] = defaultdict(list)     # duel (poste, c1, c2) -> [(date, c1 gagne)]
-        self.duo: dict[tuple, list] = defaultdict(list)      # paire (postes, c1, c2) -> [(date, gagné)]
+        self.pair: dict[tuple, deque] = defaultdict(deque)   # duel (poste, c1, c2) -> [(date, c1 gagne)]
+        self.duo: dict[tuple, deque] = defaultdict(deque)    # paire (postes, c1, c2) -> [(date, gagné)]
         self.last_lineup: dict[str, dict] = {}       # équipe -> {poste: joueur}
 
     def advance(self, date: pd.Timestamp) -> None:
@@ -85,27 +85,32 @@ class DraftState:
     def _wr(self, champ: str) -> float:
         return (self.champ_w[champ] + 0.5 * K_CHAMP) / (self.champ_g[champ] + K_CHAMP)
 
-    def _recent(self, hist: list, date: pd.Timestamp) -> float:
-        """Écart à 50 % d'une liste [(date, gagné)] sur PAIR_DAYS, ramené vers 0."""
-        lo = date - pd.Timedelta(days=PAIR_DAYS)
-        vals = [w for d, w in hist if d >= lo]
-        return (sum(vals) - 0.5 * len(vals)) / (len(vals) + K_PAIR)
+    def _recent(self, hist, lo: pd.Timestamp) -> float:
+        """Écart à 50 % d'une suite [(date, gagné)] depuis `lo`, ramené vers 0. Les dates
+        demandées ne reculent jamais : les entrées trop vieilles sont retirées au passage."""
+        if not hist:
+            return 0.0
+        while hist and hist[0][0] < lo:
+            hist.popleft()
+        s = sum(w for _, w in hist)
+        return (s - 0.5 * len(hist)) / (len(hist) + K_PAIR)
 
     def team_side(self, own: dict, opp: dict, bans: list, date: pd.Timestamp) -> dict:
         """`own` / `opp` : {poste: (joueur, champion)}. Signaux d'UN côté (non différenciés)."""
         picks = [(role, pid, c) for role, (pid, c) in own.items() if c]
+        lo = date - pd.Timedelta(days=PAIR_DAYS)
         match = []
         for role, _, c in picks:
             oc = opp.get(role, (None, None))[1]
             if oc and oc != c:
                 key = (role, c, oc) if c <= oc else (role, oc, c)
-                v = self._recent(self.pair.get(key, ()), date)
+                v = self._recent(self.pair.get(key), lo)
                 match.append(v if key[1] == c else -v)
         duo = []
         for r1, r2 in DUOS:
             c1, c2 = own.get(r1, (None, None))[1], own.get(r2, (None, None))[1]
             if c1 and c2:
-                duo.append(self._recent(self.duo.get((r1, c1, c2), ()), date))
+                duo.append(self._recent(self.duo.get((r1, c1, c2)), lo))
         opp_pool: set = set()
         for pid, _ in opp.values():
             opp_pool |= self.pool.get(pid, set())

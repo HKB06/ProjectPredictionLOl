@@ -40,6 +40,13 @@ betting:
   #   all = toutes les ligues du CSV. Le modèle v2 (joueurs) reste sur toutes les ligues
   #   tant qu'il n'a pas été testé sur ce périmètre.
   elo_scope: bettable
+  # Modèle qui donne les picks 🎯/⭐ et leurs bilans (pages Matchs à venir, Rentabilité,
+  # Plan de jeu, Tickets) :
+  #   v2  = nouveau modèle (joueurs, face-à-face, objectifs, soloQ). Mesuré le 18/11/2026 sur
+  #         les séries pariables 2026 : favori >= 70 %/game -> 81,6 % de séries gagnées
+  #         (576 séries), contre 76,5 % pour l'Elo d'équipe (592 séries).
+  #   elo = ancien modèle (Elo d'équipe calibré par ligue).
+  picks_model: v2
 
 features:
   recent_form_windows: [10]   # Forme récente : 10 derniers (last 5 trop bruité)

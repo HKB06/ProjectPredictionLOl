@@ -207,6 +207,18 @@ def _valid_from(vol: pd.DataFrame, det: pd.DataFrame, owner: dict) -> dict:
     return {p: np.datetime64(t.tz_convert(None).to_datetime64()) for p, t in out.items()}
 
 
+_raw_cache: dict = {}
+
+
+def _raw_tables() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """(parties listées, détails), relus seulement quand les fichiers changent."""
+    key = tuple((p.name, p.stat().st_mtime) for p in (sh.DIR / "ids.csv", sh.DIR / "details.csv")
+                if p.exists())
+    if _raw_cache.get("key") != key:
+        _raw_cache.update(key=key, vol=sh.all_games(), det=sh.load_details())
+    return _raw_cache["vol"].copy(), _raw_cache["det"]
+
+
 def soloq_tables(champions: set | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
     """(volume : parties datées ; détail : champion/poste/victoire), une ligne par partie et
     par joueur (page Leaguepedia).
@@ -218,14 +230,13 @@ def soloq_tables(champions: set | None = None) -> tuple[pd.DataFrame, pd.DataFra
     `champions` : noms Oracle, pour écrire les champions soloQ de la même façon."""
     acc = json.loads((sh.DIR / "accounts.json").read_text(encoding="utf-8"))
     owner = {pu: v["player"] for pu, v in acc.items()}
-    vol = sh.all_games()
+    vol, det = _raw_tables()
     vol["player"] = vol["puuid"].map(owner)
     vol = vol.dropna(subset=["player"])
     bad = _impostors(vol, acc)
     vol = vol[~vol["puuid"].isin(bad)].drop_duplicates(["player", "match_id"])
     exact = float(vol["exact"].mean()) if len(vol) else 0.0
     vol = vol[vol["exact"]]
-    det = sh.load_details()
     det = det[~det["puuid"].isin(bad)]
     valid_from = _valid_from(vol, det, owner)
     det = det[det["early_end"] == 0].copy()

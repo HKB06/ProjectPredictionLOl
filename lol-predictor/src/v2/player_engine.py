@@ -26,7 +26,7 @@ from functools import partial
 import numpy as np
 import pandas as pd
 
-from src.ingest.load_oracle import load_config, read_seasons
+from src.ingest.load_oracle import load_config, read_seasons, season_files
 from src.update.elo import BASE, _mov_mult, load_games, win_prob
 
 ROLES = ["top", "jng", "mid", "bot", "sup"]
@@ -73,8 +73,20 @@ def _shrunk(values, k: float = K_SHRINK, prior: float = 0.0) -> float:
     return float((sum(vals) + prior * k) / (len(vals) + k))
 
 
-def _load_rows(cfg: dict) -> tuple[dict, dict]:
-    """(joueurs par game, équipes par game) en dicts Python (rapide en boucle)."""
+_rows_cache: dict = {}
+
+
+def _load_rows(cfg: dict) -> tuple[dict, dict, dict]:
+    """`_read_rows`, gardé en mémoire tant que les fichiers ne changent pas : le moteur
+    joueurs et la draft relisent les mêmes lignes."""
+    key = tuple((str(p), p.stat().st_mtime) for _, p in season_files(cfg, True))
+    if _rows_cache.get("key") != key:
+        _rows_cache.update(key=key, rows=_read_rows(cfg))
+    return _rows_cache["rows"]
+
+
+def _read_rows(cfg: dict) -> tuple[dict, dict, dict]:
+    """(joueurs par game, équipes par game, pseudos) en dicts Python (rapide en boucle)."""
     cols = {"gameid", "position", "playerid", "playername", "teamname", "champion",
             "golddiffat15", "golddiffat25", "ban1", "ban2", "ban3", "ban4", "ban5"}
     df = read_seasons(cfg, cols)

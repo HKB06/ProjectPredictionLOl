@@ -271,13 +271,35 @@ def mark_started(rows: list[dict]) -> list[dict]:
             for r in rows]
 
 
-def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list[dict]]:
+def engine_predictor(cfg: dict | None = None):
+    """Le nouveau modèle (moteur précalculé du site), ou None : pas de moteur sur le disque,
+    ou `betting.picks_model: elo` dans la configuration."""
+    cfg = cfg or load_config()
+    if (cfg.get("betting") or {}).get("picks_model", "v2") != "v2":
+        return None
+    try:
+        from src.v2 import precompute
+        eng = precompute.peek()
+        return eng["predictor"] if eng else None
+    except Exception:  # noqa: BLE001 - moteur illisible : on retombe sur l'Elo
+        return None
+
+
+def build_rows(days: int = 7, cfg: dict | None = None,
+               predictor="auto") -> tuple[list[dict], list[dict]]:
     """Calcul pur (sans écriture fichier) : renvoie (covered, uncovered).
 
     Réutilisé par le front Streamlit. `covered` = matchs dont les 2 équipes sont dans
     notre data Elo ; `uncovered` = au moins une équipe non reconnue.
+
+    `predictor` : le nouveau modèle (`src.v2.model.Predictor`). Avec lui, les probas
+    (`p1`, `p2`, `p_game`) et les picks 🎯/⭐ viennent du NOUVEAU modèle ; celles de l'Elo
+    d'équipe restent dans `p1_elo`, `p2_elo`, `p_game_elo`, et `model` vaut « v2 ».
+    « auto » : le moteur précalculé s'il existe ; None : Elo seul (collecte, calendrier).
     """
     cfg = cfg or load_config()
+    if isinstance(predictor, str):
+        predictor = engine_predictor(cfg)
     state = compute_elo(cfg)
     elo, n, league, home = state["elo"], state["n"], state["league"], state["home"]
     reliability, shrink, global_rel = state["reliability"], state["shrink"], state["global_rel"]
@@ -346,6 +368,22 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
         pf_raw = max(p_game_raw, 1 - p_game_raw)
         high_conf = (bettable and reliable and conf and not xleague
                      and pf_game >= CONF_GAME and pf_raw >= CONF_GAME)
+        strong = (p_series >= 0.62 or p_series <= 0.38) and conf and reliable and bettable
+        p_game_elo, p_series_elo, high_conf_elo, model = p_game, p_series, high_conf, "elo"
+        if predictor is not None:
+            # Nouveau modèle : le 🎯 est son favori à >= 70 % par game (côtés non connus),
+            # avec assez de games, sans cross-ligue, sur une compétition pariable. Pas de
+            # filtre « ligue fiable » : il est déjà calibré ligue par ligue.
+            try:
+                mm = predictor.matchup(a, b, int(m["bestof"] or 1), league=code)
+                p_game = float(mm["games"]["Nouveau · v2 complet"])
+                p_series = series_prob(p_game, wn)
+                pf_game = max(p_game, 1 - p_game)
+                high_conf = bool(bettable and conf and not xleague and pf_game >= CONF_GAME)
+                strong = bool((p_series >= 0.62 or p_series <= 0.38) and conf and bettable)
+                model = "v2"
+            except Exception:  # noqa: BLE001 - équipe absente du moteur : Elo pour ce match
+                pass
         covered.append({
             "when": _fmt_paris(m["datetime"]),
             "datetime": m["datetime"],
@@ -353,13 +391,15 @@ def build_rows(days: int = 7, cfg: dict | None = None) -> tuple[list[dict], list
             "team1": a, "team2": b,
             "bestof": m["bestof"],
             "p1": p_series, "p2": 1 - p_series,
+            "p1_elo": p_series_elo, "p2_elo": 1 - p_series_elo, "p_game_elo": p_game_elo,
+            "high_conf_elo": high_conf_elo, "model": model,
             "p1_raw": series_prob(p_game_raw, wn),    # avant calibration (info)
             "elo1": elo[a], "elo2": elo[b],
             "n1": n[a], "n2": n[b],
             "conf": conf,
             "rel": rel, "reliable": reliable, "league_code": code,
             "p_game": p_game, "pf_game": pf_game,
-            "strong": (p_series >= 0.62 or p_series <= 0.38) and conf and reliable and bettable,
+            "strong": strong,
             "high_conf": high_conf,
             "bettable": bettable,
             "league_a": league.get(a, "?"), "league_b": league.get(b, "?"),

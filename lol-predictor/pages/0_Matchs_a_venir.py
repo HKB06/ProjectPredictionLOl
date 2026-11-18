@@ -38,10 +38,10 @@ except Exception:
 # appelées (build_rows, lolesports…). On ajoute un n° de schéma à incrémenter dès que la
 # structure des lignes change (ex. ajout de result_winner/score) pour invalider le cache
 # au déploiement — sinon l'app sert d'anciennes lignes sans les nouveaux champs.
-WATCHLIST_SCHEMA = 3
+WATCHLIST_SCHEMA = 4
 
 
-@st.cache_data(ttl=1800, show_spinner="Calcul Elo + récupération des matchs (lolesports)...")
+@st.cache_data(ttl=1800, show_spinner="Pronostics + récupération des matchs (lolesports)...")
 def load_watchlist(days: int, schema: int = WATCHLIST_SCHEMA):
     from src.update.watchlist import build_rows
     return build_rows(days)
@@ -132,7 +132,7 @@ def refresh_data():
 
 
 def main() -> None:
-    st.title("📅 Matchs LoL à venir — notre lecture (Elo)")
+    st.title("📅 Matchs LoL à venir — nos picks")
 
     top = st.columns([2.2, 1.4, 1.4, 3])
     with top[0]:
@@ -164,13 +164,19 @@ def main() -> None:
     k[2].metric("Non couverts", len(uncovered), help="équipe(s) hors de notre data")
     k[3].metric("Ligues", len({r["league"] for r in covered}))
 
-    st.caption(
-        "**Elo toutes-ligues K32 + marge de victoire (MOV)**, proba **calibrée par ligue** "
-        "(aplatie là où le modèle est chaotique, ex. EM ≈ 56 % d'accuracy → un « 70 % » brut "
-        "n'y vaut ~55 %). Signal *partiel* (sans draft). Idée : **fader un favori sur-coté** que "
-        "le modèle voit plus serré (cf. KC @2.45, VKS @2.7, Heretics @2.60). On ne fade **jamais** "
-        "un favori à cote < ~1,2. 🌪️ = ligue chaotique (proba peu fiable). Poser le pari **tôt** = l'enjeu."
-    )
+    n_v2 = sum(1 for r in covered if r.get("model") == "v2")
+    if n_v2 == len(covered):
+        st.caption(
+            "Probas et picks du **nouveau modèle** depuis le 18/11/2026 : joueur par joueur "
+            "(effectif à jour après transferts), face-à-face, objectifs, lieu, soloQ. Signal "
+            "d'avant-match, sans la draft. On ne parie **jamais** un favori à cote < ~1,2. "
+            "🌪️ = ligue où l'ancien modèle (Elo d'équipe) était peu fiable ; son Elo reste affiché "
+            "pour comparaison.")
+    else:
+        st.warning(
+            f"{len(covered) - n_v2} match(s) sur {len(covered)} sont pronostiqués par l'**ancien "
+            "modèle** (Elo d'équipe) : le moteur du nouveau modèle n'est pas disponible ou "
+            "l'équipe lui est inconnue.")
 
     # --- 🎯 À chasser (DU JOUR) : nos favoris confiants = candidats value ---
     from src.update.paris import now_paris
@@ -255,10 +261,10 @@ def main() -> None:
     f = st.columns([2.6, 1.2, 1.0, 1.2, 1.4])
     sel_leagues = f[0].multiselect("Ligues", leagues, default=leagues)
     only_pick = f[1].toggle("🎯 Picks", value=False,
-                            help="Ligue fiable et pariable + data ≥15 g + favori ≥70 % par game "
-                                 "(hors cross-ligue). Remesuré le 17/11/2026 sans regard vers "
-                                 "l'avenir : le favori gagne 75 % des games (362 games) et 81 % "
-                                 "des séries (165 séries).")
+                            help="Nouveau modèle : compétition pariable + data ≥15 g + favori "
+                                 "≥70 % par game (hors cross-ligue). Mesuré le 18/11/2026 sans "
+                                 "regard vers l'avenir : le favori gagne 76 % des games "
+                                 "(1 149 games) et 82 % des séries (490 séries).")
     only_strong = f[2].toggle("⭐ forts", value=False)
     only_conf = f[3].toggle("Data fiable", value=False)
     pm_on = f[4].toggle("Cotes Polymarket", value=True,
@@ -332,9 +338,11 @@ def main() -> None:
             },
         )
         st.caption(
-            "🎯 = ligue fiable et pariable + data ≥15 g + favori ≥70 % par game, hors cross-ligue "
-            "→ le favori gagne **75 %** des games et **81 %** des séries (362 games, 165 séries, "
-            "remesuré le 17/11/2026 sans regard vers l'avenir). "
+            "🎯 = nouveau modèle : compétition pariable + data ≥15 g + favori ≥70 % par game, hors "
+            "cross-ligue → le favori gagne **76 %** des games et **82 %** des séries (1 149 games, "
+            "490 séries, mesuré le 18/11/2026 sans regard vers l'avenir). Au prix Polymarket, ces "
+            "picks sont à l'équilibre (−1,0 %, entre −5,5 % et +3,4 %) : gagner souvent ne suffit "
+            "pas, il faut une cote au-dessus de la cote mini. "
             "**Cote mini** = cote plancher (1/proba) : parie **uniquement au-dessus**, sinon perte à "
             "long terme même en ayant souvent raison. "
             "**Value PM** = côté où notre proba dépasse le plus le prix Polymarket ; "
@@ -488,7 +496,7 @@ def _value_calculator(covered: list[dict]) -> None:
         cols[5].markdown(f"<div style='margin-top:.6rem'>{verdict}</div>", unsafe_allow_html=True)
 
     st.caption(
-        "Edge = notre proba − (1 / cote). Value si > +3 %. ⚠️ Elo-only (sans draft) : "
+        "Edge = notre proba − (1 / cote). Value si > +3 %. ⚠️ Prono d'avant-match (sans draft) : "
         "sur une ligue molle où le book sur-cote un favori après une grosse game, l'écart est exploitable ; "
         "sinon le book est souvent juste. La **draft en live** reste le complément le plus fort."
     )

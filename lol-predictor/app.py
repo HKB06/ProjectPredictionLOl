@@ -40,7 +40,7 @@ PAGES = {
         st.Page("views/modeles.py", title="Modèles", icon="🧬"),
     ],
     "Ancien site": [
-        st.Page("pages/0_Matchs_a_venir.py", title="Matchs à venir (Elo)", icon="📅"),
+        st.Page("pages/0_Matchs_a_venir.py", title="Matchs à venir (picks)", icon="📅"),
         st.Page("pages/2_Bilan_predictions.py", title="Bilan des prédictions", icon="✅"),
         st.Page("pages/3_Serie_en_cours.py", title="Série en cours", icon="🔄"),
         st.Page("pages/4_Journal_paris.py", title="Journal de paris", icon="💰"),

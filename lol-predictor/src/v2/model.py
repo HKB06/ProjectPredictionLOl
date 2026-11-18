@@ -91,6 +91,10 @@ ALL_FEATURES = [c for cols in GROUPS.values() for c in cols]
 V2_PURE = [c for g, cols in GROUPS.items() if g != "Elo équipe" for c in cols]
 SOLOQ = ["d_sq_vol7", "d_sq_role14"]
 SOLOQ_MIN_TRAIN = 300
+# Écart soloQ plafonné à 1,5 écart-type : mesuré sans perte (gain 6,9 pour 1000 sur les 499
+# games jugées, contre 6,5 à 3 écarts-types) et le correctif ne déplace jamais un prono de
+# plus de 13 points.
+SOLOQ_CLIP = 1.5
 # « Présence dans la méta » des champions pris : mesurée sans effet, non retenue.
 DRAFT_LIVE = [c for c in DRAFT_COLS if c != "d_dr_presence"]
 PURE, FULL, LIVE = "Nouveau · v2 sans soloQ", "Nouveau · v2 complet", "Nouveau · v2 + draft (direct)"
@@ -175,7 +179,7 @@ class SoloqLayer:
         return self
 
     def _x(self, p, sq) -> np.ndarray:
-        z = np.clip((np.asarray(sq, dtype=float) - self.mu) / self.sd, -CLIP_Z, CLIP_Z)
+        z = np.clip((np.asarray(sq, dtype=float) - self.mu) / self.sd, -SOLOQ_CLIP, SOLOQ_CLIP)
         return np.column_stack([_logit(p), z])
 
     def apply(self, p, sq) -> np.ndarray:

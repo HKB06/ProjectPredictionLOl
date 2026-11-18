@@ -127,7 +127,7 @@ def main() -> None:
         if when is None:
             continue
         m = pred.matchup(r["team1"], r["team2"], _bestof(r), league=r.get("league_code"))
-        pa_new, pa_old = float(m["series"][NEW]), float(r["p1"])
+        pa_new, pa_old = float(m["series"][NEW]), float(r.get("p1_elo", r["p1"]))
         items.append((r, {
             "m": m, "when": when, "pa_new": pa_new, "pa_old": pa_old,
             "fav_new": r["team1"] if pa_new >= 0.5 else r["team2"],
