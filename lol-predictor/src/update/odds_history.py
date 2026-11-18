@@ -534,12 +534,14 @@ def lookup(cache: pd.DataFrame, team1: str, team2: str, date: str,
     t1, t2 = core_tokens(team1), core_tokens(team2)
     for r in near.itertuples():
         h, a = core_tokens(str(r.home)), core_tokens(str(r.away))
-        if _team_match(t1, h) and _team_match(t2, a):
-            side = "home" if pick == team1 else "away"
-        elif _team_match(t1, a) and _team_match(t2, h):
-            side = "away" if pick == team1 else "home"
-        else:
+        straight = _team_match(t1, h) and _team_match(t2, a)
+        reverse = _team_match(t1, a) and _team_match(t2, h)
+        if straight == reverse:
+            # autre match, OU sens indécidable (les deux équipes partagent un mot) :
+            # on écarte plutôt que de tirer au sort (audit croisé du 18/11).
             continue
+        side = (("home" if pick == team1 else "away") if straight
+                else ("away" if pick == team1 else "home"))
         try:
             h_odd, a_odd = float(r.odd_home), float(r.odd_away)
         except (TypeError, ValueError):

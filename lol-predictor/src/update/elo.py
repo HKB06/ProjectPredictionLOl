@@ -84,7 +84,8 @@ def load_games(cfg: dict | None = None) -> pd.DataFrame:
     tr = t[t["side"].str.lower() == "red"][["gameid", "teamname", "kills"]]
     g = (tb.merge(tr, on="gameid", suffixes=("_b", "_r"))
            .dropna(subset=["teamname_b", "teamname_r", "result"])
-           .sort_values("date").reset_index(drop=True))
+           # ordre total et reproductible : quelques games portent la même date exacte
+           .sort_values(["date", "gameid"]).reset_index(drop=True))
     g = g.rename(columns={"teamname_b": "blue", "teamname_r": "red", "result": "yb",
                           "kills_b": "kblue", "kills_r": "kred"})
     g["yb"] = g["yb"].astype(int)
@@ -177,6 +178,30 @@ def series_prob(p_game: float, wins_needed: int) -> float:
         comb(wins_needed - 1 + losses, losses) * p_game ** wins_needed * q ** losses
         for losses in range(wins_needed)
     ))
+
+
+def series_ids(league, blue, red, date, gap_hours: float = 10.0) -> list[int]:
+    """Numéro de série pour des games en ordre chronologique : mêmes équipes, même
+    ligue, games qui se suivent à moins de `gap_hours`.
+
+    Regrouper par jour calendaire (l'ancienne méthode) coupait en deux les séries à
+    cheval sur minuit UTC — courantes en LCS/CBLOL, dont les games se jouent la nuit
+    UTC (audit croisé du 18/11, repris de la branche Seb).
+    """
+    gap = pd.Timedelta(hours=gap_hours)
+    last: dict = {}
+    ids, n = [], 0
+    for lg, b, r, d in zip(league, blue, red, date):
+        key = (lg, frozenset((b, r)))
+        prev = last.get(key)
+        if prev is None or d - prev[1] > gap:
+            n += 1
+            cur = n
+        else:
+            cur = prev[0]
+        last[key] = (cur, d)
+        ids.append(cur)
+    return ids
 
 
 def main() -> None:

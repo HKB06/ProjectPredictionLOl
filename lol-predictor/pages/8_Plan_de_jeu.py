@@ -1,19 +1,20 @@
 """Page Streamlit — PLAN DE JEU : sur quels matchs se concentrer, aux bons prix.
 
-Le résultat d'une recherche de paramètres sous contraintes (16/10, fenêtre 300 j,
-cotes de clôture réelles, walk-forward) avec garde-fous anti-surapprentissage :
-  - grille de règles PRÉ-MOTIVÉES (seuil de proba série, value, plancher de cote,
-    règle BO1, exclusion événements) — pas de data mining libre ;
-  - validation par STABILITÉ : une règle n'est retenue que si son ROI est positif
-    sur les DEUX moitiés temporelles de la fenêtre ;
-  - le socle du projet reste inchangé en amont : ligues fiables (accuracy ≥62 %)
-    et ≥15 games de données par équipe.
+Trois profils de règles PRÉ-MOTIVÉES (seuil de proba série, value, plancher de
+cote, règle BO1, exclusion événements), mesurés sur cotes de clôture réelles en
+walk-forward — mesure CORRIGÉE le 18/11 par l'audit croisé avec la branche Seb
+(séries reconstruites sur toutes leurs games, fiabilité de ligue jugée au fil de
+l'eau, séries chaînées à cheval sur minuit, appariement de cotes strict).
 
-La découverte centrale : le levier de rentabilité n'est PAS la confiance du
-modèle, c'est le PRIX. Les favoris très sûrs (p ≥ 0,75) vivent à cote courte,
-notre zone morte ; les picks à p 0,65-0,80 vivent à cote 1,3-1,8, là où les books
-sont paresseux sur les ligues régionales. Un pari se décide À LA COTE, jamais au
-prono seul.
+État honnête depuis cette correction : AUCUN profil n'est prouvé rentable.
+Les points sont positifs (socle ≈ +1 %, cœur ≈ +5 %, satellite ≈ +9 %) mais tous
+les intervalles contiennent zéro et la 2e moitié de fenêtre est négative. Le plan
+se joue donc À BLANC (papier) tant que la preuve n'est pas faite — c'est notre
+propre règle, elle s'applique à nous.
+
+Ce qui reste solide : la calibration du modèle par game (70 % annoncé ≈ 73 %
+réalisé), l'exclusion des événements internationaux (ROI négatif confirmé sur les
+Worlds), et la doctrine du PRIX : un pari se décide À LA COTE, jamais au prono.
 """
 from __future__ import annotations
 
@@ -77,25 +78,23 @@ PROFILES = {
         "mask": _mask_socle,
         "rule": "Proba série ≥ 65 % · ligues fiables · hors événements internationaux · "
                 "BO1 joué UNIQUEMENT si cote ≥ 1.35 · BO3/BO5 à toute cote.",
-        "why": "Le profil « 200+ matchs/an » : le volume vient des BO3/BO5 réguliers, la "
-               "règle BO1 asymétrique coupe le poison mesuré (BO1 courts). Honnêteté : "
-               "son edge est FIN — l'essentiel du profit vient des sous-ensembles Cœur et "
-               "Satellite qu'il contient ; sur la 2e moitié de la fenêtre il est à "
-               "l'équilibre. C'est un profil de volume, pas de rendement.",
+        "why": "Le profil « volume » : BO3/BO5 réguliers + BO1 à cote longue seulement. "
+               "Depuis la mesure corrigée du 18/11 : point ≈ +1 %, intervalle ±7, "
+               "2e moitié négative — NON PROUVÉ. À suivre à blanc.",
     },
     "🎯 Cœur rentable": {
         "mask": _mask_coeur,
         "rule": "Proba série ≥ 65 % · hors événements · cote ≥ 1.25 (tous formats).",
-        "why": "Le plancher de prix fait le travail : on ne joue plus aucun favori court. "
-               "Moitié moins de paris que le socle, ROI environ doublé, positif sur les "
-               "deux moitiés de la fenêtre. Le meilleur équilibre volume/rendement.",
+        "why": "Le plancher de prix coupe les favoris courts, là où le book gagne. "
+               "Mesure corrigée du 18/11 : point ≈ +5 %, intervalle ±13, 2e moitié "
+               "négative — NON PROUVÉ. Le meilleur candidat, pas encore une preuve.",
     },
     "💎 Satellite value": {
         "mask": _mask_satellite,
         "rule": "Proba série ≥ 65 % · hors événements · value (cote > cote mini) · cote ≥ 1.35.",
-        "why": "La crème : désaccords favorables avec le book sur des matchs serrés de "
-               "ligues régionales (LFL/PRM en tête). Peu de paris, gros ROI mesuré, "
-               "stable sur les deux moitiés.",
+        "why": "Désaccords favorables avec le book sur matchs serrés de régionales. "
+               "Mesure corrigée du 18/11 : point ≈ +9 %, intervalle ±24 à n≈60, "
+               "2e moitié négative — NON PROUVÉ, échantillon trop petit pour trancher.",
     },
 }
 
@@ -115,9 +114,17 @@ def main() -> None:
     st.title("🧭 Plan de jeu — sur quoi se concentrer, aux bons prix")
     st.caption(
         "Trois profils emboîtés, mesurés sur 300 j de **cotes de clôture réelles** en "
-        "walk-forward et retenus seulement s'ils sont **rentables sur les deux moitiés** "
-        "de la fenêtre. Règle d'or transverse : un pari se décide **à la cote**, pas au "
+        "walk-forward. Règle d'or transverse : un pari se décide **à la cote**, pas au "
         "prono — sans cote affichée, on attend le prix."
+    )
+    st.warning(
+        "**Mesure corrigée le 18/11 (audit croisé avec la branche Seb).** Quatre bugs "
+        "de mesure corrigés — séries reconstruites sur toutes leurs games, séries "
+        "chaînées au-delà de minuit UTC, fiabilité de ligue jugée sans voir le futur, "
+        "appariement de cotes strict. Depuis : **aucun profil n'est prouvé rentable** "
+        "(points positifs mais intervalles contenant zéro, 2e moitié de fenêtre "
+        "négative). Le plan se suit **à blanc** (sans argent) jusqu'à preuve — "
+        "idéalement le test à blanc commun de janvier 2027."
     )
 
     pool = load_pool()
@@ -204,12 +211,13 @@ def main() -> None:
     if today.empty:
         st.caption("Aucun pick sur les 3 prochains jours.")
     else:
-        from src.update.elo import series_prob
         rows = []
         for r in today.itertuples():
             bo = int(r.bestof) if r.bestof == r.bestof else 1
-            p_game = float(r.our_proba)
-            p_serie = series_prob(p_game, (bo + 1) // 2)
+            # `our_proba` des candidats est DÉJÀ une proba de série (watchlist la
+            # convertit) : la reconvertir ici la gonflait une 2e fois — bug attrapé
+            # par l'audit croisé du 18/11 (« conversion BO appliquée deux fois »).
+            p_serie = float(r.our_proba)
             odds = float(r.odds) if r.odds == r.odds else float("nan")
             fam = family_of(str(r.league), None)
             checks = {
@@ -252,23 +260,24 @@ def main() -> None:
     st.markdown(
         "- **Pourquoi ces règles et pas d'autres :** grille restreinte à 5 paramètres "
         "motivés par des résultats antérieurs (sélectivité de juin, piège des cotes "
-        "courtes d'octobre), validation par stabilité temporelle. Les règles instables "
-        "ont été jetées même quand leur ROI global était meilleur.\n"
-        "- **La découverte contre-intuitive :** monter le seuil de confiance à 75 % "
-        "DÉGRADE le ROI (+1,3 %, instable). Haute confiance = cote courte = zone où le "
-        "book est plus fort que nous. Notre argent se fait à p 65-80 % et cote 1,3-1,8 "
-        "dans les régionales (LFL, PRM…), pas sur les gros favoris.\n"
-        "- **Incertitude :** ±2 écarts-types ≈ ±6 pts de ROI sur le socle, ±12 pts sur "
-        "le cœur, ±20 pts sur le satellite (aux tailles d'échantillon actuelles). Les "
-        "signes sont solides, les grandeurs sont des ordres de grandeur.\n"
-        "- **Intégrité des cotes (audit du 16/10) :** chaque cote est tracée vers une "
-        "ligne brute du cache (id d'événement, book, horodatage). L'audit a attrapé et "
-        "corrigé un bug d'appariement (équipes académie appariées au mauvais match via "
-        "le mot « academy ») — les chiffres affichés sont post-correction.\n"
-        "- **Base de mesure :** cotes de CLÔTURE. En prenant les lignes plus tôt et en "
-        "comparant 2-3 books, on gagne typiquement 2-5 pts de mieux.\n"
-        "- **Discipline :** mise fixe, jamais de rattrapage, et le plan s'applique à la "
-        "cote — un pick sans prix n'est pas un pari."
+        "courtes d'octobre) — pas de data mining libre.\n"
+        "- **Audit croisé du 18/11 :** la branche Seb a audité notre mesure, nous avons "
+        "vérifié chaque accusation sur pièce, quatre étaient fondées et sont corrigées "
+        "(détail dans `AUDIT_2026-11-18.md`). Conséquence assumée : les rendements "
+        "« stables sur deux moitiés » affichés avant étaient un artefact de mesure. "
+        "Les chiffres actuels sont les corrigés.\n"
+        "- **Incertitude :** ±2 écarts-types ≈ ±7 pts de ROI sur le socle, ±13 sur le "
+        "cœur, ±24 sur le satellite. Tant que l'intervalle contient zéro, le profil "
+        "n'est pas prouvé et ne se joue pas en argent réel.\n"
+        "- **Ce qui est solide :** la calibration par game (70 % annoncé ≈ 73 % réalisé "
+        "sur 8 600 games), l'exclusion des événements internationaux (ROI négatif sur "
+        "les deux moitiés, Worlds compris), l'intégrité des cotes (chaque cote tracée "
+        "vers une ligne brute : id d'événement, book, horodatage).\n"
+        "- **Base de mesure :** cotes de CLÔTURE, les plus dures à battre. Prendre les "
+        "lignes plus tôt et comparer 2-3 books gagne typiquement 2-5 pts — c'est le "
+        "levier n° 1 si un profil finit par être prouvé.\n"
+        "- **Discipline :** mise fixe, jamais de rattrapage, suivi à blanc jusqu'à "
+        "preuve — un pick sans prix n'est pas un pari."
     )
 
 

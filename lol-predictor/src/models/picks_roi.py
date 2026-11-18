@@ -348,6 +348,46 @@ def summary(ledger: pd.DataFrame) -> dict:
 
 
 # ------------------------------------------------------- simulation historique
+MIN_REL_GAMES = 40     # games passées d'une ligue avant de pouvoir la juger « fiable »
+
+
+def _season_records(cfg: dict) -> pd.DataFrame:
+    """Rejeu walk-forward de la saison + deux colonnes SANS regard vers l'avenir.
+
+    Deux fuites corrigées par l'audit croisé du 18/11 (repris de la branche Seb) :
+
+      reliable : la ligue était-elle « fiable » AVANT cette game (accuracy du modèle
+                 sur ses games précédentes ≥ seuil, 40 games minimum) ? L'ancienne
+                 version jugeait la fiabilité sur TOUTE la saison, période testée
+                 comprise — le filtre connaissait la réponse à l'avance.
+      series   : numéro de série (mêmes équipes, même ligue, games à <10 h d'écart).
+                 Le regroupement par jour calendaire coupait en deux les séries à
+                 cheval sur minuit UTC (LCS, CBLOL).
+    """
+    from src.models.eval_models import BURN_IN, production_records
+    from src.update.elo import RELIABLE_ACC, series_ids
+
+    rec = production_records(cfg)
+    rec = rec[rec["nmin"] >= BURN_IN].sort_values("date").reset_index(drop=True)
+    ok = rec["correct"].astype(float)
+    by = ok.groupby(rec["league"])
+    n_prior = by.cumcount()
+    won_prior = by.cumsum() - ok
+    rec["reliable"] = ((n_prior >= MIN_REL_GAMES)
+                       & (won_prior / n_prior.clip(lower=1) >= RELIABLE_ACC))
+    rec["series"] = series_ids(rec["league"], rec["blue"], rec["red"], rec["date"])
+    return rec
+
+
+def restake(df: pd.DataFrame, stake: float) -> pd.DataFrame:
+    """Recalcule le P/L pour une autre mise fixe (le P/L stocké suppose la mise du rejeu)."""
+    d = df.copy()
+    old = pd.to_numeric(d["stake"], errors="coerce")
+    d["profit"] = pd.to_numeric(d["profit"], errors="coerce") * (float(stake) / old)
+    d["stake"] = float(stake)
+    return d
+
+
 def simulate(days: int = 60, conf: float = 0.70, cfg: dict | None = None,
              stake: float = STAKE) -> dict:
     """Rejoue les picks 🎯 des `days` derniers jours (walk-forward, zéro fuite).
@@ -355,27 +395,23 @@ def simulate(days: int = 60, conf: float = 0.70, cfg: dict | None = None,
     Donne le taux de réussite RÉEL et la **cote moyenne minimale** de rentabilité.
     ⚠️ Granularité = la GAME (la data Oracle est par game), pas la série.
     """
-    from src.models.eval_models import BURN_IN, production_records
-    from src.update.elo import RELIABLE_ACC, compute_elo
     from src.update.watchlist import MIN_GAMES_CONF
 
     cfg = cfg or load_config()
-    rec = production_records(cfg)
-    rec = rec[rec["nmin"] >= BURN_IN]
-    max_date = rec["date"].max()
+    season = _season_records(cfg)
+    max_date = season["date"].max()
     cutoff = max_date - pd.Timedelta(days=days - 1)
-    rec = rec[rec["date"] >= cutoff]
+    rec = season[season["date"] >= cutoff]
 
-    reliability = compute_elo(cfg)["reliability"]
-    reliable = {lg for lg, acc in reliability.items() if acc >= RELIABLE_ACC}
-
-    # Le filtre 🎯 : ligue fiable + confiance >= conf + data suffisante.
-    hc = rec[rec["league"].isin(reliable)
+    # Le filtre 🎯 : ligue fiable (jugée sur le PASSÉ de chaque game) + confiance
+    # >= conf + data suffisante.
+    hc = rec[rec["reliable"]
              & (rec["proba_fav"] >= conf)
              & (rec["nmin"] >= MIN_GAMES_CONF)].copy()
 
     if hc.empty:
-        return {"n": 0, "days": days, "cutoff": cutoff, "max_date": max_date}
+        return {"n": 0, "days": days, "cutoff": cutoff, "max_date": max_date,
+                "season": season}
 
     hit = float(hc["correct"].mean())
     odds_needed = 1.0 / hit if hit > 0 else float("inf")
@@ -395,6 +431,7 @@ def simulate(days: int = 60, conf: float = 0.70, cfg: dict | None = None,
         "stake": stake,
         "by_league": by_league,
         "records": hc,
+        "season": season,      # toutes les games de la saison, numérotées par série
     }
 
 
@@ -446,24 +483,32 @@ def past_series(days: int = 60, conf: float = 0.70, cfg: dict | None = None,
     porter de cote réelle — un BO3 y occupe 3 lignes qu'on n'aurait jamais pariées
     séparément. Ici, une ligne = un pari réellement plaçable.
 
-    Reconstruction : on regroupe les games d'une même paire d'équipes le même jour,
-    le format se déduit du nombre de manches gagnées (`wins_needed = max(w1, w2)`,
-    exact puisqu'une série s'arrête dès qu'une équipe l'atteint), et le favori est
-    celui de la **première game** — seul instant où la prédiction est pré-match.
+    Reconstruction (corrigée par l'audit croisé du 18/11, reprise de la branche Seb) :
+    la série est reconstituée à partir de TOUTES ses games — et non des seules games
+    qui passent le filtre de confiance : une game 2 moins nette disparaissait, et un
+    2-3 devenait un « BO1 1-0 » (~1 série sur 5 avait un format ou un résultat faux).
+    Les games d'une série sont chaînées à <10 h d'écart (plus de coupure à minuit
+    UTC), le format se déduit du nombre de manches gagnées (`wins_needed =
+    max(w1, w2)`, exact puisqu'une série s'arrête dès qu'une équipe l'atteint), et le
+    pick est celui de la **première game** — seul instant où la prédiction est
+    pré-match. La série n'est retenue que si CETTE game-là passe le filtre 🎯.
     """
     from src.update.elo import series_prob
+    from src.update.watchlist import MIN_GAMES_CONF
 
     sim = simulate(days=days, conf=conf, cfg=cfg, stake=stake)
-    rec = sim.get("records")
-    if rec is None or len(rec) == 0:
+    season = sim.get("season")
+    if season is None or len(season) == 0:
         return normalize(pd.DataFrame(columns=COLS))
 
-    rec = rec.sort_values("date")
     rows: list[dict] = []
-    for (day, pair), g in rec.groupby([rec["date"].dt.date,
-                                       rec.apply(lambda r: frozenset((r["blue"], r["red"])), axis=1)]):
+    for _sid, g in season.groupby("series", sort=False):
         first = g.iloc[0]
-        teams = sorted(pair)
+        if (first["date"] < sim["cutoff"] or not first["reliable"]
+                or first["proba_fav"] < conf or first["nmin"] < MIN_GAMES_CONF):
+            continue
+        day = first["date"].date()
+        teams = sorted({first["blue"], first["red"]})
         t1, t2 = (teams + teams)[:2]
         w1 = int((g["vainqueur"] == t1).sum())
         w2 = int((g["vainqueur"] == t2).sum())
