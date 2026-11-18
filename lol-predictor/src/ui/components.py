@@ -40,16 +40,26 @@ def matchup_detail(m: dict, a: str, b: str, bestof: int) -> None:
 
     with t_players:
         pa, pb = m["player"]
+        fa, fb = m.get("perf") or ({}, {})
+        na_, nb_ = fa.get("notes") or {}, fb.get("notes") or {}
         rows = []
         for role, label in ROLE_LABEL.items():
             na, ea = pa["players"].get(role, ("?", np.nan))
             nb, eb = pb["players"].get(role, ("?", np.nan))
-            rows.append({"Rôle": label, a: na, "Elo": ea, b: nb, "Elo ": eb})
+            row = {"Rôle": label, a: na, "Elo": ea}
+            if na_ or nb_:
+                row["Note /10"] = na_.get(role, (None,))[0]
+            row.update({b: nb, "Elo ": eb})
+            if na_ or nb_:
+                row["Note /10 "] = nb_.get(role, (None,))[0]
+            rows.append(row)
         st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
         st.caption("Cinq attendu : le dernier cinq aligné, corrigé par l'effectif suivi sur "
                    "Leaguepedia. Elo individuel de chaque joueur ; la force de l'équipe est la "
                    "moyenne des 5. « inconnu » = titulaire parti sans remplaçant annoncé, "
-                   "compté au niveau moyen de la ligue.")
+                   "compté au niveau moyen de la ligue. Note /10 : moyenne de ses notes de "
+                   "match (KDA, dégâts, or et expérience à 15 min, vision, comparés aux joueurs "
+                   "de son poste), les games récentes comptant plus ; 6 = joueur moyen.")
         for team, r in zip((a, b), m.get("lineups") or ()):
             if r and r.get("changes"):
                 st.info(f"**{team}** — effectif mis à jour : " + " · ".join(r["changes"]))
@@ -88,6 +98,14 @@ def matchup_detail(m: dict, a: str, b: str, bestof: int) -> None:
             if k in xa or k in xb:
                 va, vb = xa.get(k, np.nan), xb.get(k, np.nan)
                 lines.append({"Bloc": bloc, "Signal": label,
+                              a: round(va, 3) if va == va else None,
+                              b: round(vb, 3) if vb == vb else None})
+        fa, fb = m.get("perf") or ({}, {})
+        for k, label in (("perf_raw", "Note moyenne des cinq joueurs (0 = moyenne du poste)"),
+                         ("perf_res", "Note au-delà du résultat de l'équipe")):
+            va, vb = fa.get(k, np.nan), fb.get(k, np.nan)
+            if va == va or vb == vb:
+                lines.append({"Bloc": "Niveau individuel", "Signal": label,
                               a: round(va, 3) if va == va else None,
                               b: round(vb, 3) if vb == vb else None})
         sa, sb = m.get("soloq") or ({}, {})

@@ -3,6 +3,7 @@
   📅 Avant le BO  — les matchs à venir et le prono des deux modèles avant le match.
   🎯 Draft        — on saisit la draft des deux équipes, prono game par game.
   📊 Saison       — tous les matchs joués, leurs stats, et ce que les modèles avaient prédit.
+  📝 Résumés      — le résumé écrit de chaque match et la note des joueurs.
   🧬 Modèles      — le nouveau modèle fait-il mieux que l'ancien ?
   👥 Effectifs    — roster actuel de chaque équipe, mercato, suivi soloQ des joueurs.
 
@@ -36,6 +37,7 @@ PAGES = {
         st.Page("views/avant_bo.py", title="Avant le BO", icon="📅", default=True),
         st.Page("pages/1_Prediction_par_draft.py", title="Draft", icon="🎯"),
         st.Page("views/saison.py", title="Saison", icon="📊"),
+        st.Page("views/resumes.py", title="Résumés", icon="📝"),
         st.Page("pages/9_Effectifs.py", title="Effectifs", icon="👥"),
         st.Page("views/modeles.py", title="Modèles", icon="🧬"),
     ],

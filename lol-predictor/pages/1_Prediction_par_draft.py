@@ -288,12 +288,56 @@ def v2_live_panel(blue: str, red: str, bc: dict, rc: dict) -> None:
                 "Poids": contrib.abs().to_numpy()}), hide_index=True, width="stretch",
                 column_config={"Poids": st.column_config.ProgressColumn(
                     format="%.2f", min_value=0, max_value=top)})
+        detail = [d for d in (r.get("champ") or []) if d.get("blue_champ") or d.get("red_champ")]
+        if detail:
+            st.markdown("**Joueur sur champion, poste par poste**")
+            role_fr = {"top": "Top", "jng": "Jungle", "mid": "Mid", "bot": "Bot", "sup": "Support"}
+
+            def _who(d, side):
+                c = d.get(f"{side}_champ")
+                return f"{d.get(f'{side}_name') or '?'} · {c}" if c else "—"
+
+            def _lvl(d):
+                if "duel" not in d:
+                    return "—"
+                if d["n_exact"] >= 0.5:
+                    return "déjà joué tel quel"
+                if d["n_pc_c"] >= 0.5:
+                    return "joueur + champion contre ce champion"
+                if d["n_p_c"] >= 0.5:
+                    return "joueur contre ce champion"
+                return "aucune game"
+
+            rows = []
+            for d in detail:
+                rows.append({
+                    "Poste": role_fr[d["role"]],
+                    f"🔵 {blue}": _who(d, "blue"),
+                    "Games 🔵": round(d.get("blue_games", 0.0), 1),
+                    "Note 🔵": round(d.get("blue_res", 0.0) * 100, 1),
+                    f"🔴 {red}": _who(d, "red"),
+                    "Games 🔴": round(d.get("red_games", 0.0), 1),
+                    "Note 🔴": round(d.get("red_res", 0.0) * 100, 1),
+                    "Duel (or à 15 min)": round(d["duel_lane"] * 1000) if "duel_lane" in d else None,
+                    "Duel mesuré sur": _lvl(d),
+                })
+            st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+            st.caption(
+                "Note : points de victoire que le joueur gagne EN PLUS sur ce champion, par "
+                "rapport à ce que son niveau laissait attendre (0 = comme d'habitude). Games : "
+                "nombre de games sur ce champion, une game d'il y a un an comptant pour une "
+                "demie. Duel : or d'avance attendu du joueur bleu à 15 min, au-delà du niveau "
+                "habituel des deux joueurs ; mesuré sur le cas le plus précis disponible. "
+                "Ces chiffres sont AFFICHÉS mais n'entrent pas dans la proba : testés sur 4 "
+                "saisons, ils n'améliorent pas la prévision (la réussite du joueur sur son "
+                "champion et son expérience dessus y sont déjà).")
         st.caption(
-            "Proba de CETTE game, côté bleu compris, par le nouveau modèle (les joueurs sont "
-            "ceux du dernier cinq aligné). Mesuré sur 4 saisons : connaître la draft fait "
-            "passer la réussite de 65,0 % à 65,8 % des games. Ce n'est PAS encore comparé "
-            "au prix Polymarket en direct : à utiliser entre la fin de la draft et le début "
-            "de la game, en vérifiant que le prix n'a pas déjà bougé.")
+            "Proba de CETTE game, côté bleu compris, par le nouveau modèle (joueurs du cinq "
+            "attendu). Connaître la draft améliore la réussite d'environ 0,8 point par game. "
+            "Face au prix Polymarket de la game 1 (1 348 games de 2026), parier nos écarts de "
+            "12 points ou plus avec le prix d'après draft a rendu +25 % sur 257 paris : "
+            "première piste positive, pas encore une preuve. À utiliser entre la fin de la "
+            "draft et le début de la game.")
 
 
 def main() -> None:

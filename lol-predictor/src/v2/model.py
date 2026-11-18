@@ -22,9 +22,12 @@ Variantes comparées :
                                          N'est PAS un prono d'avant-match : la draft n'est
                                          connue qu'au lancement de la game (pari en direct).
 
-Revue du 18/11/2026 : blocs « Objectifs » et « Face-à-face » ajoutés ; cinq blocs mesurés
+Revue du 18/11/2026 : blocs « Objectifs », « Face-à-face » et « Niveau individuel » (note de
+chaque joueur d'après ses statistiques en jeu, `src.v2.perf`) ajoutés ; cinq blocs mesurés
 inutiles ou nuisibles (`RETIRED`) sortis du calcul, mais toujours calculés pour pouvoir
-les remesurer.
+les remesurer. Les signaux « joueur sur champion » (`src.v2.champ`) sont calculés et
+affichés sur la page Draft, mais n'entrent pas dans le calcul : mesurés sans effet
+(`CHAMP_TESTED`).
 
 Usage :
     python -m src.v2.model
@@ -42,10 +45,12 @@ from src.features.context_factors import FACTORS, build_context, team_snapshot
 from src.ingest.load_oracle import load_config
 from src.update.elo import (calibrate, compute_elo, series_ids, series_prob,
                             shrink_walk_forward, win_prob)
+from src.v2.champ import CHAMP_COLS, CHAMP_FACTORS, POOL_COL, build_champ, champ_detail
 from src.v2.draft import DRAFT_COLS, DRAFT_FACTORS, build_draft, draft_row
 from src.v2.external import EXT_FACTORS, build_external, external_snapshot
 from src.v2.extra import EXTRA_FACTORS, build_extra, extra_pair, soloq_team_now
 from src.v2.lineups import build_index, expected
+from src.v2.perf import PERF_COLS, PERF_FACTORS, build_perf, perf_team
 from src.v2.player_engine import SIGNALS, build_player_table, player_snapshot
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -76,6 +81,9 @@ GROUPS: dict[str, list[str]] = {
     # src.v2.extra (18/11/2026)
     "Objectifs": [f"d_{k}" for k, v in EXTRA_FACTORS.items() if v[0] == "Objectifs"],
     "Face-à-face": [f"d_{k}" for k, v in EXTRA_FACTORS.items() if v[0] == "Face-à-face"],
+    # src.v2.perf (18/11/2026) : +2,1 pour 1000 sur 2023-2025, +3,2 sur 2026 (IC 90 % au-dessus
+    # de 0 les deux fois) ; +1,4 [0,0 ; +2,9] sur les ligues pariables en 2026.
+    "Niveau individuel": PERF_COLS,
 }
 # Sortis du calcul le 18/11/2026 : retirés un par un, le modèle ne perd rien ; retirés
 # ensemble, il gagne (log-loss −0,6 pour 1000 toutes ligues, −2,8 sur les ligues pariables,
@@ -97,11 +105,19 @@ SOLOQ_MIN_TRAIN = 300
 SOLOQ_CLIP = 1.5
 # « Présence dans la méta » des champions pris : mesurée sans effet, non retenue.
 DRAFT_LIVE = [c for c in DRAFT_COLS if c != "d_dr_presence"]
+# Joueur sur champion (note vs Elo, duel joueur+champion contre joueur+champion) et note sur
+# les picks récents : testés le 18/11/2026 avec une mémoire de 3 mois, 6 mois, 1 an, 2 ans et
+# sans oubli. Ajoutés au modèle avec draft : entre −0,2 et +0,1 pour 1000 sur 2023-2025 comme
+# sur 2026, jamais distinguable de 0. La réussite brute du joueur sur son champion
+# (`d_dr_player_wr`) et son expérience (`d_dr_comfort`) portent déjà cette information.
+CHAMP_TESTED = CHAMP_COLS + [POOL_COL]
 PURE, FULL, LIVE = "Nouveau · v2 sans soloQ", "Nouveau · v2 complet", "Nouveau · v2 + draft (direct)"
 LABELS = {**{k: v[1] for k, v in SIGNALS.items()}, **CTX,
           **{f"d_{k}": v[1] for k, v in EXT_FACTORS.items()},
           **{f"d_{k}": v[1] for k, v in EXTRA_FACTORS.items()},
           **{f"d_{k}": v for k, v in DRAFT_FACTORS.items()},
+          **{f"d_{k}": v for k, v in CHAMP_FACTORS.items()},
+          **{f"d_{k}": v[1] for k, v in PERF_FACTORS.items()},
           "logit_team": "Elo équipe (ancien)", "logit_player": "Elo joueur"}
 
 
@@ -233,6 +249,10 @@ def build_dataset(cfg: dict | None = None) -> tuple[pd.DataFrame, dict]:
     df = df.merge(extra, on="gameid", how="left")
     draft, draft_state = build_draft(cfg)
     df = df.merge(draft, on="gameid", how="left")
+    perf, perf_state = build_perf(df, cfg)
+    df = df.merge(perf, on="gameid", how="left")
+    champ, champ_state = build_champ(df, cfg)
+    df = df.merge(champ[["gameid", *CHAMP_TESTED]], on="gameid", how="left")
     try:
         lineups = build_index(df, cfg)
     except Exception as e:                    # sans cache Leaguepedia : dernier cinq aligné
@@ -240,7 +260,8 @@ def build_dataset(cfg: dict | None = None) -> tuple[pd.DataFrame, dict]:
         lineups = None
     return df.sort_values("date").reset_index(drop=True), {
         "ctx": ctx_state, "player": pl_state, "elo": elo, "ext": ext_state,
-        "extra": extra_state, "draft": draft_state, "lineups": lineups}
+        "extra": extra_state, "draft": draft_state, "lineups": lineups,
+        "perf": perf_state, "champ": champ_state}
 
 
 def season_origin(df: pd.DataFrame) -> pd.Timestamp:
@@ -460,6 +481,10 @@ class Predictor:
         row.update(extra_pair(self.states.get("extra"), a, b,
                               la=ra.get("lineup"), lb=rb.get("lineup"),
                               pa=ra.get("pages"), pb=rb.get("pages")))
+        ps = self.states.get("perf")
+        fa, fb = perf_team(ps, ra.get("lineup")), perf_team(ps, rb.get("lineup"))
+        for k in PERF_FACTORS:
+            row[f"d_{k}"] = fa[k] - fb[k]
         return pd.DataFrame([row])
 
     def matchup(self, a: str, b: str, bestof: int = 3, league: str | None = None) -> dict:
@@ -505,6 +530,8 @@ class Predictor:
             "lineups": (ra, rb),
             "extra": (xs.obj_features(a), xs.obj_features(b)) if xs is not None else None,
             "h2h": h2h,
+            "perf": (perf_team(self.states.get("perf"), ra["lineup"]),
+                     perf_team(self.states.get("perf"), rb["lineup"])),
             "contrib": self._contrib(ab, ba),
         }
 
@@ -539,7 +566,13 @@ class Predictor:
         z = m._z(m.imp.transform(row[m.features].astype(float)))[0]
         contrib = pd.Series(z * m.lr.coef_[0], index=m.features)
         contrib = contrib[[c for c in DRAFT_LIVE]].rename(index=LABELS)
-        return {"before": before, "after": after, "draft": feats,
+        cs = self.states.get("champ")
+        names = {**getattr(pl, "names", {}), **(ra.get("names") or {}), **(rb.get("names") or {})}
+        detail = champ_detail(cs, ra["lineup"], rb["lineup"], picks_blue, picks_red) if cs else []
+        for d in detail:
+            for side in ("blue", "red"):
+                d[f"{side}_name"] = names.get(d[f"{side}_pid"], d[f"{side}_pid"])
+        return {"before": before, "after": after, "draft": feats, "champ": detail,
                 "contrib": contrib.sort_values(key=np.abs, ascending=False)}
 
     def _contrib(self, ab: pd.DataFrame, ba: pd.DataFrame) -> pd.Series:

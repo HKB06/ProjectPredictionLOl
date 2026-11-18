@@ -264,7 +264,7 @@ def main() -> None:
                             help="Nouveau modèle : compétition pariable + data ≥15 g + favori "
                                  "≥70 % par game (hors cross-ligue). Mesuré le 18/11/2026 sans "
                                  "regard vers l'avenir : le favori gagne 76 % des games "
-                                 "(1 149 games) et 82 % des séries (490 séries).")
+                                 "(1 136 games) et 82 % des séries (502 séries).")
     only_strong = f[2].toggle("⭐ forts", value=False)
     only_conf = f[3].toggle("Data fiable", value=False)
     pm_on = f[4].toggle("Cotes Polymarket", value=True,
@@ -339,9 +339,9 @@ def main() -> None:
         )
         st.caption(
             "🎯 = nouveau modèle : compétition pariable + data ≥15 g + favori ≥70 % par game, hors "
-            "cross-ligue → le favori gagne **76 %** des games et **82 %** des séries (1 149 games, "
-            "490 séries, mesuré le 18/11/2026 sans regard vers l'avenir). Au prix Polymarket, ces "
-            "picks sont à l'équilibre (−1,0 %, entre −5,5 % et +3,4 %) : gagner souvent ne suffit "
+            "cross-ligue → le favori gagne **76 %** des games et **82 %** des séries (1 136 games, "
+            "502 séries, mesuré le 18/11/2026 sans regard vers l'avenir). Au prix Polymarket, ces "
+            "picks sont à l'équilibre (−1,0 %, entre −5,4 % et +3,2 %) : gagner souvent ne suffit "
             "pas, il faut une cote au-dessus de la cote mini. "
             "**Cote mini** = cote plancher (1/proba) : parie **uniquement au-dessus**, sinon perte à "
             "long terme même en ayant souvent raison. "

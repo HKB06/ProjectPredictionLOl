@@ -207,7 +207,10 @@ def analyse(d: pd.DataFrame) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description="Modèle avec draft contre le prix Polymarket en direct")
     ap.add_argument("--no-fetch", action="store_true", help="analyse le cache sans rien relever")
+    ap.add_argument("--frais", type=float, default=SLIPPAGE,
+                    help="écart payé au-dessus du prix relevé (0.01 par défaut ; 0.03 = prudent)")
     args = ap.parse_args()
+    globals()["SLIPPAGE"] = args.frais
     pd.set_option("display.width", 230)
     cfg = load_config()
     eng = precompute.peek()

@@ -31,7 +31,7 @@ from collections import defaultdict, deque
 import numpy as np
 import pandas as pd
 
-from src.ingest.load_oracle import load_config, read_seasons
+from src.ingest.load_oracle import load_config, read_seasons, season_files
 
 OBJ_WINDOW = 20
 K_OBJ = 5.0
@@ -92,7 +92,19 @@ def _shrunk(vals, k: float) -> float:
 
 
 # ------------------------------------------------------------------- lecture
+_obs_cache: dict = {}
+
+
 def _observations(cfg: dict) -> tuple[dict, dict]:
+    """`_read_observations`, gardé en mémoire tant que les fichiers ne changent pas : ce
+    module et `src.v2.champ` relisent les mêmes lignes."""
+    key = tuple((str(p), p.stat().st_mtime) for _, p in season_files(cfg, True))
+    if _obs_cache.get("key") != key:
+        _obs_cache.update(key=key, obs=_read_observations(cfg))
+    return _obs_cache["obs"]
+
+
+def _read_observations(cfg: dict) -> tuple[dict, dict]:
     """(objectifs par game et par côté, joueurs par game et par côté)."""
     raw = read_seasons(cfg, _TEAM_COLS | _PLAYER_COLS, history=True)
     raw["position"] = raw["position"].astype(str).str.lower()

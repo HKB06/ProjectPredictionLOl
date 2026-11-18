@@ -39,7 +39,7 @@ if hasattr(sys.stdout, "reconfigure"):
 DIR = ROOT / "data" / "cache"
 CACHE = DIR / "engine.pkl"
 META = DIR / "engine.json"
-FORMAT = 2              # à augmenter si le contenu du moteur change de forme
+FORMAT = 3              # à augmenter si le contenu du moteur change de forme
 STALE_H = 1.0           # retard toléré pendant que la collecte refait le calcul
 # Code dont dépend le résultat : le modifier doit déclencher un recalcul.
 _CODE = ["config.yaml", "src/update/elo.py", "src/features/context_factors.py",
@@ -100,6 +100,11 @@ def compute(cfg: dict | None = None) -> dict:
     from src.v2.season import build_season
 
     df, states = build_dataset(cfg)
+    try:                                 # notes et résumés des matchs (page « Résumés »)
+        from src.v2 import perf
+        perf.load(cfg, rebuild=True)
+    except Exception as e:               # noqa: BLE001 - l'affichage ne bloque pas le moteur
+        print(f"[perf] cache des notes non écrit ({type(e).__name__}: {e})")
     res = walk_forward(df, SEASON_WARMUP_DAYS)
     cmp = comparison_window(res, df)
     games, series = build_season(df, res, cfg)
