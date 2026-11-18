@@ -1067,3 +1067,28 @@ event_id,date,league_slug,home,away,odd_home,odd_away,books,status,fetched_at
 69116124,2026-02-20T19:00:00Z,league-of-legends-arabian-league,Dragons eSports,3Bl eSports,1.05,7.96,GG.bet,ok,2026-11-10 14:40
 68811422,2026-02-11T16:00:00Z,league-of-legends-arabian-league,Fn eSports,3Bl eSports,1.15,5.17,1xbet,ok,2026-11-10 14:40
 68688032,2026-02-10T17:00:00Z,league-of-legends-road-of-legends,Zennit,mCon esports,1.591,2.24,1xbet,ok,2026-11-10 14:40
+5264009646,2026-10-12T23:00:00Z,league-of-legends-lcs-promotion,Maryville University,Disguised,2.15,1.72,1xbet+GG.bet,ok,2026-11-18 13:40
+8045617147,2026-10-10T21:00:00Z,league-of-legends-lcs-promotion,Cupid Esports,Disguised,2.627,1.454,1xbet+GG.bet,ok,2026-11-18 13:40
+5964014401,2026-10-09T23:00:00Z,league-of-legends-lcs-promotion,Disguised,Fuego,1.06,9.0,1xbet+GG.bet,ok,2026-11-18 13:40
+6285819469,2026-10-03T20:00:00Z,league-of-legends-lcs-summer,Cloud9,LYON,2.816,1.432,1xbet+GG.bet,ok,2026-11-18 13:40
+5118412682,2026-09-30T10:00:00Z,league-of-legends-world-star-challengers-invitational,T1 Academy,Galions,1.07,7.4,GG.bet,ok,2026-11-18 13:40
+5955555828,2026-09-16T16:00:00Z,league-of-legends-nlc-summer,Ruddy Corporation,Verdant,,,,none,2026-11-18 13:40
+7094929681,2026-08-15T09:00:00Z,league-of-legends-split-3,DetonatioN FocusMe,Ground Zero Gaming,1.177,4.47,1xbet,ok,2026-11-18 13:40
+7162521008,2026-08-09T09:00:00Z,league-of-legends-split-3,CTBC Flying Oyster,Ground Zero Gaming,1.38,2.91,GG.bet,ok,2026-11-18 13:40
+5033352446,2026-08-06T09:00:00Z,league-of-legends-split-3,Fukuoka SoftBank Hawks Gaming,Ground Zero Gaming,1.38,2.9,GG.bet,ok,2026-11-18 13:40
+4762854228,2026-07-30T11:30:00Z,league-of-legends-split-3,Deep Cross Gaming,Ground Zero Gaming,1.31,3.375,1xbet,ok,2026-11-18 13:40
+5169000636,2026-07-25T09:00:00Z,league-of-legends-split-3,Ground Zero Gaming,MVK Esports,2.45,1.687,1xbet+GG.bet,ok,2026-11-18 13:40
+7209970163,2026-07-30T08:00:00Z,league-of-legends-lck,DN SOOPers,BNK FEARX,4.5,1.232,1xbet+GG.bet,ok,2026-11-18 13:40
+7877300241,2026-07-29T10:10:00Z,league-of-legends-lck,T1,KT Rolster,1.22,4.28,1xbet+GG.bet,ok,2026-11-18 13:40
+6793734940,2026-06-13T06:00:00Z,league-of-legends-lck,Gen.G,KT Rolster,1.1,8.5,1xbet+GG.bet,ok,2026-11-18 13:40
+71957330,2026-06-07T08:00:00Z,league-of-legends-lck,kt Rolster,Dplus,1.82,2.15,1xbet+GG.bet,ok,2026-11-18 13:40
+70264650,2026-05-30T08:00:00Z,league-of-legends-lck,kt Rolster,Soopers,1.1,6.27,GG.bet,ok,2026-11-18 13:40
+71632630,2026-05-21T20:00:00Z,league-of-legends-nacl,Winthrop University,Maryville University,3.66,1.26,GG.bet,ok,2026-11-18 13:40
+71558222,2026-05-20T23:00:00Z,league-of-legends-nacl,Maryville University,Conviction,1.24,3.77,GG.bet,ok,2026-11-18 13:40
+70067504,2026-05-14T20:00:00Z,league-of-legends-nacl,Maryville University,Supernova,1.09,6.56,GG.bet,ok,2026-11-18 13:40
+70067492,2026-05-07T20:00:00Z,league-of-legends-nacl,Conviction,Blue Otter,1.062,8.0,1xbet,ok,2026-11-18 13:40
+71204080,2026-05-16T00:00:00Z,league-of-legends-nacl,Dorado Gaming,Ccg eSports,,,,none,2026-11-18 13:40
+70067490,2026-05-06T23:00:00Z,league-of-legends-nacl,Dorado Gaming,Supernova,1.77,1.98,GG.bet,ok,2026-11-18 13:40
+70067502,2026-05-08T23:00:00Z,league-of-legends-nacl,Apex Mission Impossible,Citadel Gaming,8.29,1.05,GG.bet,ok,2026-11-18 13:40
+70316772,2026-04-18T09:00:00Z,league-of-legends-lcp,Ctbc Flying Oyster,Deep Cross Gaming,2.09,1.71,1xbet,ok,2026-11-18 13:40
+70271564,2026-04-09T05:00:00Z,league-of-legends-lck-cl,Gen.G Global Academy,T1 Esports Academy,9.25,1.04,GG.bet,ok,2026-11-18 13:40

@@ -7,5 +7,5 @@ id,created,title,note,status,done_at
 6,2026-10-16,Étendre la watchlist aux picks p≥65 %,"Le Plan de jeu joue dès 65 % de proba série ; la watchlist coupe à 70 %/game → les picks 65-70 % n'apparaissent pas dans « À venir »",a_faire,
 7,2026-10-16,Notes joueurs / forme récente,"Fournir un CSV : date,équipe,joueur,rôle,note 1-10 (ou roster changé O/N + qui) sur les matchs du plan — à backtester en feature avant d'y croire",a_faire,
 8,2026-11-18,Correctifs de mesure (audit croisé Seb),"Séries sur toutes leurs games + chaînage <10h + fiabilité as-of + appariement strict + double conversion BO — portés dans main, pages 6/8 corrigées (AUDIT_2026-11-18.md)",valide,2026-11-18
-9,2026-11-18,Re-seed cotes sur le pool corrigé,"314/929 séries cotées : la recherche avait été faite sur l'ancienne liste buguée — boucle seed+backfill relancée le 18/11, vérifier pending=0 puis pousser le cache",a_faire,
+9,2026-11-18,Re-seed cotes sur le pool corrigé,"Fait le 18/11 : seed complet (limited=False), 844 séries cotées au total, 332/929 sur le pool — le reste n'est pas coté par les books accessibles",valide,2026-11-18
 10,2026-11-18,Test à blanc janvier 2027 (commun avec branche Seb),"Protocole écrit AVANT : ses picks + les nôtres + draft-live, mêmes matchs, prix horodatés, zéro argent — adoption de ce qui gagne",a_faire,

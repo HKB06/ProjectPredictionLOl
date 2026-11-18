@@ -7,10 +7,10 @@ walk-forward — mesure CORRIGÉE le 18/11 par l'audit croisé avec la branche S
 l'eau, séries chaînées à cheval sur minuit, appariement de cotes strict).
 
 État honnête depuis cette correction : AUCUN profil n'est prouvé rentable.
-Les points sont positifs (socle ≈ +1 %, cœur ≈ +5 %, satellite ≈ +9 %) mais tous
-les intervalles contiennent zéro et la 2e moitié de fenêtre est négative. Le plan
-se joue donc À BLANC (papier) tant que la preuve n'est pas faite — c'est notre
-propre règle, elle s'applique à nous.
+Socle ≈ 0 %, cœur ≈ +5 %, satellite ≈ +7 % — tous les intervalles contiennent
+zéro et la 2e moitié de fenêtre est négative. Le plan se joue donc À BLANC
+(papier) tant que la preuve n'est pas faite — c'est notre propre règle, elle
+s'applique à nous.
 
 Ce qui reste solide : la calibration du modèle par game (70 % annoncé ≈ 73 %
 réalisé), l'exclusion des événements internationaux (ROI négatif confirmé sur les
@@ -79,7 +79,7 @@ PROFILES = {
         "rule": "Proba série ≥ 65 % · ligues fiables · hors événements internationaux · "
                 "BO1 joué UNIQUEMENT si cote ≥ 1.35 · BO3/BO5 à toute cote.",
         "why": "Le profil « volume » : BO3/BO5 réguliers + BO1 à cote longue seulement. "
-               "Depuis la mesure corrigée du 18/11 : point ≈ +1 %, intervalle ±7, "
+               "Depuis la mesure corrigée du 18/11 : point ≈ 0 %, intervalle ±7, "
                "2e moitié négative — NON PROUVÉ. À suivre à blanc.",
     },
     "🎯 Cœur rentable": {
@@ -93,7 +93,7 @@ PROFILES = {
         "mask": _mask_satellite,
         "rule": "Proba série ≥ 65 % · hors événements · value (cote > cote mini) · cote ≥ 1.35.",
         "why": "Désaccords favorables avec le book sur matchs serrés de régionales. "
-               "Mesure corrigée du 18/11 : point ≈ +9 %, intervalle ±24 à n≈60, "
+               "Mesure corrigée du 18/11 : point ≈ +7 %, intervalle ±23 à n≈65, "
                "2e moitié négative — NON PROUVÉ, échantillon trop petit pour trancher.",
     },
 }
